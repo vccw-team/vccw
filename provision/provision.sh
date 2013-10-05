@@ -1,2 +1,2 @@
 yum update -y
-yum -y install rsync
+yum install -y rsync

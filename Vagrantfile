@@ -132,5 +132,5 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
 
   end
 
-  #config.vm.provision :shell, :path => File.join( "provision", "provision.sh" )
+  config.vm.provision :shell, :path => File.join( "provision", "provision.sh" )
 end
