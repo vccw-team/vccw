@@ -1,0 +1,57 @@
+<VirtualHost *:80>
+        ServerAdmin <%= node['apache']['contact'] %>
+
+        DocumentRoot <%= node['apache']['docroot_dir'] %>/
+        <Directory />
+                Options FollowSymLinks
+                AllowOverride None
+        </Directory>
+        <Directory <%= node['apache']['docroot_dir'] %>/>
+                Options Indexes FollowSymLinks MultiViews
+                AllowOverride None
+                Order allow,deny
+                allow from all
+                # This directive allows us to have apache2's default start page
+                # in /apache2-default/, but still have / go to the right place
+                #RedirectMatch ^/$ /apache2-default/
+        </Directory>
+
+        ScriptAlias /cgi-bin/ <%= node['apache']['cgibin_dir'] %>/
+        <Directory "<%= node['apache']['cgibin_dir'] %>">
+                AllowOverride None
+                Options ExecCGI -MultiViews +SymLinksIfOwnerMatch
+                Order allow,deny
+                Allow from all
+        </Directory>
+
+        ErrorLog <%= node['apache']['log_dir'] %>/<%= node['apache']['error_log'] %>
+
+        # Possible values include: debug, info, notice, warn, error, crit,
+        # alert, emerg.
+        LogLevel warn
+
+        CustomLog <%= node['apache']['log_dir'] %>/<%= node['apache']['access_log'] %> combined
+        ServerSignature On
+
+        Alias /doc/ "/usr/share/doc/"
+        <Directory "/usr/share/doc/">
+            Options Indexes MultiViews FollowSymLinks
+            AllowOverride None
+            Order deny,allow
+            Deny from all
+            Allow from 127.0.0.0/255.0.0.0 ::1/128
+        </Directory>
+
+        <% if %w{ rhel fedora }.include?(node['platform_family']) -%>
+        #
+        # This configuration file enables the default "Welcome"
+        # page if there is no default index page present for
+        # the root URL.  To disable the Welcome page, comment
+        # out all the lines below.
+        #
+        <LocationMatch "^/+$">
+            Options -Indexes
+            ErrorDocument 403 /error/noindex.html
+        </LocationMatch>
+        <% end -%>
+</VirtualHost>
