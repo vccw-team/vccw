@@ -33,3 +33,7 @@ vagrant-chef-centos-wordpress
 * Vagrantfileの8行目を任意のホスト名に書き換えると、`vagrant up` 後に `/etc/hosts` に自動的にレコードを追加します。
 * `vagrant halt` で仮想マシンを停止、もしくは `vagrant destroy` で仮想マシンを破棄すると、`/etc/hosts`のレコードは自動的に削除されます。
 
+## おねがい
+
+* VagrantもChefもRubyも初めてなので何かあったらやさしくフィードバックをお願いします。笑
+* あと、pull request等は大歓迎です。
