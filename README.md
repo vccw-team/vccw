@@ -8,6 +8,7 @@ vagrant-chef-centos-wordpress
 * URLはカスタマイズ可能で、vagrant-hostsupdaterを使用すれば起動時に `/etc/hosts` にレコードを追加し、停止時に自動的に削除します。
 * デフォルトでデバッグモードが有効化されています。
 * 開発に便利な、theme-check, plugin-checkプラグインが有効化されています。
+* [wp-cli](http://wp-cli.org/)がプリインストールされています。
 * Vagrantファイル内の `www` ディレクトリと、仮想マシン内の `/var/www` が同期しています。
 
 
