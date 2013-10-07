@@ -33,6 +33,9 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
         :server_debian_password => "wordpress",
         :server_root_password => "wordpress",
         :server_repl_password => "wordpress"
+      },
+      :"wp-plugins" => {
+        :url => "http://" << WORDPRESS_HOSTNAME
       }
     }
 
@@ -41,6 +44,7 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
     chef.add_recipe "wordpress::default"
     chef.add_recipe "wordpress::languages"
     chef.add_recipe "wp-cli"
+    chef.add_recipe "wp-plugins"
 
   end
 
