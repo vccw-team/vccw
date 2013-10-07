@@ -3,7 +3,7 @@ bash "wordpress-core-install" do
   group "vagrant"
   cwd "/var/www/wordpress"
   code <<-EOH
-    wp core install \
+    wp core install \\
     --url="#{node['wp-plugins']['url']}" \\
     --title="#{node['wp-plugins']['title']}" \\
     --admin_user="#{node['wp-plugins']['admin_user']}" \\
