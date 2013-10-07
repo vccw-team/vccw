@@ -23,6 +23,13 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
     chef.cookbooks_path = ["cookbooks", "site-cookbooks"]
 
     chef.json = {
+      :apache => {
+        :user => 'vagrant',
+        :group => 'vagrant'
+      },
+      :php => {
+        :packages => %w(php php-cli php-devel php-mbstring php-gd php-xml)
+      },
       :wordpress => {
         :languages => {
           :lang => WORDPRESS_LANG,
