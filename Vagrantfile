@@ -16,6 +16,7 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
   config.vm.hostname = WORDPRESS_HOSTNAME
   config.vm.network :private_network, ip: WORDPRESS_IP
 
+  config.vm.synced_folder "www/", "/var/www", :create => "true" 
 
   config.vm.provision :chef_solo do |chef|
 
