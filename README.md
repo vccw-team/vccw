@@ -29,6 +29,11 @@ vagrant-chef-centos-wordpress
 6. 仮想マシンを起動。
  * `vagrant up`
 
+## WordPressについて
+
+* デフォルトのURLは、http://wordpress.local/ です。
+* デフォルトのユーザー名は、 `admin` パスワードも `admin` です。
+
 ## その他
 
 * Vagrantfileの8行目を任意のホスト名に書き換えると、`vagrant up` 後に `/etc/hosts` に自動的にレコードを追加します。
