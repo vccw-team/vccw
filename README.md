@@ -14,8 +14,22 @@ vagrant-chef-centos-wordpress
 ## インストール方法
 
 1. VirtualBoxをインストールしてください。
-  * https://www.virtualbox.org/
+ * https://www.virtualbox.org/
 2. Vagrantをインストールしてください。
+ * http://www.vagrantup.com/
 3. vagrant-hostsupdater をインストールしてください。
+ * `vagrant plugin install vagrant-hostsupdater`
 4. Vagrantファイルをcloneしてください。
-5. 仮想マシンを起動
+ * `git clone git@github.com:miya0001/vagrant-chef-centos-wordpress.git vagrant-wp`
+5. Vagrantディレクトリへ移動。
+ * `cd vagrant-wp`
+6. gitサブモジュールを取得。
+ * `git submodule init; git submodule update`
+6. 仮想マシンを起動。
+ * `vagrant up`
+
+## その他
+
+* Vagrantfileの8行目を任意のホスト名に書き換えると、`vagrant up` 後に `/etc/hosts` に自動的にレコードを追加します。
+* `vagrant halt` で仮想マシンを停止、もしくは `vagrant destroy` で仮想マシンを破棄すると、`/etc/hosts`のレコードは自動的に削除されます。
+
