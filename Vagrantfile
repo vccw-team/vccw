@@ -24,34 +24,41 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
 
     chef.json = {
       :apache => {
+        :docroot_dir => '/var/www',
         :user => 'vagrant',
         :group => 'vagrant'
       },
       :php => {
-        :packages => %w(php php-cli php-devel php-mbstring php-gd php-xml)
-      },
-      :wordpress => {
-        :languages => {
-          :lang => WORDPRESS_LANG,
-          :version => WORDPRESS_LANG_VERSION
-        }
+        :packages => %w(php php-cli php-devel php-mbstring php-gd php-xml php-mysql)
       },
       :mysql => {
         :server_debian_password => "wordpress",
         :server_root_password => "wordpress",
         :server_repl_password => "wordpress"
       },
-      :"wp-plugins" => {
-        :url => "http://" << WORDPRESS_HOSTNAME
+      :"wp-install" => {
+        :url => "http://" << WORDPRESS_HOSTNAME,
+        :wpdir => '/var/www/wordpress',
+        :locale => WORDPRESS_LANG,
+        :admin_user => 'admin',
+        :admin_password => 'admin',
+        :default_plugins => %(theme-check plugin-check hotfix)
       }
     }
 
     chef.add_recipe "yum::epel"
     chef.add_recipe "iptables"
-    chef.add_recipe "wordpress::default"
-    chef.add_recipe "wordpress::languages"
+    chef.add_recipe "iptables"
+    chef.add_recipe "iptables"
+    chef.add_recipe "apache2"
+    chef.add_recipe "apache2::mod_php5"
+    chef.add_recipe "mysql::server"
+    chef.add_recipe "mysql::ruby"
+    chef.add_recipe "php::package"
+    #chef.add_recipe "wordpress::default"
+    #chef.add_recipe "wordpress::languages"
     chef.add_recipe "wp-cli"
-    chef.add_recipe "wp-plugins"
+    chef.add_recipe "wp-install"
 
   end
 

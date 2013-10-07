@@ -1,4 +1,4 @@
-packages = %w{git subversion rsync curl}
+packages = %w{git}
 
 packages.each do |pkg|
   package pkg do
