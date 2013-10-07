@@ -51,8 +51,14 @@ bash "wordpress-core-download" do
   code <<-EOH
     wp core download \\
     --path='#{node['wp-install']['wpdir']}' \\
-    --locale='#{node['wp-install']['locale']}'
+    --locale='#{node['wp-install']['locale']}' \\
+    --force
   EOH
+end
+
+file "#{node['wp-install']['wpdir']}/wp-config.php" do
+  action :delete
+  backup false
 end
 
 bash "wordpress-core-config" do
@@ -87,27 +93,38 @@ bash "wordpress-core-install" do
 end
 
 
-if node['wordpress']['languages']['lang'] == 'ja'
+if node['wp-install']['locale'] == 'ja'
   bash "wordpress-plugin-ja-install" do
     user "vagrant"
     group "vagrant"
     cwd node['wp-install']['wpdir']
     code <<-EOH
-      wp plugin install wp-multibyte-patch
       wp plugin activate wp-multibyte-patch
     EOH
   end
 end
 
-bash "wordpress-plugin-install" do
-  user "vagrant"
-  group "vagrant"
-  cwd node['wp-install']['wpdir']
-  code <<-EOH
-    wp plugin install theme-check
-    wp plugin install plugin-check
-    wp plugin activate theme-check
-    wp plugin activate plugin-check
-  EOH
+
+node['wp-install']['default_plugins'].each do |plugin|
+  bash "WordPress #{plugin} install" do
+    user "vagrant"
+    group "vagrant"
+    cwd node['wp-install']['wpdir']
+    code <<-EOH
+      wp plugin install #{plugin}
+      wp plugin activate #{plugin}
+    EOH
+  end
+end
+
+
+apache_site "000-default" do
+  enable false
+end
+
+web_app "wordpress" do
+  template "wordpress.conf.erb"
+  docroot node['wp-install']['wpdir']
+  server_name node['wp-install']['server_name']
 end
 

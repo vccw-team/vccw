@@ -4,9 +4,11 @@
 VAGRANTFILE_API_VERSION = "2"
 
 WORDPRESS_LANG = "ja"
-WORDPRESS_LANG_VERSION = "3.6.x"
 WORDPRESS_HOSTNAME = "wordpress.local"
+WORDPRESS_ADMIN_USER = "admin"
+WORDPRESS_ADMIN_PASS = "admin"
 WORDPRESS_IP = "192.168.33.10"
+WORDPRESS_LANG_VERSION = "3.6.x"
 
 Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
 
@@ -24,7 +26,7 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
 
     chef.json = {
       :apache => {
-        :docroot_dir => '/var/www',
+        :docroot_dir => '/var/www/wordpress',
         :user => 'vagrant',
         :group => 'vagrant'
       },
@@ -37,26 +39,24 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
         :server_repl_password => "wordpress"
       },
       :"wp-install" => {
+        :server_name => WORDPRESS_HOSTNAME,
         :url => "http://" << WORDPRESS_HOSTNAME,
         :wpdir => '/var/www/wordpress',
         :locale => WORDPRESS_LANG,
-        :admin_user => 'admin',
-        :admin_password => 'admin',
-        :default_plugins => %(theme-check plugin-check hotfix)
+        :admin_user => WORDPRESS_ADMIN_USER,
+        :admin_password => WORDPRESS_ADMIN_PASS,
+        :dbprefix => 'wp_',
+        :default_plugins => %w(theme-check plugin-check hotfix)
       }
     }
 
     chef.add_recipe "yum::epel"
-    chef.add_recipe "iptables"
-    chef.add_recipe "iptables"
     chef.add_recipe "iptables"
     chef.add_recipe "apache2"
     chef.add_recipe "apache2::mod_php5"
     chef.add_recipe "mysql::server"
     chef.add_recipe "mysql::ruby"
     chef.add_recipe "php::package"
-    #chef.add_recipe "wordpress::default"
-    #chef.add_recipe "wordpress::languages"
     chef.add_recipe "wp-cli"
     chef.add_recipe "wp-install"
 

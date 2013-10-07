@@ -24,8 +24,6 @@ vagrant-chef-centos-wordpress
  * `git clone git@github.com:miya0001/vagrant-chef-centos-wordpress.git vagrant-wp`
 5. Vagrantディレクトリへ移動。
  * `cd vagrant-wp`
-6. gitサブモジュールを取得。
- * `git submodule init; git submodule update`
 6. 仮想マシンを起動。
  * `vagrant up`
 
@@ -33,6 +31,12 @@ vagrant-chef-centos-wordpress
 
 * デフォルトのURLは、http://wordpress.local/ です。
 * デフォルトのユーザー名は、 `admin` パスワードも `admin` です。
+* デフォルトでデバッグモードが有効になっています。
+* プリインストールのプラグインは以下のとおりです。
+ * hotfix
+ * theme-check
+ * plugin-check
+ * wp-multibyte-patch (jaのみ)
 
 ## その他
 
