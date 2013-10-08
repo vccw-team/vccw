@@ -24,8 +24,7 @@ bin = ::File.join(node['wp-cli']['wpcli-dir'], 'bin', 'wp')
 bash 'install wp-cli' do
   code './installer.sh'
   cwd node['wp-cli']['wpcli-dir']
-  environment 'INSTALL_DIR' => node['wp-cli']['wpcli-dir'],
-              'VERSION' => node['wp-cli']['wpcli-version']
+  environment 'INSTALL_DIR' => node['wp-cli']['wpcli-dir']
   creates bin
 end
 

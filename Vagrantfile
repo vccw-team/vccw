@@ -3,16 +3,21 @@
 
 VAGRANTFILE_API_VERSION = "2"
 
+WORDPRESS_VERSION = 'latest' # latest or 3.4 or later
 WORDPRESS_LANG = "ja"
 WORDPRESS_HOSTNAME = "wordpress.local"
 WORDPRESS_ADMIN_USER = "admin"
 WORDPRESS_ADMIN_PASS = "admin"
+
 WORDPRESS_IP = "192.168.33.10"
 
 Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
 
   config.vm.box = "cent64_minimal_i386"
   config.vm.box_url = "http://developer.nrel.gov/downloads/vagrant-boxes/CentOS-6.4-i386-v20130427.box"
+
+  #config.vm.box = "precise32"
+  #config.vm.box_url = "http://files.vagrantup.com/precise32.box"
 
   config.vm.hostname = WORDPRESS_HOSTNAME
   config.vm.network :private_network, ip: WORDPRESS_IP
@@ -38,6 +43,7 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
         :server_repl_password => "wordpress"
       },
       :"wp-install" => {
+        :wp_version => WORDPRESS_VERSION,
         :url => "http://" << WORDPRESS_HOSTNAME,
         :wpdir => '/var/www/wordpress',
         :locale => WORDPRESS_LANG,

@@ -48,12 +48,22 @@ end
 bash "wordpress-core-download" do
   user "vagrant"
   group "vagrant"
-  code <<-EOH
-    wp core download \\
-    --path='#{node['wp-install']['wpdir']}' \\
-    --locale='#{node['wp-install']['locale']}' \\
-    --force
-  EOH
+  if node['wp-install']['wp_version'] == 'latest' then
+      code <<-EOH
+wp core download \\
+--path='#{node['wp-install']['wpdir']}' \\
+--locale='#{node['wp-install']['locale']}' \\
+--force
+      EOH
+  else
+      code <<-EOH
+wp core download \\
+--path='#{node['wp-install']['wpdir']}' \\
+--locale='#{node['wp-install']['locale']}' \\
+--version='#{node['wp-install']['wp_version']}' \\
+--force
+      EOH
+  end
 end
 
 file "#{node['wp-install']['wpdir']}/wp-config.php" do
