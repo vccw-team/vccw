@@ -118,13 +118,3 @@ node['wp-install']['default_plugins'].each do |plugin|
 end
 
 
-apache_site "000-default" do
-  enable false
-end
-
-web_app "wordpress" do
-  template "wordpress.conf.erb"
-  docroot node['wp-install']['wpdir']
-  server_name node['wp-install']['server_name']
-end
-

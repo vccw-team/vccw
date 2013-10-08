@@ -8,7 +8,6 @@ WORDPRESS_HOSTNAME = "wordpress.local"
 WORDPRESS_ADMIN_USER = "admin"
 WORDPRESS_ADMIN_PASS = "admin"
 WORDPRESS_IP = "192.168.33.10"
-WORDPRESS_LANG_VERSION = "3.6.x"
 
 Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
 
@@ -18,7 +17,7 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
   config.vm.hostname = WORDPRESS_HOSTNAME
   config.vm.network :private_network, ip: WORDPRESS_IP
 
-  config.vm.synced_folder "www/", "/var/www", :create => "true" 
+  config.vm.synced_folder "www/", "/var/www", :create => "true"
 
   config.vm.provision :chef_solo do |chef|
 
@@ -39,7 +38,6 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
         :server_repl_password => "wordpress"
       },
       :"wp-install" => {
-        :server_name => WORDPRESS_HOSTNAME,
         :url => "http://" << WORDPRESS_HOSTNAME,
         :wpdir => '/var/www/wordpress',
         :locale => WORDPRESS_LANG,
