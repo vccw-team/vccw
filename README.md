@@ -21,7 +21,7 @@ vagrant-chef-centos-wordpress
 3. vagrant-hostsupdater をインストールしてください。
  * `vagrant plugin install vagrant-hostsupdater`
 4. Vagrantファイルをcloneしてください。
- * `git clone git@github.com:miya0001/vagrant-chef-centos-wordpress.git vagrant-wp`
+ * `git clone https://github.com/miya0001/vagrant-chef-centos-wordpress.git vagrant-wp`
 5. Vagrantディレクトリへ移動。
  * `cd vagrant-wp`
 6. 仮想マシンを起動。
