@@ -45,7 +45,6 @@ unless Chef::Config[:solo]
   end
 end
 
-
 bash "wordpress-core-download" do
   user "vagrant"
   group "vagrant"
@@ -109,9 +108,7 @@ if node['wp-install']['locale'] == 'ja'
     user "vagrant"
     group "vagrant"
     cwd node['wp-install']['wpdir']
-    code <<-EOH
-      wp plugin activate wp-multibyte-patch
-    EOH
+    code 'wp plugin activate wp-multibyte-patch'
   end
 end
 
@@ -129,10 +126,19 @@ node['wp-install']['default_plugins'].each do |plugin|
 end
 
 if node['wp-install']['default_theme'] != '' then
-bash "WordPress #{node['wp-install']['default_theme']} install" do
-  user "vagrant"
-  group "vagrant"
-  cwd node['wp-install']['wpdir']
-  code "wp theme install #{Shellwords.shellescape(node['wp-install']['default_theme'])} --activate"
+    bash "WordPress #{node['wp-install']['default_theme']} install" do
+      user "vagrant"
+      group "vagrant"
+      cwd node['wp-install']['wpdir']
+      code "wp theme install #{Shellwords.shellescape(node['wp-install']['default_theme'])} --activate"
+    end
 end
+
+if node['wp-install']['is_multisite'] == true then
+    bash "Setup multisite" do
+      user "vagrant"
+      group "vagrant"
+      cwd node['wp-install']['wpdir']
+      code "wp core multisite-convert"
+    end
 end

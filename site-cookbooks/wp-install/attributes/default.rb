@@ -14,3 +14,5 @@ default['wp-install']['admin_password'] = "admin"
 default['wp-install']['admin_email'] = "vagrant@example.com"
 
 default['wp-install']['default_plugins'] = [];
+
+default['wp-install']['is_multisite'] = false;
