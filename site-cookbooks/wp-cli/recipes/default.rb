@@ -1,4 +1,4 @@
-packages = %w{git}
+packages = %w{git subversion}
 
 packages.each do |pkg|
   package pkg do
