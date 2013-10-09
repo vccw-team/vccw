@@ -10,7 +10,7 @@ WORDPRESS_ADMIN_USER = "admin"
 WORDPRESS_ADMIN_PASS = "admin"
 
 WORDPRESS_DEFAULT_PLUGINS = %w(theme-check plugin-check hotfix)
-WORDPRESS_DEFAULT_THEME = 'http://wordpress.org/themes/download/destro.2.8.22.zip'
+WORDPRESS_DEFAULT_THEME = ''
 
 WORDPRESS_IP = "192.168.33.10"
 
