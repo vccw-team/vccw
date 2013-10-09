@@ -1,5 +1,6 @@
-node.set_unless['wp-install']['dbpassword'] = secure_password
+require 'shellwords'
 
+node.set_unless['wp-install']['dbpassword'] = secure_password
 
 execute "mysql-install-wp-privileges" do
   command "/usr/bin/mysql -u root -p\"#{node['mysql']['server_root_password']}\" < #{node['mysql']['conf_dir']}/wp-grants.sql"
@@ -51,16 +52,16 @@ bash "wordpress-core-download" do
   if node['wp-install']['wp_version'] == 'latest' then
       code <<-EOH
 wp core download \\
---path='#{node['wp-install']['wpdir']}' \\
---locale='#{node['wp-install']['locale']}' \\
+--path=#{Shellwords.shellescape(node['wp-install']['wpdir'])} \\
+--locale=#{Shellwords.shellescape(node['wp-install']['locale'])} \\
 --force
       EOH
   else
       code <<-EOH
 wp core download \\
---path='#{node['wp-install']['wpdir']}' \\
---locale='#{node['wp-install']['locale']}' \\
---version='#{node['wp-install']['wp_version']}' \\
+--path=#{Shellwords.shellescape(node['wp-install']['wpdir'])} \\
+--locale=#{Shellwords.shellescape(node['wp-install']['locale'])} \\
+--version=#{Shellwords.shellescape(node['wp-install']['wp_version'])} \\
 --force
       EOH
   end
@@ -77,11 +78,11 @@ bash "wordpress-core-config" do
   cwd node['wp-install']['wpdir']
   code <<-EOH
     wp core config \\
-    --dbname='#{node['wp-install']['dbname']}' \\
-    --dbuser='#{node['wp-install']['dbuser']}' \\
-    --dbpass='#{node['wp-install']['dbpassword']}' \\
-    --dbprefix='#{node['wp-install']['dbprefix']}' \\
-    --locale='#{node['wp-install']['locale']}' \\
+    --dbname=#{Shellwords.shellescape(node['wp-install']['dbname'])} \\
+    --dbuser=#{Shellwords.shellescape(node['wp-install']['dbuser'])} \\
+    --dbpass=#{Shellwords.shellescape(node['wp-install']['dbpassword'])} \\
+    --dbprefix=#{Shellwords.shellescape(node['wp-install']['dbprefix'])} \\
+    --locale=#{Shellwords.shellescape(node['wp-install']['locale'])} \\
     --extra-php <<PHP
 define( 'WP_DEBUG', true );
 PHP
@@ -94,11 +95,11 @@ bash "wordpress-core-install" do
   cwd node['wp-install']['wpdir']
   code <<-EOH
     wp core install \\
-    --url="#{node['wp-install']['url']}" \\
-    --title="#{node['wp-install']['title']}" \\
-    --admin_user="#{node['wp-install']['admin_user']}" \\
-    --admin_password="#{node['wp-install']['admin_password']}" \\
-    --admin_email="#{node['wp-install']['admin_email']}"
+    --url=#{Shellwords.shellescape(node['wp-install']['url'])} \\
+    --title=#{Shellwords.shellescape(node['wp-install']['title'])} \\
+    --admin_user=#{Shellwords.shellescape(node['wp-install']['admin_user'])} \\
+    --admin_password=#{Shellwords.shellescape(node['wp-install']['admin_password'])} \\
+    --admin_email=#{Shellwords.shellescape(node['wp-install']['admin_email'])}
   EOH
 end
 
@@ -121,8 +122,8 @@ node['wp-install']['default_plugins'].each do |plugin|
     group "vagrant"
     cwd node['wp-install']['wpdir']
     code <<-EOH
-      wp plugin install #{plugin}
-      wp plugin activate #{plugin}
+      wp plugin install #{Shellwords.shellescape(plugin)}
+      wp plugin activate #{Shellwords.shellescape(plugin)}
     EOH
   end
 end
@@ -132,6 +133,6 @@ bash "WordPress #{node['wp-install']['default_theme']} install" do
   user "vagrant"
   group "vagrant"
   cwd node['wp-install']['wpdir']
-  code "wp theme install #{node['wp-install']['default_theme']} --activate"
+  code "wp theme install #{Shellwords.shellescape(node['wp-install']['default_theme'])} --activate"
 end
 end

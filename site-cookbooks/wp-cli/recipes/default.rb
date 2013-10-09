@@ -12,7 +12,7 @@ directory node['wp-cli']['wpcli-dir'] do
 end
 
 # download installer
-remote_file "#{node['wp-cli']['wpcli-dir']}/installer.sh" do
+remote_file File.join(node['wp-cli']['wpcli-dir'], 'installer.sh') do
   source 'http://wp-cli.org/installer.sh'
   mode 0755
   action :create_if_missing

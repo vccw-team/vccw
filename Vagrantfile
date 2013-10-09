@@ -2,6 +2,8 @@
 # -*- mode: ruby -*-
 # vi: set ft=ruby :
 
+require 'shellwords'
+
 VAGRANTFILE_API_VERSION = "2"
 
 WORDPRESS_VERSION = 'latest' # latest or 3.4 or later
@@ -26,6 +28,12 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
   config.vm.network :private_network, ip: WORDPRESS_IP
 
   config.vm.synced_folder "www/", "/var/www", :create => "true"
+
+  # for CentOS ipv6 issue
+  config.vm.provider :virtualbox do |vb|
+    vb.customize ["modifyvm", :id, "--natdnsproxy1", "off"]
+    vb.customize ["modifyvm", :id, "--natdnshostresolver1", "off"]
+  end
 
   config.vm.provision :chef_solo do |chef|
 
