@@ -9,15 +9,15 @@ WORDPRESS_HOSTNAME = "wordpress.local"
 WORDPRESS_ADMIN_USER = "admin"
 WORDPRESS_ADMIN_PASS = "admin"
 
+WORDPRESS_DEFAULT_PLUGINS = %w(theme-check plugin-check hotfix)
+WORDPRESS_DEFAULT_THEME = 'http://wordpress.org/themes/download/destro.2.8.22.zip'
+
 WORDPRESS_IP = "192.168.33.10"
 
 Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
 
   config.vm.box = "cent64_minimal_i386"
   config.vm.box_url = "http://developer.nrel.gov/downloads/vagrant-boxes/CentOS-6.4-i386-v20130427.box"
-
-  #config.vm.box = "precise32"
-  #config.vm.box_url = "http://files.vagrantup.com/precise32.box"
 
   config.vm.hostname = WORDPRESS_HOSTNAME
   config.vm.network :private_network, ip: WORDPRESS_IP
@@ -50,7 +50,8 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
         :admin_user => WORDPRESS_ADMIN_USER,
         :admin_password => WORDPRESS_ADMIN_PASS,
         :dbprefix => 'wp_',
-        :default_plugins => %w(theme-check plugin-check hotfix)
+        :default_plugins => WORDPRESS_DEFAULT_PLUGINS,
+        :default_theme => WORDPRESS_DEFAULT_THEME
       }
     }
 

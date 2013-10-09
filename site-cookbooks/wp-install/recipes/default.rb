@@ -127,4 +127,10 @@ node['wp-install']['default_plugins'].each do |plugin|
   end
 end
 
+bash "WordPress #{node['wp-install']['default_theme']} install" do
+  user "vagrant"
+  group "vagrant"
+  cwd node['wp-install']['wpdir']
+  code "wp theme install #{node['wp-install']['default_theme']} --activate"
+end
 
