@@ -1,3 +1,4 @@
+# encoding: utf-8
 # -*- mode: ruby -*-
 # vi: set ft=ruby :
 
@@ -5,6 +6,8 @@ VAGRANTFILE_API_VERSION = "2"
 
 WORDPRESS_VERSION = 'latest' # latest or 3.4 or later
 WORDPRESS_LANG = "ja"
+
+WORDPRESS_TITLE = "Welcome to the Vagrant"
 WORDPRESS_HOSTNAME = "wordpress.local"
 WORDPRESS_ADMIN_USER = "admin"
 WORDPRESS_ADMIN_PASS = "admin"
@@ -51,7 +54,8 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
         :admin_password => WORDPRESS_ADMIN_PASS,
         :dbprefix => 'wp_',
         :default_plugins => WORDPRESS_DEFAULT_PLUGINS,
-        :default_theme => WORDPRESS_DEFAULT_THEME
+        :default_theme => WORDPRESS_DEFAULT_THEME,
+        :title => WORDPRESS_TITLE
       }
     }
 

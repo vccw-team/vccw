@@ -3,7 +3,7 @@ default['wp-install']['wp_version'] = "latest"
 
 default['wp-install']['url'] = ""
 default['wp-install']['wpdir'] = "/var/www/wordpress"
-default['wp-install']['title'] = "Welcome to the Vagrant"
+default['wp-install']['title'] = "Welcome to the WordPress"
 
 default['wp-install']['dbname'] = "wordpress"
 default['wp-install']['dbuser'] = "wordpress"
