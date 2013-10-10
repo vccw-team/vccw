@@ -18,7 +18,9 @@ WP_DEFAULT_PLUGINS = %w(theme-check plugin-check hotfix)
 WP_DEFAULT_THEME = ''
 
 WP_IS_MULTISITE = false
+WP_FORCE_SSL_ADMIN = false
 
+WP_ALWAYS_RESET = true
 WP_IP = "192.168.33.10"
 
 Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
@@ -45,7 +47,8 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
       :apache => {
         :docroot_dir => '/var/www/wordpress',
         :user => 'vagrant',
-        :group => 'vagrant'
+        :group => 'vagrant',
+        :listen_ports => ["80", "443"]
       },
       :php => {
         :packages => %w(php php-cli php-devel php-mbstring php-gd php-xml php-mysql)
@@ -66,7 +69,9 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
         :default_plugins => WP_DEFAULT_PLUGINS,
         :default_theme => WP_DEFAULT_THEME,
         :title => WP_TITLE,
-        :is_multisite => WP_IS_MULTISITE
+        :is_multisite => WP_IS_MULTISITE,
+        :force_ssl_admin => WP_FORCE_SSL_ADMIN,
+        :always_reset => WP_ALWAYS_RESET
       }
     }
 
@@ -74,6 +79,7 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
     chef.add_recipe "iptables"
     chef.add_recipe "apache2"
     chef.add_recipe "apache2::mod_php5"
+    chef.add_recipe "apache2::mod_ssl"
     chef.add_recipe "mysql::server"
     chef.add_recipe "mysql::ruby"
     chef.add_recipe "php::package"

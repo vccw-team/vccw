@@ -71,6 +71,11 @@ file "#{node['wp-install']['wpdir']}/wp-config.php" do
   backup false
 end
 
+force_ssl_admin = ''
+if node['wp-install']['force_ssl_admin'] == true then
+  force_ssl_admin = "define('FORCE_SSL_ADMIN', true);"
+end
+
 bash "wordpress-core-config" do
   user "vagrant"
   group "vagrant"
@@ -84,8 +89,18 @@ bash "wordpress-core-config" do
     --locale=#{Shellwords.shellescape(node['wp-install']['locale'])} \\
     --extra-php <<PHP
 define( 'WP_DEBUG', true );
+#{force_ssl_admin}
 PHP
   EOH
+end
+
+if node['wp-install']['always_reset'] == true then
+    bash "wordpress-db-reset" do
+      user "vagrant"
+      group "vagrant"
+      cwd node['wp-install']['wpdir']
+      code 'wp db reset --yes'
+    end
 end
 
 bash "wordpress-core-install" do
@@ -103,7 +118,7 @@ bash "wordpress-core-install" do
 end
 
 
-if node['wp-install']['locale'] == 'ja'
+if node['wp-install']['locale'] == 'ja' then
   bash "wordpress-plugin-ja-install" do
     user "vagrant"
     group "vagrant"
