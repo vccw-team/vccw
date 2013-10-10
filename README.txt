@@ -1,12 +1,14 @@
 vagrant-chef-centos-wordpress
 =============================
 
-これは、WordPress開発用のVagrantファイルです。  
+これは、WordPress開発用のVagrantファイルです。
 このVagrantファイルを利用すると、`vagrant up` だけで以下のような特徴のWordPress環境が数分で構築できます。
 
+* Vagrantfileを数行修正するだけでForce SSL AdminやMultisite、任意のサブディレクトリへのインストールなど、多様な環境に対応しています。
 * 仮想マシンが起動したらWordPressのインストールは不要です。http://wordpress.local/ にアクセスしてください。(ユーザー名: `admin`、パスワード: `admin`)
 * URLはカスタマイズ可能で、vagrant-hostsupdaterを使用すれば起動時に `/etc/hosts` にレコードを追加し、停止時に自動的に削除します。
 * デフォルトでデバッグモードが有効化されています。
+* デフォルトでSSLが設定されており、SSL環境での動作テストが可能です。
 * 開発に便利な、theme-check, plugin-checkプラグインが有効化されています。
 * [wp-cli](http://wp-cli.org/)がプリインストールされています。
 * Vagrantファイル内の `www` ディレクトリと、仮想マシン内の `/var/www` が同期しています。
@@ -37,6 +39,25 @@ vagrant-chef-centos-wordpress
  * theme-check
  * plugin-check
  * wp-multibyte-patch (jaのみ)
+
+## カスタマイズ
+
+Vagrantfileの定数を修正するだけであらゆる環境のWordPressを構築することができます。
+
+* WP_VERSION         = 'latest' # Wordpress version latest or 3.4 or later
+* WP_LANG            = "ja" # WordPress locale
+* WP_HOSTNAME        = "wordpress.local" # e.g example.com
+* WP_DIR             = '' # e.g. /wp or wp or other
+* WP_TITLE           = "Welcome to the Vagrant" # title
+* WP_ADMIN_USER      = "admin" # default user
+* WP_ADMIN_PASS      = "admin" # default user's password
+* WP_DB_PREFIX       = 'wp_' # Database prefix
+* WP_DEFAULT_PLUGINS = %w(theme-check plugin-check hotfix) # default plugins
+* WP_DEFAULT_THEME   = '' # e.g. twentythirteen
+* WP_IS_MULTISITE    = false # enable multisite when true
+* WP_FORCE_SSL_ADMIN = false # enable force ssl admin when true
+* WP_ALWAYS_RESET    = true # always reset database
+* WP_IP              = "192.168.33.10" # host ip address
 
 ## その他
 
