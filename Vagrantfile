@@ -10,23 +10,23 @@ VAGRANTFILE_API_VERSION = "2"
 WP_VERSION         = 'latest' # latest or 3.4 or later
 WP_LANG            = "ja" # WordPress locale
 
-WP_HOSTNAME        = "wordpress.local" # e.g
-WP_DIR             = '' # e.g. /wp or wp and other
+WP_HOSTNAME        = "wordpress.local" # e.g example.com
+WP_DIR             = '' # e.g. /wp or wp or other
 
-WP_TITLE           = "Welcome to the Vagrant"
-WP_ADMIN_USER      = "admin"
-WP_ADMIN_PASS      = "admin"
+WP_TITLE           = "Welcome to the Vagrant" # title
+WP_ADMIN_USER      = "admin" # default user
+WP_ADMIN_PASS      = "admin" # default user's password
 
-WP_DB_PREFIX       = 'wp_'
+WP_DB_PREFIX       = 'wp_' # Database prefix
 
-WP_DEFAULT_PLUGINS = %w(theme-check plugin-check hotfix)
+WP_DEFAULT_PLUGINS = %w(theme-check plugin-check hotfix) # default plugins
 WP_DEFAULT_THEME   = '' # e.g. twentythirteen
 
-WP_IS_MULTISITE    = false
-WP_FORCE_SSL_ADMIN = false
+WP_IS_MULTISITE    = false # enable multisite when true
+WP_FORCE_SSL_ADMIN = false # enable force ssl admin when true
 
-WP_ALWAYS_RESET    = true
-WP_IP              = "192.168.33.10"
+WP_ALWAYS_RESET    = true # always reset database
+WP_IP              = "192.168.33.10" # host ip address
 
 # end configuration
 
