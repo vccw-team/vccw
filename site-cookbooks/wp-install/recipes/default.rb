@@ -109,7 +109,7 @@ bash "wordpress-core-install" do
   cwd node['wp-install']['wpdir']
   code <<-EOH
     wp core install \\
-    --url=#{Shellwords.shellescape(node['wp-install']['url'])} \\
+    --url=#{Shellwords.shellescape(node['wp-install']['url']).sub(/\/$/, '')} \\
     --title=#{Shellwords.shellescape(node['wp-install']['title'])} \\
     --admin_user=#{Shellwords.shellescape(node['wp-install']['admin_user'])} \\
     --admin_password=#{Shellwords.shellescape(node['wp-install']['admin_password'])} \\

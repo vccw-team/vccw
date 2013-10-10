@@ -2,26 +2,33 @@
 # -*- mode: ruby -*-
 # vi: set ft=ruby :
 
-require 'shellwords'
-
 VAGRANTFILE_API_VERSION = "2"
 
-WP_VERSION = 'latest' # latest or 3.4 or later
-WP_LANG = "ja"
 
-WP_TITLE = "Welcome to the Vagrant"
-WP_HOSTNAME = "wordpress.local"
-WP_ADMIN_USER = "admin"
-WP_ADMIN_PASS = "admin"
+# Configuration for the WordPress
+
+WP_VERSION         = 'latest' # latest or 3.4 or later
+WP_LANG            = "ja" # WordPress locale
+
+WP_HOSTNAME        = "wordpress.local" # e.g
+WP_DIR             = '' # e.g. /wp or wp and other
+
+WP_TITLE           = "Welcome to the Vagrant"
+WP_ADMIN_USER      = "admin"
+WP_ADMIN_PASS      = "admin"
+
+WP_DB_PREFIX       = 'wp_'
 
 WP_DEFAULT_PLUGINS = %w(theme-check plugin-check hotfix)
-WP_DEFAULT_THEME = ''
+WP_DEFAULT_THEME   = '' # e.g. twentythirteen
 
-WP_IS_MULTISITE = false
+WP_IS_MULTISITE    = false
 WP_FORCE_SSL_ADMIN = false
 
-WP_ALWAYS_RESET = true
-WP_IP = "192.168.33.10"
+WP_ALWAYS_RESET    = true
+WP_IP              = "192.168.33.10"
+
+# end configuration
 
 Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
 
@@ -60,12 +67,12 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
       },
       :"wp-install" => {
         :wp_version => WP_VERSION,
-        :url => "http://" << WP_HOSTNAME,
-        :wpdir => '/var/www/wordpress',
+        :url => "http://" << File.join(WP_HOSTNAME, WP_DIR),
+        :wpdir => File.join('/var/www/wordpress', WP_DIR),
         :locale => WP_LANG,
         :admin_user => WP_ADMIN_USER,
         :admin_password => WP_ADMIN_PASS,
-        :dbprefix => 'wp_',
+        :dbprefix => WP_DB_PREFIX,
         :default_plugins => WP_DEFAULT_PLUGINS,
         :default_theme => WP_DEFAULT_THEME,
         :title => WP_TITLE,
