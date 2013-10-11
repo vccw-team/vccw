@@ -25,6 +25,7 @@ WP_DEFAULT_THEME   = '' # e.g. twentythirteen
 WP_IS_MULTISITE    = false # enable multisite when true
 WP_FORCE_SSL_ADMIN = false # enable force ssl admin when true
 WP_DEBUG           = true # enable debug mode
+WP_THEME_UNIT_TEST = false # automatic import theme unit test data
 
 WP_ALWAYS_RESET    = true # always reset database
 WP_IP              = "192.168.33.10" # host ip address
@@ -81,6 +82,7 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
         :is_multisite    => WP_IS_MULTISITE,
         :force_ssl_admin => WP_FORCE_SSL_ADMIN,
         :debug_mode      => WP_DEBUG,
+        :theme_unit_test => WP_THEME_UNIT_TEST,
         :always_reset    => WP_ALWAYS_RESET,
         :dbhost          => WP_IP
       }

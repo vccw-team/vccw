@@ -11,6 +11,7 @@ vagrant-chef-centos-wordpress
 * デフォルトでデバッグモードが有効化されています。
 * デフォルトでSSLが設定されており、SSL環境での動作テストが可能です。
 * 開発に便利な、theme-check, plugin-checkプラグインが有効化されています。
+* テーマユニットテストのデータを自動的にインポートすることが可能です。
 * [wp-cli](http://wp-cli.org/)がプリインストールされています。
 * Vagrantファイル内の `www` ディレクトリと、仮想マシン内の `/var/www` が同期しています。
 * ホストマシンのMacに[wp-cli](http://wp-cli.org)がインストールされていれば、ホストマシンからもwp-cliを使ったデータベースのエクスポート等が可能です。
@@ -83,12 +84,14 @@ Vagrantfileの定数を修正するだけであらゆる環境のWordPressを構
 * `WP_FORCE_SSL_ADMIN = false`
  * `true` に変更すると、ログイン時及び管理画面でSSLが強制されます。
  * SSLの証明書はダミーの自己証明書が適用されています。
-* `WP_ALWAYS_RESET = true`
- * `true` の場合、`vagrant provision` のたびに、WordPressデータベースが再構築されます。(デフォルト)
- * データベースが再構築されると、投稿した記事等のデータは全て消えますのでご注意ください。
 * `WP_DEBUG = true`
  * `true` の場合、デバッグモードが有効化されます。(デフォルト)
  * 開発用を想定しているので、有効化しておくことをご推奨します。
+* `WP_THEME_UNIT_TEST = false`
+ * `true` にすると[テーマユニットテスト](http://codex.wordpress.org/Theme_Unit_Test)用のデータを自動的にインポートします。
+* `WP_ALWAYS_RESET = true`
+ * `true` の場合、`vagrant provision` のたびに、WordPressデータベースが再構築されます。(デフォルト)
+ * データベースが再構築されると、投稿した記事等のデータは全て消えますのでご注意ください。
 * `WP_IP = "192.168.33.10"`
  * 仮想マシンのプライベートIPアドレスを指定してください。
 

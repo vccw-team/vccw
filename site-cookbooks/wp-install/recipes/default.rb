@@ -153,3 +153,25 @@ if node['wp-install']['is_multisite'] == true then
       code "wp core multisite-convert"
     end
 end
+
+if node['wp-install']['theme_unit_test'] == true then
+    remote_file node['wp-install']['theme_unit_test_data'] do
+      source node['wp-install']['theme_unit_test_data_url']
+      mode 0644
+      action :create
+    end
+
+    bash "Import theme unit test data" do
+      user "vagrant"
+      group "vagrant"
+      cwd node['wp-install']['wpdir']
+      code "wp plugin activate wordpress-importer"
+    end
+
+    bash "Import theme unit test data" do
+      user "vagrant"
+      group "vagrant"
+      cwd node['wp-install']['wpdir']
+      code "wp import --authors=create #{Shellwords.shellescape(node['wp-install']['theme_unit_test_data'])}"
+    end
+end
