@@ -26,6 +26,8 @@ vagrant-chef-centos-wordpress
  * `git clone https://github.com/miya0001/vagrant-chef-centos-wordpress.git vagrant-wp`
 5. Vagrantディレクトリへ移動。
  * `cd vagrant-wp`
+6. Vagrantfileを準備。
+ * `cp Vagrantfile.sample Vagrantfile`
 6. 仮想マシンを起動。
  * `vagrant up`
 
