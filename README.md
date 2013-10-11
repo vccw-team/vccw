@@ -47,47 +47,47 @@ vagrant-chef-centos-wordpress
 
 Vagrantfileの定数を修正するだけであらゆる環境のWordPressを構築することができます。
 
-* WP_VERSION         = 'latest'
+* `WP_VERSION = 'latest'`
  * WordPressのバージョンを指定できます。(WordPress 3.4以降のみ)
  * 最新版を使用したい場合は、`latest` を指定してください。(デフォルト)
-* WP_LANG            = "ja"
+* `WP_LANG = "ja"`
  * wp-config.phpに指定するWordPressの言語(WP_LANGの値)を指定してください。
-* WP_HOSTNAME        = "wordpress.local"
+* `WP_HOSTNAME = "wordpress.local"`
  * WordPressサイトのホスト名を指定してください。(例: `exmaple.com` 、`digitalcube.jp` など)
  * この値はWordPressのURLにも使用されます。
-* WP_DIR             = ''
+* `WP_DIR = ''`
  * WordPressをサブディレクトリ以下にインストールしたい場合はサブディレクトリ名を指定してください。
  * WordPressのURLは、`WP_HOSTNAME` と `WP_DIR` を結合したものが使用されます。
  * たとえば、`http://wordpress.local/wp/` でWordPressを構築する場合は、`/wp` または `wp` と指定してください。
-* WP_TITLE           = "Welcome to the Vagrant"
+* `WP_TITLE = "Welcome to the Vagrant"`
  * デフォルトのWordPressのタイトルを指定してください。
-* WP_ADMIN_USER      = "admin"
+* `WP_ADMIN_USER = "admin"`
  * デフォルトのWordPressのユーザー名を指定してください。
  * このVagrantfileでエクスポートしたデータを本番サイトに適用する際のために、ここはカスタマイズして使用することを推奨します。
-* WP_ADMIN_PASS      = "admin"
+* `WP_ADMIN_PASS = "admin"`
  * デフォルトのユーザーのパスワードを指定してください。
-* WP_DB_PREFIX       = 'wp_'
+* `WP_DB_PREFIX = 'wp_'`
  * WordPressのデータベース内のテーブルに使用されるプレフィックスを指定してください。
-* WP_DEFAULT_PLUGINS = %w(theme-check plugin-check hotfix)
+* `WP_DEFAULT_PLUGINS = %w(theme-check plugin-check hotfix)`
  * デフォルトでインストール&有効化するプラグインを配列で指定してください。
  * プラグインは、公式ディレクトリ上のプラグインであればプラグイン名、もしくは `.zip` ファイルまでのURLでも指定できます。
-* WP_DEFAULT_THEME   = ''
+* `WP_DEFAULT_THEME = ''`
  * デフォルトでインストール&有効化するテーマを指定してください。
  * テーマは、.zipまでのURLを指定するか、公式ディレクトリ上のテーマであれば `twentyfourteen` などのテーマ名でも指定可能です。
-* WP_IS_MULTISITE    = false
+* `WP_IS_MULTISITE = false`
  * `true` に変更すると、マルチサイトが有効化されます。 
  * マルチサイトは、デフォルトでサブディレクトリ型になります。サブドメイン型を使用するにはwp-config.phpを手作業で修正してください。
  * サブドメイン型のマルチサイトを構築するには別途DNSサーバー等を用意する必要があります。
-* WP_FORCE_SSL_ADMIN = false
+* `WP_FORCE_SSL_ADMIN = false`
  * `true` に変更すると、ログイン時及び管理画面でSSLが強制されます。
  * SSLの証明書はダミーの自己証明書が適用されています。
-* WP_ALWAYS_RESET    = true
+* `WP_ALWAYS_RESET = true`
  * `true` の場合、`vagrant provision` のたびに、WordPressデータベースが再構築されます。(デフォルト)
  * データベースが再構築されると、投稿した記事等のデータは全て消えますのでご注意ください。
-* WP_DEBUG           = true
+* `WP_DEBUG = true`
  * `true` の場合、デバッグモードが有効化されます。(デフォルト)
  * 開発用を想定しているので、有効化しておくことをご推奨します。
-* WP_IP              = "192.168.33.10"
+* `WP_IP = "192.168.33.10"`
  * 仮想マシンのプライベートIPアドレスを指定してください。
 
 ### プロビジョニング後のVagrantfileのカスタマイズについて
