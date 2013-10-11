@@ -91,13 +91,14 @@ Vagrantfileの定数を修正するだけであらゆる環境のWordPressを構
 
 ### プロビジョニング後のVagrantfileのカスタマイズについて
 
-プロビジョニング後(一度 `vagrant up` した後)にVagrantfileを修正しその結果を反映するには以下の手順を踏む必要があります。
+プロビジョニング後(`vagrant up`した後)にVagrantfileを修正しその結果を反映するには以下の手順を踏む必要があります。
 
 1. `vagrant up` でマシンを起動
 2. Vagrantfileを修正。このとき `WP_ALWAYS_RESET` の値が `true` であること。
 3. `vagrant provision` コマンドを実行して変更内容を反映。
 4. `vagrant reload` でマシンを再起動。
 
+なお、`vagrant provision` の際にはWordPress本体は、Vagrantfileで指定されたものに上書きされますが、`wp-content/` 以下のプラグインやテーマ等のファイルは、プロビジョニング前のファイルがそのまま残ります。
 
 ## サイトのアドレスについて
 
