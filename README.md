@@ -1,10 +1,11 @@
 vagrant-chef-centos-wordpress
 =============================
 
-これは、WordPress開発用のVagrantファイルです。
-このVagrantファイルを利用すると、`vagrant up` だけで以下のような特徴のWordPress環境が数分で構築できます。
+これは、WordPressのプラグインやテーマ、ウェブサイトなどの開発用のVagrantファイルです。
 
-* Vagrantfileを数行修正するだけでForce SSL AdminやMultisite、任意のサブディレクトリへのインストールなど、多様な環境に対応しています。
+このVagrantファイルを使用すると、プラグインやテーマのテストに必要な多様な環境を数分で構築でき、チームでウェブサイトを構築する際にはVagrantfileを共有するだけで、サイトの環境そのものをチームメンバー全員で共有することができます。
+
+* Vagrantfileを数行修正するだけでForce SSL Adminやマルチサイト、任意のサブディレクトリへのインストールなど、多様な環境に対応しています。
 * 仮想マシンが起動したらWordPressのインストールは不要です。http://wordpress.local/ にアクセスしてください。(ユーザー名: `admin`、パスワード: `admin`)
 * URLはカスタマイズ可能で、vagrant-hostsupdaterを使用すれば起動時に `/etc/hosts` にレコードを追加し、停止時に自動的に削除します。
 * デフォルトでデバッグモードが有効化されています。
@@ -12,7 +13,7 @@ vagrant-chef-centos-wordpress
 * 開発に便利な、theme-check, plugin-checkプラグインが有効化されています。
 * [wp-cli](http://wp-cli.org/)がプリインストールされています。
 * Vagrantファイル内の `www` ディレクトリと、仮想マシン内の `/var/www` が同期しています。
-
+* ホストマシンのMacに[wp-cli](http://wp-cli.org)がインストールされていれば、ホストマシンからもwp-cliを使ったデータベースのエクスポート等が可能です。
 
 ## インストール方法
 
