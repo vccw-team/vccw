@@ -50,8 +50,10 @@ Vagrantfileの定数を修正するだけであらゆる環境のWordPressを構
 * `WP_VERSION = 'latest'`
  * WordPressのバージョンを指定できます。(WordPress 3.4以降のみ)
  * 最新版を使用したい場合は、`latest` を指定してください。(デフォルト)
+ * [ベータ版](http://wordpress.org/download/release-archive/)を指定することも可能です。(例: 3.7-beta2)
 * `WP_LANG = "ja"`
  * wp-config.phpに指定するWordPressの言語(WP_LANGの値)を指定してください。
+ * `WP_VERSION` の値との組み合わせによっては、その言語のバージョンが存在しないためにエラーになる可能性があります。その場合はこの値を `""` にしてください。
 * `WP_HOSTNAME = "wordpress.local"`
  * WordPressサイトのホスト名を指定してください。(例: `exmaple.com` 、`digitalcube.jp` など)
  * この値はWordPressのURLにも使用されます。
