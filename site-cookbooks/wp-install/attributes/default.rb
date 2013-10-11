@@ -5,6 +5,7 @@ default['wp-install']['url'] = ""
 default['wp-install']['wpdir'] = "/var/www/wordpress"
 default['wp-install']['title'] = "Welcome to the WordPress"
 
+default['wp-install']['dbhost'] = "localhost"
 default['wp-install']['dbname'] = "wordpress"
 default['wp-install']['dbuser'] = "wordpress"
 default['wp-install']['dbprefix'] = "wp_"

@@ -71,25 +71,21 @@ file "#{node['wp-install']['wpdir']}/wp-config.php" do
   backup false
 end
 
-force_ssl_admin = ''
-if node['wp-install']['force_ssl_admin'] == true then
-  force_ssl_admin = "define('FORCE_SSL_ADMIN', true);"
-end
-
 bash "wordpress-core-config" do
   user "vagrant"
   group "vagrant"
   cwd node['wp-install']['wpdir']
   code <<-EOH
     wp core config \\
+    --dbhost=#{Shellwords.shellescape(node['wp-install']['dbhost'])} \\
     --dbname=#{Shellwords.shellescape(node['wp-install']['dbname'])} \\
     --dbuser=#{Shellwords.shellescape(node['wp-install']['dbuser'])} \\
     --dbpass=#{Shellwords.shellescape(node['wp-install']['dbpassword'])} \\
     --dbprefix=#{Shellwords.shellescape(node['wp-install']['dbprefix'])} \\
     --locale=#{Shellwords.shellescape(node['wp-install']['locale'])} \\
     --extra-php <<PHP
-define( 'WP_DEBUG', true );
-#{force_ssl_admin}
+define( 'WP_DEBUG', #{node['wp-install']['debug_mode']} );
+define( 'FORCE_SSL_ADMIN', #{node['wp-install']['force_ssl_admin']} );
 PHP
   EOH
 end

@@ -224,7 +224,7 @@ web_app "wordpress" do
   server_name node['fqdn']
 end
 
-bash "wordpress-core-install" do
+bash "create-ssl-keys" do
   user "root"
   group "root"
   cwd File.join(node['apache']['dir'], 'ssl')
@@ -233,6 +233,7 @@ bash "wordpress-core-install" do
     openssl req -new -key server.key -subj '/C=JP/ST=Wakayama/L=Kushimoto/O=My Corporate/CN=#{node['fqdn']}' -out server.csr
     openssl x509 -in server.csr -days 365 -req -signkey server.key > server.crt
   EOH
+  notifies :restart, "service[apache2]"
 end
 
 apache_site "default" do

@@ -51,4 +51,5 @@ iptables_rule "all_icmp"
 
 iptables_rule "http"
 iptables_rule "ssh"
+iptables_rule "mysql"
 

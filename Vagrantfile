@@ -24,6 +24,7 @@ WP_DEFAULT_THEME   = '' # e.g. twentythirteen
 
 WP_IS_MULTISITE    = false # enable multisite when true
 WP_FORCE_SSL_ADMIN = false # enable force ssl admin when true
+WP_DEBUG           = true # enable debug mode
 
 WP_ALWAYS_RESET    = true # always reset database
 WP_IP              = "192.168.33.10" # host ip address
@@ -52,33 +53,36 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
 
     chef.json = {
       :apache => {
-        :docroot_dir => '/var/www/wordpress',
-        :user => 'vagrant',
-        :group => 'vagrant',
+        :docroot_dir  => '/var/www/wordpress',
+        :user         => 'vagrant',
+        :group        => 'vagrant',
         :listen_ports => ["80", "443"]
       },
       :php => {
         :packages => %w(php php-cli php-devel php-mbstring php-gd php-xml php-mysql)
       },
       :mysql => {
+        :bind_address           => "0.0.0.0",
         :server_debian_password => "wordpress",
-        :server_root_password => "wordpress",
-        :server_repl_password => "wordpress"
+        :server_root_password   => "wordpress",
+        :server_repl_password   => "wordpress"
       },
       :"wp-install" => {
-        :wp_version => WP_VERSION,
-        :url => "http://" << File.join(WP_HOSTNAME, WP_DIR),
-        :wpdir => File.join('/var/www/wordpress', WP_DIR),
-        :locale => WP_LANG,
-        :admin_user => WP_ADMIN_USER,
-        :admin_password => WP_ADMIN_PASS,
-        :dbprefix => WP_DB_PREFIX,
+        :wp_version      => WP_VERSION,
+        :url             => "http://" << File.join(WP_HOSTNAME, WP_DIR),
+        :wpdir           => File.join('/var/www/wordpress', WP_DIR),
+        :locale          => WP_LANG,
+        :admin_user      => WP_ADMIN_USER,
+        :admin_password  => WP_ADMIN_PASS,
+        :dbprefix        => WP_DB_PREFIX,
         :default_plugins => WP_DEFAULT_PLUGINS,
-        :default_theme => WP_DEFAULT_THEME,
-        :title => WP_TITLE,
-        :is_multisite => WP_IS_MULTISITE,
+        :default_theme   => WP_DEFAULT_THEME,
+        :title           => WP_TITLE,
+        :is_multisite    => WP_IS_MULTISITE,
         :force_ssl_admin => WP_FORCE_SSL_ADMIN,
-        :always_reset => WP_ALWAYS_RESET
+        :debug_mode      => WP_DEBUG,
+        :always_reset    => WP_ALWAYS_RESET,
+        :dbhost          => WP_IP
       }
     }
 
