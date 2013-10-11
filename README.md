@@ -93,20 +93,20 @@ Vagrantfileの定数を修正するだけであらゆる環境のWordPressを構
 
 ### wp-cliを使った操作の例
 
-`cd vagrant-local
-
-# データベースをデスクトップにエクスポート
-wp db export ~/Desktop/export.sql
-
-# 記事やメディアなどをWordPressのエクスポート機能でエクスポート
-mkdir /Users/foo/Desktop/export
-wp export --dir=/Users/foo/Desktop/export
-
-# contcat-form-7を有効化
-wp plugin install contact-form-7 --activate
-
-# WordPressをアップデート
-wp core update`
+  cd vagrant-local
+  
+  # データベースをデスクトップにエクスポート
+  wp db export ~/Desktop/export.sql
+  
+  # 記事やメディアなどをWordPressのエクスポート機能でエクスポート
+  mkdir /Users/foo/Desktop/export
+  wp export --dir=/Users/foo/Desktop/export
+  
+  # contcat-form-7を有効化
+  wp plugin install contact-form-7 --activate
+  
+  # WordPressをアップデート
+  wp core update
 
 その他、wp-cliはいろんなことができますのでおすすめです。
 
