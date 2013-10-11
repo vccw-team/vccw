@@ -101,11 +101,10 @@ Vagrantfileの定数を修正するだけであらゆる環境のWordPressを構
 
 なお、`vagrant provision` の際にはWordPress本体は、Vagrantfileで指定されたものに上書きされますが、`wp-content/` 以下のプラグインやテーマ等のファイルは、プロビジョニング前のファイルがそのまま残ります。
 
-## サイトのアドレスについて
+### /etc/hosts について
 
-* WP_HOSTNAMEを任意のホスト名に書き換えると、`vagrant up` 後に `/etc/hosts` に自動的にレコードを追加します。
-* `vagrant halt` で仮想マシンを停止、もしくは `vagrant destroy` で仮想マシンを破棄すると、`/etc/hosts`のレコードは自動的に削除されます。
-* この機能を使用すれば、投稿した記事データをそのまま本番環境で使用することができます。
+* Vagrantのプラグイン vagrant-hostsupdater を使用することで、Vagrantfileで指定したホスト名が自動的に `/etc/hosts` に追加されます。
+* `vagrant halt` もしくは `vagrant destroy` でマシンを停止すれば、`/etc/hosts` に追加されたホスト名は自動的に削除されます。
 
 ## wp-cliについて
 
@@ -143,6 +142,11 @@ Vagrantfileの定数を修正するだけであらゆる環境のWordPressを構
  * MySQL 5.1.x
  * Apache 2.2.x
 * プロビジョニングに時間がかかるのでパッケージのアップデート等はしてません。
+
+## ご注意
+
+* `vagrant halt` でマメにマシンを停止しないと、仮想マシンが大量に立ち上がっちゃうので気をつけましょう。
+* 用が終わったら `vagrant destroy` で、マシンを破棄するのもお忘れなく。
 
 ## おねがい
 
