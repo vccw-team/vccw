@@ -7,5 +7,4 @@
 #
 
 default['wp-cli']['wpcli-dir'] = '/usr/share/wp-cli'
-default['wp-cli']['wpcli-version'] = '@stable'
 default['wp-cli']['wpcli-link'] = '/usr/bin/wp'
