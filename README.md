@@ -46,14 +46,16 @@ Vagrantfileの定数を修正するだけであらゆる環境のWordPressを構
 
 * WP_VERSION         = 'latest'
  * WordPressのバージョンを指定できます。(WordPress 3.4以降のみ)
- * 最新版を使用したい場合は、latestを指定してください。(デフォルト)
+ * 最新版を使用したい場合は、`latest` を指定してください。(デフォルト)
 * WP_LANG            = "ja"
  * wp-config.phpに指定するWordPressの言語(WP_LANGの値)を指定してください。
 * WP_HOSTNAME        = "wordpress.local"
- * WordPressサイトのホスト名を指定してください。(例: exmaple.com、digitalcube.jp など)
+ * WordPressサイトのホスト名を指定してください。(例: `exmaple.com` 、`digitalcube.jp` など)
+ * この値はWordPressのURLにも使用されます。
 * WP_DIR             = ''
  * WordPressをサブディレクトリ以下にインストールしたい場合はサブディレクトリ名を指定してください。
- * たとえば、http://wordpress.local/wp/でWordPressを構築する場合は、`/wp` または `wp` と指定してください。
+ * WordPressのURLは、`WP_HOSTNAME` と `WP_DIR` を結合したものが使用されます。
+ * たとえば、`http://wordpress.local/wp/` でWordPressを構築する場合は、`/wp` または `wp` と指定してください。
 * WP_TITLE           = "Welcome to the Vagrant"
  * デフォルトのWordPressのタイトルを指定してください。
 * WP_ADMIN_USER      = "admin"
@@ -71,6 +73,8 @@ Vagrantfileの定数を修正するだけであらゆる環境のWordPressを構
  * テーマは、.zipまでのURLを指定するか、公式ディレクトリ上のテーマであれば `twentyfourteen` などのテーマ名でも指定可能です。
 * WP_IS_MULTISITE    = false
  * `true` に変更すると、マルチサイトが有効化されます。 
+ * マルチサイトは、デフォルトでサブディレクトリ型になります。サブドメイン型を使用するにはwp-config.phpを手作業で修正してください。
+ * サブドメイン型のマルチサイトを構築するには別途DNSサーバー等を用意する必要があります。
 * WP_FORCE_SSL_ADMIN = false
  * `true` に変更すると、ログイン時及び管理画面でSSLが強制されます。
  * SSLの証明書はダミーの自己証明書が適用されています。
