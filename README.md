@@ -129,5 +129,5 @@ Vagrantfileの定数を修正するだけであらゆる環境のWordPressを構
 ## おねがい
 
 * VagrantもChefもRubyも初めてなので何かあったらやさしくフィードバックをお願いします。
-* あと、pull request等は大歓迎です。
+* pull request等は大歓迎です。
 * メールやDM等での直接の質問はご遠慮願います。[Issues](https://github.com/miya0001/vagrant-chef-centos-wordpress/issues)などの公開された場所に書いてもらったほうがオープンソースっぽくてステキだと思いますよ！
