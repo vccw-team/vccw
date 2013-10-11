@@ -89,6 +89,16 @@ Vagrantfileの定数を修正するだけであらゆる環境のWordPressを構
 * WP_IP              = "192.168.33.10"
  * 仮想マシンのプライベートIPアドレスを指定してください。
 
+### プロビジョニング後のVagrantfileのカスタマイズについて
+
+プロビジョニング後(一度 `vagrant up` した後)にVagrantfileを修正しその結果を反映するには以下の手順を踏む必要があります。
+
+1. `vagrant up` でマシンを起動
+2. Vagrantfileを修正。このとき `WP_ALWAYS_RESET` の値が `true` であること。
+3. `vagrant provision` コマンドを実行して変更内容を反映。
+4. `vagrant reload` でマシンを再起動。
+
+
 ## サイトのアドレスについて
 
 * WP_HOSTNAMEを任意のホスト名に書き換えると、`vagrant up` 後に `/etc/hosts` に自動的にレコードを追加します。
