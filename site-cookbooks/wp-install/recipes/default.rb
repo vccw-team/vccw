@@ -129,10 +129,7 @@ node['wp-install']['default_plugins'].each do |plugin|
     user "vagrant"
     group "vagrant"
     cwd node['wp-install']['wpdir']
-    code <<-EOH
-      wp plugin install #{Shellwords.shellescape(plugin)}
-      wp plugin activate #{Shellwords.shellescape(plugin)}
-    EOH
+    code "wp plugin install #{Shellwords.shellescape(plugin)} --activate"
   end
 end
 
@@ -165,7 +162,7 @@ if node['wp-install']['theme_unit_test'] == true then
       user "vagrant"
       group "vagrant"
       cwd node['wp-install']['wpdir']
-      code "wp plugin activate wordpress-importer"
+      code "wp plugin install wordpress-importer --activate"
     end
 
     bash "Import theme unit test data" do
