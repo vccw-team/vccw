@@ -18,146 +18,133 @@ This is a [Vagrant](http://www.vagrantup.com/) configuration focused on developm
 * [wp-cli](http://wp-cli.org) already installed.
 * Share folders between Host and Guest OS
 
-## インストール方法
+## Getting Started
 
-1. VirtualBoxをインストールしてください。
+1. Install VirtualBox.
  * https://www.virtualbox.org/
-2. Vagrantをインストールしてください。
+2. Install Vagrant.
  * http://www.vagrantup.com/
-3. vagrant-hostsupdater をインストールしてください。
+3. Install the vagrant-hostsupdater plugin.
  * `vagrant plugin install vagrant-hostsupdater`
-4. Vagrantファイルをcloneしてください。
+4. Clone the repository into a local directory
  * `git clone https://github.com/miya0001/vagrant-chef-centos-wordpress.git vagrant-wp`
-5. Vagrantディレクトリへ移動。
+5. Change into the new directory.
  * `cd vagrant-wp`
-6. Vagrantfileを準備。
+6. Copy the default Vagrantfile.
  * `cp Vagrantfile.sample Vagrantfile`
-6. 仮想マシンを起動。
+6. Start the Vagrant environment.
  * `vagrant up`
+7. Visit http://wordpress.local/
 
-## WordPressについて
+## About WordPress environment
 
-* デフォルトのURLは、http://wordpress.local/ です。
-* デフォルトのユーザー名は、 `admin` パスワードも `admin` です。
-* デフォルトでデバッグモードが有効になっています。
-* プリインストールのプラグインは以下のとおりです。
+* Default user.
+ * User Name: admin
+ * Password: admin
+* Debug mode enabled.
+* Defalut plugins.
  * hotfix
  * theme-check
  * plugin-check
- * wp-multibyte-patch (jaのみ)
+ * wp-multibyte-patch (ja only)
 
-## カスタマイズ
+## Customize
 
-Vagrantfileの定数を修正するだけであらゆる環境のWordPressを構築することができます。
+This Vagrant configuration has many customizable constants.
 
 * `WP_VERSION = 'latest'`
- * WordPressのバージョンを指定できます。(WordPress 3.4以降のみ)
- * 最新版を使用したい場合は、`latest` を指定してください。(デフォルト)
- * [ベータ版](http://wordpress.org/download/release-archive/)を指定することも可能です。(例: 3.7-beta2)
-* `WP_LANG = "ja"`
- * wp-config.phpに指定するWordPressの言語(WP_LANGの値)を指定してください。
- * `WP_VERSION` の値との組み合わせによっては、その言語のバージョンが存在しないためにエラーになる可能性があります。その場合はこの値を `""` にしてください。
+ * Set which version you want to install. (WordPress 3.4 or later)
+ * Default value is the `latest`.
+ * Allow you to set [Beta](http://wordpress.org/download/release-archive/) releases. (e.g.: 3.7-beta2)
+* `WP_LANG = ""`
+ * Select which language you want to download. (e.g. `ja`)
+ * If you have an error, please set `""`.
 * `WP_HOSTNAME = "wordpress.local"`
- * WordPressサイトのホスト名を指定してください。(例: `exmaple.com` 、`digitalcube.jp` など)
- * この値はWordPressのURLにも使用されます。
+ * Select which hostname for Guest OS. (e.g. `exmaple.com` 、`digitalcube.jp` など)
 * `WP_DIR = ''`
- * WordPressをサブディレクトリ以下にインストールしたい場合はサブディレクトリ名を指定してください。
- * WordPressのURLは、`WP_HOSTNAME` と `WP_DIR` を結合したものが使用されます。
- * たとえば、`http://wordpress.local/wp/` でWordPressを構築する場合は、`/wp` または `wp` と指定してください。
+ * If you want to install WordPress in the subdirectory. Please set directory name to this constant. (e.g. `wp` or `/wp`)
+ * http:// + `WP_HOSTNAME` + `WP_DIR` is your WordPress URL.
 * `WP_TITLE = "Welcome to the Vagrant"`
- * デフォルトのWordPressのタイトルを指定してください。
+ * The title of the new site.
 * `WP_ADMIN_USER = "admin"`
- * デフォルトのWordPressのユーザー名を指定してください。
- * このVagrantfileでエクスポートしたデータを本番サイトに適用する際のために、ここはカスタマイズして使用することを推奨します。
+ * The default user name of the new site.
 * `WP_ADMIN_PASS = "admin"`
- * デフォルトのユーザーのパスワードを指定してください。
+ * The default user's password.
 * `WP_DB_PREFIX = 'wp_'`
- * WordPressのデータベース内のテーブルに使用されるプレフィックスを指定してください。
+ * Database prefix.
 * `WP_DEFAULT_PLUGINS = %w(theme-check plugin-check hotfix)`
- * デフォルトでインストール&有効化するプラグインを配列で指定してください。
- * プラグインは、公式ディレクトリ上のプラグインであればプラグイン名、もしくは `.zip` ファイルまでのURLでも指定できます。
+ * Set an ARRAY of plugins.
+ * Allow you to set plugin slug, the path to a local zip file, or URL to a remote zip file.
 * `WP_DEFAULT_THEME = ''`
- * デフォルトでインストール&有効化するテーマを指定してください。
- * テーマは、.zipまでのURLを指定するか、公式ディレクトリ上のテーマであれば `twentyfourteen` などのテーマ名でも指定可能です。
+ * Set a default theme.
+ * Allow you to set theme slug, the path to a local zip file, or URL to a remote zip file.
 * `WP_IS_MULTISITE = false`
- * `true` に変更すると、マルチサイトが有効化されます。 
- * マルチサイトは、デフォルトでサブディレクトリ型になります。サブドメイン型を使用するにはwp-config.phpを手作業で修正してください。
- * サブドメイン型のマルチサイトを構築するには別途DNSサーバー等を用意する必要があります。
+ * If set `true` then multi-site install.
+ * The network will use subdirectories by default.
 * `WP_FORCE_SSL_ADMIN = false`
- * `true` に変更すると、ログイン時及び管理画面でSSLが強制されます。
- * SSLの証明書はダミーの自己証明書が適用されています。
+ * If set `true` then enable and enforce administration over SSL.
 * `WP_DEBUG = true`
- * `true` の場合、デバッグモードが有効化されます。(デフォルト)
- * 開発用を想定しているので、有効化しておくことをご推奨します。
+ * If set `true` then trigger the debug mode. (Default)
 * `WP_THEME_UNIT_TEST = false`
- * `true` にすると[テーマユニットテスト](http://codex.wordpress.org/Theme_Unit_Test)用のデータを自動的にインポートします。
+ * If set `true` then [Theme unit test data](http://codex.wordpress.org/Theme_Unit_Test) will import automatically.
 * `WP_ALWAYS_RESET = true`
- * `true` の場合、`vagrant provision` のたびに、WordPressデータベースが再構築されます。(デフォルト)
- * データベースが再構築されると、投稿した記事等のデータは全て消えますのでご注意ください。
+ * If set `true` then always reset database when `vagrant provision`.
+ * You will lost all MySQL data when reset database.
 * `WP_IP = "192.168.33.10"`
- * 仮想マシンのプライベートIPアドレスを指定してください。
+ * Private IP address for Guest OS.
 
-### プロビジョニング後のVagrantfileのカスタマイズについて
+### How to apply Vagrant configuration after `vagrant up`
 
-プロビジョニング後(`vagrant up`した後)にVagrantfileを修正しその結果を反映するには以下の手順を踏む必要があります。
+1. `vagrant up` - Start guest machine.
+2. Ednit Vagrantfile. (`WP_ALWAYS_RESET` should be set `true`.)
+3. `vagrant provision` - Re-Provison.
+4. `vagrant reload` - Re-Start guest machine.
 
-1. `vagrant up` でマシンを起動
-2. Vagrantfileを修正。このとき `WP_ALWAYS_RESET` の値が `true` であること。
-3. `vagrant provision` コマンドを実行して変更内容を反映。
-4. `vagrant reload` でマシンを再起動。
-
-なお、`vagrant provision` の際にはWordPress本体は、Vagrantfileで指定されたものに上書きされますが、`wp-content/` 以下のプラグインやテーマ等のファイルは、プロビジョニング前のファイルがそのまま残ります。
-
-### /etc/hosts について
-
-* Vagrantのプラグイン vagrant-hostsupdater を使用することで、Vagrantfileで指定したホスト名が自動的に `/etc/hosts` に追加されます。
-* `vagrant halt` もしくは `vagrant destroy` でマシンを停止すれば、`/etc/hosts` に追加されたホスト名は自動的に削除されます。
+File under the wp-content directory will be not deleted.
 
 ## wp-cliについて
 
-* このVagrantfileで構築される仮想マシンには、[wp-cli](http://wp-cli.org/) がインストールされています。
-* ホストマシンののMacにwp-cliがインストールされていれば、ホストマシンからも仮想マシン上のWordPressに対してwp-cliを使ったオペレーションを行うことができます。
+* [wp-cli](http://wp-cli.org/) is pre-installed in this Vagrant environments.
+* If you install wp-cli in your Host OS, you can fire wp-cli commands from the Host OS.
 
-### wp-cliを使った操作の例
+### Example for wp-cli commands
+
+You have to install [wp-cli](wp-cli.org) in Host OS.
 
     cd vagrant-local
     
-    # データベースをデスクトップにエクスポート
+    # Exports the database using mysqldump to Desktop.
     wp db export ~/Desktop/export.sql
     
-    # 記事やメディアなどをWordPressのエクスポート機能でエクスポート
+    # Export content to a WXR file.
     mkdir /Users/foo/Desktop/export
     wp export --dir=/Users/foo/Desktop/export
     
-    # contcat-form-7を有効化
+    # Activate the contect-form-7 plugin.
     wp plugin install contact-form-7 --activate
     
-    # WordPressをアップデート
+    # Update WordPress.
     wp core update
 
-その他、wp-cliはいろんなことができますのでおすすめです。
 
-## サーバーの設定等
+## Guest OS environments
 
-* ファイヤーウォールは、以下のポートを開放しています。
- * 22 - SSH用
- * 80 - HTTP用
- * 443 - HTTPS用
- * 3306 - MySQL用(ホストマシンからwp-cliを使用するために開放しています。)
-* CentOS 6.4系を使用しています。
+* Allowed ports on iptables
+ * 22 - SSH
+ * 80 - HTTP
+ * 443 - HTTPS
+ * 3306 - MySQL(Allow you to operate wp-cli from the Host OS)
+* CentOS 6.4.x
  * PHP 5.3.x
  * MySQL 5.1.x
  * Apache 2.2.x
-* プロビジョニングに時間がかかるのでパッケージのアップデート等はしてません。
 
-## ご注意
+## Feedback
 
-* `vagrant halt` でマメにマシンを停止しないと、仮想マシンが大量に立ち上がっちゃうので気をつけましょう。
-* 用が終わったら `vagrant destroy` で、マシンを破棄するのもお忘れなく。
+Let us have it! If you have tips that we need to know, open a new issue.
 
-## おねがい
+* https://github.com/miya0001/vagrant-chef-centos-wordpress/issues
 
-* VagrantもChefもRubyも初めてなので何かあったらやさしくフィードバックをお願いします。
-* pull request等は大歓迎です。
-* メールやDM等での直接の質問はご遠慮願います。
-* バグ報告やご要望は、[Issues](https://github.com/miya0001/vagrant-chef-centos-wordpress/issues) へどうぞ！
+## Contibutors
+
+* [@miya0001](http://twitter.com/miya0001) - http://wpist.me/
