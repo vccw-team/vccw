@@ -8,7 +8,7 @@ This is a [Vagrant](http://www.vagrantup.com/) configuration focused on developm
 * This Vagrant configuration has many settings which you can change.
  * Multisite
  * Force SSL Admin
- * WordPress Working in subdirectory
+ * Installed in subdirectory. (e.g. http://wordpress.local/wp/)
 * Allow you to customize URL. (Default: http://wordpress.local/)
 * Debug mode already enabled.
 * SSL already enabled.
