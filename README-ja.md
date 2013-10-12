@@ -1,22 +1,20 @@
 vagrant-chef-centos-wordpress
 =============================
 
-This is a [Vagrant](http://www.vagrantup.com/) configuration focused on development of WordPress plugins, themes, websites.
+これは、WordPressのプラグインやテーマ、ウェブサイトなどの開発用のVagrantファイルです。
 
-## Overview
+このVagrantファイルを使用すると、プラグインやテーマのテストに必要な多様な環境を数分で構築でき、チームでウェブサイトを構築する際にはVagrantfileを共有するだけで、サイトの環境そのものをチームメンバー全員で共有することができます。
 
-* This Vagrant configuration has many settings which you can change.
- * Multisite
- * Force SSL Admin
- * WordPress Working in subdirectory
-* Allow you to customize URL. (Default: http://wordpress.local/)
-* Debug mode already enabled.
-* SSL already enabled.
-* It is possible to install & activate plugins automatically when provisioning.(Default: theme-check, plugin-check, hotfix)
-* It is possible to install theme automatically when provisioning.(Default: none)
-* Allow you to import theme unit test data.(Default: not import)
-* [wp-cli](http://wp-cli.org) already installed.
-* Share folders between Host and Guest OS
+* Vagrantfileを数行修正するだけでForce SSL Adminやマルチサイト、任意のサブディレクトリへのインストールなど、多様な環境に対応しています。
+* 仮想マシンが起動したらWordPressのインストールは不要です。http://wordpress.local/ にアクセスしてください。(ユーザー名: `admin`、パスワード: `admin`)
+* URLはカスタマイズ可能で、vagrant-hostsupdaterを使用すれば起動時に `/etc/hosts` にレコードを追加し、停止時に自動的に削除します。
+* デフォルトでデバッグモードが有効化されています。
+* デフォルトでSSLが設定されており、SSL環境での動作テストが可能です。
+* 開発に便利な、theme-check, plugin-checkプラグインが有効化されています。
+* テーマユニットテストのデータを自動的にインポートすることが可能です。
+* [wp-cli](http://wp-cli.org/)がプリインストールされています。
+* Vagrantファイル内の `www` ディレクトリと、仮想マシン内の `/var/www` が同期しています。
+* ホストマシンのMacに[wp-cli](http://wp-cli.org)がインストールされていれば、ホストマシンからもwp-cliを使ったデータベースのエクスポート等が可能です。
 
 ## インストール方法
 
