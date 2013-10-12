@@ -102,7 +102,7 @@ This Vagrant configuration has many customizable constants.
 
 File under the wp-content directory will be not deleted.
 
-## wp-cliについて
+## About wp-cli
 
 * [wp-cli](http://wp-cli.org/) is pre-installed in this Vagrant environments.
 * If you install wp-cli in your Host OS, you can fire wp-cli commands from the Host OS.
