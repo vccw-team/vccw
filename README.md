@@ -99,7 +99,7 @@ This Vagrant configuration has many customizable constants.
 ### How to apply Vagrant configuration after `vagrant up`
 
 1. `vagrant up` - Start guest machine.
-2. Ednit Vagrantfile. (`WP_ALWAYS_RESET` should be set `true`.)
+2. Edit Vagrantfile. (`WP_ALWAYS_RESET` should be set `true`.)
 3. `vagrant provision` - Re-Provison.
 4. `vagrant reload` - Re-Start guest machine.
 
