@@ -44,7 +44,7 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
   config.vm.network :private_network, ip: WP_IP
 
   config.vm.synced_folder "www/", "/var/www", :create => "true"
-  config.vm.synced_folder 'theme/', "/var/www/wordpress/wp-content/themes/#{WP_USE_SYNCED_THEME}" if WP_USE_SYNCED_THEME
+  config.vm.synced_folder 'theme/', "/var/www/wordpress/wp-content/themes/#{WP_USE_SYNCED_THEME}", :owner => 'vagrant', :group => 'vagrant' if WP_USE_SYNCED_THEME
 
   # for CentOS ipv6 issue
   config.vm.provider :virtualbox do |vb|
