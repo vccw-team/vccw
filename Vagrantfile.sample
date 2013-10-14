@@ -5,13 +5,15 @@
 VAGRANTFILE_API_VERSION = "2"
 
 
+#
 # Configuration for the WordPress
+#
 
 WP_VERSION         = 'latest' # latest or 3.4 or later
 WP_LANG            = "" # WordPress locale (e.g. ja)
 
 WP_HOSTNAME        = "wordpress.local" # e.g example.com
-WP_DIR             = '' # e.g. /wp or wp or other
+WP_IP              = "192.168.33.10" # host ip address
 
 WP_TITLE           = "Welcome to the Vagrant" # title
 WP_ADMIN_USER      = "admin" # default user
@@ -22,13 +24,15 @@ WP_DB_PREFIX       = 'wp_' # Database prefix
 WP_DEFAULT_PLUGINS = %w(theme-check plugin-check hotfix) # default plugins
 WP_DEFAULT_THEME   = '' # e.g. twentythirteen
 
+WP_DIR             = '' # e.g. /wp or wp or other
 WP_IS_MULTISITE    = false # enable multisite when true
 WP_FORCE_SSL_ADMIN = false # enable force ssl admin when true
 WP_DEBUG           = true # enable debug mode
 WP_THEME_UNIT_TEST = false # automatic import theme unit test data
 
 WP_ALWAYS_RESET    = true # always reset database
-WP_IP              = "192.168.33.10" # host ip address
+
+WP_CHEF_COOKBOOKS_PATH = Dir.pwd # path to the cookbooks (e.g. ~/vagrant-local)
 
 # end configuration
 
@@ -50,7 +54,10 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
 
   config.vm.provision :chef_solo do |chef|
 
-    chef.cookbooks_path = ["cookbooks", "site-cookbooks"]
+    chef.cookbooks_path = [
+		File.join(WP_CHEF_COOKBOOKS_PATH, "cookbooks"),
+		File.join(WP_CHEF_COOKBOOKS_PATH, "site-cookbooks")
+	]
 
     chef.json = {
       :apache => {

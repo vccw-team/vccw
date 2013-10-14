@@ -151,3 +151,4 @@ Let me know if you have any feedback! Open a new issue if you want to share your
 ## Contibutors
 
 * [@miya0001](http://twitter.com/miya0001) - http://wpist.me/
+* [@naokomc](http://twitter.com/naokomc) - http://naoko.cc/
