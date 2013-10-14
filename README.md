@@ -81,6 +81,10 @@ This Vagrant configuration has many customizable constants.
 * `WP_DEFAULT_THEME = ''`
  * Default theme.
  * Use a theme slug, local zip file path, or remote zip file URL.
+* `WP_USE_SYNCED_THEME = nil`
+ * Use local files instead of downloading a theme. Changes to these files will be synced to the virtual machine.
+ * Enter the name of the theme (e.g. 'twentythirteen') in the `/themes` directory.
+ * Note: this option will override the `WP_DEFAULT_THEME` option.
 * `WP_IS_MULTISITE = false`
  * If set to `true`, multisite network is installed.
  * The network uses subdirectories by default.
@@ -99,7 +103,7 @@ This Vagrant configuration has many customizable constants.
 ### How to apply Vagrant configuration after `vagrant up`
 
 1. `vagrant up` - Start guest machine.
-2. Ednit Vagrantfile. (`WP_ALWAYS_RESET` should be set `true`.)
+2. Edit Vagrantfile. (`WP_ALWAYS_RESET` should be set `true`.)
 3. `vagrant provision` - Re-Provison.
 4. `vagrant reload` - Re-Start guest machine.
 
