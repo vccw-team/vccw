@@ -22,6 +22,9 @@ WP_DB_PREFIX       = 'wp_' # Database prefix
 WP_DEFAULT_PLUGINS = %w(theme-check plugin-check hotfix) # default plugins
 WP_DEFAULT_THEME   = '' # e.g. twentythirteen
 
+# Name of the theme that resides in /theme
+WP_USE_SYNCED_THEME = nil
+
 WP_IS_MULTISITE    = false # enable multisite when true
 WP_FORCE_SSL_ADMIN = false # enable force ssl admin when true
 WP_DEBUG           = true # enable debug mode
@@ -41,6 +44,7 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
   config.vm.network :private_network, ip: WP_IP
 
   config.vm.synced_folder "www/", "/var/www", :create => "true"
+  config.vm.synced_folder 'theme/', "/var/www/wordpress/wp-content/themes/#{WP_USE_SYNCED_THEME}" if WP_USE_SYNCED_THEME
 
   # for CentOS ipv6 issue
   config.vm.provider :virtualbox do |vb|
@@ -77,7 +81,7 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
         :admin_password  => WP_ADMIN_PASS,
         :dbprefix        => WP_DB_PREFIX,
         :default_plugins => WP_DEFAULT_PLUGINS,
-        :default_theme   => WP_DEFAULT_THEME,
+        :default_theme   => WP_USE_SYNCED_THEME || WP_DEFAULT_THEME,
         :title           => WP_TITLE,
         :is_multisite    => WP_IS_MULTISITE,
         :force_ssl_admin => WP_FORCE_SSL_ADMIN,
