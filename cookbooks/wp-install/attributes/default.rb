@@ -22,6 +22,9 @@ default['wp-install']['theme_unit_test'] = true
 default['wp-install']['theme_unit_test_data_url'] = 'https://wpcom-themes.svn.automattic.com/demo/theme-unit-test-data.xml'
 default['wp-install']['theme_unit_test_data'] = '/tmp/theme-unit-test-data.xml'
 
+default['wp-install']['gitignore_url'] = 'https://raw.github.com/github/gitignore/master/WordPress.gitignore'
+default['wp-install']['gitignore'] = '/var/www/wordpress/.gitignore'
+
 default['wp-install']['is_multisite'] = false
 default['wp-install']['force_ssl_admin'] = false
 default['wp-install']['always_reset'] = true
