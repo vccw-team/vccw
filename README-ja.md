@@ -1,5 +1,4 @@
-vagrant-chef-centos-wordpress
-=============================
+# VCCW (vagrant-chef-centos-wordpress)
 
 これは、WordPressのプラグインやテーマ、ウェブサイトなどの開発用のVagrantファイルです。
 

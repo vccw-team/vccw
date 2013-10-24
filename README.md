@@ -1,5 +1,4 @@
-vagrant-chef-centos-wordpress
-=============================
+# VCCW (vagrant-chef-centos-wordpress)
 
 This is a [Vagrant](http://www.vagrantup.com/) configuration designed for development of WordPress plugins, themes, or websites.
 
