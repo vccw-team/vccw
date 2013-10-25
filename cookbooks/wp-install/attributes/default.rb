@@ -17,7 +17,9 @@ default['wp-install']['admin_email'] = "vagrant@example.com"
 default['wp-install']['default_plugins'] = []
 
 default['wp-install']['is_multisite'] = false
-default['wp-install']['debug_mode'] = true
+default['wp-install']['debug_mode'] = false
+default['wp-install']['savequeries'] = false
+
 default['wp-install']['theme_unit_test'] = true
 default['wp-install']['theme_unit_test_data_url'] = 'https://wpcom-themes.svn.automattic.com/demo/theme-unit-test-data.xml'
 default['wp-install']['theme_unit_test_data'] = '/tmp/theme-unit-test-data.xml'

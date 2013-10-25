@@ -9,28 +9,29 @@ VAGRANTFILE_API_VERSION = "2"
 # Configuration for the WordPress
 #
 
-WP_VERSION         = 'latest' # latest or 3.4 or later
-WP_LANG            = "" # WordPress locale (e.g. ja)
+WP_VERSION           = 'latest' # latest or 3.4 or later
+WP_LANG              = "" # WordPress locale (e.g. ja)
 
-WP_HOSTNAME        = "wordpress.local" # e.g example.com
-WP_IP              = "192.168.33.10" # host ip address
+WP_HOSTNAME          = "wordpress.local" # e.g example.com
+WP_IP                = "192.168.33.10" # host ip address
 
-WP_TITLE           = "Welcome to the Vagrant" # title
-WP_ADMIN_USER      = "admin" # default user
-WP_ADMIN_PASS      = "admin" # default user's password
+WP_TITLE             = "Welcome to the Vagrant" # title
+WP_ADMIN_USER        = "admin" # default user
+WP_ADMIN_PASS        = "admin" # default user's password
 
-WP_DB_PREFIX       = 'wp_' # Database prefix
+WP_DB_PREFIX         = 'wp_' # Database prefix
 
-WP_DEFAULT_PLUGINS = %w(theme-check plugin-check hotfix) # default plugins
-WP_DEFAULT_THEME   = '' # e.g. twentythirteen
+WP_DEFAULT_PLUGINS   = %w(theme-check plugin-check hotfix) # default plugins
+WP_DEFAULT_THEME     = '' # e.g. twentythirteen
 
-WP_DIR             = '' # e.g. /wp or wp or other
-WP_IS_MULTISITE    = false # enable multisite when true
-WP_FORCE_SSL_ADMIN = false # enable force ssl admin when true
-WP_DEBUG           = true # enable debug mode
-WP_THEME_UNIT_TEST = false # automatic import theme unit test data
+WP_DIR               = '' # e.g. /wp or wp or other
+WP_IS_MULTISITE      = false # enable multisite when true
+WP_FORCE_SSL_ADMIN   = false # enable force ssl admin when true
+WP_DEBUG             = true # enable debug mode
+WP_SAVEQUERIES       = false # save the database queries to an array
+WP_THEME_UNIT_TEST   = false # automatic import theme unit test data
 
-WP_ALWAYS_RESET    = true # always reset database
+WP_ALWAYS_RESET      = true # always reset database
 
 WP_CHEF_COOKBOOKS_PATH = Dir.pwd # path to the cookbooks (e.g. ~/vagrant-local)
 
@@ -76,22 +77,23 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
         :server_repl_password   => "wordpress"
       },
       :"wp-install" => {
-        :wp_version      => WP_VERSION,
-        :url             => "http://" << File.join(WP_HOSTNAME, WP_DIR),
-        :wpdir           => File.join('/var/www/wordpress', WP_DIR),
-        :locale          => WP_LANG,
-        :admin_user      => WP_ADMIN_USER,
-        :admin_password  => WP_ADMIN_PASS,
-        :dbprefix        => WP_DB_PREFIX,
-        :default_plugins => WP_DEFAULT_PLUGINS,
-        :default_theme   => WP_DEFAULT_THEME,
-        :title           => WP_TITLE,
-        :is_multisite    => WP_IS_MULTISITE,
-        :force_ssl_admin => WP_FORCE_SSL_ADMIN,
-        :debug_mode      => WP_DEBUG,
-        :theme_unit_test => WP_THEME_UNIT_TEST,
-        :always_reset    => WP_ALWAYS_RESET,
-        :dbhost          => WP_IP
+        :wp_version        => WP_VERSION,
+        :url               => "http://" << File.join(WP_HOSTNAME, WP_DIR),
+        :wpdir             => File.join('/var/www/wordpress', WP_DIR),
+        :locale            => WP_LANG,
+        :admin_user        => WP_ADMIN_USER,
+        :admin_password    => WP_ADMIN_PASS,
+        :dbprefix          => WP_DB_PREFIX,
+        :default_plugins   => WP_DEFAULT_PLUGINS,
+        :default_theme     => WP_DEFAULT_THEME,
+        :title             => WP_TITLE,
+        :is_multisite      => WP_IS_MULTISITE,
+        :force_ssl_admin   => WP_FORCE_SSL_ADMIN,
+        :debug_mode        => WP_DEBUG,
+        :savequeries       => WP_SAVEQUERIES,
+        :theme_unit_test   => WP_THEME_UNIT_TEST,
+        :always_reset      => WP_ALWAYS_RESET,
+        :dbhost            => WP_IP
       }
     }
 

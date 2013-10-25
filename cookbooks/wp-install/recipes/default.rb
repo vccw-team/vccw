@@ -86,6 +86,7 @@ bash "wordpress-core-config" do
     --extra-php <<PHP
 define( 'WP_DEBUG', #{node['wp-install']['debug_mode']} );
 define( 'FORCE_SSL_ADMIN', #{node['wp-install']['force_ssl_admin']} );
+define( 'SAVEQUERIES', #{node['wp-install']['savequeries']} );
 PHP
   EOH
 end
