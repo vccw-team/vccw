@@ -1,3 +1,6 @@
+# encoding: utf-8
+# vim: ft=ruby expandtab shiftwidth=2 tabstop=2
+
 packages = %w{git subversion}
 
 packages.each do |pkg|

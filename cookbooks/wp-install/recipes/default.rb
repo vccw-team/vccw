@@ -1,3 +1,6 @@
+# encoding: utf-8
+# vim: ft=ruby expandtab shiftwidth=2 tabstop=2
+
 require 'shellwords'
 
 node.set_unless['wp-install']['dbpassword'] = secure_password

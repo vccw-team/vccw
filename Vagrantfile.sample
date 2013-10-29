@@ -1,9 +1,7 @@
 # encoding: utf-8
-# -*- mode: ruby -*-
-# vi: set ft=ruby :
+# vim: ft=ruby expandtab shiftwidth=2 tabstop=2
 
 VAGRANTFILE_API_VERSION = "2"
-
 
 #
 # Configuration for the WordPress
@@ -46,6 +44,8 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
   config.vm.network :private_network, ip: WP_IP
 
   config.vm.synced_folder "www/", "/var/www", :create => "true"
+
+  config.hostsupdater.remove_on_suspend = true
 
   # for CentOS ipv6 issue
   config.vm.provider :virtualbox do |vb|
