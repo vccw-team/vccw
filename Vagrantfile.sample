@@ -56,9 +56,9 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
   config.vm.provision :chef_solo do |chef|
 
     chef.cookbooks_path = [
-		File.join(WP_CHEF_COOKBOOKS_PATH, "cookbooks"),
-		File.join(WP_CHEF_COOKBOOKS_PATH, "site-cookbooks")
-	]
+      File.join(WP_CHEF_COOKBOOKS_PATH, "cookbooks"),
+      File.join(WP_CHEF_COOKBOOKS_PATH, "site-cookbooks")
+    ]
 
     chef.json = {
       :apache => {
