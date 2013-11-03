@@ -7,7 +7,7 @@ VAGRANTFILE_API_VERSION = "2"
 # Configuration for the WordPress
 #
 
-WP_VERSION           = 'latest' # latest or 3.4 or later
+WP_VERSION           = 'latest' # latest or 3.4 or later or http(s):// URL to zipfile
 WP_LANG              = "" # WordPress locale (e.g. ja)
 
 WP_HOSTNAME          = "wordpress.local" # e.g example.com
