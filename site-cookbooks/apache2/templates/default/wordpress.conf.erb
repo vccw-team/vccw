@@ -2,6 +2,8 @@
   ServerName <%= @params[:server_name] %>
   DocumentRoot <%= @params[:docroot] %>
 
+  EnableSendfile off
+
   <Directory <%= @params[:docroot] %>>
     Options FollowSymLinks
     AllowOverride FileInfo Options
