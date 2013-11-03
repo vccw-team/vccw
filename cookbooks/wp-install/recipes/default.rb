@@ -48,6 +48,12 @@ unless Chef::Config[:solo]
   end
 end
 
+bash "install zip" do
+  user "root"
+  group "root"
+  code "yum install -y zip unzip"
+end
+
 bash "wordpress-core-download" do
   user "vagrant"
   group "vagrant"
@@ -57,6 +63,10 @@ wp core download \\
 --path=#{Shellwords.shellescape(node['wp-install']['wpdir'])} \\
 --locale=#{Shellwords.shellescape(node['wp-install']['locale'])} \\
 --force
+      EOH
+  elsif node['wp-install']['wp_version'] =~ %r{^http(s)?://.*?\.zip$}
+      code <<-EOH
+        cd /tmp && wget -O ./download.zip #{Shellwords.shellescape(node['wp-install']['wp_version'])} && unzip -d /var/www/ ./download.zip && rm ./download.zip
       EOH
   else
       code <<-EOH
