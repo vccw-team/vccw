@@ -147,6 +147,27 @@ Vagrantfileの定数を修正するだけであらゆる環境のWordPressを構
  * Apache 2.2.x
 * プロビジョニングに時間がかかるのでパッケージのアップデート等はしてません。
 
+## WordPress i18n toolsによるテーマやプラグインの翻訳方法
+
+仮想マシンにSSHで接続する。
+
+    vagrant ssh
+
+テーマ(またはプラグイン)ディレクトリ内のlanguagesディレクトリに移動
+
+    cd /var/www/wordpress/wp-content/themes/xxxxx/languages
+
+.pot ファイルを作成する
+
+    makepot wp-theme ..  # テーマの場合
+    makepot wp-plugin .. # プラグインの場合
+
+あとは、.pot から .po を作って、翻訳作業を行なってください。
+
+.po から .mo を作成するには、以下のような感じのコマンドを実行してください。
+
+    msgfmt ja.po -o ja.mo
+
 ## ご注意
 
 * `vagrant halt` でマメにマシンを停止しないと、仮想マシンが大量に立ち上がっちゃうので気をつけましょう。
