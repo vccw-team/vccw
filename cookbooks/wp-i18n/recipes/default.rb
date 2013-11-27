@@ -10,7 +10,7 @@ packages.each do |pkg|
 end
 
 git node['wp-i18n']['path'] do
-  repository "https://github.com/osclass/i18n-tools.git"
+  repository "https://github.com/loumray/wp-i18n-tools.git"
   reference  "master"
   action     :sync
   user       "root"
