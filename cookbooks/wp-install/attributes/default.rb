@@ -30,3 +30,4 @@ default['wp-install']['gitignore'] = '/var/www/wordpress/.gitignore'
 default['wp-install']['is_multisite'] = false
 default['wp-install']['force_ssl_admin'] = false
 default['wp-install']['always_reset'] = true
+

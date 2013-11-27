@@ -33,6 +33,11 @@ WP_ALWAYS_RESET      = true # always reset database
 
 WP_CHEF_COOKBOOKS_PATH = Dir.pwd # path to the cookbooks (e.g. ~/vagrant-local)
 
+WP_THEME_UNIT_TEST_DATA_URI = 'https://wpcom-themes.svn.automattic.com/demo/theme-unit-test-data.xml'
+if WP_LANG === 'ja' then
+  WP_THEME_UNIT_TEST_DATA_URI = 'https://raw.github.com/jawordpressorg/theme-test-data-ja/v1.0/wordpress-theme-test-date-ja.xml'
+end
+
 # end configuration
 
 Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
@@ -92,6 +97,7 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
         :debug_mode        => WP_DEBUG,
         :savequeries       => WP_SAVEQUERIES,
         :theme_unit_test   => WP_THEME_UNIT_TEST,
+        :theme_unit_test_data_url => WP_THEME_UNIT_TEST_DATA_URI,
         :always_reset      => WP_ALWAYS_RESET,
         :dbhost            => WP_IP
       }
@@ -107,6 +113,7 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
     chef.add_recipe "php::package"
     chef.add_recipe "wp-cli"
     chef.add_recipe "wp-install"
+    chef.add_recipe "wp-i18n"
 
   end
 
