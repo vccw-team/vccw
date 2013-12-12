@@ -16,7 +16,7 @@ end
 
 # download installer
 remote_file File.join(node['wp-cli']['wpcli-dir'], 'installer.sh') do
-  source 'http://wp-cli.org/installer.sh'
+  source node['wp-cli']['installer']
   mode 0755
   action :create_if_missing
 end
