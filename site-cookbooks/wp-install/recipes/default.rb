@@ -10,7 +10,7 @@ execute "mysql-install-wp-privileges" do
   action :nothing
 end
 
-template "#{node['mysql']['conf_dir']}/wp-grants.sql" do
+template File.join(node['mysql']['conf_dir'], '/wp-grants.sql') do
   source "grants.sql.erb"
   owner "vagrant"
   group "vagrant"
@@ -79,7 +79,7 @@ wp core download \\
   end
 end
 
-file "#{node['wp-install']['wpdir']}/wp-config.php" do
+file File.join(node['wp-install']['wpdir'], "wp-config.php") do
   action :delete
   backup false
 end
