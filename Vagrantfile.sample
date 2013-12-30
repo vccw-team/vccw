@@ -18,6 +18,7 @@ WP_ADMIN_USER        = "admin" # default user
 WP_ADMIN_PASS        = "admin" # default user's password
 
 WP_DB_PREFIX         = 'wp_' # Database prefix
+WP_DB_HOST           = 'localhost' # or WP_IP and other
 
 WP_DEFAULT_PLUGINS   = %w(theme-check plugin-check hotfix) # default plugins
 WP_DEFAULT_THEME     = '' # e.g. twentythirteen
@@ -100,7 +101,7 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
         :theme_unit_test   => WP_THEME_UNIT_TEST,
         :theme_unit_test_data_url => WP_THEME_UNIT_TEST_DATA_URI,
         :always_reset      => WP_ALWAYS_RESET,
-        :dbhost            => WP_IP
+        :dbhost            => WP_DB_HOST
       }
     }
 

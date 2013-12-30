@@ -183,3 +183,6 @@ Vagrantfileの定数を修正するだけであらゆる環境のWordPressを構
 
 * [@miya0001](http://twitter.com/miya0001) - http://wpist.me/
 * [@naokomc](http://twitter.com/naokomc) - http://naoko.cc/
+* [keichan34](https://github.com/keichan34) - http://keita.flagship.cc/
+* [gatespace](https://github.com/gatespace) - http://gatespace.jp/
+
