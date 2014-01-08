@@ -32,9 +32,9 @@ This is a [Vagrant](http://www.vagrantup.com/) configuration designed for develo
  * `cd vagrant-wp`
 6. Copy the default Vagrantfile.
  * `cp Vagrantfile.sample Vagrantfile`
-6. Start a Vagrant environment.
+7. Start a Vagrant environment.
  * `vagrant up`
-7. Visit http://wordpress.local/
+8. Visit http://wordpress.local/
 
 ## About WordPress Environment
 
@@ -74,6 +74,9 @@ This Vagrant configuration has many customizable constants.
  * The default user's password.
 * `WP_DB_PREFIX = 'wp_'`
  * Database prefix.
+* `WP_DB_HOST = 'localhost'`
+ * The host name of the MySQL database.
+ * 'localhost' or WP_IP
 * `WP_DEFAULT_PLUGINS = %w(theme-check plugin-check hotfix)`
  * An ARRAY of plugins.
  * Use a plugin slug, local zip file path, or remote zip file URL.

@@ -29,7 +29,7 @@
  * `cd vagrant-wp`
 6. Vagrantfileを準備。
  * `cp Vagrantfile.sample Vagrantfile`
-6. 仮想マシンを起動。
+7. 仮想マシンを起動。
  * `vagrant up`
 
 ## WordPressについて
@@ -70,6 +70,9 @@ Vagrantfileの定数を修正するだけであらゆる環境のWordPressを構
  * デフォルトのユーザーのパスワードを指定してください。
 * `WP_DB_PREFIX = 'wp_'`
  * WordPressのデータベース内のテーブルに使用されるプレフィックスを指定してください。
+* `WP_DB_HOST = 'localhost'`
+ * MySQLデータベースのホスト名
+ * 'localhost' または WP_IP
 * `WP_DEFAULT_PLUGINS = %w(theme-check plugin-check hotfix)`
  * デフォルトでインストール&有効化するプラグインを配列で指定してください。
  * プラグインは、公式ディレクトリ上のプラグインであればプラグイン名、もしくは `.zip` ファイルまでのURLでも指定できます。
