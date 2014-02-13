@@ -8,7 +8,7 @@ VAGRANTFILE_API_VERSION = "2"
 #
 
 WP_VERSION           = 'latest' # latest or 3.4 or later or http(s):// URL to zipfile
-WP_LANG              = "" # WordPress locale (e.g. ja)
+WP_LANG              = "en_US" # WordPress locale (e.g. ja)
 
 WP_HOSTNAME          = "wordpress.local" # e.g example.com
 WP_IP                = "192.168.33.10" # host ip address
