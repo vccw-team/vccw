@@ -97,6 +97,8 @@ bash "wordpress-core-config" do
     --dbprefix=#{Shellwords.shellescape(node['wp-install']['dbprefix'])} \\
     --locale=#{Shellwords.shellescape(node['wp-install']['locale'])} \\
     --extra-php <<PHP
+define( 'WP_HOME', '#{Shellwords.shellescape(node['wp-install']['url']).sub(/\/$/, '')}' );
+define( 'WP_SITEURL', '#{Shellwords.shellescape(node['wp-install']['url']).sub(/\/$/, '')}' );
 define( 'JETPACK_DEV_DEBUG', #{node['wp-install']['debug_mode']} );
 define( 'WP_DEBUG', #{node['wp-install']['debug_mode']} );
 define( 'FORCE_SSL_ADMIN', #{node['wp-install']['force_ssl_admin']} );

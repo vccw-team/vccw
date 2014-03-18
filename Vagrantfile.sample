@@ -19,8 +19,11 @@ WP_ADMIN_PASS        = "admin" # default user's password
 
 WP_DB_PREFIX         = 'wp_' # Database prefix
 WP_DB_HOST           = 'localhost' # or WP_IP and other
+WP_DB_NAME           = 'wordpress'
+WP_DB_USER           = 'wordpress'
+WP_DB_PASS           = 'wordpress'
 
-WP_DEFAULT_PLUGINS   = %w(theme-check plugin-check hotfix) # default plugins
+WP_DEFAULT_PLUGINS   = %w(theme-check plugin-check hotfix dynamic-hostname) # default plugins
 WP_DEFAULT_THEME     = '' # e.g. twentythirteen
 
 WP_DIR               = '' # e.g. /wp or wp or other
@@ -41,6 +44,72 @@ else
 end
 
 # end configuration
+
+
+# set up wordmove
+# https://github.com/welaika/wordmove
+
+File.open('Movefile', 'w').write <<-EOS
+local:
+  vhost: "http://#{File.join(WP_HOSTNAME, WP_DIR)}"
+  wordpress_path: "#{Dir.pwd}/www/wordpress" # use an absolute path here
+
+  database:
+    name: "#{WP_DB_NAME}"
+    user: "#{WP_DB_USER}"
+    password: "#{WP_DB_PASS}"
+    host: "#{WP_IP}"
+
+staging:
+  vhost: "http://remote.com"
+  wordpress_path: "/var/www/your_site" # use an absolute path here
+
+  database:
+    name: "database_name"
+    user: "user"
+    password: "password"
+    host: "host"
+    # port: "3308" # Use just in case you have exotic server config
+
+  exclude:
+    - ".git/"
+    - ".gitignore"
+    - ".sass-cache/"
+    - "bin/"
+    - "tmp/*"
+    - "Gemfile*"
+    - "Movefile"
+    - "wp-config.php"
+    - "wp-content/*.sql"
+
+  # paths: # you can customize wordpress internal paths
+  #   wp_content: "wp-content"
+  #   uploads: "wp-content/uploads"
+  #   plugins: "wp-content/plugins"
+  #   themes: "wp-content/themes"
+  #   languages: "wp-content/languages"
+  #   themes: "wp-content/themes"
+
+  # ssh:
+  #   host: "host"
+  #   user: "user"
+  #   password: "password" # password is optional, will use public keys if available.
+  #   port: 22 # Port is optional
+  #   rsync_options: "--verbose" # Additional rsync options, optional
+  #   gateway: # Gateway is optional
+  #     host: "host"
+  #     user: "user"
+  #     password: "password" # password is optional, will use public keys if available.
+
+  # ftp:
+  #   user: "user"
+  #   password: "password"
+  #   host: "host"
+  #   passive: true
+
+# production: # multiple environments can be specified
+#   [...]
+EOS
 
 Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
 
@@ -83,14 +152,13 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
         :server_root_password   => "wordpress",
         :server_repl_password   => "wordpress"
       },
-      :"wp-install" => {
+      "wp-install" => {
         :wp_version        => WP_VERSION,
         :url               => "http://" << File.join(WP_HOSTNAME, WP_DIR),
         :wpdir             => File.join('/var/www/wordpress', WP_DIR),
         :locale            => WP_LANG,
         :admin_user        => WP_ADMIN_USER,
         :admin_password    => WP_ADMIN_PASS,
-        :dbprefix          => WP_DB_PREFIX,
         :default_plugins   => WP_DEFAULT_PLUGINS,
         :default_theme     => WP_DEFAULT_THEME,
         :title             => WP_TITLE,
@@ -101,7 +169,11 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
         :theme_unit_test   => WP_THEME_UNIT_TEST,
         :theme_unit_test_data_url => WP_THEME_UNIT_TEST_DATA_URI,
         :always_reset      => WP_ALWAYS_RESET,
-        :dbhost            => WP_DB_HOST
+        :dbhost            => WP_DB_HOST,
+        :dbname            => WP_DB_NAME,
+        :dbuser            => WP_DB_USER,
+        :dbpassword        => WP_DB_PASS,
+        :dbprefix          => WP_DB_PREFIX
       }
     }
 
