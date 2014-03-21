@@ -125,8 +125,8 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
 
   # for CentOS ipv6 issue
   config.vm.provider :virtualbox do |vb|
-    vb.customize ["modifyvm", :id, "--natdnsproxy1", "off"]
-    vb.customize ["modifyvm", :id, "--natdnshostresolver1", "off"]
+    vb.customize ["modifyvm", :id, "--natdnsproxy1", "on"]
+    vb.customize ["modifyvm", :id, "--natdnshostresolver1", "on"]
   end
 
   config.vm.provision :chef_solo do |chef|
