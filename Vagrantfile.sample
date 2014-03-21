@@ -123,7 +123,6 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
 
   config.hostsupdater.remove_on_suspend = true
 
-  # for CentOS ipv6 issue
   config.vm.provider :virtualbox do |vb|
     vb.customize ["modifyvm", :id, "--natdnsproxy1", "on"]
     vb.customize ["modifyvm", :id, "--natdnshostresolver1", "on"]
