@@ -157,3 +157,4 @@ Let me know if you have any feedback! Open a new issue if you want to share your
 * [keichan34](https://github.com/keichan34) - http://keita.flagship.cc/
 * [gatespace](https://github.com/gatespace) - http://gatespace.jp/
 * [hirayama-evolni](https://github.com/hirayama-evolni)
+* [tkc49](https://github.com/tkc49)
