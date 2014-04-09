@@ -38,7 +38,7 @@ WP_ALWAYS_RESET      = true # always reset database
 WP_CHEF_COOKBOOKS_PATH = Dir.pwd # path to the cookbooks (e.g. ~/vagrant-wp)
 
 if WP_LANG === 'ja' then
-  WP_THEME_UNIT_TEST_DATA_URI = 'https://raw.github.com/jawordpressorg/theme-test-data-ja/v1.0/wordpress-theme-test-date-ja.xml'
+  WP_THEME_UNIT_TEST_DATA_URI = 'https://raw.githubusercontent.com/jawordpressorg/theme-test-data-ja/master/wordpress-theme-test-date-ja.xml'
 else
   WP_THEME_UNIT_TEST_DATA_URI = 'https://wpcom-themes.svn.automattic.com/demo/theme-unit-test-data.xml'
 end
