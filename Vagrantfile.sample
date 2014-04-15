@@ -116,6 +116,7 @@ end
 Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
 
   config.vm.box = "chef/centos-6.5"
+  #config.vm.box = "chef/centos-6.5-i386" // for 32bit
 
   config.vm.hostname = WP_HOSTNAME
   config.vm.network :private_network, ip: WP_IP
