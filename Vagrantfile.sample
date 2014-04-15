@@ -49,7 +49,8 @@ end
 # set up wordmove
 # https://github.com/welaika/wordmove
 
-File.open('Movefile', 'w').write <<-EOS
+if !File.exist?('Movefile')
+File.open('Movefile', File::WRONLY|File::CREAT|File::EXCL).write <<-EOS
 local:
   vhost: "http://#{File.join(WP_HOSTNAME, WP_DIR)}"
   wordpress_path: "#{Dir.pwd}/www/wordpress" # use an absolute path here
@@ -110,11 +111,11 @@ staging:
 # production: # multiple environments can be specified
 #   [...]
 EOS
+end
 
 Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
 
-  config.vm.box = "cent64_minimal_i386"
-  config.vm.box_url = "http://developer.nrel.gov/downloads/vagrant-boxes/CentOS-6.4-i386-v20130427.box"
+  config.vm.box = "chef/centos-6.5"
 
   config.vm.hostname = WP_HOSTNAME
   config.vm.network :private_network, ip: WP_IP
@@ -127,6 +128,10 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
     vb.customize ["modifyvm", :id, "--natdnsproxy1", "on"]
     vb.customize ["modifyvm", :id, "--natdnshostresolver1", "on"]
   end
+
+
+  config.vm.provision "shell",
+      inline: "curl -L https://www.opscode.com/chef/install.sh | bash"
 
   config.vm.provision :chef_solo do |chef|
 
