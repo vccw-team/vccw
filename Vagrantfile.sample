@@ -122,16 +122,21 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
 
   config.vm.synced_folder "www/wordpress/", "/var/www/wordpress", :create => "true"
 
-  config.hostsupdater.remove_on_suspend = true
+  if Vagrant.has_plugin?("vagrant-hostsupdater")
+    config.hostsupdater.remove_on_suspend = true
+  end
+
+  if Vagrant.has_plugin?("vagrant-omnibus")
+    config.omnibus.chef_version = :latest
+  else
+    config.vm.provision "shell",
+        inline: "curl -L https://www.opscode.com/chef/install.sh | bash"
+  end
 
   config.vm.provider :virtualbox do |vb|
     vb.customize ["modifyvm", :id, "--natdnsproxy1", "on"]
     vb.customize ["modifyvm", :id, "--natdnshostresolver1", "on"]
   end
-
-
-  config.vm.provision "shell",
-      inline: "curl -L https://www.opscode.com/chef/install.sh | bash"
 
   config.vm.provision :chef_solo do |chef|
 
@@ -182,7 +187,6 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
     }
 
     #chef.add_recipe "yum::remi"
-    chef.add_recipe "yum::epel"
     chef.add_recipe "iptables"
     chef.add_recipe "apache2"
     chef.add_recipe "apache2::mod_php5"
