@@ -2,10 +2,13 @@
 # vim: ft=ruby expandtab shiftwidth=2 tabstop=2
 
 VAGRANTFILE_API_VERSION = "2"
+Vagrant.require_version ">= 1.5"
 
 #
 # Configuration for the WordPress
 #
+
+VM_BOX               = "chef/centos-6.5-i386" # for 32bit
 
 WP_VERSION           = 'latest' # latest or 3.4 or later or http(s):// URL to zipfile
 WP_LANG              = "en_US" # WordPress locale (e.g. ja)
@@ -23,7 +26,7 @@ WP_DB_NAME           = 'wordpress'
 WP_DB_USER           = 'wordpress'
 WP_DB_PASS           = 'wordpress'
 
-WP_DEFAULT_PLUGINS   = %w(theme-check plugin-check hotfix dynamic-hostname) # default plugins
+WP_DEFAULT_PLUGINS   = %w(theme-check plugin-check dynamic-hostname) # default plugins
 WP_DEFAULT_THEME     = '' # e.g. twentythirteen
 
 WP_DIR               = '' # e.g. /wp or wp or other
@@ -46,77 +49,9 @@ end
 # end configuration
 
 
-# set up wordmove
-# https://github.com/welaika/wordmove
-
-if !File.exist?('Movefile')
-File.open('Movefile', File::WRONLY|File::CREAT|File::EXCL).write <<-EOS
-local:
-  vhost: "http://#{File.join(WP_HOSTNAME, WP_DIR)}"
-  wordpress_path: "#{Dir.pwd}/www/wordpress" # use an absolute path here
-
-  database:
-    name: "#{WP_DB_NAME}"
-    user: "#{WP_DB_USER}"
-    password: "#{WP_DB_PASS}"
-    host: "#{WP_IP}"
-
-staging:
-  vhost: "http://remote.com"
-  wordpress_path: "/var/www/your_site" # use an absolute path here
-
-  database:
-    name: "database_name"
-    user: "user"
-    password: "password"
-    host: "host"
-    # port: "3308" # Use just in case you have exotic server config
-
-  exclude:
-    - ".git/"
-    - ".gitignore"
-    - ".sass-cache/"
-    - "bin/"
-    - "tmp/*"
-    - "Gemfile*"
-    - "Movefile"
-    - "wp-config.php"
-    - "wp-content/*.sql"
-
-  # paths: # you can customize wordpress internal paths
-  #   wp_content: "wp-content"
-  #   uploads: "wp-content/uploads"
-  #   plugins: "wp-content/plugins"
-  #   themes: "wp-content/themes"
-  #   languages: "wp-content/languages"
-  #   themes: "wp-content/themes"
-
-  # ssh:
-  #   host: "host"
-  #   user: "user"
-  #   password: "password" # password is optional, will use public keys if available.
-  #   port: 22 # Port is optional
-  #   rsync_options: "--verbose" # Additional rsync options, optional
-  #   gateway: # Gateway is optional
-  #     host: "host"
-  #     user: "user"
-  #     password: "password" # password is optional, will use public keys if available.
-
-  # ftp:
-  #   user: "user"
-  #   password: "password"
-  #   host: "host"
-  #   passive: true
-
-# production: # multiple environments can be specified
-#   [...]
-EOS
-end
-
 Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
 
-  config.vm.box = "chef/centos-6.5"
-  #config.vm.box = "chef/centos-6.5-i386" // for 32bit
+  config.vm.box = VM_BOX
 
   config.vm.hostname = WP_HOSTNAME
   config.vm.network :private_network, ip: WP_IP
@@ -154,7 +89,14 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
         :listen_ports => ["80", "443"]
       },
       :php => {
-        :packages => %w(php php-cli php-devel php-mbstring php-gd php-xml php-mysql)
+        :packages => %w(php php-cli php-devel php-mbstring php-gd php-xml php-mysql),
+        :directives => {
+            "default_charset"            => "UTF-8",
+            "mbstring.language"          => "neutral",
+            "mbstring.internal_encoding" => "UTF-8",
+            "date.timezone"              => "UTC",
+            "short_open_tag"             => "Off"
+        }
       },
       :mysql => {
         :bind_address           => "0.0.0.0",
@@ -162,7 +104,7 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
         :server_root_password   => "wordpress",
         :server_repl_password   => "wordpress"
       },
-      "wp-install" => {
+      "wp-cli" => {
         :wp_version        => WP_VERSION,
         :url               => "http://" << File.join(WP_HOSTNAME, WP_DIR),
         :wpdir             => File.join('/var/www/wordpress', WP_DIR),
@@ -187,7 +129,7 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
       }
     }
 
-    #chef.add_recipe "yum::remi"
+    chef.add_recipe "yum::remi"
     chef.add_recipe "iptables"
     chef.add_recipe "apache2"
     chef.add_recipe "apache2::mod_php5"
@@ -196,8 +138,8 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
     chef.add_recipe "mysql::ruby"
     chef.add_recipe "php::package"
     chef.add_recipe "wp-cli"
-    chef.add_recipe "wp-install"
-    chef.add_recipe "wp-i18n"
+    chef.add_recipe "wp-cli::install"
+    chef.add_recipe "vccw"
 
   end
 
