@@ -196,3 +196,32 @@ remote_file node['wp-install']['gitignore'] do
   action :create
 end
 
+
+
+apache_site "000-default" do
+  enable false
+end
+
+web_app "wordpress" do
+  template "wordpress.conf.erb"
+  docroot node['apache']['docroot_dir']
+  server_name node['fqdn']
+end
+
+bash "create-ssl-keys" do
+  user "root"
+  group "root"
+  cwd File.join(node['apache']['dir'], 'ssl')
+  code <<-EOH
+    openssl genrsa -out server.key 2048
+    openssl req -new -key server.key -subj '/C=JP/ST=Wakayama/L=Kushimoto/O=My Corporate/CN=#{node['fqdn']}' -out server.csr
+    openssl x509 -in server.csr -days 365 -req -signkey server.key > server.crt
+  EOH
+  notifies :restart, "service[apache2]"
+end
+
+
+iptables_rule "wordpress-iptables"
+
+
+
