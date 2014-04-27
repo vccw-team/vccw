@@ -167,7 +167,7 @@ if node['wp-install']['is_multisite'] == true then
     code "wp core multisite-convert"
   end
 
-  template node['wp-install']['wpdir'], '/.htaccess') do
+  template File.join(node['wp-install']['wpdir'], '/.htaccess') do
     source "multisite.htaccess.erb"
     owner "vagrant"
     group "vagrant"
