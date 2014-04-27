@@ -127,7 +127,7 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
       }
     }
 
-    #chef.add_recipe "yum::remi"
+    chef.add_recipe "yum::remi"
     chef.add_recipe "iptables"
     chef.add_recipe "apache2"
     chef.add_recipe "apache2::mod_php5"
