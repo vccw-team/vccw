@@ -5,98 +5,103 @@ This is a [Vagrant](http://www.vagrantup.com/) configuration designed for develo
 ## Overview
 
 * This Vagrant configuration has various settings you can change:
- * Multisite
- * Force SSL Admin
- * Subdirectory installation (e.g. http://wordpress.local/wp/)
+     * Multisite
+     * Force SSL Admin
+     * Subdirectory installation (e.g. http://wordpress.local/wp/)
 * Customizable URL (default: http://wordpress.local/)
 * Debug mode is enabled by default
 * SSL is enabled by default
 * Automatic installation & activation of plugins and themes at the time of provisioning:
- * default plugins: theme-check, plugin-check, hotfix
- * default theme: none
+     * default plugins: theme-check, plugin-check, dynamic-hostname
+     * default theme: none
 * Optional import of theme unit test data
-* Pre-installed[wp-cli](http://wp-cli.org)
+* Pre-installed [wp-cli](http://wp-cli.org)
 * Shares folders between Host and Guest OS
+
+## Requires
+
+* Vagrant 1.5.x or later
+* VirtualBox 4.3.x or later
 
 ## Getting Started
 
 1. Install VirtualBox.
- * https://www.virtualbox.org/
+    * https://www.virtualbox.org/
 2. Install Vagrant.
- * http://www.vagrantup.com/
+    * http://www.vagrantup.com/
 3. Install the vagrant-hostsupdater plugin.
- * `vagrant plugin install vagrant-hostsupdater`
+    * `vagrant plugin install vagrant-hostsupdater`
 4. Clone the repository into a local directory.
- * `git clone https://github.com/miya0001/vagrant-chef-centos-wordpress.git vagrant-wp`
+    * `git clone https://github.com/miya0001/vagrant-chef-centos-wordpress.git vccw`
 5. Change into a new directory.
- * `cd vagrant-wp`
+    * `cd vccw`
 6. Copy the default Vagrantfile.
- * `cp Vagrantfile.sample Vagrantfile`
+    * `cp Vagrantfile.sample Vagrantfile`
 7. Start a Vagrant environment.
- * `vagrant up`
-8. Visit http://wordpress.local/
+    * `vagrant up`
+8. Visit http://wordpress.local/ or http://192.168.33.10/
 
 ## About WordPress Environment
 
 This tool installs a WordPress environment with these settings by default.
 
 * Default user
- * Username: admin
- * Password: admin
+     * Username: admin
+     * Password: admin
 * Debug mode is enabled
 * Default plugins
- * hotfix
- * theme-check
- * plugin-check
- * wp-multibyte-patch (`ja` locale only)
+     * dynamic-hostname
+     * theme-check
+     * plugin-check
+     * wp-multibyte-patch (`ja` locale only)
 
 ## Customize
 
 This Vagrant configuration has many customizable constants.
 
 * `WP_VERSION = 'latest'`
- * Set the version of WordPress you want to install (WordPress 3.4 or later).
- * Default value is the `latest`.
- * Allows you to install [beta](http://wordpress.org/download/release-archive/) releases (e.g. 3.7-beta2)
+    * Set the version of WordPress you want to install (WordPress 3.4 or later).
+    * Default value is the `latest`.
+    * Allows you to install [beta](http://wordpress.org/download/release-archive/) releases (e.g. 3.7-beta2)
 * `WP_LANG = ""`
- * Select the [locale](http://svn.automattic.com/wordpress-i18n/) you want to download (e.g. `ja`)
- * If you see any error, use `""`.
+    * Select the [locale](http://svn.automattic.com/wordpress-i18n/) you want to download (e.g. `ja`)
+    * If you see any error, use `""`.
 * `WP_HOSTNAME = "wordpress.local"`
- * Select the hostname for the Guest OS (e.g. `exmaple.com`, `digitalcube.jp` etc.)
+    * Select the hostname for the Guest OS (e.g. `exmaple.com`, `digitalcube.jp` etc.)
 * `WP_DIR = ''`
- * If you want to install WordPress in a subdirectory, set the directory name in this constant (e.g. `wp` or `/wp`)
- * http:// + `WP_HOSTNAME` + `WP_DIR` will be your WordPress URL.
+    * If you want to install WordPress in a subdirectory, set the directory name in this constant (e.g. `wp` or `/wp`)
+    * http:// + `WP_HOSTNAME` + `WP_DIR` will be your WordPress URL.
 * `WP_TITLE = "Welcome to the Vagrant"`
- * The title of the new site.
+    * The title of the new site.
 * `WP_ADMIN_USER = "admin"`
- * The default username of the new site.
+    * The default username of the new site.
 * `WP_ADMIN_PASS = "admin"`
- * The default user's password.
+    * The default user's password.
 * `WP_DB_PREFIX = 'wp_'`
- * Database prefix.
+    * Database prefix.
 * `WP_DB_HOST = 'localhost'`
- * The host name of the MySQL database.
- * 'localhost' or WP_IP
-* `WP_DEFAULT_PLUGINS = %w(theme-check plugin-check hotfix)`
- * An ARRAY of plugins.
- * Use a plugin slug, local zip file path, or remote zip file URL.
+    * The host name of the MySQL database.
+    * 'localhost' or WP_IP
+* `WP_DEFAULT_PLUGINS = %w(theme-check plugin-check dynamic-hostname)`
+    * An ARRAY of plugins.
+    * Use a plugin slug, local zip file path, or remote zip file URL.
 * `WP_DEFAULT_THEME = ''`
- * Default theme.
- * Use a theme slug, local zip file path, or remote zip file URL.
+    * Default theme.
+    * Use a theme slug, local zip file path, or remote zip file URL.
 * `WP_IS_MULTISITE = false`
- * If set to `true`, multisite network is installed.
- * The network uses subdirectories by default.
+    * If set to `true`, multisite network is installed.
+    * The network uses subdirectories by default.
 * `WP_FORCE_SSL_ADMIN = false`
- * If set to `true`, administration over SSL is enabled and enforced.
+    * If set to `true`, administration over SSL is enabled and enforced.
 * `WP_DEBUG = true`
- * If set to `true`, debug mode is triggered (default: true).
+    * If set to `true`, debug mode is triggered (default: true).
 * `WP_THEME_UNIT_TEST = false`
- * If set to `true`, the [theme unit test data](http://codex.wordpress.org/Theme_Unit_Test) is automatically imported.
+    * If set to `true`, the [theme unit test data](http://codex.wordpress.org/Theme_Unit_Test) is automatically imported.
 * `WP_ALWAYS_RESET = true`
- * If set to `true`, `vagrant provision` always resets the database.
- * You will lose all of your MySQL data when database is reset.
+    * If set to `true`, `vagrant provision` always resets the database.
+    * You will lose all of your MySQL data when database is reset.
 * `WP_IP = "192.168.33.10"`
- * Private IP address for the Guest OS.
+    * Private IP address for the Guest OS.
 
 ### How to apply Vagrant configuration after `vagrant up`
 
@@ -116,33 +121,53 @@ File under the wp-content directory will be not deleted.
 
 You have to install [wp-cli](wp-cli.org) in your Host OS.
 
-    cd vagrant-local
-    
-    # Exports the database using mysqldump to Desktop.
-    wp db export ~/Desktop/export.sql
-    
-    # Export content to a WXR file.
-    mkdir /Users/foo/Desktop/export
-    wp export --dir=/Users/foo/Desktop/export
-    
-    # Activate the contect-form-7 plugin.
-    wp plugin install contact-form-7 --activate
-    
-    # Update WordPress.
-    wp core update
+```
+$ cd www/wordpress
 
+# Exports the database using mysqldump to Desktop.
+$ wp db export ~/Desktop/export.sql
+
+# Export content to a WXR file.
+$ mkdir /Users/foo/Desktop/export
+$ wp export --dir=/Users/foo/Desktop/export
+
+# Activate the contect-form-7 plugin.
+$ wp plugin install contact-form-7 --activate
+
+# Update WordPress.
+$ wp core update
+```
+
+### About WordPress i18n Tools
+
+If your plugin is not in the repository, you can use the WordPress i18n tools and then run the makepot.php script like this:
+
+```
+$ makepot.php wp-plugin your-plugin-directory
+```
+
+After it's finished you should see the POT file in the current directory.
+
+To generate the POT file for a theme, use:
+
+```
+$ makepot.php wp-theme your-theme-directory
+```
 
 ## Guest OS Environments
 
 * Allowed ports on iptables
- * 22 - SSH
- * 80 - HTTP
- * 443 - HTTPS
- * 3306 - MySQL (allows you to operate wp-cli from the Host OS)
+     * 22 - SSH
+     * 80 - HTTP
+     * 443 - HTTPS
+     * 3306 - MySQL (allows you to operate wp-cli from the Host OS)
 * CentOS 6.4.x
- * PHP 5.3.x
- * MySQL 5.1.x
- * Apache 2.2.x
+     * PHP 5.4.x
+     * MySQL 5.1.x
+     * Apache 2.2.x
+* [WP-CLI](http://wp-cli.org/)
+* [PHPUnit](http://phpunit.de/)
+* [WordPress i18n Tools](http://i18n.svn.wordpress.org/tools/trunk/)
 
 ## Feedback
 
@@ -152,9 +177,9 @@ Let me know if you have any feedback! Open a new issue if you want to share your
 
 ## Contibutors
 
-* [miya0001](https://github.com/miya0001) - http://wpist.me/
-* [naokomc](https://github.com/naokomc) - http://naoko.cc/
-* [keichan34](https://github.com/keichan34) - http://keita.flagship.cc/
-* [gatespace](https://github.com/gatespace) - http://gatespace.jp/
+* [miya0001](https://github.com/miya0001)
+* [naokomc](https://github.com/naokomc)
+* [keichan34](https://github.com/keichan34)
+* [gatespace](https://github.com/gatespace)
 * [hirayama-evolni](https://github.com/hirayama-evolni)
 * [tkc49](https://github.com/tkc49)
