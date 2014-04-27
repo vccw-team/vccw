@@ -18,7 +18,7 @@ subversion "Checkout WordPress i18n tools." do
   group         "root"
 end
 
-execute "echo 'alias makepot=\"#{node[:vccw][:makepot]}\"' >> #{node[:vccw]['bash_profile']}" do
-  not_if "grep 'alias makepot' #{node[:vccw][:bash_profile]}"
+execute "echo 'alias makepot.php=\"#{node[:vccw][:makepot]}\"' >> #{node[:vccw]['bash_profile']}" do
+  not_if "grep 'alias makepot.php' #{node[:vccw][:bash_profile]}"
 end
 
