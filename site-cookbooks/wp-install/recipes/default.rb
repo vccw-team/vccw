@@ -166,6 +166,13 @@ if node['wp-install']['is_multisite'] == true then
     cwd node['wp-install']['wpdir']
     code "wp core multisite-convert"
   end
+
+  template node['wp-install']['wpdir'], '/.htaccess') do
+    source "multisite.htaccess.erb"
+    owner "vagrant"
+    group "vagrant"
+    mode "0644"
+  end
 end
 
 if node['wp-install']['theme_unit_test'] == true then
