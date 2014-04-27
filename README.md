@@ -161,13 +161,14 @@ $ makepot.php wp-theme your-theme-directory
      * 80 - HTTP
      * 443 - HTTPS
      * 3306 - MySQL (allows you to operate wp-cli from the Host OS)
-* CentOS 6.4.x
+* CentOS 6.5.x
      * PHP 5.4.x
-     * MySQL 5.1.x
+     * MySQL 5.5.x
      * Apache 2.2.x
 * [WP-CLI](http://wp-cli.org/)
 * [PHPUnit](http://phpunit.de/)
 * [WordPress i18n Tools](http://i18n.svn.wordpress.org/tools/trunk/)
+* [Grunt](http://gruntjs.com/)
 
 ## Feedback
 
