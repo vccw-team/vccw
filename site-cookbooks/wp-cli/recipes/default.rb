@@ -35,3 +35,4 @@ end
 link node['wp-cli']['phpunit-link'] do
   to File.join(node['wp-cli']['wpcli-dir'], 'phpunit.phar')
 end
+

@@ -23,7 +23,7 @@ WP_DB_NAME           = 'wordpress'
 WP_DB_USER           = 'wordpress'
 WP_DB_PASS           = 'wordpress'
 
-WP_DEFAULT_PLUGINS   = %w(theme-check plugin-check hotfix dynamic-hostname) # default plugins
+WP_DEFAULT_PLUGINS   = %w(theme-check plugin-check dynamic-hostname) # default plugins
 WP_DEFAULT_THEME     = '' # e.g. twentythirteen
 
 WP_DIR               = '' # e.g. /wp or wp or other
@@ -102,7 +102,7 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
         :server_root_password   => "wordpress",
         :server_repl_password   => "wordpress"
       },
-      "wp-install" => {
+      "wp-cli" => {
         :wp_version        => WP_VERSION,
         :url               => "http://" << File.join(WP_HOSTNAME, WP_DIR),
         :wpdir             => File.join('/var/www/wordpress', WP_DIR),
@@ -136,7 +136,7 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
     chef.add_recipe "mysql::ruby"
     chef.add_recipe "php::package"
     chef.add_recipe "wp-cli"
-    chef.add_recipe "wp-install"
+    chef.add_recipe "wp-cli::install"
     chef.add_recipe "vccw"
 
   end
