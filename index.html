@@ -8,6 +8,7 @@
     <link rel="stylesheet" type="text/css" href="stylesheets/stylesheet.css" media="screen" />
     <link rel="stylesheet" type="text/css" href="stylesheets/pygment_trac.css" media="screen" />
     <link rel="stylesheet" type="text/css" href="stylesheets/print.css" media="print" />
+    <link href="http://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" rel="stylesheet">
 
     <!--[if lt IE 9]>
     <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
@@ -17,7 +18,7 @@
   </head>
 
   <body>
-    <header>
+    <header id="top">
       <div class="inner">
         <h1>VCCW</h1>
         <h2>Vagrant for development of WordPress plugins, themes, or websites.</h2>
@@ -34,7 +35,7 @@
 
 <p>This is a <a href="http://www.vagrantup.com/">Vagrant</a> configuration designed for development of WordPress plugins, themes, or websites.</p>
 
-<ul id="menu"></ul>
+<ul id="navmenu"></ul>
 
 <h2>
 <a name="overview" class="anchor" href="#overview"><span class="octicon octicon-link"></span></a>Overview</h2>
@@ -62,13 +63,21 @@
 <li>Pre-installed <a href="http://wp-cli.org">wp-cli</a>
 </li>
 <li>Shares folders between Host and Guest OS</li>
-</ul><h2>
+</ul>
+
+<p class="scroll-to-top"><a href="#top"><i class="fa fa-arrow-up"></i> Back to top</a></p>
+
+<h2>
 <a name="requires" class="anchor" href="#requires"><span class="octicon octicon-link"></span></a>Requires</h2>
 
 <ul>
 <li>Vagrant 1.5.x or later</li>
 <li>VirtualBox 4.3.x or later</li>
-</ul><h2>
+</ul>
+
+<p class="scroll-to-top"><a href="#top"><i class="fa fa-arrow-up"></i> Back to top</a></p>
+
+<h2>
 <a name="getting-started" class="anchor" href="#getting-started"><span class="octicon octicon-link"></span></a>Getting Started</h2>
 
 <h3>1. Install Virtual Box</h3>
@@ -102,6 +111,8 @@
 
 <p>Visit <a href="http://wordpress.local/">http://wordpress.local/</a> or <a href="http://192.168.33.10/">http://192.168.33.10/</a></p>
 
+<p class="scroll-to-top"><a href="#top"><i class="fa fa-arrow-up"></i> Back to top</a></p>
+
 <h2>
 <a name="about-wordpress-environment" class="anchor" href="#about-wordpress-environment"><span class="octicon octicon-link"></span></a>About WordPress Environment</h2>
 
@@ -126,6 +137,8 @@
 </ul>
 </li>
 </ul>
+
+<p class="scroll-to-top"><a href="#top"><i class="fa fa-arrow-up"></i> Back to top</a></p>
 
 <h2>
 <a name="guest-os-environments" class="anchor" href="#guest-os-environments"><span class="octicon octicon-link"></span></a>Guest OS Environments</h2>
@@ -153,6 +166,8 @@
 <li><a href="http://i18n.svn.wordpress.org/tools/trunk/">WordPress i18n Tools</a></li>
 <li><a href="http://gruntjs.com/">Grunt</a></li>
 </ul>
+
+<p class="scroll-to-top"><a href="#top"><i class="fa fa-arrow-up"></i> Back to top</a></p>
 
 <h2>
 <a name="customize" class="anchor" href="#customize"><span class="octicon octicon-link"></span></a>Customize</h2>
@@ -302,6 +317,9 @@
 <code>vagrant reload</code> - Re-Start guest machine.</li>
 </ol><p>File under the wp-content directory will be not deleted.</p>
 
+
+<p class="scroll-to-top"><a href="#top"><i class="fa fa-arrow-up"></i> Back to top</a></p>
+
 <h2>
 <a name="about-wp-cli" class="anchor" href="#about-wp-cli"><span class="octicon octicon-link"></span></a>About wp-cli</h2>
 
@@ -345,6 +363,8 @@ $ wp core update
 <pre><code>$ makepot.php wp-theme your-theme-directory
 </code></pre>
 
+<p class="scroll-to-top"><a href="#top"><i class="fa fa-arrow-up"></i> Back to top</a></p>
+
 <h2>
 <a name="feedback" class="anchor" href="#feedback"><span class="octicon octicon-link"></span></a>Feedback</h2>
 
@@ -352,7 +372,11 @@ $ wp core update
 
 <ul>
 <li><a href="https://github.com/miya0001/vagrant-chef-centos-wordpress/issues">https://github.com/miya0001/vagrant-chef-centos-wordpress/issues</a></li>
-</ul><h2>
+</ul>
+
+<p class="scroll-to-top"><a href="#top"><i class="fa fa-arrow-up"></i> Back to top</a></p>
+
+<h2>
 <a name="contibutors" class="anchor" href="#contibutors"><span class="octicon octicon-link"></span></a>Contibutors</h2>
 
 <ul>
@@ -364,6 +388,7 @@ $ wp core update
 <li><a href="https://github.com/tkc49">tkc49</a></li>
 </ul>
 
+<p class="scroll-to-top"><a href="#top"><i class="fa fa-arrow-up"></i> Back to top</a></p>
         </section>
 
         <aside id="sidebar">
@@ -381,11 +406,11 @@ $ wp core update
 
           <a href="https://github.com/miya0001/vagrant-chef-centos-wordpress/zipball/master" class="button">
             <small>Download</small>
-            .zip file
+            .zip
           </a>
           <a href="https://github.com/miya0001/vagrant-chef-centos-wordpress/tarball/master" class="button">
             <small>Download</small>
-            .tar.gz file
+            .tar.gz
           </a>
 
           <p class="repo-owner"><a href="https://github.com/miya0001/vagrant-chef-centos-wordpress"></a> is maintained by <a href="https://github.com/miya0001">miya0001</a>.</p>
@@ -398,6 +423,24 @@ $ wp core update
     </div>
 
 <footer>Initial code by <a href="http://firegoby.jp/">Takayuki Miyauchi</a>.</footer>
+
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+<script type="text/javascript">
+(function($){
+  $('#main-content h2').each(function(i){
+    $(this).attr('id', 'h2-'+i);
+    $('#navmenu').append('<li><a href="#h2-'+i+'">'+$(this).text()+'</a></li>');
+  });
+  $('a[href^=#]').click(function(){
+    var speed = 500;
+    var href= $(this).attr("href");
+    var target = $(href == "#" || href == "" ? 'html' : href);
+    var position = target.offset().top;
+    $("html, body").animate({scrollTop:position}, speed, "swing");
+    return false;
+  });
+})(jQuery);
+</script>
 
   </body>
 </html>

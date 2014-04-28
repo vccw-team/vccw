@@ -165,9 +165,11 @@ code, pre {
 }
 
 code {
-  background-color: #f2f8fc;
-  border: solid 1px #dbe7f3;
-  padding: 0 3px;
+  background-color: #f7f7f9;
+  border: 1px solid #e1e1e8;
+  padding: 0px 3px;
+  color: #d14;
+  border-radius: 3px;
 }
 
 pre {
@@ -355,6 +357,12 @@ footer a:hover {
 #social-buttons li
 {
   float: left;
+}
+
+.scroll-to-top
+{
+  text-align: right;
+  margin-top: 1em;
 }
 
 /* #Media Queries
