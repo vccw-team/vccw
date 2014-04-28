@@ -1,4 +1,4 @@
-/* http://meyerweb.com/eric/tools/css/reset/ 
+/* http://meyerweb.com/eric/tools/css/reset/
    v2.0 | 20110126
    License: none (public domain)
 */
@@ -11,8 +11,8 @@ b, u, i, center,
 dl, dt, dd, ol, ul, li,
 fieldset, form, label, legend,
 table, caption, tbody, tfoot, thead, tr, th, td,
-article, aside, canvas, details, embed, 
-figure, figcaption, footer, header, hgroup, 
+article, aside, canvas, details, embed,
+figure, figcaption, footer, header, hgroup,
 menu, nav, output, ruby, section, summary,
 time, mark, audio, video {
 	margin: 0;
@@ -23,7 +23,7 @@ time, mark, audio, video {
 	vertical-align: baseline;
 }
 /* HTML5 display-role reset for older browsers */
-article, aside, details, figcaption, figure, 
+article, aside, details, figcaption, figure,
 footer, header, hgroup, menu, nav, section {
 	display: block;
 }
@@ -49,9 +49,9 @@ table {
 /* LAYOUT STYLES */
 body {
   font-size: 15px;
-  line-height: 1.5; 
+  line-height: 1.5;
   background: #fafafa url(../images/body-bg.jpg) 0 0 repeat;
-  font-family: 'Helvetica Neue', Helvetica, Arial, serif;
+  font-family: 'Raleway', 'sans-serif';
   font-weight: 400;
   color: #666;
 }
@@ -66,7 +66,7 @@ a:hover {
 header {
   padding-top: 40px;
   padding-bottom: 40px;
-  font-family: 'Architects Daughter', 'Helvetica Neue', Helvetica, Arial, serif; 
+  font-family: 'Montserrat', 'sans-serif';
   background: #2e7bcf url(../images/header-bg.jpg) 0 0 repeat-x;
   border-bottom: solid 1px #275da1;
 }
@@ -110,7 +110,7 @@ header h2 {
 }
 
 aside#sidebar {
-  width: 200px;
+  width: 210px;
   padding-left: 20px;
   min-height: 504px;
   float: right;
@@ -136,7 +136,7 @@ a.button {
   color: #fff;
   padding-left: 68px;
   padding-top: 22px;
-  font-family: 'Architects Daughter', 'Helvetica Neue', Helvetica, Arial, serif; 
+  font-family: 'Montserrat', 'sans-serif';
 }
 a.button small {
   display: block;
@@ -172,20 +172,19 @@ code {
 
 pre {
   padding: 20px;
-  background: #fff;
+  background: #555555;
   text-shadow: none;
   overflow: auto;
-  border: solid 1px #f2f2f2;
+  border-radius: 3px;
 }
 pre code {
-  color: #2879d0;
-  background-color: #fff;
+  color: #fff;
+  background-color: #555555;
   border: none;
   padding: 0;
 }
 
 ul, ol, dl {
-  margin-bottom: 20px;
 }
 
 
@@ -211,25 +210,24 @@ th {
 
 td {
   border: 1px solid #ebebeb;
-  text-align: center; 
+  text-align: center;
   font-weight: 300;
 }
 
 form {
   background: #f2f2f2;
   padding: 20px;
-  
+
 }
 
 
 /* GENERAL ELEMENT TYPE STYLES */
 
 #main-content h1 {
-  font-family: 'Architects Daughter', 'Helvetica Neue', Helvetica, Arial, serif; 
-  font-size: 2.8em;
+  font-family: 'Montserrat', 'sans-serif'; font-size: 2.8em;
   letter-spacing: -1px;
   color: #474747;
-} 
+}
 
 #main-content h1:before {
   content: "/";
@@ -239,12 +237,14 @@ form {
 }
 
 #main-content h2 {
-  font-family: 'Architects Daughter', 'Helvetica Neue', Helvetica, Arial, serif; 
-  font-size: 22px;
+  border-top: 1px solid #dedede;
+  font-family: 'Montserrat', 'sans-serif';  font-size: 22px;
   font-weight: bold;
   margin-bottom: 8px;
   color: #474747;
-} 
+  padding-top: 50px;
+  margin-top: 50px;
+}
 #main-content h2:before {
   content: "//";
   color: #9ddcff;
@@ -253,63 +253,36 @@ form {
 }
 
 #main-content h3 {
-  font-family: 'Architects Daughter', 'Helvetica Neue', Helvetica, Arial, serif; 
-  font-size: 18px;
+  font-family: 'Montserrat', 'sans-serif';  font-size: 18px;
   font-weight: bold;
   margin-top: 24px;
   margin-bottom: 8px;
   color: #474747;
-} 
- 
-#main-content h3:before {
-  content: "///";
-  color: #9ddcff;
-  padding-right: 0.3em;
-  margin-left: -2em;
 }
 
 #main-content h4 {
-  font-family: 'Architects Daughter', 'Helvetica Neue', Helvetica, Arial, serif; 
+  font-family: 'Montserrat', 'sans-serif';
   font-size: 15px;
   font-weight: bold;
   color: #474747;
-} 
-
-h4:before {
-  content: "////";
-  color: #9ddcff;
-  padding-right: 0.3em;
-  margin-left: -2.8em;
 }
 
 #main-content h5 {
-  font-family: 'Architects Daughter', 'Helvetica Neue', Helvetica, Arial, serif; 
+  font-family: 'Montserrat', 'sans-serif';
   font-size: 14px;
   color: #474747;
-} 
-h5:before {
-  content: "/////";
-  color: #9ddcff;
-  padding-right: 0.3em;
-  margin-left: -3.2em;
 }
 
 #main-content h6 {
-  font-family: 'Architects Daughter', 'Helvetica Neue', Helvetica, Arial, serif; 
+  font-family: 'Montserrat', 'sans-serif';
   font-size: .8em;
   color: #474747;
-} 
-h6:before {
-  content: "//////";
-  color: #9ddcff;
-  padding-right: 0.3em;
-  margin-left: -3.7em;
 }
 
 p {
   margin-bottom: 20px;
 }
- 
+
 a {
   text-decoration: none;
 }
@@ -341,19 +314,20 @@ dl dd {
 }
 
 footer {
-  background: transparent url('../images/hr.png') 0 0 no-repeat;
+  background-color: #333333;
   margin-top: 40px;
   padding-top: 20px;
   padding-bottom: 30px;
   font-size: 13px;
   color: #aaa;
+  text-align: center;
 }
 
 footer a {
-  color: #666;
+  color: #ffffff;
 }
 footer a:hover {
-  color: #444;
+  color: #cccccc;
 }
 
 /* MISC */
@@ -368,6 +342,20 @@ footer a:hover {
 .clearfix {display: inline-block;}
 * html .clearfix {height: 1%;}
 .clearfix {display: block;}
+
+#social-buttons
+{
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  float: right;
+  margin-bottom: 20px;
+}
+
+#social-buttons li
+{
+  float: left;
+}
 
 /* #Media Queries
 ================================================== */
@@ -438,8 +426,8 @@ footer a:hover {
     background-color: #9ddcff;
     color: #2879d0;
     -moz-border-radius: 5px;
-    -webkit-border-radius: 5px;                     
-    border-radius: 5px;    
+    -webkit-border-radius: 5px;
+    border-radius: 5px;
   }
   header a.button small {
     font-size: 13px;

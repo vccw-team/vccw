@@ -4,7 +4,7 @@
     <meta charset='utf-8'>
     <meta http-equiv="X-UA-Compatible" content="chrome=1">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-    <link href='https://fonts.googleapis.com/css?family=Architects+Daughter' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=Montserrat:700|Raleway' rel='stylesheet' type='text/css'>
     <link rel="stylesheet" type="text/css" href="stylesheets/stylesheet.css" media="screen" />
     <link rel="stylesheet" type="text/css" href="stylesheets/pygment_trac.css" media="screen" />
     <link rel="stylesheet" type="text/css" href="stylesheets/print.css" media="print" />
@@ -13,7 +13,7 @@
     <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
     <![endif]-->
 
-    <title>VCCW by miya0001</title>
+    <title>VCCW - Vagrant + Chef + WordPress</title>
   </head>
 
   <body>
@@ -28,10 +28,13 @@
     <div id="content-wrapper">
       <div class="inner clearfix">
         <section id="main-content">
+
           <h1>
-<a name="vagrant--chef--wordpress" class="anchor" href="#vagrant--chef--wordpress"><span class="octicon octicon-link"></span></a>vagrant + chef + WordPress</h1>
+<a name="vagrant--chef--wordpress" class="anchor" href="#vagrant--chef--wordpress"><span class="octicon octicon-link"></span></a>Vagrant + Chef + WordPress</h1>
 
 <p>This is a <a href="http://www.vagrantup.com/">Vagrant</a> configuration designed for development of WordPress plugins, themes, or websites.</p>
+
+<ul id="menu"></ul>
 
 <h2>
 <a name="overview" class="anchor" href="#overview"><span class="octicon octicon-link"></span></a>Overview</h2>
@@ -68,52 +71,38 @@
 </ul><h2>
 <a name="getting-started" class="anchor" href="#getting-started"><span class="octicon octicon-link"></span></a>Getting Started</h2>
 
-<ol>
-<li>Install VirtualBox.
+<h3>1. Install Virtual Box</h3>
 
-<ul>
-<li><a href="https://www.virtualbox.org/">https://www.virtualbox.org/</a></li>
-</ul>
-</li>
-<li>Install Vagrant.
+<p><a href="https://www.virtualbox.org/">https://www.virtualbox.org/</a></p>
 
-<ul>
-<li><a href="http://www.vagrantup.com/">http://www.vagrantup.com/</a></li>
-</ul>
-</li>
-<li>Install the vagrant-hostsupdater plugin.
+<h3>2. Install Vagrant</h3>
 
-<ul>
-<li><code>vagrant plugin install vagrant-hostsupdater</code></li>
-</ul>
-</li>
-<li>Clone the repository into a local directory.
+<p><a href="http://www.vagrantup.com/">http://www.vagrantup.com/</a></p>
 
-<ul>
-<li><code>git clone https://github.com/miya0001/vagrant-chef-centos-wordpress.git vccw</code></li>
-</ul>
-</li>
-<li>Change into a new directory.
+<h3>3. Install the vagrant-hostsupdater plugin.</h3>
 
-<ul>
-<li><code>cd vccw</code></li>
-</ul>
-</li>
-<li>Copy the default Vagrantfile.
+<pre><code>$ vagrant plugin install vagrant-hostsupdater</code></li></pre>
 
-<ul>
-<li><code>cp Vagrantfile.sample Vagrantfile</code></li>
-</ul>
-</li>
-<li>Start a Vagrant environment.
 
-<ul>
-<li><code>vagrant up</code></li>
-</ul>
-</li>
-<li>Visit <a href="http://wordpress.local/">http://wordpress.local/</a> or <a href="http://192.168.33.10/">http://192.168.33.10/</a>
-</li>
-</ol><h2>
+<h3>4. Clone the repository into a local directory.</h3>
+
+<pre><code>$ git clone https://github.com/miya0001/vagrant-chef-centos-wordpress.git vccw</code></pre>
+
+<h3>5. Change into a new directory.</h3>
+
+<pre><code>$ cd vccw</code></pre>
+
+<h3>6. Copy the default Vagrantfile.</h3>
+
+<pre><code>$ cp Vagrantfile.sample Vagrantfile</code></pre>
+
+<h3>7. Start a Vagrant environment.</h3>
+
+<pre><code>$ vagrant up</code></pre>
+
+<p>Visit <a href="http://wordpress.local/">http://wordpress.local/</a> or <a href="http://192.168.33.10/">http://192.168.33.10/</a></p>
+
+<h2>
 <a name="about-wordpress-environment" class="anchor" href="#about-wordpress-environment"><span class="octicon octicon-link"></span></a>About WordPress Environment</h2>
 
 <p>This tool installs a WordPress environment with these settings by default.</p>
@@ -136,7 +125,36 @@
 <li>wp-multibyte-patch (<code>ja</code> locale only)</li>
 </ul>
 </li>
-</ul><h2>
+</ul>
+
+<h2>
+<a name="guest-os-environments" class="anchor" href="#guest-os-environments"><span class="octicon octicon-link"></span></a>Guest OS Environments</h2>
+
+<ul>
+<li>Allowed ports on iptables
+
+<ul>
+<li>22 - SSH</li>
+<li>80 - HTTP</li>
+<li>443 - HTTPS</li>
+<li>3306 - MySQL (allows you to operate wp-cli from the Host OS)</li>
+</ul>
+</li>
+<li>CentOS 6.5.x
+
+<ul>
+<li>PHP 5.4.x</li>
+<li>MySQL 5.5.x</li>
+<li>Apache 2.2.x</li>
+</ul>
+</li>
+<li><a href="http://wp-cli.org/">WP-CLI</a></li>
+<li><a href="http://phpunit.de/">PHPUnit</a></li>
+<li><a href="http://i18n.svn.wordpress.org/tools/trunk/">WordPress i18n Tools</a></li>
+<li><a href="http://gruntjs.com/">Grunt</a></li>
+</ul>
+
+<h2>
 <a name="customize" class="anchor" href="#customize"><span class="octicon octicon-link"></span></a>Customize</h2>
 
 <p>This Vagrant configuration has many customizable constants.</p>
@@ -328,31 +346,6 @@ $ wp core update
 </code></pre>
 
 <h2>
-<a name="guest-os-environments" class="anchor" href="#guest-os-environments"><span class="octicon octicon-link"></span></a>Guest OS Environments</h2>
-
-<ul>
-<li>Allowed ports on iptables
-
-<ul>
-<li>22 - SSH</li>
-<li>80 - HTTP</li>
-<li>443 - HTTPS</li>
-<li>3306 - MySQL (allows you to operate wp-cli from the Host OS)</li>
-</ul>
-</li>
-<li>CentOS 6.5.x
-
-<ul>
-<li>PHP 5.4.x</li>
-<li>MySQL 5.5.x</li>
-<li>Apache 2.2.x</li>
-</ul>
-</li>
-<li><a href="http://wp-cli.org/">WP-CLI</a></li>
-<li><a href="http://phpunit.de/">PHPUnit</a></li>
-<li><a href="http://i18n.svn.wordpress.org/tools/trunk/">WordPress i18n Tools</a></li>
-<li><a href="http://gruntjs.com/">Grunt</a></li>
-</ul><h2>
 <a name="feedback" class="anchor" href="#feedback"><span class="octicon octicon-link"></span></a>Feedback</h2>
 
 <p>Let me know if you have any feedback! Open a new issue if you want to share your tips or report a bug.</p>
@@ -370,9 +363,22 @@ $ wp core update
 <li><a href="https://github.com/hirayama-evolni">hirayama-evolni</a></li>
 <li><a href="https://github.com/tkc49">tkc49</a></li>
 </ul>
+
         </section>
 
         <aside id="sidebar">
+
+  <ul id="social-buttons">
+    <li>
+      <iframe class="github-btn" src="http://ghbtns.com/github-btn.html?user=miya0001&amp;repo=vagrant-chef-centos-wordpress&amp;type=watch&amp;count=true" width="100" height="20" title="Star on GitHub"></iframe>
+    </li>
+    <li>
+      <iframe class="github-btn" src="http://ghbtns.com/github-btn.html?user=miya0001&amp;repo=vagrant-chef-centos-wordpress&amp;type=fork&amp;count=true" width="102" height="20" title="Fork on GitHub"></iframe>
+    </li>
+  </ul>
+
+<br clear="all" />
+
           <a href="https://github.com/miya0001/vagrant-chef-centos-wordpress/zipball/master" class="button">
             <small>Download</small>
             .zip file
@@ -385,10 +391,13 @@ $ wp core update
           <p class="repo-owner"><a href="https://github.com/miya0001/vagrant-chef-centos-wordpress"></a> is maintained by <a href="https://github.com/miya0001">miya0001</a>.</p>
 
           <p>This page was generated by <a href="https://pages.github.com">GitHub Pages</a> using the Architect theme by <a href="https://twitter.com/jasonlong">Jason Long</a>.</p>
+
+
         </aside>
       </div>
     </div>
 
-  
+<footer>Initial code by <a href="http://firegoby.jp/">Takayuki Miyauchi</a>.</footer>
+
   </body>
 </html>
