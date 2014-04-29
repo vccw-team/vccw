@@ -9,10 +9,24 @@ packages.each do |pkg|
   end
 end
 
+directory File.join(node[:vccw][:src_path], 'phpunit') do
+  recursive true
+end
+
+remote_file File.join(node[:vccw][:src_path], 'phpunit/phpunit.phar') do
+  source node[:vccw][:phpunit]
+  mode 0755
+  action :create_if_missing
+end
+
+link node[:vccw][:phpunit_link] do
+  to File.join(node[:vccw][:src_path], 'phpunit/phpunit.phar')
+end
+
 subversion "Checkout WordPress i18n tools." do
   repository    node[:vccw][:i18ntools_repositry]
   revision      "HEAD"
-  destination   node[:vccw][:path]
+  destination   File.join(node[:vccw][:src_path], 'wp-i18n');
   action        :sync
   user          "root"
   group         "root"
