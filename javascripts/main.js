@@ -1,6 +1,3 @@
-var gh_user    = '{{ site.github.user }}';
-var gh_project = '{{ site.github.project }}';
-
 (function(){
 
     // anchor link
