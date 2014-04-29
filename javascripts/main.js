@@ -27,7 +27,7 @@ function show_contributors(res) {
     var gravatar     = 'http://www.gravatar.com/avatar/';
     var size        = 90;
     $(contibutors).each(function(){
-        var avatar = gravatar + this.gravatar_id + '?s=45';
+        var avatar = gravatar + this.gravatar_id + '?s=50';
         var li = $('<li />');
         var a  = $('<a />');
         a.attr('href', this.html_url);

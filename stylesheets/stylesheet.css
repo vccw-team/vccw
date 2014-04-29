@@ -383,9 +383,25 @@ footer a:hover {
 #contributors li
 {
   width: 25%;
-  padding: 0;
+  padding: 2px;
   box-sizing: border-box;
   float: left;
+  margin: 0;
+}
+
+#contributors li a
+{
+  padding: 0;
+  margin: 0;
+}
+
+#contributors li img
+{
+  padding: 0;
+  margin: 0;
+  max-width: 100%;
+  height: auto;
+  display: block;
 }
 
 #issues
@@ -432,7 +448,7 @@ footer a:hover {
     font-size: 60px;
   }
   header h2 {
-    font-size: 30px;
+    font-size: 120%;
   }
   #main-content {
     width: 490px;
@@ -467,7 +483,7 @@ footer a:hover {
     font-size: 48px;
   }
   header h2 {
-    font-size: 24px;
+    font-size: 100%;
   }
   header a.button {
     background-image: none;
