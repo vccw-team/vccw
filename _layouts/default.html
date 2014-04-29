@@ -38,9 +38,9 @@
   <body>
     <header id="top">
       <div class="inner">
-        <h1>VCCW</h1>
-        <h2>Vagrant based development environment for WordPress plugins, themes, or websites.</h2>
-        <a href="https://github.com/miya0001/vccw" class="button"><small>View project on</small>GitHub</a>
+        <h1>{{ site.header.title }}</h1>
+        <h2>{{ site.header.description }}</h2>
+        <a href="https://github.com/{{ site.github.user }}/{{ site.github.project }}" class="button"><small>View project on</small>GitHub</a>
       </div>
     </header>
 
@@ -420,10 +420,11 @@ $ wp core update
           <ul id="contributors"></ul>
 
         </aside>
+
       </div>
     </div>
 
-<footer>Initial code by <a href="http://firegoby.jp/">Takayuki Miyauchi</a>.</footer>
+<footer>{{ site.footer }}</footer>
 
 <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
 <script type="text/javascript" src="/javascripts/main.js"></script>

@@ -5,3 +5,11 @@ exclude: ["vendor", "Gemfile", "Gemfile.lock"]
 google_analytice:
     id: UA-1434500-34
     propname: vccw.cc
+github:
+    user: miya0001
+    project: vccw
+header:
+    title: VCCW
+    description: Vagrant based development environment for WordPress plugins, themes, or websites.
+footer: Initial code by <a href="http://firegoby.jp/">Takayuki Miyauchi</a>.
+back_to_top: <a href="#top"><i class="fa fa-arrow-up"></i> Back to top</a>

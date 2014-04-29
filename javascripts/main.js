@@ -1,5 +1,5 @@
-var gh_user    = 'miya0001';
-var gh_project = 'vccw';
+var gh_user    = '{{ site.github.user }}';
+var gh_project = '{{ site.github.project }}';
 
 (function(){
 
