@@ -124,6 +124,12 @@ aside#sidebar p.repo-owner a {
   font-weight: bold;
 }
 
+aside#sidebar h1
+{
+  font-family: 'Montserrat', 'sans-serif'; font-size: 1.5em;
+  font-weight: 700;
+}
+
 #downloads {
   margin-bottom: 40px;
 }
@@ -365,6 +371,21 @@ footer a:hover {
   margin-top: 1em;
 }
 
+#contributors
+{
+  margin: 1em 0;
+  list-style-type: none;
+  padding: 0;
+}
+
+#contributors li
+{
+  width: 25%;
+  padding: 0;
+  box-sizing: border-box;
+  float: left;
+}
+
 /* #Media Queries
 ================================================== */
 
@@ -465,6 +486,12 @@ footer a:hover {
     content: none;
     padding-right: 0;
     margin-left: 0;
+  }
+  #contributors li
+  {
+    width: auto;
+    margin-right: 5px;
+    margin-bottom: 5px;
   }
 }
 

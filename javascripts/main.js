@@ -1,4 +1,4 @@
-(function($){
+(function(){
 
     // anchor link
     $('#main-content h2').each(function(i){
@@ -16,4 +16,32 @@
     return false;
     });
 
-})(jQuery);
+})();
+
+
+function show_contributors(res) {
+    var contibutors = res.data;
+    var gravatar     = 'http://www.gravatar.com/avatar/';
+    var size        = 90;
+    $(contibutors).each(function(){
+        var avatar = gravatar + this.gravatar_id + '?s=45';
+        var li = $('<li />');
+        var a  = $('<a />');
+        a.attr('href', this.html_url);
+        a.attr('title', this.login);
+        var img = $('<img />');
+        img.attr('src', avatar);
+        img.attr('alt', this.login);
+        a.append(img);
+        li.append(a);
+        $('#contributors').append(li);
+        //alert(this.login);
+    })
+}
+
+function set_link(res) {
+    var tag = res.data[0];
+    var link = 'https://github.com/miya0001/vccw/archive/';
+    $('#zipball_link').attr('href', link + tag.name + '.zip');
+    $('#tarball_link').attr('href', link + tag.name + '.tar.gz');
+}
