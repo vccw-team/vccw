@@ -15,13 +15,13 @@
     <![endif]-->
 
     <meta property="og:type" content="product" />
-    <meta property="og:site_name" content="VCCW - Vagrant based development environment for WordPress" />
-    <meta property="og:title" content="VCCW - Vagrant based development environment for WordPress" />
-    <meta property="og:url" content="http://vccw.cc/" />
-    <meta property="og:image" content="http://vccw.cc/images/ogp.png" />
-    <meta property="og:description" content="VCCW is a Vagrant based development environment for WordPress plugins, themes, or websites." />
+    <meta property="og:site_name" content="{{ page.title }}" />
+    <meta property="og:title" content="{{ page.title }}" />
+    <meta property="og:url" content="{{ page.og_url }}" />
+    <meta property="og:image" content="{{ page.og_image }}" />
+    <meta property="og:description" content="{{ page.description }}" />
 
-    <title>VCCW - Vagrant based development environment for WordPress</title>
+    <title>{{ page.title }}</title>
 
     <script>
         (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
@@ -29,7 +29,7 @@
         m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
         })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
 
-        ga('create', 'UA-1434500-34', 'vccw.cc');
+        ga('create', '{{ site.google_analytice.id }}', '{{ site.google_analytice.propname }}');
         ga('send', 'pageview');
     </script>
 
