@@ -1,3 +1,6 @@
+var gh_user    = 'miya0001';
+var gh_project = 'vccw';
+
 (function(){
 
     // anchor link
@@ -35,13 +38,34 @@ function show_contributors(res) {
         a.append(img);
         li.append(a);
         $('#contributors').append(li);
-        //alert(this.login);
     })
 }
 
 function set_link(res) {
     var tag = res.data[0];
-    var link = 'https://github.com/miya0001/vccw/archive/';
+    var link = 'https://github.com/' + gh_user + '/' + gh_project + '/archive/';
     $('#zipball_link').attr('href', link + tag.name + '.zip');
     $('#tarball_link').attr('href', link + tag.name + '.tar.gz');
 }
+
+function show_issues(res) {
+    var issues = res.data;
+    if (issues.length) {
+        var ul = $('<ul />');
+        $(issues).each(function(){
+            var li = $('<li />');
+            var a  = $('<a />');
+            a.attr('href', this.html_url);
+            a.attr('title', this.login);
+            a.text(this.title);
+            li.append(a);
+            ul.append(li);
+        });
+        $('#issues').append(ul);
+    } else {
+        var link = 'https://github.com/' + gh_user + '/' + gh_project + '/issues';
+        var well = '<div class="well">No issues to show.<br /><a href="' + link + '">Create a new issue.</a></div>';
+        $('#issues').append(well);
+    }
+}
+

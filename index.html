@@ -115,6 +115,8 @@
 
 <pre><code>$ git clone https://github.com/miya0001/vccw.git vccw</code></pre>
 
+Or please download from link in the right sidebar.
+
 <h3>5. Change into a new directory.</h3>
 
 <pre><code>$ cd vccw</code></pre>
@@ -127,6 +129,7 @@
 
 <pre><code>$ vagrant up</code></pre>
 
+<h3>8. Visit WordPress on the Vagrant in your browser</h3>
 <p>Visit <a href="http://wordpress.local/">http://wordpress.local/</a> or <a href="http://192.168.33.10/">http://192.168.33.10/</a></p>
 
 <p class="scroll-to-top"><a href="#top"><i class="fa fa-arrow-up"></i> Back to top</a></p>
@@ -382,16 +385,7 @@ $ wp core update
 
 <p class="scroll-to-top"><a href="#top"><i class="fa fa-arrow-up"></i> Back to top</a></p>
 
-<h2>
-<a name="feedback" class="anchor" href="#feedback"><span class="octicon octicon-link"></span></a>Feedback</h2>
 
-<p>Let me know if you have any feedback! Open a new issue if you want to share your tips or report a bug.</p>
-
-<ul>
-<li><a href="https://github.com/miya0001/vccw/issues">Issues · miya0001/vccw</a></li>
-</ul>
-
-<p class="scroll-to-top"><a href="#top"><i class="fa fa-arrow-up"></i> Back to top</a></p>
 
         </section>
 
@@ -417,6 +411,10 @@ $ wp core update
             .tar.gz
           </a>
 
+          <h1><i class="fa fa-exclamation-circle"></i> Issues</h1>
+
+          <div id="issues"></div>
+
           <h1><i class="fa fa-user"></i> Contributors</h1>
 
           <ul id="contributors"></ul>
@@ -431,6 +429,7 @@ $ wp core update
 <script type="text/javascript" src="/javascripts/main.js"></script>
 <script type="text/javascript" src="https://api.github.com/repos/miya0001/vccw/tags?callback=set_link"></script>
 <script type="text/javascript" src="https://api.github.com/repos/miya0001/vccw/contributors?callback=show_contributors"></script>
+<script type="text/javascript" src="https://api.github.com/repos/miya0001/vccw/issues?callback=show_issues"></script>
 
   </body>
 </html>
