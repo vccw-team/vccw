@@ -2,7 +2,7 @@ name: VCCW - Vagrant based development environment for WordPress
 markdown: redcarpet
 pygments: true
 exclude: ["vendor", "Gemfile", "Gemfile.lock"]
-google_analytice:
+google_analytics:
     id: UA-1434500-34
     propname: vccw.cc
 github:
