@@ -1,7 +1,7 @@
 (function(){
 
     // anchor link
-    if ($('#navmenu').len()) {
+    if ($('#navmenu').length) {
         $('#main-content h2').each(function(i){
             $(this).attr('id', 'h2-'+i);
             $('#navmenu').append('<li><a href="#h2-'+i+'">'+$(this).text()+'</a></li>');
