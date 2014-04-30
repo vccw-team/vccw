@@ -101,7 +101,7 @@ header h2 {
 }
 
 #main-content {
-  width: 690px;
+  width: 680px;
   float: left;
 }
 
@@ -110,7 +110,8 @@ header h2 {
 }
 
 aside#sidebar {
-  width: 210px;
+  box-sizing: border-box;
+  width: 220px;
   padding-left: 20px;
   min-height: 504px;
   float: right;
@@ -353,7 +354,7 @@ footer a:hover {
 * html .clearfix {height: 1%;}
 .clearfix {display: block;}
 
-#social-buttons
+#social-buttons ul
 {
   list-style-type: none;
   margin: 0;
@@ -364,7 +365,9 @@ footer a:hover {
 
 #social-buttons li
 {
+  max-width: 100px;
   float: left;
+  text-align: left;
 }
 
 .scroll-to-top
@@ -383,6 +386,7 @@ footer a:hover {
 #contributors li
 {
   width: 25%;
+  max-width: 50px;
   padding: 2px;
   box-sizing: border-box;
   float: left;
