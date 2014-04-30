@@ -1,6 +1,8 @@
 # encoding: utf-8
 # vim: ft=ruby expandtab shiftwidth=2 tabstop=2
 
+require 'shellwords'
+
 packages = %w{gettext subversion rubygems npm}
 
 packages.each do |pkg|
@@ -74,4 +76,25 @@ template  "/home/vagrant/.grunt-init/defaults.json" do
   group   "vagrant"
   mode    "0600"
 end
+
+execute "wp-test-install" do
+  command <<-EOH
+#{node[:vccw][:test][:wp_test_install]} \
+#{Shellwords.shellescape(node[:vccw][:test][:mysql_name])} \
+#{Shellwords.shellescape(node[:vccw][:test][:mysql_user])} \
+#{Shellwords.shellescape(node[:vccw][:test][:mysql_pass])} \
+#{Shellwords.shellescape(node[:vccw][:test][:mysql_host])} \
+#{Shellwords.shellescape(node[:vccw][:test][:wp_version])}
+  EOH
+  action :nothing
+end
+
+template node[:vccw][:test][:wp_test_install] do
+  source "wp-test-install.sh.erb"
+  owner "root"
+  group "root"
+  mode "0755"
+  notifies :run, "execute[wp-test-install]", :immediately
+end
+
 
