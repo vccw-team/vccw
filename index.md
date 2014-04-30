@@ -85,7 +85,9 @@ Visit [http://wordpress.local/](http://wordpress.local/) or [http://192.168.33.1
 
 {{ site.scroll_to_top }}
 
-## About WordPress Environment
+## Environments
+
+### WordPress
 
 This tool installs a WordPress environment with these settings by default.
 
@@ -98,6 +100,17 @@ This tool installs a WordPress environment with these settings by default.
      * theme-check
      * plugin-check
      * wp-multibyte-patch (`ja` locale only)
+
+### Guest OS
+
+* CentOS 6.5.x
+     * PHP 5.4.x
+     * MySQL 5.5.x
+     * Apache 2.2.x
+* [WP-CLI](http://wp-cli.org/)
+* [PHPUnit](http://phpunit.de/)
+* [WordPress i18n Tools](http://i18n.svn.wordpress.org/tools/trunk/)
+* [Grunt](http://gruntjs.com/)
 
 {{ site.scroll_to_top }}
 
@@ -203,23 +216,5 @@ $ makepot.php wp-theme your-theme-directory
 ```
 
 After it's finished you should see the POT file in the current directory.
-
-{{ site.scroll_to_top }}
-
-## Guest OS Environments
-
-* Allowed ports on iptables
-     * 22 - SSH
-     * 80 - HTTP
-     * 443 - HTTPS
-     * 3306 - MySQL (allows you to operate wp-cli from the Host OS)
-* CentOS 6.5.x
-     * PHP 5.4.x
-     * MySQL 5.5.x
-     * Apache 2.2.x
-* [WP-CLI](http://wp-cli.org/)
-* [PHPUnit](http://phpunit.de/)
-* [WordPress i18n Tools](http://i18n.svn.wordpress.org/tools/trunk/)
-* [Grunt](http://gruntjs.com/)
 
 {{ site.scroll_to_top }}
