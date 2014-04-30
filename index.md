@@ -25,7 +25,7 @@ This is a [Vagrant](http://www.vagrantup.com/) configuration designed for develo
      * default plugins: theme-check, plugin-check, dynamic-hostname
      * default theme: none
 * Optional import of theme unit test data
-* Pre-installed [wp-cli](http://wp-cli.org), [PHPUnit](http://phpunit.de/), [Grunt](http://gruntjs.com/)
+* Pre-installed [WP-CLI](http://wp-cli.org), [PHPUnit](http://phpunit.de/), [Grunt](http://gruntjs.com/)
 * Shares folders between Host and Guest OS
 
 {{ site.scroll_to_top }}
@@ -173,14 +173,14 @@ File under the wp-content directory will be not deleted.
 
 {{ site.scroll_to_top }}
 
-## About wp-cli
+## About WP-CLI
 
-* [wp-cli](http://wp-cli.org/) is pre-installed in this Vagrant environments.
-* If you install wp-cli in your Host OS, you can fire wp-cli commands from the Host OS.
+* [WP-CLI](http://wp-cli.org/) is pre-installed in this Vagrant environments.
+* If you install WP-CLI in your Host OS, you can fire WP-CLI commands from the Host OS.
 
-### Example for wp-cli commands
+### Example for WP-CLI commands
 
-You have to install [wp-cli](wp-cli.org) in your Host OS.
+You have to install [WP-CLI](wp-cli.org) in your Host OS.
 
 ```
 $ cd www/wordpress
