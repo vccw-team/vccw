@@ -2,6 +2,26 @@ build-essential Cookbook CHANGELOG
 ==================================
 This file is used to list changes made in each version of the build-essential cookbook.
 
+v2.0.0 (2014-03-13)
+-------------------
+- Updated tested harnesses to use latest ecosystem tools
+- Added support for FreeBSD
+- Added support for installing XCode Command Line Tools on OSX (10.7, 10.8, 10.9)
+- Created a DSL method for wrapping compile_time vs runtime execution
+- Install additional developement tools on some platforms
+- Add nicer log and warning messages with helpful information
+
+**Potentially Breaking Changes**
+
+- Dropped support for OSX 10.6
+- OSX no longer downloads OSX GCC and uses XCode CLI tools instead
+- `build_essential` -> `build-essential` in node attributes
+- `compiletime` -> `compile_time` in node attributes
+
+v1.4.4 (2014-02-27)
+-------------------
+- [COOK-4245] Wrong package name used for developer tools on OS X 10.9
+
 v1.4.2
 ------
 ### Bug

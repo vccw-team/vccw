@@ -1,8 +1,8 @@
 #
 # Cookbook Name:: build-essential
-# Attributes:: default
+# Recipe:: suse
 #
-# Copyright 2008-2012, Opscode, Inc.
+# Copyright 2008-2013, Opscode, Inc.
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
@@ -17,4 +17,13 @@
 # limitations under the License.
 #
 
-default['build-essential']['compile_time'] = false
+potentially_at_compile_time do
+  package 'autoconf'
+  package 'bison'
+  package 'flex'
+  package 'gcc'
+  package 'gcc-c++'
+  package 'kernel-default-devel'
+  package 'make'
+  package 'm4'
+end

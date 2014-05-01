@@ -1,6 +1,6 @@
 #
 # Cookbook Name:: build-essential
-# Recipe:: smartos
+# Recipe:: mac_os_x
 #
 # Copyright 2008-2013, Opscode, Inc.
 #
@@ -17,13 +17,6 @@
 # limitations under the License.
 #
 
-%w{
-  build-essential
-}.each do |pkg|
-
-  r = package pkg do
-    action( node['build_essential']['compiletime'] ? :nothing : :install )
-  end
-  r.run_action(:install) if node['build_essential']['compiletime']
-
+potentially_at_compile_time do
+  xcode_command_line_tools 'install'
 end
