@@ -25,7 +25,7 @@ This is a [Vagrant](http://www.vagrantup.com/) configuration designed for develo
      * default plugins: theme-check, plugin-check, dynamic-hostname
      * default theme: none
 * Optional import of theme unit test data
-* Pre-installed [WP-CLI](http://wp-cli.org), [PHPUnit](http://phpunit.de/), [Grunt](http://gruntjs.com/)
+* Pre-installed [WP-CLI](http://wp-cli.org), [PHPUnit](http://phpunit.de/), [Grunt](http://gruntjs.com/), [Composer](https://getcomposer.org/)
 * Shares folders between Host and Guest OS
 
 {{ site.scroll_to_top }}
@@ -117,6 +117,7 @@ This tool installs a WordPress environment with these settings by default.
 * [PHPUnit](http://phpunit.de/)
 * [WordPress i18n Tools](http://i18n.svn.wordpress.org/tools/trunk/)
 * [Grunt](http://gruntjs.com/)
+* [Composer](https://getcomposer.org/)
 
 {{ site.scroll_to_top }}
 
@@ -222,5 +223,68 @@ $ makepot.php wp-theme your-theme-directory
 ```
 
 After it's finished you should see the POT file in the current directory.
+
+{{ site.scroll_to_top }}
+
+## About WordPress plugin unit testing
+
+### Getting Started
+
+#### 1. SSH into your Vagrant machine.
+
+```
+$ vagrant ssh
+```
+
+#### 2. Change into your plugin directory.
+
+```
+$ cd /var/www/wordpress/wp-content/plugins/my-plugin
+```
+
+#### 3. Generate the plugin test files.
+
+```
+$ wp scaffold plugin-tests
+```
+
+This command will generate all the files needed for running tests, including a .travis.yml file. If you host your plugin on Github and enable [Travis CI](http://docs.travis-ci.com/), the tests will be run automatically after every commit you make to the plugin.
+
+#### 4. Run the plugin tests.
+
+```
+$ phpunit
+```
+
+### Writing PHPUnit test
+
+* [Nikolay Bachiyski: Unit Testing Will Change Your Life](http://wordpress.tv/2011/08/20/nikolay-bachiyski-unit-testing-will-change-your-life/)
+* [WordPress › Automated Testing « Make WordPress Core](http://make.wordpress.org/core/handbook/automated-testing/)
+* [Documentation for PHPUnit – The PHP Testing Framework](http://phpunit.de/documentation.html)
+* [/trunk/tests/phpunit](http://develop.svn.wordpress.org/trunk/tests/phpunit/)
+
+{{ site.scroll_to_top }}
+
+## Changelog
+
+### 1.2
+
+[https://github.com/miya0001/vccw/compare/1.1...1.2](https://github.com/miya0001/vccw/compare/1.1...1.2)
+
+* Add Composer
+* Setup the plugin unit tests suite automatically.
+
+### 1.1
+
+[https://github.com/miya0001/vccw/compare/1.0...1.1](https://github.com/miya0001/vccw/compare/1.0...1.1)
+
+* Add Grunt
+* Upgrade PHP5.3 to PHP5.4
+
+### 1.0
+
+* Add PHPUnit
+* Some fix
+
 
 {{ site.scroll_to_top }}
