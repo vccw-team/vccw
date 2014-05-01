@@ -258,9 +258,10 @@ $ phpunit
 
 ### Writing PHPUnit test
 
-* [Nikolay Bachiyski: Unit Testing Will Change Your Life](http://wordpress.tv/2011/08/20/nikolay-bachiyski-unit-testing-will-change-your-life/)
 * [WordPress › Automated Testing « Make WordPress Core](http://make.wordpress.org/core/handbook/automated-testing/)
 * [Documentation for PHPUnit – The PHP Testing Framework](http://phpunit.de/documentation.html)
+* [Nikolay Bachiyski: Unit Testing Will Change Your Life](http://wordpress.tv/2011/08/20/nikolay-bachiyski-unit-testing-will-change-your-life/)
+* [Automated Testing in WordPress, Really?!](http://www.slideshare.net/ptahdunbar/automated-testing-in-wordpress-really)
 * [/trunk/tests/phpunit](http://develop.svn.wordpress.org/trunk/tests/phpunit/)
 
 {{ site.scroll_to_top }}
