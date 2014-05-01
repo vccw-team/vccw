@@ -7,7 +7,7 @@
 #
 
 default['wp-cli']['wpcli-dir'] = '/usr/local/share/wp-cli'
-default['wp-cli']['wpcli-link'] = '/usr/bin/wp'
+default['wp-cli']['wpcli-link'] = '/usr/local/bin/wp'
 default['wp-cli']['installer'] = 'https://raw.github.com/wp-cli/builds/gh-pages/phar/wp-cli.phar'
 
 default['wp-cli']['locale'] = ""

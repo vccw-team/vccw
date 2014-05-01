@@ -6,7 +6,10 @@ default[:vccw][:hatamoto_repository] = "https://github.com/megumiteam/hatamoto.g
 default[:vccw][:iemoto_repositry] = "https://github.com/megumiteam/iemoto.git"
 
 default[:vccw][:phpunit][:src] = 'https://phar.phpunit.de/phpunit.phar'
-default[:vccw][:phpunit][:link] = '/usr/bin/phpunit'
+default[:vccw][:phpunit][:link] = '/usr/local/bin/phpunit'
 default[:vccw][:phpunit][:wp_test_install] = '/usr/bin/wp-test-install'
 default[:vccw][:phpunit][:mysql_name] = 'wp-test'
 default[:vccw][:phpunit][:wp_version] = 'latest'
+
+default[:vccw][:composer][:install] = 'curl -sS https://getcomposer.org/installer | php'
+default[:vccw][:composer][:link] = '/usr/local/bin/composer'

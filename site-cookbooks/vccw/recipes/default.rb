@@ -11,19 +11,9 @@ packages.each do |pkg|
   end
 end
 
-directory File.join(node[:vccw][:src_path], 'phpunit') do
-  recursive true
-end
-
-remote_file File.join(node[:vccw][:src_path], 'phpunit/phpunit.phar') do
-  source node[:vccw][:phpunit][:src]
-  mode 0755
-  action :create_if_missing
-end
-
-link node[:vccw][:phpunit][:link] do
-  to File.join(node[:vccw][:src_path], 'phpunit/phpunit.phar')
-end
+#
+# Setup WordPress i18n Tools
+#
 
 subversion "Checkout WordPress i18n tools." do
   repository    node[:vccw][:i18ntools_repositry]
@@ -37,6 +27,11 @@ end
 execute "echo 'alias makepot.php=\"#{node[:vccw][:makepot]}\"' >> #{node[:vccw]['bash_profile']}" do
   not_if "grep 'alias makepot.php' #{node[:vccw][:bash_profile]}"
 end
+
+
+#
+# Setup Grunt
+#
 
 execute "npm install -g grunt-init grunt-cli" do
   user "root"
@@ -77,6 +72,25 @@ template  "/home/vagrant/.grunt-init/defaults.json" do
   mode    "0600"
 end
 
+
+#
+# Setup PHPUnit
+#
+
+directory File.join(node[:vccw][:src_path], 'phpunit') do
+  recursive true
+end
+
+remote_file File.join(node[:vccw][:src_path], 'phpunit/phpunit.phar') do
+  source node[:vccw][:phpunit][:src]
+  mode 0755
+  action :create_if_missing
+end
+
+link node[:vccw][:phpunit][:link] do
+  to File.join(node[:vccw][:src_path], 'phpunit/phpunit.phar')
+end
+
 execute "wp-test-install" do
   command <<-EOH
 #{node[:vccw][:phpunit][:wp_test_install]} \
@@ -98,3 +112,20 @@ template node[:vccw][:phpunit][:wp_test_install] do
 end
 
 
+#
+# Setup Composer
+#
+
+directory File.join(node[:vccw][:src_path], 'composer') do
+  recursive true
+end
+
+execute node[:vccw][:composer][:install] do
+  user  "root"
+  group "root"
+  cwd   File.join(node[:vccw][:src_path], 'composer')
+end
+
+link node[:vccw][:composer][:link] do
+  to File.join(node[:vccw][:src_path], 'composer/composer.phar')
+end
