@@ -1,0 +1,23 @@
+---
+driver_plugin: vagrant
+driver_config:
+  require_chef_omnibus: true
+
+platforms:
+- name: debian-7.1.0
+- name: debian-6
+  driver_config:
+    box: opscode-debian-6.0.7
+    box_url: http://opscode-vm.s3.amazonaws.com/vagrant/opscode_debian-6.0.7_chef-11.2.0.box
+- name: ubuntu-13.04
+- name: ubuntu-12.04
+- name: ubuntu-10.04
+- name: centos-6.4
+- name: centos-5.9
+suites:
+- name: ruby_install
+  run_list:
+  - recipe[fake::ruby_install]
+- name: gem_install
+  run_list:
+  - recipe[fake::gem_install]

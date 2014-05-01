@@ -1,0 +1,2 @@
+#!/usr/bin/env bash
+bash -lc 'gem install bundler --no-rdoc --no-ri; bundle install'
