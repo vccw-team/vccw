@@ -1,6 +1,8 @@
 # encoding: utf-8
 # vim: ft=ruby expandtab shiftwidth=2 tabstop=2
 
+require 'shellwords'
+
 packages = %w{gettext subversion rubygems npm}
 
 packages.each do |pkg|
@@ -9,10 +11,14 @@ packages.each do |pkg|
   end
 end
 
+#
+# Setup WordPress i18n Tools
+#
+
 subversion "Checkout WordPress i18n tools." do
   repository    node[:vccw][:i18ntools_repositry]
   revision      "HEAD"
-  destination   node[:vccw][:path]
+  destination   File.join(node[:vccw][:src_path], 'wp-i18n');
   action        :sync
   user          "root"
   group         "root"
@@ -21,6 +27,11 @@ end
 execute "echo 'alias makepot.php=\"#{node[:vccw][:makepot]}\"' >> #{node[:vccw]['bash_profile']}" do
   not_if "grep 'alias makepot.php' #{node[:vccw][:bash_profile]}"
 end
+
+
+#
+# Setup Grunt
+#
 
 execute "npm install -g grunt-init grunt-cli" do
   user "root"
@@ -61,3 +72,60 @@ template  "/home/vagrant/.grunt-init/defaults.json" do
   mode    "0600"
 end
 
+
+#
+# Setup PHPUnit
+#
+
+directory File.join(node[:vccw][:src_path], 'phpunit') do
+  recursive true
+end
+
+remote_file File.join(node[:vccw][:src_path], 'phpunit/phpunit.phar') do
+  source node[:vccw][:phpunit][:src]
+  mode 0755
+  action :create_if_missing
+end
+
+link node[:vccw][:phpunit][:link] do
+  to File.join(node[:vccw][:src_path], 'phpunit/phpunit.phar')
+end
+
+execute "wp-test-install" do
+  command <<-EOH
+#{node[:vccw][:phpunit][:wp_test_install]} \
+#{Shellwords.shellescape(node[:vccw][:phpunit][:mysql_name])} \
+root \
+#{Shellwords.shellescape(node[:mysql][:server_root_password])} \
+localhost \
+#{Shellwords.shellescape(node[:vccw][:phpunit][:wp_version])}
+  EOH
+  action :nothing
+end
+
+template node[:vccw][:phpunit][:wp_test_install] do
+  source "wp-test-install.sh.erb"
+  owner "root"
+  group "root"
+  mode "0755"
+  notifies :run, "execute[wp-test-install]", :immediately
+end
+
+
+#
+# Setup Composer
+#
+
+directory File.join(node[:vccw][:src_path], 'composer') do
+  recursive true
+end
+
+execute node[:vccw][:composer][:install] do
+  user  "root"
+  group "root"
+  cwd   File.join(node[:vccw][:src_path], 'composer')
+end
+
+link node[:vccw][:composer][:link] do
+  to File.join(node[:vccw][:src_path], 'composer/composer.phar')
+end

@@ -25,14 +25,3 @@ end
 link node['wp-cli']['wpcli-link'] do
   to File.join(node['wp-cli']['wpcli-dir'], 'wp-cli.phar')
 end
-
-remote_file File.join(node['wp-cli']['wpcli-dir'], 'phpunit.phar') do
-  source node['wp-cli']['phpunit']
-  mode 0755
-  action :create_if_missing
-end
-
-link node['wp-cli']['phpunit-link'] do
-  to File.join(node['wp-cli']['wpcli-dir'], 'phpunit.phar')
-end
-

@@ -9,6 +9,7 @@ Vagrant.require_version ">= 1.5"
 #
 
 VM_BOX               = "chef/centos-6.5-i386" # for 32bit
+# VM_BOX               = "chef/centos-6.5" # for 64bit
 
 WP_VERSION           = 'latest' # latest or 3.4 or later or http(s):// URL to zipfile
 WP_LANG              = "en_US" # WordPress locale (e.g. ja)
@@ -38,7 +39,7 @@ WP_THEME_UNIT_TEST   = false # automatic import theme unit test data
 
 WP_ALWAYS_RESET      = true # always reset database
 
-WP_CHEF_COOKBOOKS_PATH = Dir.pwd # path to the cookbooks (e.g. ~/vagrant-wp)
+WP_CHEF_COOKBOOKS_PATH = File.dirname(__FILE__) # path to the cookbooks (e.g. ~/vccw)
 
 if WP_LANG === 'ja' then
   WP_THEME_UNIT_TEST_DATA_URI = 'https://raw.githubusercontent.com/jawordpressorg/theme-test-data-ja/master/wordpress-theme-test-date-ja.xml'
