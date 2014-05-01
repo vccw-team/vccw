@@ -127,15 +127,6 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
         :dbuser            => WP_DB_USER,
         :dbpassword        => WP_DB_PASS,
         :dbprefix          => WP_DB_PREFIX
-      },
-      :vccw => {
-        :test => {
-          :mysql_name  => 'wp-test',
-          :mysql_user  => 'root',
-          :mysql_pass  => 'wordpress',
-          :mysql_host  => 'localhost',
-          :wp_version => 'latest'
-        }
       }
     }
 

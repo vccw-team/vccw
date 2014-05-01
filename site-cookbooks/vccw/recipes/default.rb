@@ -16,12 +16,12 @@ directory File.join(node[:vccw][:src_path], 'phpunit') do
 end
 
 remote_file File.join(node[:vccw][:src_path], 'phpunit/phpunit.phar') do
-  source node[:vccw][:phpunit]
+  source node[:vccw][:phpunit][:src]
   mode 0755
   action :create_if_missing
 end
 
-link node[:vccw][:phpunit_link] do
+link node[:vccw][:phpunit][:link] do
   to File.join(node[:vccw][:src_path], 'phpunit/phpunit.phar')
 end
 
@@ -79,17 +79,17 @@ end
 
 execute "wp-test-install" do
   command <<-EOH
-#{node[:vccw][:test][:wp_test_install]} \
-#{Shellwords.shellescape(node[:vccw][:test][:mysql_name])} \
-#{Shellwords.shellescape(node[:vccw][:test][:mysql_user])} \
-#{Shellwords.shellescape(node[:vccw][:test][:mysql_pass])} \
-#{Shellwords.shellescape(node[:vccw][:test][:mysql_host])} \
-#{Shellwords.shellescape(node[:vccw][:test][:wp_version])}
+#{node[:vccw][:phpunit][:wp_test_install]} \
+#{Shellwords.shellescape(node[:vccw][:phpunit][:mysql_name])} \
+root \
+#{Shellwords.shellescape(node[:mysql][:server_root_password])} \
+localhost \
+#{Shellwords.shellescape(node[:vccw][:phpunit][:wp_version])}
   EOH
   action :nothing
 end
 
-template node[:vccw][:test][:wp_test_install] do
+template node[:vccw][:phpunit][:wp_test_install] do
   source "wp-test-install.sh.erb"
   owner "root"
   group "root"
