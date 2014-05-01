@@ -56,7 +56,13 @@ $ vagrant plugin install vagrant-hostsupdater
 ### 4. Clone the repository into a local directory.
 
 ```
-$ git clone https://github.com/miya0001/vagrant-chef-centos-wordpress.git
+$ git clone git@github.com:miya0001/vccw.git
+```
+
+Or
+
+```
+$ git clone https://github.com/miya0001/vccw.git
 ````
 
 Or please download from link in the right sidebar. 
