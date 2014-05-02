@@ -270,14 +270,14 @@ $ phpunit
 
 ### 1.2
 
-[https://github.com/miya0001/vccw/compare/1.1...1.2](https://github.com/miya0001/vccw/compare/1.1...1.2)
+<i class="fa fa-wrench"></i> [1.1...1.2](https://github.com/miya0001/vccw/compare/1.1...1.2)
 
 * Add Composer
 * Setup the plugin unit tests suite automatically.
 
 ### 1.1
 
-[https://github.com/miya0001/vccw/compare/1.0...1.1](https://github.com/miya0001/vccw/compare/1.0...1.1)
+<i class="fa fa-wrench"></i> [1.0...1.1](https://github.com/miya0001/vccw/compare/1.0...1.1)
 
 * Add Grunt
 * Upgrade PHP5.3 to PHP5.4
