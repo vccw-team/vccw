@@ -129,3 +129,30 @@ end
 link node[:vccw][:composer][:link] do
   to File.join(node[:vccw][:src_path], 'composer/composer.phar')
 end
+
+directory node[:vccw][:composer_home] do
+  user  "vagrant"
+  group "vagrant"
+  recursive true
+end
+
+execute "phpcs-install" do
+  user  "vagrant"
+  group "vagrant"
+  environment ({'COMPOSER_HOME' => node[:vccw][:composer_home]})
+  command <<-EOH
+#{node[:vccw][:composer][:link]} global require #{Shellwords.shellescape(node[:vccw][:phpcs][:composer])}
+  EOH
+end
+
+git File.join(node[:vccw][:composer_home], node[:vccw][:phpcs][:sniffs]) do
+  repository node[:vccw][:phpcs][:wordpress_repo]
+  reference  "master"
+  user "vagrant"
+  group "vagrant"
+  action :sync
+end
+
+execute "echo 'export PATH=~/.composer/vendor/bin:$PATH' >> #{node[:vccw]['bash_profile']}" do
+  not_if "grep 'export PATH=~/.composer/vendor/bin:$PATH' #{node[:vccw][:bash_profile]}"
+end

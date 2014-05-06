@@ -1,3 +1,4 @@
+default[:vccw][:composer_home] = "/home/vagrant/.composer"
 default[:vccw][:src_path] = "/usr/local/share"
 default[:vccw][:makepot] = "/usr/bin/php /usr/local/share/wp-i18n/makepot.php"
 default[:vccw][:bash_profile] = "/home/vagrant/.bash_profile"
@@ -13,3 +14,7 @@ default[:vccw][:phpunit][:wp_version] = 'latest'
 
 default[:vccw][:composer][:install] = 'curl -sS https://getcomposer.org/installer | php'
 default[:vccw][:composer][:link] = '/usr/local/bin/composer'
+
+default[:vccw][:phpcs][:composer] = 'squizlabs/php_codesniffer=*'
+default[:vccw][:phpcs][:wordpress_repo] = 'https://github.com/WordPress-Coding-Standards/WordPress-Coding-Standards.git'
+default[:vccw][:phpcs][:sniffs] = 'vendor/squizlabs/php_codesniffer/CodeSniffer/Standards/WordPress'
