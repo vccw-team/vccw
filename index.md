@@ -25,7 +25,15 @@ This is a [Vagrant](http://www.vagrantup.com/) configuration designed for develo
      * default plugins: theme-check, plugin-check, dynamic-hostname
      * default theme: none
 * Optional import of theme unit test data
-* Pre-installed [WP-CLI](http://wp-cli.org), [PHPUnit](http://phpunit.de/), [Grunt](http://gruntjs.com/), [Composer](https://getcomposer.org/)
+* Pre-installed tools
+    *[WP-CLI](http://wp-cli.org)
+    * [Grunt](http://gruntjs.com/)
+    * [Composer](https://getcomposer.org/)
+    * [WordPress i18n Tools](http://i18n.svn.wordpress.org/tools/trunk/)
+    * [PHPUnit](http://phpunit.de/)
+        * [WordPress Unit Tests](http://develop.svn.wordpress.org/trunk/tests/phpunit/)
+    * [PHP_CodeSniffer](https://github.com/squizlabs/PHP_CodeSniffer)
+        * [WordPress Coding Standards for PHP_CodeSniffer](https://github.com/WordPress-Coding-Standards/WordPress-Coding-Standards)
 * Shares folders between Host and Guest OS
 
 {{ site.scroll_to_top }}
@@ -113,11 +121,14 @@ This tool installs a WordPress environment with these settings by default.
      * PHP 5.4.x
      * MySQL 5.5.x
      * Apache 2.2.x
-* [WP-CLI](http://wp-cli.org/)
-* [PHPUnit](http://phpunit.de/)
-* [WordPress i18n Tools](http://i18n.svn.wordpress.org/tools/trunk/)
+*[WP-CLI](http://wp-cli.org)
 * [Grunt](http://gruntjs.com/)
 * [Composer](https://getcomposer.org/)
+* [WordPress i18n Tools](http://i18n.svn.wordpress.org/tools/trunk/)
+* [PHPUnit](http://phpunit.de/)
+    * [WordPress Unit Tests](http://develop.svn.wordpress.org/trunk/tests/phpunit/)
+* [PHP_CodeSniffer](https://github.com/squizlabs/PHP_CodeSniffer)
+    * [WordPress Coding Standards for PHP_CodeSniffer](https://github.com/WordPress-Coding-Standards/WordPress-Coding-Standards)
 
 {{ site.scroll_to_top }}
 
@@ -268,11 +279,18 @@ $ phpunit
 
 ## Changelog
 
+### 1.3
+
+<i class="fa fa-wrench"></i> [1.2...1.3](https://github.com/miya0001/vccw/compare/1.2...1.3)
+
+* Add PHP_CodeSniffer.
+* Add WordPress Coding Standards for PHP_CodeSniffer.
+
 ### 1.2
 
 <i class="fa fa-wrench"></i> [1.1...1.2](https://github.com/miya0001/vccw/compare/1.1...1.2)
 
-* Add Composer
+* Add Composer.
 * Setup the plugin unit tests suite automatically.
 
 ### 1.1
