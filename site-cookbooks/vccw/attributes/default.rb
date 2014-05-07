@@ -18,3 +18,4 @@ default[:vccw][:composer][:link] = '/usr/local/bin/composer'
 default[:vccw][:phpcs][:composer] = 'squizlabs/php_codesniffer=*'
 default[:vccw][:phpcs][:wordpress_repo] = 'https://github.com/WordPress-Coding-Standards/WordPress-Coding-Standards.git'
 default[:vccw][:phpcs][:sniffs] = 'vendor/squizlabs/php_codesniffer/CodeSniffer/Standards/WordPress'
+default[:vccw][:phpcs][:alias] = "wpcs"

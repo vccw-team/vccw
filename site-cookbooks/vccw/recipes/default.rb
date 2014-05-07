@@ -24,7 +24,7 @@ subversion "Checkout WordPress i18n tools." do
   group         "root"
 end
 
-execute "echo 'alias makepot.php=\"#{node[:vccw][:makepot]}\"' >> #{node[:vccw]['bash_profile']}" do
+execute "echo 'alias makepot.php=\"#{node[:vccw][:makepot]}\"' >> #{node[:vccw][:bash_profile]}" do
   not_if "grep 'alias makepot.php' #{node[:vccw][:bash_profile]}"
 end
 
@@ -141,7 +141,7 @@ execute "phpcs-install" do
   group "vagrant"
   environment ({'COMPOSER_HOME' => node[:vccw][:composer_home]})
   command <<-EOH
-#{node[:vccw][:composer][:link]} global require #{Shellwords.shellescape(node[:vccw][:phpcs][:composer])}
+    #{node[:vccw][:composer][:link]} global require #{Shellwords.shellescape(node[:vccw][:phpcs][:composer])}
   EOH
 end
 
@@ -153,6 +153,16 @@ git File.join(node[:vccw][:composer_home], node[:vccw][:phpcs][:sniffs]) do
   action :sync
 end
 
-execute "echo 'export PATH=~/.composer/vendor/bin:$PATH' >> #{node[:vccw]['bash_profile']}" do
+execute "echo 'export PATH=~/.composer/vendor/bin:$PATH' >> #{node[:vccw][:bash_profile]}" do
   not_if "grep 'export PATH=~/.composer/vendor/bin:$PATH' #{node[:vccw][:bash_profile]}"
 end
+
+execute "phpcs-add-alias" do
+  user  "vagrant"
+  group "vagrant"
+  command <<-EOH
+    echo 'alias #{node[:vccw][:phpcs][:alias]}="phpcs -p -s -v --standard=WordPress"' >> #{node[:vccw][:bash_profile]}
+  EOH
+  not_if "grep 'alias #{node[:vccw][:phpcs][:alias]}=' #{node[:vccw][:bash_profile]}"
+end
+
