@@ -27,6 +27,8 @@ WP_DB_NAME           = 'wordpress'
 WP_DB_USER           = 'wordpress'
 WP_DB_PASS           = 'wordpress'
 
+WP_DB_ROOT_PASS      = 'wordpress'
+
 WP_DEFAULT_PLUGINS   = %w(theme-check plugin-check dynamic-hostname) # default plugins
 WP_DEFAULT_THEME     = '' # e.g. twentythirteen
 
@@ -101,9 +103,9 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
       },
       :mysql => {
         :bind_address           => "0.0.0.0",
-        :server_debian_password => "wordpress",
-        :server_root_password   => "wordpress",
-        :server_repl_password   => "wordpress"
+        :server_debian_password => WP_DB_ROOT_PASS,
+        :server_root_password   => WP_DB_ROOT_PASS,
+        :server_repl_password   => WP_DB_ROOT_PASS
       },
       "wp-cli" => {
         :wp_version        => WP_VERSION,
