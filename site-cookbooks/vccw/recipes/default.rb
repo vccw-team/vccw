@@ -111,6 +111,9 @@ template node[:vccw][:phpunit][:wp_test_install] do
   notifies :run, "execute[wp-test-install]", :immediately
 end
 
+directory "/tmp/wordpress/wp-content/uploads" do
+  recursive true
+end
 
 #
 # Setup Composer
