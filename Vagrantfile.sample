@@ -99,7 +99,8 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
             "mbstring.language"          => "neutral",
             "mbstring.internal_encoding" => "UTF-8",
             "date.timezone"              => "UTC",
-            "short_open_tag"             => "Off"
+            "short_open_tag"             => "Off",
+            "session.save_path"          => "/tmp"
         }
       },
       :mysql => {
