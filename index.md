@@ -61,6 +61,8 @@ This is a [Vagrant](http://www.vagrantup.com/) configuration designed for develo
 $ vagrant plugin install vagrant-hostsupdater
 ```
 
+Windows is not allow to change hosts-file. Please add 'wordpress.local 192.168.31.10' by yourself!
+
 ### 4. Clone the repository into a local directory.
 
 ```
@@ -71,7 +73,7 @@ Or
 
 ```
 $ git clone https://github.com/miya0001/vccw.git
-````
+```
 
 Or please download from link in the right sidebar. 
 
