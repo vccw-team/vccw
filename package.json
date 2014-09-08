@@ -1,0 +1,26 @@
+{
+  "name": "vccw-pw",
+  "version": "0.0.0",
+  "description": "vccw-browsersync",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/tanshio/vccw"
+  },
+  "keywords": [
+    "vccw"
+  ],
+  "author": "tanshio",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/tanshio/vccw/issues"
+  },
+  "homepage": "https://github.com/tanshio/vccw",
+  "devDependencies": {
+    "browser-sync": "^1.3.6",
+    "gulp": "^3.8.8"
+  }
+}
