@@ -7,7 +7,7 @@
 # All rights reserved - Do Not Redistribute
 #
 
-%w{php-mcrypt gd-last php-gd ImageMagick-last phpmyadmin}.each do |p|
+%w{php-mcrypt gd-last php-gd ImageMagick-last phpmyadmin sshpass}.each do |p|
   package p do
     action [:install, :upgrade]
     options "--enablerepo=remi"
