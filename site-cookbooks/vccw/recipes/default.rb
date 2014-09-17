@@ -3,7 +3,10 @@
 
 require 'shellwords'
 
-packages = %w{gettext subversion rubygems npm}
+include_recipe 'ruby_build'
+include_recipe 'rbenv::system'
+
+packages = %w{gettext subversion npm}
 
 packages.each do |pkg|
   package pkg do
@@ -38,10 +41,10 @@ execute "npm install -g grunt-init grunt-cli" do
   group "root"
 end
 
-execute "gem install sass" do
-  user "root"
-  group "root"
-end
+#execute "gem install sass" do
+#  user "root"
+#  group "root"
+#end
 
 directory '/home/vagrant/.grunt-init' do
   recursive true

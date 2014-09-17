@@ -1,4 +1,4 @@
-# VCCW (vagrant-chef-centos-wordpress)
+# VCCW (vagrant-chef-centos-wordpress) + phpMyAdmin + wordmove
 
 This is a Vagrant configuration designed for development of WordPress plugins, themes, or websites.
 
