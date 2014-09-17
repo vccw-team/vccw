@@ -111,6 +111,9 @@ template node[:vccw][:phpunit][:wp_test_install] do
   notifies :run, "execute[wp-test-install]", :immediately
 end
 
+directory "/tmp/wordpress/wp-content/uploads" do
+  recursive true
+end
 
 #
 # Setup Composer
@@ -145,11 +148,15 @@ execute "phpcs-install" do
   EOH
 end
 
-git File.join(node[:vccw][:composer_home], node[:vccw][:phpcs][:sniffs]) do
+directory File.join(node[:vccw][:src_path], node[:vccw][:phpcs][:sniffs]) do
+  recursive true
+end
+
+git File.join(node[:vccw][:src_path], node[:vccw][:phpcs][:sniffs]) do
   repository node[:vccw][:phpcs][:wordpress_repo]
   reference  "master"
-  user "vagrant"
-  group "vagrant"
+  user "root"
+  group "root"
   action :sync
 end
 
@@ -157,11 +164,19 @@ execute "echo 'export PATH=~/.composer/vendor/bin:$PATH' >> #{node[:vccw][:bash_
   not_if "grep 'export PATH=~/.composer/vendor/bin:$PATH' #{node[:vccw][:bash_profile]}"
 end
 
+execute "phpcs-set-config" do
+  user  "vagrant"
+  group "vagrant"
+  command <<-EOH
+    /home/vagrant/.composer/vendor/bin/phpcs --config-set installed_paths #{File.join(node[:vccw][:src_path], node[:vccw][:phpcs][:sniffs])}
+  EOH
+end
+
 execute "phpcs-add-alias" do
   user  "vagrant"
   group "vagrant"
   command <<-EOH
-    echo 'alias #{node[:vccw][:phpcs][:alias]}="phpcs -p -s -v --standard=WordPress"' >> #{node[:vccw][:bash_profile]}
+    echo 'alias #{node[:vccw][:phpcs][:alias]}="phpcs -p -s -v --standard=WordPress-Core"' >> #{node[:vccw][:bash_profile]}
   EOH
   not_if "grep 'alias #{node[:vccw][:phpcs][:alias]}=' #{node[:vccw][:bash_profile]}"
 end
