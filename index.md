@@ -284,7 +284,7 @@ $ phpunit
 
 ### 1.4
 
-<i class="fa fa-wrench"></i> [1.2...1.3](https://github.com/miya0001/vccw/compare/1.3...1.4)
+<i class="fa fa-wrench"></i> [1.3...1.4](https://github.com/miya0001/vccw/compare/1.3...1.4)
 
 * Add WordMove.
 * Some fix.
