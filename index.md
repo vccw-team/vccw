@@ -34,6 +34,7 @@ This is a [Vagrant](http://www.vagrantup.com/) configuration designed for develo
         * [WordPress Unit Tests](http://develop.svn.wordpress.org/trunk/tests/phpunit/)
     * [PHP_CodeSniffer](https://github.com/squizlabs/PHP_CodeSniffer)
         * [WordPress Coding Standards for PHP_CodeSniffer](https://github.com/WordPress-Coding-Standards/WordPress-Coding-Standards)
+    * [WordMove](https://github.com/welaika/wordmove)
 * Shares folders between Host and Guest OS
 
 {{ site.scroll_to_top }}
@@ -280,6 +281,13 @@ $ phpunit
 {{ site.scroll_to_top }}
 
 ## Changelog
+
+### 1.4
+
+<i class="fa fa-wrench"></i> [1.2...1.3](https://github.com/miya0001/vccw/compare/1.3...1.4)
+
+* Add WordMove.
+* Some fix.
 
 ### 1.3
 
