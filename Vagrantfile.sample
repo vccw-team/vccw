@@ -133,26 +133,37 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
         :dbpassword        => WP_DB_PASS,
         :dbprefix          => WP_DB_PREFIX
       },
+      :vccw => {
+        :wordmove => {
+          :movefile        => File.join('/home/vagrant', "Movefile"),
+          :url             => "http://" << File.join(WP_HOSTNAME, WP_DIR),
+          :wpdir           => File.join('/var/www/wordpress', WP_DIR),
+          :dbhost          => WP_DB_HOST,
+          :dbname          => WP_DB_NAME,
+          :dbuser          => WP_DB_USER,
+          :dbpassword      => WP_DB_PASS
+        }
+      },
       :rbenv => {
-                  "rubies"  => ['2.1.2'],
-                  "global"  => '2.1.2',
-                  "gems"    => {
-                      "2.1.2" => [
-                          {
-                              name: "bundler",
-                              options: "--no-ri --no-rdoc"
-                          },
-                          {
-                              name: "sass",
-                              options: "--no-ri --no-rdoc"
-                          },
-                          {
-                              name: "wordmove",
-                              options: "--no-ri --no-rdoc"
-                          }
-                      ]
-                  }
-              }
+        "rubies"  => ['2.1.2'],
+        "global"  => '2.1.2',
+        "gems"    => {
+          "2.1.2" => [
+            {
+              name: "bundler",
+              options: "--no-ri --no-rdoc"
+            },
+            {
+              name: "sass",
+              options: "--no-ri --no-rdoc"
+            },
+            {
+              name: "wordmove",
+              options: "--no-ri --no-rdoc"
+            }
+          ]
+        }
+      }
     }
 
     chef.add_recipe "yum::remi"

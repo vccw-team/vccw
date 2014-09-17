@@ -184,3 +184,19 @@ execute "phpcs-add-alias" do
   not_if "grep 'alias #{node[:vccw][:phpcs][:alias]}=' #{node[:vccw][:bash_profile]}"
 end
 
+# Generate Movefile
+template node[:vccw][:wordmove][:movefile] do
+  source "Movefile.erb"
+  owner "vagrant"
+  group "vagrant"
+  mode "0600"
+  variables(
+    :url        => node[:vccw][:wordmove][:url],
+    :wpdir      => node[:vccw][:wordmove][:wpdir],
+    :dbhost     => node[:vccw][:wordmove][:dbhost],
+    :dbname     => node[:vccw][:wordmove][:dbname],
+    :dbuser     => node[:vccw][:wordmove][:dbuser],
+    :dbpassword => node[:vccw][:wordmove][:dbpassword]
+  )
+  action :create_if_missing
+end
