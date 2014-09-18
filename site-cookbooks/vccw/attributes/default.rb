@@ -20,7 +20,7 @@ default[:vccw][:phpcs][:wordpress_repo] = 'https://github.com/WordPress-Coding-S
 default[:vccw][:phpcs][:sniffs]        = 'wpcs'
 default[:vccw][:phpcs][:alias]         = 'wpcs'
 
-default[:vccw][:wordmove][:movefile]   = '/home/vagrant/Movefile'
+default[:vccw][:wordmove][:movefile]   = '/vagrant/Movefile'
 default[:vccw][:wordmove][:url]        = 'http://wordpress.local'
 default[:vccw][:wordmove][:wpdir]      = '/var/www/wordpress'
 default[:vccw][:wordmove][:dbhost]     = 'localhost'

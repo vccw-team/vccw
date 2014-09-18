@@ -135,7 +135,7 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
       },
       :vccw => {
         :wordmove => {
-          :movefile        => File.join('/home/vagrant', "Movefile"),
+          :movefile        => File.join('/vagrant', "Movefile"),
           :url             => "http://" << File.join(WP_HOSTNAME, WP_DIR),
           :wpdir           => File.join('/var/www/wordpress', WP_DIR),
           :dbhost          => WP_DB_HOST,

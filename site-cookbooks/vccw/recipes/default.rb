@@ -200,3 +200,8 @@ template node[:vccw][:wordmove][:movefile] do
   )
   action :create_if_missing
 end
+
+execute "echo 'alias wordmove=\"wordmove -c #{node[:vccw][:wordmove][:movefile]}\"' >> #{node[:vccw][:bash_profile]}" do
+  not_if "grep 'alias wordmove' #{node[:vccw][:bash_profile]}"
+end
+
