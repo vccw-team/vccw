@@ -280,6 +280,24 @@ $ phpunit
 
 {{ site.scroll_to_top }}
 
+## How to run serverspec
+
+`vagrant up` with vagrant-serverspec plugin.
+
+```
+$ vagrant plugin install vagrant-serverspec
+$ VAGRANT_LOG=info VAGRANT_VAGRANTFILE=Vagrantfile.sample vagrant up
+```
+
+Or use `rake`.
+
+```
+$ bundle install
+$ rake spec
+```
+
+{{ site.scroll_to_top }}
+
 ## Changelog
 
 ### 1.4
