@@ -1,8 +1,8 @@
 # encoding: utf-8
 # vim: ft=ruby expandtab shiftwidth=2 tabstop=2
 
-VAGRANTFILE_API_VERSION = "2"
 Vagrant.require_version ">= 1.5"
+
 
 #
 # Configuration for the WordPress
@@ -51,8 +51,7 @@ end
 
 # end configuration
 
-
-Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
+Vagrant.configure(2) do |config|
 
   config.vm.box = VM_BOX
 
@@ -178,6 +177,14 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
     chef.add_recipe "wp-cli::install"
     chef.add_recipe "vccw"
 
+  end
+
+  if ENV["VAGRANT_LOG"] === 'debug' || ENV["VAGRANT_LOG"] === 'info' then
+    if Vagrant.has_plugin?("vagrant-serverspec")
+      config.vm.provision :serverspec do |spec|
+        spec.pattern = 'spec/default/*_spec.rb'
+      end
+    end
   end
 
 end
