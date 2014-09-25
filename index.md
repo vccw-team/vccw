@@ -302,7 +302,7 @@ $ rake spec
 
 ### 1.5
 
-<i class="fa fa-wrench"></i> [1.4.3...1.5.0](https://github.com/miya0001/vccw/compare/1.3...1.4)
+<i class="fa fa-wrench"></i> [1.4...1.5.0](https://github.com/miya0001/vccw/compare/1.4...1.5.0)
 
 * Add serverspec testing.
 * Some fix
