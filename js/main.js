@@ -23,16 +23,15 @@
 
 function show_contributors(res) {
     var contibutors = res.data;
-    var gravatar     = 'http://www.gravatar.com/avatar/';
-    var size        = 90;
+    //var gravatar     = 'http://www.gravatar.com/avatar/';
+    //var size        = 90;
     $(contibutors).each(function(){
-        var avatar = gravatar + this.gravatar_id + '?s=50';
         var li = $('<li />');
         var a  = $('<a />');
         a.attr('href', this.html_url);
         a.attr('title', this.login);
         var img = $('<img />');
-        img.attr('src', avatar);
+        img.attr('src', this.avatar_url);
         img.attr('alt', this.login);
         a.append(img);
         li.append(a);
