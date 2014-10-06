@@ -49,11 +49,11 @@ VCCW is a focused on theme and plugin development.
 
 ### System Environments
 
-![](/images/table-01.jpg)
+![](/images/table-01.png)
 
 ### Developer Tools
 
-![](/images/table-02.jpg)
+![](/images/table-02.png)
 
 {{ site.scroll_to_top }}
 
