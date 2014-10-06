@@ -1,4 +1,4 @@
-# VCCW (vagrant-chef-centos-wordpress) + phpMyAdmin + wordmove
+# VCCW (vagrant-chef-wordpress)
 
 This is a Vagrant configuration designed for development of WordPress plugins, themes, or websites.
 
@@ -19,3 +19,6 @@ To get started, check out <http://vccw.cc/>
 * Optional import of theme unit test data
 * Pre-installed [wp-cli](http://wp-cli.org)
 * Shares folders between Host and Guest OS
+
+See more information at [http://vccw.cc/](http://vccw.cc/)
+
