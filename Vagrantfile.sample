@@ -107,7 +107,7 @@ Vagrant.configure(2) do |config|
         :server_root_password   => WP_DB_ROOT_PASS,
         :server_repl_password   => WP_DB_ROOT_PASS
       },
-      "wp-cli" => {
+      "wpcli" => {
         :wp_version        => WP_VERSION,
         :url               => "http://" << File.join(WP_HOSTNAME, WP_DIR),
         :wpdir             => File.join('/var/www/wordpress', WP_DIR),
@@ -171,13 +171,13 @@ Vagrant.configure(2) do |config|
     chef.add_recipe "mysql::server"
     chef.add_recipe "mysql::ruby"
     chef.add_recipe "php::package"
-    chef.add_recipe "wp-cli"
-    chef.add_recipe "wp-cli::install"
+    chef.add_recipe "wpcli"
+    chef.add_recipe "wpcli::install"
     chef.add_recipe "vccw"
 
   end
 
-  if ENV["VAGRANT_LOG"] === 'debug' || ENV["VAGRANT_LOG"] === 'info' then
+  if ENV["VAGRANT_VAGRANTFILE"] === 'Vagrantfile.sample' then
     if Vagrant.has_plugin?("vagrant-serverspec")
       config.vm.provision :serverspec do |spec|
         spec.pattern = 'spec/default/*_spec.rb'
