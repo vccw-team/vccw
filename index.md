@@ -400,6 +400,13 @@ $ rake spec
 
 ## Changelog
 
+### 1.6
+
+<i class="fa fa-wrench"></i> [1.5.0...1.6.0](https://github.com/miya0001/vccw/compare/1.5.0...1.6.0)
+
+* Change cookbook name `wp-cli` to `wpcli`
+* It's become to sync with latest wp-cli when vagrant provision.
+
 ### 1.5
 
 <i class="fa fa-wrench"></i> [1.4...1.5.0](https://github.com/miya0001/vccw/compare/1.4...1.5.0)
