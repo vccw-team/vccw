@@ -74,7 +74,7 @@ VCCW is a focused on theme and plugin development.
 
 [http://www.vagrantup.com/](http://www.vagrantup.com/)
 
-### 3. Install the vagrant-hostsupdater plugin.
+### 3. Install the vagrant-hostsupdater plugin. (Optional)
 
 ```
 $ vagrant plugin install vagrant-hostsupdater
@@ -217,12 +217,9 @@ File under the wp-content directory will be not deleted.
 * [WP-CLI](http://wp-cli.org/) is pre-installed in this Vagrant environments.
 * If you install WP-CLI in your Host OS, you can fire WP-CLI commands from the Host OS.
 
-### Example for WP-CLI commands
-
-You have to install [WP-CLI](wp-cli.org) in your Host OS.
 
 ```
-$ cd www/wordpress
+$ cd /vagrant/www/wordpress
 
 # Exports the database using mysqldump to Desktop.
 $ wp db export ~/Desktop/export.sql
@@ -298,13 +295,98 @@ $ phpunit
 
 {{ site.scroll_to_top }}
 
+### WordMove
+
+#### Edit Movefile
+
+Movefile will be generated automatically, so you can start quickly.
+
+[https://github.com/welaika/wordmove](https://github.com/welaika/wordmove)
+
+#### Deploying
+
+SSH to your vagrant.
+
+```
+$ vagrant ssh
+```
+
+Pull contents from production.
+
+```
+$ wordmove pull --all
+```
+
+Push contents to your production.
+
+```
+$ wordmove pull --all
+```
+
+Options of wordmove.
+
+```
+$ wordmove help
+Commands:
+  wordmove help [COMMAND]  # Describe available commands or one specific command
+  wordmove init            # Generates a brand new Movefile
+  wordmove pull            # Pulls WP data from remote host to the local machine
+  wordmove push            # Pushes WP data from local machine to remote host
+```
+
+```
+$ wordmove help pull
+Usage:
+  wordmove pull
+
+Options:
+  -w, [--wordpress], [--no-wordpress]  
+  -u, [--uploads], [--no-uploads]
+  -t, [--themes], [--no-themes]
+  -p, [--plugins], [--no-plugins]
+  -l, [--languages], [--no-languages]  
+  -d, [--db], [--no-db]
+  -v, [--verbose], [--no-verbose]
+  -s, [--simulate], [--no-simulate]
+  -e, [--environment=ENVIRONMENT]
+  -c, [--config=CONFIG]
+      [--no-adapt], [--no-no-adapt]
+      [--all], [--no-all]
+
+Pulls WP data from remote host to the local machine
+```
+
+```
+$ wordmove help push
+Usage:
+  wordmove push
+
+Options:
+  -w, [--wordpress], [--no-wordpress]  
+  -u, [--uploads], [--no-uploads]
+  -t, [--themes], [--no-themes]
+  -p, [--plugins], [--no-plugins]
+  -l, [--languages], [--no-languages]  
+  -d, [--db], [--no-db]
+  -v, [--verbose], [--no-verbose]
+  -s, [--simulate], [--no-simulate]
+  -e, [--environment=ENVIRONMENT]
+  -c, [--config=CONFIG]
+      [--no-adapt], [--no-no-adapt]
+      [--all], [--no-all]
+
+Pushes WP data from local machine to remote host
+```
+
+{{ site.scroll_to_top }}
+
 ## How to run serverspec
 
 `vagrant up` with vagrant-serverspec plugin.
 
 ```
 $ vagrant plugin install vagrant-serverspec
-$ VAGRANT_LOG=info VAGRANT_VAGRANTFILE=Vagrantfile.sample vagrant up
+$ VAGRANT_VAGRANTFILE=Vagrantfile.sample vagrant up
 ```
 
 Or use `rake`.
