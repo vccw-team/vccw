@@ -295,15 +295,15 @@ $ phpunit
 
 {{ site.scroll_to_top }}
 
-### WordMove
+## WordMove
 
-#### Edit Movefile
+### Edit Movefile
 
 Movefile will be generated automatically, so you can start quickly.
 
 [https://github.com/welaika/wordmove](https://github.com/welaika/wordmove)
 
-#### Deploying
+### Deploying
 
 SSH to your vagrant.
 
