@@ -322,7 +322,7 @@ $ wordmove pull --all
 Push contents to your production.
 
 ```
-$ wordmove pull --all
+$ wordmove push --all
 ```
 
 Options of wordmove.
