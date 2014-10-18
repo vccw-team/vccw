@@ -96,31 +96,13 @@ Visit [http://wordpress.local/](http://wordpress.local/) or [http://192.168.33.1
 
 {{ site.scroll_to_top }}
 
-
-## VVV vs VCCW
-
-Varying Vagrant Vagrants is a focused on WordPress core development.
-
-[https://github.com/Varying-Vagrant-Vagrants/VVV](https://github.com/Varying-Vagrant-Vagrants/VVV)
-
-VCCW is a focused on theme and plugin development.
-
-### System Environments
-
-![](/images/table-01.png)
-
-### Developer Tools
-
-![](/images/table-02.png)
-
-{{ site.scroll_to_top }}
-
 ## Requires
 
 * Vagrant 1.5 or later
 * VirtualBox 4.3 or later
 
 {{ site.scroll_to_top }}
+
 
 ## Environments
 
@@ -211,6 +193,24 @@ This Vagrant configuration has many customizable constants.
 4. `vagrant reload` - Re-Start guest machine.
 
 File under the wp-content directory will be not deleted.
+
+{{ site.scroll_to_top }}
+
+## VVV vs VCCW
+
+Varying Vagrant Vagrants is a focused on WordPress core development.
+
+[https://github.com/Varying-Vagrant-Vagrants/VVV](https://github.com/Varying-Vagrant-Vagrants/VVV)
+
+VCCW is a focused on theme and plugin development.
+
+### System Environments
+
+![](/images/table-01.png)
+
+### Developer Tools
+
+![](/images/table-02.png)
 
 {{ site.scroll_to_top }}
 
