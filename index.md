@@ -39,30 +39,6 @@ This is a [Vagrant](http://www.vagrantup.com/) configuration designed for develo
 
 {{ site.scroll_to_top }}
 
-## VVV vs VCCW
-
-Varying Vagrant Vagrants is a focused on WordPress core development.
-
-[https://github.com/Varying-Vagrant-Vagrants/VVV](https://github.com/Varying-Vagrant-Vagrants/VVV)
-
-VCCW is a focused on theme and plugin development.
-
-### System Environments
-
-![](/images/table-01.png)
-
-### Developer Tools
-
-![](/images/table-02.png)
-
-{{ site.scroll_to_top }}
-
-## Requires
-
-* Vagrant 1.5 or later
-* VirtualBox 4.3 or later
-
-{{ site.scroll_to_top }}
 
 ## Getting Started
 
@@ -117,6 +93,32 @@ $ vagrant up
 ### 8. Visit WordPress on the Vagrant in your browser
 
 Visit [http://wordpress.local/](http://wordpress.local/) or [http://192.168.33.10/](http://192.168.33.10/)
+
+{{ site.scroll_to_top }}
+
+
+## VVV vs VCCW
+
+Varying Vagrant Vagrants is a focused on WordPress core development.
+
+[https://github.com/Varying-Vagrant-Vagrants/VVV](https://github.com/Varying-Vagrant-Vagrants/VVV)
+
+VCCW is a focused on theme and plugin development.
+
+### System Environments
+
+![](/images/table-01.png)
+
+### Developer Tools
+
+![](/images/table-02.png)
+
+{{ site.scroll_to_top }}
+
+## Requires
+
+* Vagrant 1.5 or later
+* VirtualBox 4.3 or later
 
 {{ site.scroll_to_top }}
 
