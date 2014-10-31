@@ -154,7 +154,13 @@ if node[:wpcli][:default_theme] != '' then
       user "vagrant"
       group "vagrant"
       cwd node[:wpcli][:wpdir]
-      code "wp theme install #{Shellwords.shellescape(node[:wpcli][:default_theme])} --activate"
+      code "wp theme install #{Shellwords.shellescape(node[:wpcli][:default_theme])}"
+    end
+    bash "WordPress #{node[:wpcli][:default_theme]} activate" do
+      user "vagrant"
+      group "vagrant"
+      cwd node[:wpcli][:wpdir]
+      code "wp theme activate #{File.basename(Shellwords.shellescape(node[:wpcli][:default_theme])).sub(/\..*$/, '')}"
     end
 end
 
