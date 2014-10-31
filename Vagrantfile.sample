@@ -8,8 +8,8 @@ Vagrant.require_version ">= 1.5"
 # Configuration for the WordPress
 #
 
-VM_BOX               = "miya0001/vccw" # pre-installed box
-# VM_BOX               = "chef/centos-6.5-i386"
+VM_BOX               = "chef/centos-6.5-i386"
+# VM_BOX               = "miya0001/vccw" # pre-installed box
 # VM_BOX               = "chef/centos-6.5" # for 64bit
 
 WP_VERSION           = ENV["wp_version"] || 'latest' # latest or 3.4 or later or http(s):// URL to zipfile
@@ -64,10 +64,6 @@ Vagrant.configure(2) do |config|
 
   if Vagrant.has_plugin?("vagrant-hostsupdater")
     config.hostsupdater.remove_on_suspend = true
-  end
-
-  if Vagrant.has_plugin?("vagrant-cachier")
-    config.cache.scope = :box
   end
 
   config.vm.provision "shell",
