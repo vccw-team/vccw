@@ -226,13 +226,13 @@ $ cp Vagrantfile.theme-review Vagrantfile
 ### 3. Specify the theme's zip file url and vagrant up
 
 ```
-$ theme=http://example.com/path/to/zipped/theme/file.zip vagrant up
+$ wp_theme=http://example.com/path/to/zipped/theme/file.zip vagrant up
 ```
 
 or
 
 ```
-$ theme=http://example.com/path/to/zipped/theme/file.zip vagrant provision
+$ wp_theme=http://example.com/path/to/zipped/theme/file.zip vagrant provision
 ```
 
 ## About WP-CLI
