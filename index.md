@@ -26,7 +26,7 @@ This is a [Vagrant](http://www.vagrantup.com/) configuration designed for develo
      * default theme: none
 * Optional import of theme unit test data
 * Pre-installed tools
-    *[WP-CLI](http://wp-cli.org)
+    * [WP-CLI](http://wp-cli.org)
         * [Dictator](https://github.com/danielbachhuber/dictator)
     * [Grunt](http://gruntjs.com/)
     * [Composer](https://getcomposer.org/)
