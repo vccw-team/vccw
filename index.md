@@ -196,24 +196,6 @@ File under the wp-content directory will be not deleted.
 
 {{ site.scroll_to_top }}
 
-## VVV vs VCCW
-
-Varying Vagrant Vagrants is a focused on WordPress core development.
-
-[https://github.com/Varying-Vagrant-Vagrants/VVV](https://github.com/Varying-Vagrant-Vagrants/VVV)
-
-VCCW is a focused on theme and plugin development.
-
-### System Environments
-
-![](/images/table-01.png)
-
-### Developer Tools
-
-![](/images/table-02.png)
-
-{{ site.scroll_to_top }}
-
 ## For theme reviewers
 
 You can have a clean and appropriate theme review environment very easily.
@@ -245,6 +227,12 @@ $ cp Vagrantfile.theme-review Vagrantfile
 
 ```
 $ theme=http://example.com/path/to/zipped/theme/file.zip vagrant up
+```
+
+or
+
+```
+$ theme=http://example.com/path/to/zipped/theme/file.zip vagrant provision
 ```
 
 ## About WP-CLI
