@@ -27,6 +27,7 @@ This is a [Vagrant](http://www.vagrantup.com/) configuration designed for develo
 * Optional import of theme unit test data
 * Pre-installed tools
     *[WP-CLI](http://wp-cli.org)
+        * [Dictator](https://github.com/danielbachhuber/dictator)
     * [Grunt](http://gruntjs.com/)
     * [Composer](https://getcomposer.org/)
     * [WordPress i18n Tools](http://i18n.svn.wordpress.org/tools/trunk/)
@@ -36,6 +37,33 @@ This is a [Vagrant](http://www.vagrantup.com/) configuration designed for develo
         * [WordPress Coding Standards for PHP_CodeSniffer](https://github.com/WordPress-Coding-Standards/WordPress-Coding-Standards)
     * [WordMove](https://github.com/welaika/wordmove)
 * Shares folders between Host and Guest OS
+
+### It is very easy to switch your WordPress environments.
+
+It is enabled to switch theme.
+
+```
+$ wp_theme=http://example.com/path/to/your-theme.zip vagrant provision
+```
+
+WordPress version.
+
+```
+$ wp_version=3.5.2 vagrant provision
+```
+
+Languages.
+
+```
+$ wp_ng=ja vagrant provision
+```
+
+So, switching back is easy too.
+
+```
+$ vagrant provision
+```
+
 
 {{ site.scroll_to_top }}
 
@@ -60,17 +88,18 @@ Windows is not allow to change hosts-file. Please add 'wordpress.local 192.168.3
 
 ### 4. Clone the repository into a local directory.
 
+Please download <a class="latest-zipball">.zip</a> or <a class="latest-tarball">.tar.gz</a>.
+
+<a class="button latest-zipball" style="float: left;"><small>Download</small>.zip</a>
+<a class="button latest-tarball" style="float: left;"><small>Download</small>.tar.gz</a>
+
+<br clear="all" />
+
+or
+
 ```
 $ git clone git@github.com:miya0001/vccw.git
 ```
-
-Or
-
-```
-$ git clone https://github.com/miya0001/vccw.git
-```
-
-Or please download from link in the right sidebar.
 
 ### 5. Change into a new directory.
 
@@ -126,7 +155,7 @@ This tool installs a WordPress environment with these settings by default.
      * PHP 5.4.x
      * MySQL 5.5.x
      * Apache 2.2.x
-*[WP-CLI](http://wp-cli.org)
+* [WP-CLI](http://wp-cli.org)
 * [Grunt](http://gruntjs.com/)
 * [Composer](https://getcomposer.org/)
 * [WordPress i18n Tools](http://i18n.svn.wordpress.org/tools/trunk/)
@@ -184,6 +213,10 @@ This Vagrant configuration has many customizable constants.
     * You will lose all of your MySQL data when database is reset.
 * `WP_IP = "192.168.33.10"`
     * Private IP address for the Guest OS.
+* `WP_OPTIONS = {}`
+    * WordPress options like blogname, blogdescription ...
+* `WP_REWRITE_STRUCTURE = '/archives/%post_id%'`
+    * WordPress permalink structure.
 
 ### How to apply Vagrant configuration after `vagrant up`
 

@@ -42,8 +42,8 @@ function show_contributors(res) {
 function set_link(res) {
     var tag = res.data[0];
     var link = 'https://github.com/' + gh_user + '/' + gh_project + '/archive/';
-    $('#zipball_link').attr('href', link + tag.name + '.zip');
-    $('#tarball_link').attr('href', link + tag.name + '.tar.gz');
+    $('.latest-zipball').attr('href', link + tag.name + '.zip');
+    $('.latest-tarball').attr('href', link + tag.name + '.tar.gz');
 }
 
 function show_issues(res) {
@@ -66,4 +66,3 @@ function show_issues(res) {
         $('#issues').append(well);
     }
 }
-
