@@ -456,6 +456,14 @@ $ rake spec
 
 ## Changelog
 
+### 1.7
+
+<i class="fa fa-wrench"></i> [1.6.0...1.7.0](https://github.com/miya0001/vccw/compare/1.6.0...1.7.0)
+
+* Add dictator.
+* Add environment variables for switching WordPress.
+* Add Vagrantfile.theme-review
+
 ### 1.6
 
 <i class="fa fa-wrench"></i> [1.5.0...1.6.0](https://github.com/miya0001/vccw/compare/1.5.0...1.6.0)
