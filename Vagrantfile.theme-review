@@ -50,7 +50,7 @@ WP_IS_MULTISITE      = false # enable multisite when true
 WP_FORCE_SSL_ADMIN   = false # enable force ssl admin when true
 WP_DEBUG             = true # enable debug mode
 WP_SAVEQUERIES       = false # save the database queries to an array
-WP_THEME_UNIT_TEST   = false # automatic import theme unit test data
+WP_THEME_UNIT_TEST   = true # automatic import theme unit test data
 
 WP_ALWAYS_RESET      = true # always reset database
 
