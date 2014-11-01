@@ -78,7 +78,7 @@ Vagrant.configure(2) do |config|
     config.hostsupdater.remove_on_suspend = true
   end
 
-  if "miya0001/vccw" != VM_BOX
+  if "miya0001/vccw" != VM_BOX && 'provision' != ARGV[0]
     config.vm.provision "shell",
         inline: "curl -L https://www.opscode.com/chef/install.sh | bash"
   end
