@@ -214,6 +214,39 @@ VCCW is a focused on theme and plugin development.
 
 {{ site.scroll_to_top }}
 
+## For theme reviewers
+
+You can have a clean and appropriate theme review environment very easily.
+
+* the theme activated
+* needed plugins activated ( theme-check debogger log-deprecated-notices monster-widget wordpress-beta-tester regenerate-thumbnails )
+* long blogname & blogdescription set
+* posts_per_page set to 5
+* thread_comments set to 1
+* thread_comments_depth set to 3
+* page_comments set to 1
+* comments_per_page to 5
+* large_size_w & large_size_h set to '' (empty)
+* rewrite structure '/%year%/%monthnum%/%postname%' with .htaccess generated
+
+### 1. Go to vccw directory
+
+```
+$ cd vccw
+```
+
+### 2. Copy the Vagrantfile.theme-review
+
+```
+$ cp Vagrantfile.theme-review Vagrantfile
+```
+
+### 3. Specify the theme's zip file url and vagrant up
+
+```
+$ theme=http://example.com/path/to/zipped/theme/file.zip vagrant up
+```
+
 ## About WP-CLI
 
 * [WP-CLI](http://wp-cli.org/) is pre-installed in this Vagrant environments.
