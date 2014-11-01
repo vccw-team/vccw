@@ -30,11 +30,18 @@ WP_DB_PASS           = 'wordpress'
 
 WP_DB_ROOT_PASS      = 'wordpress'
 
-WP_DEFAULT_PLUGINS   = %w(theme-check plugin-check dynamic-hostname) # default plugins
+WP_DEFAULT_PLUGINS   = %w(theme-check debogger log-deprecated-notices monster-widget wordpress-beta-tester regenerate-thumbnails debug-bar dynamic-hostname)
 WP_DEFAULT_THEME     = ENV["wp_theme"] || '' # e.g. twentyfifteen
 WP_OPTIONS           = {
-    # blogname: "This is the long blog name for the theme review",
-    # blogdescription: "This is a very very long tagline to reviewed in theme review proccess. Yeah!"
+    blogname: "This is the long blog name for the theme review",
+    blogdescription: "This is a very very long tagline to reviewed in theme review proccess. Yeah!",
+    posts_per_page: "5",
+    thread_comments: "1",
+    thread_comments_depth: "3",
+    page_comments: "1",
+    comments_per_page: "5",
+    large_size_w: '',
+    large_size_h: ''
 }
 WP_REWRITE_STRUCTURE = '/archives/%post_id%'
 

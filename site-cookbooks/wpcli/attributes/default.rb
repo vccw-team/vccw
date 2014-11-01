@@ -46,3 +46,6 @@ default[:wpcli][:gitignore] = '/var/www/wordpress/.gitignore'
 default[:wpcli][:is_multisite] = false
 default[:wpcli][:force_ssl_admin] = false
 default[:wpcli][:always_reset] = true
+
+default[:wpcli][:options] = {}
+default[:wpcli][:rewrite_structure] = '/archives/%post_id%'

@@ -202,6 +202,27 @@ if node[:wpcli][:theme_unit_test] == true then
   end
 end
 
+
+if node[:wpcli][:rewrite_structure] then
+  bash "Setting up rewrite rules" do
+    user "vagrant"
+    group "vagrant"
+    cwd node[:wpcli][:wpdir]
+    code "wp rewrite structure #{Shellwords.shellescape(node[:wpcli][:rewrite_structure])} --hard"
+  end
+end
+
+
+node[:wpcli][:options].each do |key, value|
+  bash "Setting up WordPress option #{key}" do
+    user "vagrant"
+    group "vagrant"
+    cwd node[:wpcli][:wpdir]
+    code "wp option update #{Shellwords.shellescape(key)} #{Shellwords.shellescape(value)}"
+  end
+end
+
+
 remote_file node[:wpcli][:gitignore] do
   source node[:wpcli][:gitignore_url]
   mode 0644

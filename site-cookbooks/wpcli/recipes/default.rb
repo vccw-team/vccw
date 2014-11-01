@@ -9,23 +9,6 @@ packages.each do |pkg|
   end
 end
 
-# # create wpcli dir
-# directory node['wp-cli']['wpcli-dir'] do
-#   recursive true
-# end
-#
-# # download installer
-# remote_file File.join(node['wp-cli']['wpcli-dir'], 'wp-cli.phar') do
-#   source node['wp-cli']['installer']
-#   mode 0755
-#   action :create_if_missing
-# end
-#
-# # link wp bin
-# link node['wp-cli']['wpcli-link'] do
-#   to File.join(node['wp-cli']['wpcli-dir'], 'wp-cli.phar')
-# end
-
 git node[:wpcli][:dir] do
   repository "git://github.com/wp-cli/builds.git"
   action :sync
@@ -39,4 +22,30 @@ end
 
 link node[:wpcli][:link] do
   to bin
+end
+
+directory '/home/vagrant/.wp-cli' do
+  recursive true
+  owner "vagrant"
+  group "vagrant"
+end
+
+directory '/home/vagrant/.wp-cli/commands' do
+  recursive true
+  owner "vagrant"
+  group "vagrant"
+end
+
+template '/home/vagrant/.wp-cli/config.yml' do
+  source "config.yml"
+  owner "vagrant"
+  group "vagrant"
+  mode "0644"
+end
+
+git 'home/vagrant/.wp-cli/commands/dictator' do
+  repository "git://github.com/danielbachhuber/dictator.git"
+  user "vagrant"
+  group "vagrant"
+  action :sync
 end
