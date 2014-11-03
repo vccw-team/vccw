@@ -64,9 +64,7 @@ describe command('wordmove help') do
   it { should return_exit_status 0 }
 end
 
-# why not working???
-# describe command('source ~/.bash_profile && wpcs --version') do
-#   let(:disable_sudo) { true }
-#   it { should return_exit_status 0 }
-# end
-
+describe command('source /home/vagrant/.bash_profile && wpcs --version') do
+  let(:disable_sudo) { true }
+  it { should return_exit_status 0 }
+end
