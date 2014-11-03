@@ -1,7 +1,7 @@
 # encoding: utf-8
 # vim: ft=ruby expandtab shiftwidth=2 tabstop=2
 
-packages = %w{git subversion}
+packages = %w{git subversion zip unzip}
 
 packages.each do |pkg|
   package pkg do
@@ -26,26 +26,26 @@ end
 
 directory '/home/vagrant/.wp-cli' do
   recursive true
-  owner "vagrant"
-  group "vagrant"
+  owner node[:wpcli][:user]
+  group node[:wpcli][:group]
 end
 
 directory '/home/vagrant/.wp-cli/commands' do
   recursive true
-  owner "vagrant"
-  group "vagrant"
+  owner node[:wpcli][:user]
+  group node[:wpcli][:group]
 end
 
 template '/home/vagrant/.wp-cli/config.yml' do
   source "config.yml"
-  owner "vagrant"
-  group "vagrant"
+  owner node[:wpcli][:user]
+  group node[:wpcli][:group]
   mode "0644"
 end
 
 git 'home/vagrant/.wp-cli/commands/dictator' do
   repository "git://github.com/danielbachhuber/dictator.git"
-  user "vagrant"
-  group "vagrant"
+  user node[:wpcli][:user]
+  group node[:wpcli][:group]
   action :sync
 end

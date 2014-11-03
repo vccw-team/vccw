@@ -10,6 +10,10 @@
 # default[:wpcli][:wpcli-link] = '/usr/local/bin/wp'
 # default[:wpcli][:installer] = 'https://raw.github.com/wpcli/builds/gh-pages/phar/wpcli.phar'
 
+default[:wpcli][:config_path] = '/home/vagrant/.wp-cli/config.yml'
+default[:wpcli][:user] = 'vagrant'
+default[:wpcli][:group] = 'vagrant'
+
 default[:wpcli][:dir] = '/usr/share/wp-cli'
 default[:wpcli][:link] = '/usr/local/bin/wp'
 

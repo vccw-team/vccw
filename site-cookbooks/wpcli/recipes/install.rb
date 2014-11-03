@@ -12,8 +12,8 @@ end
 
 template File.join(node[:mysql][:conf_dir], '/wp-grants.sql') do
   source "grants.sql.erb"
-  owner "vagrant"
-  group "vagrant"
+  owner node[:wpcli][:user]
+  group node[:wpcli][:group]
   mode "0600"
   variables(
     :user     => node[:wpcli][:dbuser],
@@ -38,28 +38,12 @@ execute "create wordpress database" do
 end
 
 
-# save node data after writing the MYSQL root password, so that a failed chef-client run that gets this far doesn't cause an unknown password to get applied to the box without being saved in the node data.
-unless Chef::Config[:solo]
-  ruby_block "save node data" do
-    block do
-      node.save
-    end
-    action :create
-  end
-end
-
-bash "install zip" do
-  user "root"
-  group "root"
-  code "yum install -y zip unzip"
-end
-
 bash "wordpress-core-download" do
-  user "vagrant"
-  group "vagrant"
+  user node[:wpcli][:user]
+  group node[:wpcli][:group]
   if node[:wpcli][:wp_version] == 'latest' then
       code <<-EOH
-wp core download \\
+WP_CLI_CONFIG_PATH=#{Shellwords.shellescape(node[:wpcli][:config_path])} wp core download \\
 --path=#{Shellwords.shellescape(node[:wpcli][:wpdir])} \\
 --locale=#{Shellwords.shellescape(node[:wpcli][:locale])} \\
 --force
@@ -70,7 +54,7 @@ wp core download \\
       EOH
   else
       code <<-EOH
-wp core download \\
+WP_CLI_CONFIG_PATH=#{Shellwords.shellescape(node[:wpcli][:config_path])} wp core download \\
 --path=#{Shellwords.shellescape(node[:wpcli][:wpdir])} \\
 --locale=#{Shellwords.shellescape(node[:wpcli][:locale])} \\
 --version=#{Shellwords.shellescape(node[:wpcli][:wp_version])} \\
@@ -85,11 +69,11 @@ file File.join(node[:wpcli][:wpdir], "wp-config.php") do
 end
 
 bash "wordpress-core-config" do
-  user "vagrant"
-  group "vagrant"
+  user node[:wpcli][:user]
+  group node[:wpcli][:group]
   cwd node[:wpcli][:wpdir]
   code <<-EOH
-    wp core config \\
+    WP_CLI_CONFIG_PATH=#{Shellwords.shellescape(node[:wpcli][:config_path])} wp core config \\
     --dbhost=#{Shellwords.shellescape(node[:wpcli][:dbhost])} \\
     --dbname=#{Shellwords.shellescape(node[:wpcli][:dbname])} \\
     --dbuser=#{Shellwords.shellescape(node[:wpcli][:dbuser])} \\
@@ -109,19 +93,19 @@ end
 
 if node[:wpcli][:always_reset] == true then
     bash "wordpress-db-reset" do
-      user "vagrant"
-      group "vagrant"
+      user node[:wpcli][:user]
+      group node[:wpcli][:group]
       cwd node[:wpcli][:wpdir]
-      code 'wp db reset --yes'
+      code "WP_CLI_CONFIG_PATH=#{Shellwords.shellescape(node[:wpcli][:config_path])} wp db reset --yes"
     end
 end
 
 bash "wordpress-core-install" do
-  user "vagrant"
-  group "vagrant"
+  user node[:wpcli][:user]
+  group node[:wpcli][:group]
   cwd node[:wpcli][:wpdir]
   code <<-EOH
-    wp core install \\
+    WP_CLI_CONFIG_PATH=#{Shellwords.shellescape(node[:wpcli][:config_path])} wp core install \\
     --url=#{Shellwords.shellescape(node[:wpcli][:url]).sub(/\/$/, '')} \\
     --title=#{Shellwords.shellescape(node[:wpcli][:title])} \\
     --admin_user=#{Shellwords.shellescape(node[:wpcli][:admin_user])} \\
@@ -133,49 +117,49 @@ end
 
 if node[:wpcli][:locale] == 'ja' then
   bash "wordpress-plugin-ja-install" do
-    user "vagrant"
-    group "vagrant"
+    user node[:wpcli][:user]
+    group node[:wpcli][:group]
     cwd node[:wpcli][:wpdir]
-    code 'wp plugin activate wp-multibyte-patch'
+    code "WP_CLI_CONFIG_PATH=#{Shellwords.shellescape(node[:wpcli][:config_path])} wp plugin activate wp-multibyte-patch"
   end
 end
 
 node[:wpcli][:default_plugins].each do |plugin|
   bash "WordPress #{plugin} install" do
-    user "vagrant"
-    group "vagrant"
+    user node[:wpcli][:user]
+    group node[:wpcli][:group]
     cwd node[:wpcli][:wpdir]
-    code "wp plugin install #{Shellwords.shellescape(plugin)} --activate"
+    code "WP_CLI_CONFIG_PATH=#{Shellwords.shellescape(node[:wpcli][:config_path])} wp plugin install #{Shellwords.shellescape(plugin)} --activate"
   end
 end
 
 if node[:wpcli][:default_theme] != '' then
     bash "WordPress #{node[:wpcli][:default_theme]} install" do
-      user "vagrant"
-      group "vagrant"
+      user node[:wpcli][:user]
+      group node[:wpcli][:group]
       cwd node[:wpcli][:wpdir]
-      code "wp theme install #{Shellwords.shellescape(node[:wpcli][:default_theme])}"
+      code "WP_CLI_CONFIG_PATH=#{Shellwords.shellescape(node[:wpcli][:config_path])} wp theme install #{Shellwords.shellescape(node[:wpcli][:default_theme])}"
     end
     bash "WordPress #{node[:wpcli][:default_theme]} activate" do
-      user "vagrant"
-      group "vagrant"
+      user node[:wpcli][:user]
+      group node[:wpcli][:group]
       cwd node[:wpcli][:wpdir]
-      code "wp theme activate #{File.basename(Shellwords.shellescape(node[:wpcli][:default_theme])).sub(/\..*$/, '')}"
+      code "WP_CLI_CONFIG_PATH=#{Shellwords.shellescape(node[:wpcli][:config_path])} wp theme activate #{File.basename(Shellwords.shellescape(node[:wpcli][:default_theme])).sub(/\..*$/, '')}"
     end
 end
 
 if node[:wpcli][:is_multisite] == true then
   bash "Setup multisite" do
-    user "vagrant"
-    group "vagrant"
+    user node[:wpcli][:user]
+    group node[:wpcli][:group]
     cwd node[:wpcli][:wpdir]
-    code "wp core multisite-convert"
+    code "WP_CLI_CONFIG_PATH=#{Shellwords.shellescape(node[:wpcli][:config_path])} wp core multisite-convert"
   end
 
   template File.join(node[:wpcli][:wpdir], '/.htaccess') do
     source "multisite.htaccess.erb"
-    owner "vagrant"
-    group "vagrant"
+    owner node[:wpcli][:user]
+    group node[:wpcli][:group]
     mode "0644"
   end
 end
@@ -188,37 +172,43 @@ if node[:wpcli][:theme_unit_test] == true then
   end
 
   bash "Import theme unit test data" do
-    user "vagrant"
-    group "vagrant"
+    user node[:wpcli][:user]
+    group node[:wpcli][:group]
     cwd node[:wpcli][:wpdir]
-    code "wp plugin install wordpress-importer --activate"
+    code "WP_CLI_CONFIG_PATH=#{Shellwords.shellescape(node[:wpcli][:config_path])} wp plugin install wordpress-importer --activate"
   end
 
   bash "Import theme unit test data" do
-    user "vagrant"
-    group "vagrant"
+    user node[:wpcli][:user]
+    group node[:wpcli][:group]
     cwd node[:wpcli][:wpdir]
-    code "wp import --authors=create #{Shellwords.shellescape(node[:wpcli][:theme_unit_test_data])}"
-  end
-end
-
-
-if node[:wpcli][:rewrite_structure] then
-  bash "Setting up rewrite rules" do
-    user "vagrant"
-    group "vagrant"
-    cwd node[:wpcli][:wpdir]
-    code "wp rewrite structure #{Shellwords.shellescape(node[:wpcli][:rewrite_structure])} --hard"
+    code "WP_CLI_CONFIG_PATH=#{Shellwords.shellescape(node[:wpcli][:config_path])} wp import --authors=create #{Shellwords.shellescape(node[:wpcli][:theme_unit_test_data])}"
   end
 end
 
 
 node[:wpcli][:options].each do |key, value|
   bash "Setting up WordPress option #{key}" do
-    user "vagrant"
-    group "vagrant"
+    user node[:wpcli][:user]
+    group node[:wpcli][:group]
     cwd node[:wpcli][:wpdir]
-    code "wp option update #{Shellwords.shellescape(key)} #{Shellwords.shellescape(value)}"
+    code "WP_CLI_CONFIG_PATH=#{Shellwords.shellescape(node[:wpcli][:config_path])} wp option update #{Shellwords.shellescape(key)} #{Shellwords.shellescape(value)}"
+  end
+end
+
+
+if node[:wpcli][:rewrite_structure] then
+  template File.join(node[:wpcli][:wpdir], '.htaccess') do
+    source ".htaccess"
+    owner node[:wpcli][:user]
+    group node[:wpcli][:group]
+    mode "0644"
+  end
+  bash "Setting up rewrite rules" do
+    user node[:wpcli][:user]
+    group node[:wpcli][:group]
+    cwd node[:wpcli][:wpdir]
+    code "WP_CLI_CONFIG_PATH=#{Shellwords.shellescape(node[:wpcli][:config_path])} wp rewrite structure #{Shellwords.shellescape(node[:wpcli][:rewrite_structure])} --hard"
   end
 end
 
