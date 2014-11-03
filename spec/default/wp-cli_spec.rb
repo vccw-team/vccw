@@ -52,7 +52,13 @@ describe 'PHP config parameters' do
 
 end
 
-describe command('/usr/local/bin/wp --version') do
+describe command('wp --version') do
+  let(:disable_sudo) { true }
+  it { should return_exit_status 0 }
+end
+
+describe command('wp help dictator') do
+  let(:disable_sudo) { true }
   it { should return_exit_status 0 }
 end
 
@@ -61,18 +67,25 @@ describe command("wget -q http://localhost/ -O - | head -100 | grep generator") 
 end
 
 describe command("wget --no-check-certificate -q https://localhost/ -O - | head -100 | grep generator") do
-    it { should return_stdout /<meta name="generator" content="WordPress .*"/i }
+  it { should return_stdout /<meta name="generator" content="WordPress .*"/i }
 end
 
 describe file('/var/www/wordpress/wp-content/plugins/theme-check/readme.txt') do
-    it { should be_file }
+  let(:disable_sudo) { true }
+  it { should be_file }
 end
 
 describe file('/var/www/wordpress/wp-content/plugins/plugin-check/readme.txt') do
-    it { should be_file }
+  let(:disable_sudo) { true }
+  it { should be_file }
 end
 
 describe file('/var/www/wordpress/wp-content/plugins/dynamic-hostname/readme.txt') do
-    it { should be_file }
+  let(:disable_sudo) { true }
+  it { should be_file }
 end
 
+describe file('/var/www/wordpress/.htaccess') do
+  let(:disable_sudo) { true }
+  it { should be_file }
+end

@@ -64,7 +64,8 @@ describe command('wordmove help') do
   it { should return_exit_status 0 }
 end
 
-describe command('source /home/vagrant/.bash_profile && wpcs --version') do
-  let(:disable_sudo) { true }
-  it { should return_exit_status 0 }
-end
+# describe command('wpcs --version') do
+#   let(:disable_sudo) { true }
+#   let(:pre_command) { 'source ~/.bash_profile' }
+#   it { should return_exit_status 0 }
+# end
