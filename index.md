@@ -456,6 +456,12 @@ $ rake spec
 
 ## Changelog
 
+### 1.7.1
+
+<i class="fa fa-wrench"></i> [1.7.0...1.7.1](https://github.com/miya0001/vccw/compare/1.7.0...1.7.1)
+
+* Add template .htaccess
+
 ### 1.7
 
 <i class="fa fa-wrench"></i> [1.6.0...1.7.0](https://github.com/miya0001/vccw/compare/1.6.0...1.7.0)
