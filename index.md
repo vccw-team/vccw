@@ -55,7 +55,7 @@ $ wp_version=3.5.2 vagrant provision
 Languages.
 
 ```
-$ wp_ng=ja vagrant provision
+$ wp_lang=ja vagrant provision
 ```
 
 So, switching back is easy too.
