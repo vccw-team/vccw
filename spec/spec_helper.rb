@@ -25,7 +25,7 @@ RSpec.configure do |c|
       c.host  = host
       options = Net::SSH::Config.for(c.host)
       user    = options[:user] || Etc.getlogin
-      vagrant_up = `VAGRANT_VAGRANTFILE=Vagrantfile.sample vagrant up default`
+      # vagrant_up = `VAGRANT_VAGRANTFILE=Vagrantfile.sample vagrant up default`
       config = `VAGRANT_VAGRANTFILE=Vagrantfile.sample vagrant ssh-config default`
       if config != ''
         config.each_line do |line|
