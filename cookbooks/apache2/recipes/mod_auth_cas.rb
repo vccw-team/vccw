@@ -10,7 +10,7 @@ if node['apache']['mod_auth_cas']['from_source']
   end
 
   git '/tmp/mod_auth_cas' do
-    repository 'git://github.com/Jasig/mod_auth_cas.git'
+    repository 'https://github.com/Jasig/mod_auth_cas.git'
     revision node['apache']['mod_auth_cas']['source_revision']
     notifies :run, 'execute[compile mod_auth_cas]', :immediately
   end

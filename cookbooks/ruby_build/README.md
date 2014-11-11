@@ -81,7 +81,7 @@ Or to reference the Git version:
     ')
     cat >> Berksfile <<END_OF_BERKSFILE
     cookbook 'ruby_build',
-      :git => 'git://github.com/$repo.git', :branch => '$latest_release'
+      :git => 'https://github.com/$repo.git', :branch => '$latest_release'
     END_OF_BERKSFILE
 
 ### <a name="installation-librarian"></a> Using Librarian-Chef
@@ -108,7 +108,7 @@ Or to reference the Git version:
     ')
     cat >> Cheffile <<END_OF_CHEFFILE
     cookbook 'ruby_build',
-      :git => 'git://github.com/$repo.git', :ref => '$latest_release'
+      :git => 'https://github.com/$repo.git', :ref => '$latest_release'
     END_OF_CHEFFILE
     librarian-chef install
 
@@ -125,7 +125,7 @@ Resources and Providers ([LWRPs][lwrp]).
 
 The Git URL which is used to install ruby-build.
 
-The default is `"git://github.com/sstephenson/ruby-build.git"`.
+The default is `"https://github.com/sstephenson/ruby-build.git"`.
 
 ### <a name="attributes-git-ref"></a> git_ref
 
