@@ -135,7 +135,7 @@ To reference the Git version:
     ')
     cat >> Berksfile <<END_OF_BERKSFILE
     cookbook 'rbenv',
-      :git => 'git://github.com/$repo.git', :branch => '$latest_release'
+      :git => 'https://github.com/$repo.git', :branch => '$latest_release'
     END_OF_BERKSFILE
     berks install
 
@@ -158,7 +158,7 @@ To reference the Git version:
     ')
     cat >> Cheffile <<END_OF_CHEFFILE
     cookbook 'rbenv',
-      :git => 'git://github.com/$repo.git', :ref => '$latest_release'
+      :git => 'https://github.com/$repo.git', :ref => '$latest_release'
     END_OF_CHEFFILE
     librarian-chef install
 
@@ -222,7 +222,7 @@ wrapper script so Chef doesn't need to be re-installed in the global rbenv Ruby.
 
 The Git URL which is used to install rbenv.
 
-The default is `"git://github.com/sstephenson/rbenv.git"`.
+The default is `"https://github.com/sstephenson/rbenv.git"`.
 
 ### <a name="attributes-git-ref"></a> git_ref
 

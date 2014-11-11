@@ -72,7 +72,7 @@ Each ticket should aim to fix one bug or add one feature.
 
 You can get a quick copy of the repository for this cookbook by
 running `git clone
-git://github.com/opscode-coobkooks/COOKBOOKNAME.git`.
+https://github.com/opscode-coobkooks/COOKBOOKNAME.git`.
 
 For collaboration purposes, it is best if you create a Github account
 and fork the repository to your own account. Once you do this you will
