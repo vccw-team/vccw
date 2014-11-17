@@ -3,7 +3,7 @@
 
 require 'shellwords'
 
-node.set_unless[:wpcli][:dbpassword] = secure_password
+# node.set_unless[:wpcli][:dbpassword] = secure_password
 
 execute "mysql-install-wp-privileges" do
   command "/usr/bin/mysql -u root -p\"#{node[:mysql][:server_root_password]}\" < #{node[:mysql][:conf_dir]}/wp-grants.sql"
@@ -81,8 +81,8 @@ bash "wordpress-core-config" do
     --dbprefix=#{Shellwords.shellescape(node[:wpcli][:dbprefix])} \\
     --locale=#{Shellwords.shellescape(node[:wpcli][:locale])} \\
     --extra-php <<PHP
-define( 'WP_HOME', '#{Shellwords.shellescape(node[:wpcli][:wp_home]).sub(/\/$/, '')}' );
-define( 'WP_SITEURL', '#{Shellwords.shellescape(node[:wpcli][:wp_siteurl]).sub(/\/$/, '')}' );
+define( 'WP_HOME', '#{Shellwords.shellescape(node[:wpcli][:url]).sub(/\/$/, '')}' );
+define( 'WP_SITEURL', '#{Shellwords.shellescape(node[:wpcli][:url]).sub(/\/$/, '')}' );
 define( 'JETPACK_DEV_DEBUG', #{node[:wpcli][:debug_mode]} );
 define( 'WP_DEBUG', #{node[:wpcli][:debug_mode]} );
 define( 'FORCE_SSL_ADMIN', #{node[:wpcli][:force_ssl_admin]} );

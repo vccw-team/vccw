@@ -20,7 +20,7 @@ default[:wpcli][:link] = '/usr/local/bin/wp'
 default[:wpcli][:locale] = ""
 default[:wpcli][:wp_version] = "latest"
 
-default[:wpcli][:url] = ""
+# default[:wpcli][:url] = ""
 default[:wpcli][:wp_home] = ""
 default[:wpcli][:wp_siteurl] = ""
 default[:wpcli][:wpdir] = "/var/www/wordpress"
