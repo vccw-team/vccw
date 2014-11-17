@@ -120,7 +120,7 @@ Vagrant.configure(2) do |config|
       },
       "wpcli" => {
         :wp_version        => WP_VERSION,
-        :url               => "http://" << File.join(WP_HOSTNAME, WP_HOME),
+        :wp_host           => WP_HOSTNAME,
         :wp_home           => WP_HOME,
         :wp_siteurl        => WP_SITEURL,
         :wpdir             => File.join('/var/www/wordpress', WP_SITEURL),
@@ -149,7 +149,7 @@ Vagrant.configure(2) do |config|
         :wordmove => {
           :movefile        => File.join('/vagrant', "Movefile"),
           :url             => "http://" << File.join(WP_HOSTNAME, WP_HOME),
-          :wpdir           => File.join('/var/www/wordpress', WP_HOME),
+          :wpdir           => File.join('/var/www/wordpress', WP_SITEURL),
           :dbhost          => WP_DB_HOST,
           :dbname          => WP_DB_NAME,
           :dbuser          => WP_DB_USER,

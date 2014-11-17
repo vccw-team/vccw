@@ -63,10 +63,12 @@ WP_CLI_CONFIG_PATH=#{Shellwords.shellescape(node[:wpcli][:config_path])} wp core
   end
 end
 
+
 file File.join(node[:wpcli][:wpdir], "wp-config.php") do
   action :delete
   backup false
 end
+
 
 bash "wordpress-core-config" do
   user node[:wpcli][:user]
@@ -81,8 +83,8 @@ bash "wordpress-core-config" do
     --dbprefix=#{Shellwords.shellescape(node[:wpcli][:dbprefix])} \\
     --locale=#{Shellwords.shellescape(node[:wpcli][:locale])} \\
     --extra-php <<PHP
-define( 'WP_HOME', '#{Shellwords.shellescape(node[:wpcli][:url]).sub(/\/$/, '')}' );
-define( 'WP_SITEURL', '#{Shellwords.shellescape(node[:wpcli][:url]).sub(/\/$/, '')}' );
+define( 'WP_HOME', 'http://#{File.join(node[:wpcli][:wp_host], node[:wpcli][:wp_home])}' );
+define( 'WP_SITEURL', '#{File.join(node[:wpcli][:wp_host], node[:wpcli][:wp_siteurl])}' );
 define( 'JETPACK_DEV_DEBUG', #{node[:wpcli][:debug_mode]} );
 define( 'WP_DEBUG', #{node[:wpcli][:debug_mode]} );
 define( 'FORCE_SSL_ADMIN', #{node[:wpcli][:force_ssl_admin]} );
@@ -90,6 +92,7 @@ define( 'SAVEQUERIES', #{node[:wpcli][:savequeries]} );
 PHP
   EOH
 end
+
 
 if node[:wpcli][:always_reset] == true then
     bash "wordpress-db-reset" do
@@ -100,18 +103,32 @@ if node[:wpcli][:always_reset] == true then
     end
 end
 
+
 bash "wordpress-core-install" do
   user node[:wpcli][:user]
   group node[:wpcli][:group]
   cwd node[:wpcli][:wpdir]
   code <<-EOH
     WP_CLI_CONFIG_PATH=#{Shellwords.shellescape(node[:wpcli][:config_path])} wp core install \\
-    --url=#{Shellwords.shellescape(node[:wpcli][:url]).sub(/\/$/, '')} \\
+    --url=http://#{File.join(node[:wpcli][:wp_host], node[:wpcli][:wp_siteurl])} \\
     --title=#{Shellwords.shellescape(node[:wpcli][:title])} \\
     --admin_user=#{Shellwords.shellescape(node[:wpcli][:admin_user])} \\
     --admin_password=#{Shellwords.shellescape(node[:wpcli][:admin_password])} \\
     --admin_email=#{Shellwords.shellescape(node[:wpcli][:admin_email])}
   EOH
+end
+
+
+if File.exist?(File.join(node[:wpcli][:wpdir], node[:wpcli][:wp_home], 'index.php'))
+  template File.join(node[:wpcli][:wpdir], node[:wpcli][:wp_home], 'index.php') do
+    source "index.php.erb"
+    owner node[:wpcli][:user]
+    group node[:wpcli][:group]
+    mode "0644"
+    variables(
+      :path => File.join('/', node[:wpcli][:wp_siteurl])
+    )
+  end
 end
 
 
@@ -148,21 +165,6 @@ if node[:wpcli][:default_theme] != '' then
     end
 end
 
-if node[:wpcli][:is_multisite] == true then
-  bash "Setup multisite" do
-    user node[:wpcli][:user]
-    group node[:wpcli][:group]
-    cwd node[:wpcli][:wpdir]
-    code "WP_CLI_CONFIG_PATH=#{Shellwords.shellescape(node[:wpcli][:config_path])} wp core multisite-convert"
-  end
-
-  template File.join(node[:wpcli][:wpdir], '/.htaccess') do
-    source "multisite.htaccess.erb"
-    owner node[:wpcli][:user]
-    group node[:wpcli][:group]
-    mode "0644"
-  end
-end
 
 if node[:wpcli][:theme_unit_test] == true then
   remote_file node[:wpcli][:theme_unit_test_data] do
@@ -209,6 +211,23 @@ if node[:wpcli][:rewrite_structure] then
     group node[:wpcli][:group]
     cwd node[:wpcli][:wpdir]
     code "WP_CLI_CONFIG_PATH=#{Shellwords.shellescape(node[:wpcli][:config_path])} wp rewrite structure #{Shellwords.shellescape(node[:wpcli][:rewrite_structure])} --hard"
+  end
+end
+
+
+if node[:wpcli][:is_multisite] == true then
+  bash "Setup multisite" do
+    user node[:wpcli][:user]
+    group node[:wpcli][:group]
+    cwd node[:wpcli][:wpdir]
+    code "WP_CLI_CONFIG_PATH=#{Shellwords.shellescape(node[:wpcli][:config_path])} wp core multisite-convert"
+  end
+
+  template File.join(node[:wpcli][:wpdir], '/.htaccess') do
+    source "multisite.htaccess.erb"
+    owner node[:wpcli][:user]
+    group node[:wpcli][:group]
+    mode "0644"
   end
 end
 
