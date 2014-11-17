@@ -21,6 +21,8 @@ default[:wpcli][:locale] = ""
 default[:wpcli][:wp_version] = "latest"
 
 default[:wpcli][:url] = ""
+default[:wpcli][:wp_home] = ""
+default[:wpcli][:wp_siteurl] = ""
 default[:wpcli][:wpdir] = "/var/www/wordpress"
 default[:wpcli][:title] = "Welcome to the WordPress"
 

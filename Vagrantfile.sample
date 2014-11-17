@@ -18,6 +18,9 @@ WP_LANG              = ENV["wp_lang"] || "en_US" # WordPress locale (e.g. ja)
 WP_HOSTNAME          = "wordpress.local" # e.g example.com
 WP_IP                = "192.168.33.10" # host ip address
 
+WP_HOME              = "" # e.g http://example.com
+WP_SITEURL           = "" # e.g http://example.com, http://example.com/wp
+
 WP_TITLE             = "Welcome to the Vagrant" # title
 WP_ADMIN_USER        = "admin" # default user
 WP_ADMIN_PASS        = "admin" # default user's password
@@ -55,6 +58,27 @@ else
 end
 
 # end configuration
+
+def get_wp_home( wp_home )
+  if wp_home.empty? then
+    wp_home = "http://" << WP_HOSTNAME
+  end
+  return wp_home
+end
+
+def get_wp_siteurl( wp_siteurl )
+  if wp_siteurl.empty? then
+    wp_siteurl = "http://" << WP_HOSTNAME
+  end
+  return wp_siteurl
+end
+
+def get_wpdir( dir )
+  wp_siteurl = get_wp_siteurl(WP_SITEURL)
+  wp_home = get_wp_home(WP_HOME)
+  subdir = wp_siteurl.sub(/^#{wp_home}/, '')
+  return File.join(dir, subdir).sub(/\/$/, '')
+end
 
 Vagrant.configure(2) do |config|
 
@@ -116,8 +140,10 @@ Vagrant.configure(2) do |config|
       },
       "wpcli" => {
         :wp_version        => WP_VERSION,
-        :url               => "http://" << WP_HOSTNAME,
-        :wpdir             => '/var/www/wordpress',
+        :url               => get_wp_home( WP_HOME ),
+        :wp_home           => get_wp_home( WP_HOME ),
+        :wp_siteurl        => get_wp_siteurl( WP_SITEURL ),
+        :wpdir             => get_wpdir( '/var/www/wordpress' ),
         :locale            => WP_LANG,
         :admin_user        => WP_ADMIN_USER,
         :admin_password    => WP_ADMIN_PASS,
@@ -142,8 +168,8 @@ Vagrant.configure(2) do |config|
       :vccw => {
         :wordmove => {
           :movefile        => File.join('/vagrant', "Movefile"),
-          :url             => "http://" << WP_HOSTNAME,
-          :wpdir           => '/var/www/wordpress',
+          :url             => get_wp_home( WP_HOME ),
+          :wpdir           => get_wpdir( '/var/www/wordpress' ),
           :dbhost          => WP_DB_HOST,
           :dbname          => WP_DB_NAME,
           :dbuser          => WP_DB_USER,
