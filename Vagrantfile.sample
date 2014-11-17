@@ -38,7 +38,6 @@ WP_OPTIONS           = {
 }
 WP_REWRITE_STRUCTURE = '/archives/%post_id%'
 
-WP_DIR               = '' # e.g. /wp or wp or other
 WP_IS_MULTISITE      = false # enable multisite when true
 WP_FORCE_SSL_ADMIN   = false # enable force ssl admin when true
 WP_DEBUG             = true # enable debug mode
@@ -117,8 +116,8 @@ Vagrant.configure(2) do |config|
       },
       "wpcli" => {
         :wp_version        => WP_VERSION,
-        :url               => "http://" << File.join(WP_HOSTNAME, WP_DIR),
-        :wpdir             => File.join('/var/www/wordpress', WP_DIR),
+        :url               => "http://" << WP_HOSTNAME,
+        :wpdir             => '/var/www/wordpress',
         :locale            => WP_LANG,
         :admin_user        => WP_ADMIN_USER,
         :admin_password    => WP_ADMIN_PASS,
@@ -143,8 +142,8 @@ Vagrant.configure(2) do |config|
       :vccw => {
         :wordmove => {
           :movefile        => File.join('/vagrant', "Movefile"),
-          :url             => "http://" << File.join(WP_HOSTNAME, WP_DIR),
-          :wpdir           => File.join('/var/www/wordpress', WP_DIR),
+          :url             => "http://" << WP_HOSTNAME,
+          :wpdir           => '/var/www/wordpress',
           :dbhost          => WP_DB_HOST,
           :dbname          => WP_DB_NAME,
           :dbuser          => WP_DB_USER,
