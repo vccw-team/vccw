@@ -86,9 +86,7 @@ $ vagrant plugin install vagrant-hostsupdater
 
 Windows is not allow to change hosts-file. Please add 'wordpress.local 192.168.31.10' by yourself!
 
-### 4. Clone the repository into a local directory.
-
-Please download <a class="latest-zipball">.zip</a> or <a class="latest-tarball">.tar.gz</a>.
+### 4. Please download <a class="latest-zipball">.zip</a> or <a class="latest-tarball">.tar.gz</a>.
 
 <a class="button latest-zipball" style="float: left;"><small>Download</small>.zip</a>
 <a class="button latest-tarball" style="float: left;"><small>Download</small>.tar.gz</a>
