@@ -83,8 +83,8 @@ bash "wordpress-core-config" do
     --dbprefix=#{Shellwords.shellescape(node[:wpcli][:dbprefix])} \\
     --locale=#{Shellwords.shellescape(node[:wpcli][:locale])} \\
     --extra-php <<PHP
-define( 'WP_HOME', 'http://#{File.join(node[:wpcli][:wp_host], node[:wpcli][:wp_home])}' );
-define( 'WP_SITEURL', '#{File.join(node[:wpcli][:wp_host], node[:wpcli][:wp_siteurl])}' );
+define( 'WP_HOME', 'http://#{File.join(node[:wpcli][:wp_host], node[:wpcli][:wp_home]).sub(/\/$/, '')}' );
+define( 'WP_SITEURL', 'http://#{File.join(node[:wpcli][:wp_host], node[:wpcli][:wp_siteurl]).sub(/\/$/, '')}' );
 define( 'JETPACK_DEV_DEBUG', #{node[:wpcli][:debug_mode]} );
 define( 'WP_DEBUG', #{node[:wpcli][:debug_mode]} );
 define( 'FORCE_SSL_ADMIN', #{node[:wpcli][:force_ssl_admin]} );
