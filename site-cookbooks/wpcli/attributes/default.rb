@@ -23,7 +23,7 @@ default[:wpcli][:wp_version] = "latest"
 default[:wpcli][:wp_host] = ""
 default[:wpcli][:wp_home] = ""
 default[:wpcli][:wp_siteurl] = ""
-default[:wpcli][:wpdir] = "/var/www/wordpress"
+default[:wpcli][:wp_docroot] = "/var/www/wordpress"
 default[:wpcli][:title] = "Welcome to the WordPress"
 
 default[:wpcli][:dbhost] = "localhost"
