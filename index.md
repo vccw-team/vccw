@@ -179,9 +179,12 @@ This Vagrant configuration has many customizable constants.
     * If you see any error, use `""`.
 * `WP_HOSTNAME = "wordpress.local"`
     * Select the hostname for the Guest OS (e.g. `exmaple.com`, `digitalcube.jp` etc.)
-* `WP_DIR = ''`
+* `WP_HOME              = "" # path to WP_HOME, e.g blank or /wp or ...`
+    * If you want to install WordPress in a subdirectory, set the directory name
+    * http:// + `WP_HOSTNAME` + `WP_HOME` will be your WordPress URL.
+* `WP_SITEURL           = "" # path to WP_SITEURL, e.g or /wp or ...`
     * If you want to install WordPress in a subdirectory, set the directory name in this constant (e.g. `wp` or `/wp`)
-    * http:// + `WP_HOSTNAME` + `WP_DIR` will be your WordPress URL.
+    * http:// + `WP_HOSTNAME` + `WP_SITEURL` will be your WordPress SITE URL.
 * `WP_TITLE = "Welcome to the Vagrant"`
     * The title of the new site.
 * `WP_ADMIN_USER = "admin"`
@@ -455,6 +458,10 @@ $ rake spec
 {{ site.scroll_to_top }}
 
 ## Changelog
+
+### 1.8.0
+
+<i class="fa fa-wrench"></i> [1.7.1...1.8.0](https://github.com/miya0001/vccw/compare/1.7.1...1.8.0)
 
 ### 1.7.1
 
