@@ -5,3 +5,5 @@ Movefile
 _site
 .DS_Store
 Movefile
+provision/*
+!provision/.gitkeep

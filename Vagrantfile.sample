@@ -74,17 +74,21 @@ Vagrant.configure(2) do |config|
     config.hostsupdater.remove_on_suspend = true
   end
 
-  if "miya0001/vccw" != VM_BOX && 'provision' != ARGV[0]
-    config.vm.provision "shell",
-        inline: "curl -L https://www.opscode.com/chef/install.sh | bash"
-  end
-
   config.vm.provider :virtualbox do |vb|
     vb.customize [
       "modifyvm", :id,
       "--natdnsproxy1", "on",
       "--natdnshostresolver1", "on"
     ]
+  end
+
+  if "miya0001/vccw" != VM_BOX && 'provision' != ARGV[0]
+    config.vm.provision "shell",
+        inline: "curl -L https://www.opscode.com/chef/install.sh | bash"
+  end
+
+  if File.exists?(File.join(File.expand_path(File.dirname(__FILE__)), 'provision', 'provision-pre.sh')) then
+    config.vm.provision :shell, :path => File.join( "provision", "provision-pre.sh" )
   end
 
   config.vm.provision :chef_solo do |chef|
@@ -189,6 +193,10 @@ Vagrant.configure(2) do |config|
     chef.add_recipe "wpcli::install"
     chef.add_recipe "vccw"
 
+  end
+
+  if File.exists?(File.join(File.expand_path(File.dirname(__FILE__)), 'provision', 'provision-post.sh')) then
+    config.vm.provision :shell, :path => File.join( "provision", "provision-post.sh" )
   end
 
   if Vagrant.has_plugin?("vagrant-serverspec")
