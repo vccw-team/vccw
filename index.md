@@ -472,6 +472,12 @@ $ rake spec
 
 ## Changelog
 
+### 1.9.0
+
+<i class="fa fa-wrench"></i> [1.8.1...1.9.0](https://github.com/miya0001/vccw/compare/1.8.1...1.9.0)
+
+* Add features running scripts at pre/post provisioning.
+
 ### 1.8.0
 
 <i class="fa fa-wrench"></i> [1.7.1...1.8.0](https://github.com/miya0001/vccw/compare/1.7.1...1.8.0)
