@@ -164,7 +164,7 @@ This tool installs a WordPress environment with these settings by default.
 
 {{ site.scroll_to_top }}
 
-## Customize
+## Custom Variables
 
 This Vagrant configuration has many customizable constants.
 
@@ -219,14 +219,27 @@ This Vagrant configuration has many customizable constants.
 * `WP_REWRITE_STRUCTURE = '/archives/%post_id%'`
     * WordPress permalink structure.
 
-### How to apply Vagrant configuration after `vagrant up`
+{{ site.scroll_to_top }}
 
-1. `vagrant up` - Start guest machine.
-2. Edit Vagrantfile. (`WP_ALWAYS_RESET` should be set `true`.)
-3. `vagrant provision` - Re-Provison.
-4. `vagrant reload` - Re-Start guest machine.
+## Run pre/post provision scripts
 
-File under the wp-content directory will be not deleted.
+You can place shell scripts, so it will run at pre/post provision.
+
+* `provision/provision-pre.sh` - Run before chef provision.
+* `provision/provision-post.sh` - Run after chef provision.
+
+### Example shcell script.
+
+`provision/provision-post.sh`
+
+```
+#!/usr/bin/env bash
+
+set -ex
+
+$ cd /var/www/wordpress
+$ /usr/local/bin/wp db import /vagrant/import.sql
+```
 
 {{ site.scroll_to_top }}
 
@@ -352,7 +365,7 @@ $ phpunit
 
 {{ site.scroll_to_top }}
 
-## WordMove
+## WordMove - Multistaging deploy for WordPress
 
 ### Edit Movefile
 
