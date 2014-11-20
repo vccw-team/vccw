@@ -221,16 +221,16 @@ This Vagrant configuration has many customizable constants.
 
 {{ site.scroll_to_top }}
 
-## Run pre/post provision scripts
+## Run pre/post provisioning scripts
 
-You can place shell scripts, so it will run at pre/post provision.
+You can place shell scripts, so it will run at pre/post provisioning.
 
-* `provision/provision-pre.sh` - Run before chef provision.
-* `provision/provision-post.sh` - Run after chef provision.
+* `provision/provision-pre.sh` - Run before chef provisioning.
+* `provision/provision-post.sh` - Run after chef provisioning.
 
 ### Example shell script.
 
-`provision/provision-post.sh` - It will run after provision.
+`provision/provision-post.sh` - It will run after provisioning.
 
 ```
 #!/usr/bin/env bash
@@ -239,8 +239,9 @@ set -ex
 
 cd /var/www/wordpress
 /usr/local/bin/wp db import /vagrant/import.sql
-
 ```
+
+So it will import `/vagrant/import.sql`.
 
 {{ site.scroll_to_top }}
 
