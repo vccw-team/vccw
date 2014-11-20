@@ -241,7 +241,7 @@ cd /var/www/wordpress
 /usr/local/bin/wp db import /vagrant/import.sql
 ```
 
-So it will import `/vagrant/import.sql`.
+This example script will import `/vagrant/import.sql` to the MySQL database by WP-CLI.
 
 {{ site.scroll_to_top }}
 
@@ -284,7 +284,7 @@ or
 $ wp_theme=http://example.com/path/to/zipped/theme/file.zip vagrant provision
 ```
 
-## About WP-CLI
+## WP-CLI
 
 * [WP-CLI](http://wp-cli.org/) is pre-installed in this Vagrant environments.
 * If you install WP-CLI in your Host OS, you can fire WP-CLI commands from the Host OS.
@@ -309,7 +309,7 @@ $ wp core update
 
 {{ site.scroll_to_top }}
 
-## About WordPress i18n Tools
+## WordPress i18n Tools
 
 If your plugin is not in the repository, you can use the WordPress i18n tools and then run the makepot.php script like this:
 
@@ -327,7 +327,7 @@ After it's finished you should see the POT file in the current directory.
 
 {{ site.scroll_to_top }}
 
-## About WordPress plugin unit testing
+## WordPress plugin unit testing
 
 ### Getting Started
 
