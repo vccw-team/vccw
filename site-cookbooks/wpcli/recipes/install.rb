@@ -119,6 +119,12 @@ bash "wordpress-core-install" do
 end
 
 
+directory File.join(node[:wpcli][:wp_docroot], node[:wpcli][:wp_home]) do
+  recursive true
+  owner node[:wpcli][:user]
+  group node[:wpcli][:group]
+end
+
 unless node[:wpcli][:wp_home] == node[:wpcli][:wp_siteurl]
   unless File.exist?(File.join(node[:wpcli][:wp_docroot], node[:wpcli][:wp_home], 'index.php'))
     template File.join(node[:wpcli][:wp_docroot], node[:wpcli][:wp_home], 'index.php') do
