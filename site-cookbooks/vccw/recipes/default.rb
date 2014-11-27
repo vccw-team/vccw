@@ -191,8 +191,8 @@ template node[:vccw][:wordmove][:movefile] do
   group "vagrant"
   mode "0600"
   variables(
-    :url        => node[:vccw][:wordmove][:url],
-    :wpdir      => node[:vccw][:wordmove][:wpdir],
+    :url        => node[:vccw][:wordmove][:url].sub(/\/$/, ''),
+    :wpdir      => node[:vccw][:wordmove][:wpdir].sub(/\/$/, ''),
     :dbhost     => node[:vccw][:wordmove][:dbhost],
     :dbname     => node[:vccw][:wordmove][:dbname],
     :dbuser     => node[:vccw][:wordmove][:dbuser],
