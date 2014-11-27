@@ -119,15 +119,23 @@ bash "wordpress-core-install" do
 end
 
 
-unless File.exist?(File.join(node[:wpcli][:wp_docroot], node[:wpcli][:wp_home], 'index.php'))
-  template File.join(node[:wpcli][:wp_docroot], node[:wpcli][:wp_home], 'index.php') do
-    source "index.php.erb"
-    owner node[:wpcli][:user]
-    group node[:wpcli][:group]
-    mode "0644"
-    variables(
-      :path => File.join('/', node[:wpcli][:wp_siteurl])
-    )
+directory File.join(node[:wpcli][:wp_docroot], node[:wpcli][:wp_home]) do
+  recursive true
+  owner node[:wpcli][:user]
+  group node[:wpcli][:group]
+end
+
+unless node[:wpcli][:wp_home] == node[:wpcli][:wp_siteurl]
+  unless File.exist?(File.join(node[:wpcli][:wp_docroot], node[:wpcli][:wp_home], 'index.php'))
+    template File.join(node[:wpcli][:wp_docroot], node[:wpcli][:wp_home], 'index.php') do
+      source "index.php.erb"
+      owner node[:wpcli][:user]
+      group node[:wpcli][:group]
+      mode "0644"
+      variables(
+        :path => File.join(node[:wpcli][:wp_docroot], node[:wpcli][:wp_siteurl])
+      )
+    end
   end
 end
 
@@ -201,7 +209,7 @@ end
 
 if node[:wpcli][:rewrite_structure] then
   template File.join(node[:wpcli][:wp_docroot], node[:wpcli][:wp_home], '.htaccess') do
-    source ".htaccess"
+    source "htaccess.erb"
     owner node[:wpcli][:user]
     group node[:wpcli][:group]
     mode "0644"
