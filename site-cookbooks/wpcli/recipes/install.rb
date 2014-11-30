@@ -215,7 +215,7 @@ if node[:wpcli][:rewrite_structure] then
         code "WP_CLI_CONFIG_PATH=#{Shellwords.shellescape(node[:wpcli][:config_path])} wp rewrite structure #{Shellwords.shellescape(node[:wpcli][:rewrite_structure])}"
     end
 
-    bash "Flash rewrite rules" do
+    bash "Flush rewrite rules" do
         user node[:wpcli][:user]
         group node[:wpcli][:group]
         cwd File.join(node[:wpcli][:wp_docroot], node[:wpcli][:wp_siteurl])
