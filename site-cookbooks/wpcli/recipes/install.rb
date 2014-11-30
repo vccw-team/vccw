@@ -208,18 +208,19 @@ end
 
 
 if node[:wpcli][:rewrite_structure] then
-  template File.join(node[:wpcli][:wp_docroot], node[:wpcli][:wp_home], '.htaccess') do
-    source "htaccess.erb"
-    owner node[:wpcli][:user]
-    group node[:wpcli][:group]
-    mode "0644"
-  end
-  bash "Setting up rewrite rules" do
-    user node[:wpcli][:user]
-    group node[:wpcli][:group]
-    cwd File.join(node[:wpcli][:wp_docroot], node[:wpcli][:wp_siteurl])
-    code "WP_CLI_CONFIG_PATH=#{Shellwords.shellescape(node[:wpcli][:config_path])} wp rewrite structure #{Shellwords.shellescape(node[:wpcli][:rewrite_structure])} --hard"
-  end
+    bash "Setting up rewrite rules" do
+        user node[:wpcli][:user]
+        group node[:wpcli][:group]
+        cwd File.join(node[:wpcli][:wp_docroot], node[:wpcli][:wp_siteurl])
+        code "WP_CLI_CONFIG_PATH=#{Shellwords.shellescape(node[:wpcli][:config_path])} wp rewrite structure #{Shellwords.shellescape(node[:wpcli][:rewrite_structure])}"
+    end
+
+    bash "Flash rewrite rules" do
+        user node[:wpcli][:user]
+        group node[:wpcli][:group]
+        cwd File.join(node[:wpcli][:wp_docroot], node[:wpcli][:wp_siteurl])
+        code "WP_CLI_CONFIG_PATH=#{Shellwords.shellescape(node[:wpcli][:config_path])} wp rewrite flush --hard"
+    end
 end
 
 
@@ -239,14 +240,11 @@ if node[:wpcli][:is_multisite] == true then
   end
 end
 
-
 remote_file node[:wpcli][:gitignore] do
   source node[:wpcli][:gitignore_url]
   mode 0644
   action :create
 end
-
-
 
 apache_site "000-default" do
   enable false
@@ -269,6 +267,5 @@ bash "create-ssl-keys" do
   EOH
   notifies :restart, "service[apache2]"
 end
-
 
 iptables_rule "wordpress-iptables"
