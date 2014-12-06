@@ -83,7 +83,7 @@ Vagrant.configure(2) do |config|
 
   if "miya0001/vccw" != VM_BOX && 'provision' != ARGV[0]
     config.vm.provision "shell",
-        inline: "curl -L https://www.opscode.com/chef/install.sh | bash"
+        inline: "curl -L https://www.opscode.com/chef/install.sh | sudo bash -s -- -v 11.16.4-1"
   end
 
   if File.exists?(File.join(File.expand_path(File.dirname(__FILE__)), 'provision', 'provision-pre.sh')) then
