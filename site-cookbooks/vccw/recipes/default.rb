@@ -6,7 +6,7 @@ require 'shellwords'
 include_recipe 'ruby_build'
 include_recipe 'rbenv::system'
 
-packages = %w{gettext subversion npm}
+packages = %w{gettext subversion npm lftp}
 
 packages.each do |pkg|
   package pkg do
