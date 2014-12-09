@@ -472,6 +472,11 @@ $ rake spec
 
 ## Changelog
 
+### 1.9.5
+
+* Add lftp and some fix.
+* Update box miya0001/vccw. Please run `vagrant box update`.
+
 ### 1.9.0
 
 <i class="fa fa-wrench"></i> [1.8.1...1.9.0](https://github.com/miya0001/vccw/compare/1.8.1...1.9.0)
