@@ -7,3 +7,5 @@ _site
 Movefile
 provision/*
 !provision/.gitkeep
+!provision/packaging.sh
+package.box
