@@ -29,6 +29,7 @@ default[:wpcli][:title] = "Welcome to the WordPress"
 default[:wpcli][:dbhost] = "localhost"
 default[:wpcli][:dbname] = "wordpress"
 default[:wpcli][:dbuser] = "wordpress"
+default[:wpcli][:dbpassword] = "wordpress"
 default[:wpcli][:dbprefix] = "wp_"
 
 default[:wpcli][:admin_user] = "admin"

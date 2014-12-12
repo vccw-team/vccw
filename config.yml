@@ -1,0 +1,44 @@
+# encoding: utf-8
+# vim: ft=ruby expandtab shiftwidth=2 tabstop=2
+
+wp_box: miya0001/vccw
+
+# ネットワーク設定
+#
+# hostname: マシンのホスト名
+# ip:       マシンのIPアドレスまたはdhcp
+network:
+  hostname: wordpress.local
+  ip: 192.168.33.10
+
+# WordPressの設定
+#
+# version: WordPressのバージョン
+# lang:    WordPressの言語
+wp:
+  version: latest
+  lang: ja
+  wp_home: ''
+  wp_siteurl: ''
+  title: Welcome to the Vagrant
+  admin:
+    user: admin
+    pass: admin
+  db:
+    prefix: wp_
+    host: localhost
+  plugins:
+    - theme-check
+    - plugin-check
+    - dynamic-hostname
+  theme: ''
+  options:
+    blogdescription: This is a Vagrant based development environment.
+  multisite: false
+  force_ssl_admin: false
+  wp_debug: true
+  savequeries: false
+  theme_unit_test: false
+  reset_db: true
+  rewrite_structure: /archives/%post_id%
+
