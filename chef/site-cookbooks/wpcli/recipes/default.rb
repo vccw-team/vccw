@@ -37,10 +37,13 @@ directory '/home/vagrant/.wp-cli/commands' do
 end
 
 template '/home/vagrant/.wp-cli/config.yml' do
-  source "config.yml"
+  source "config.yml.erb"
   owner node[:wpcli][:user]
   group node[:wpcli][:group]
   mode "0644"
+  variables(
+    :docroot => node[:wpcli][:wp_docroot]
+  )
 end
 
 git 'home/vagrant/.wp-cli/commands/dictator' do
