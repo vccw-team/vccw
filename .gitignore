@@ -1,6 +1,5 @@
 .vagrant
 www
-Vagrantfile
 Movefile
 _site
 .DS_Store
@@ -9,3 +8,9 @@ provision/*
 !provision/.gitkeep
 !provision/packaging.sh
 package.box
+.gitattribute
+Gemfile
+Gemfile.lock
+Rakefile
+spec
+provision/packaging.sh
