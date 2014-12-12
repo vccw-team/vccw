@@ -64,6 +64,8 @@ Vagrant.configure(2) do |config|
   config.vm.box = VM_BOX
   config.ssh.forward_agent = true
 
+  config.vm.box_check_update = true
+
   config.vm.hostname = WP_HOSTNAME
   config.vm.network :private_network, ip: WP_IP
 
