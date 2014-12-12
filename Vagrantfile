@@ -7,7 +7,7 @@ Vagrant.require_version '>= 1.5'
 
 _conf = YAML.load(
   File.open(
-    File.join(File.dirname(__FILE__), 'config.yml'),
+    File.join(File.dirname(__FILE__), 'config/default.yml'),
     File::RDONLY
   ).read
 )

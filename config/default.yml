@@ -3,21 +3,13 @@
 
 wp_box: miya0001/vccw
 
-# ネットワーク設定
-#
-# hostname: マシンのホスト名
-# ip:       マシンのIPアドレスまたはdhcp
 network:
   hostname: wordpress.local
   ip: 192.168.33.10
 
-# WordPressの設定
-#
-# version: WordPressのバージョン
-# lang:    WordPressの言語
 wp:
   version: latest
-  lang: ja
+  lang: en_US
   wp_home: ''
   wp_siteurl: ''
   title: Welcome to the Vagrant
