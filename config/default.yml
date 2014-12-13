@@ -2,6 +2,7 @@
 # vim: ft=ruby expandtab shiftwidth=2 tabstop=2
 
 wp_box: miya0001/vccw
+chef_cookbook_path: ./chef
 
 network:
   hostname: wordpress.local
@@ -10,9 +11,12 @@ network:
 wp:
   version: latest
   lang: en_US
-  wp_home: ''
-  wp_siteurl: ''
   title: Welcome to the Vagrant
+  multisite: false
+  rewrite_structure: /archives/%post_id%
+  path:
+    wp_home: ''
+    wp_siteurl: ''
   admin:
     user: admin
     pass: admin
@@ -25,12 +29,12 @@ wp:
     - dynamic-hostname
   theme: ''
   options:
-    blogdescription: This is a Vagrant based development environment.
-  multisite: false
-  force_ssl_admin: false
-  wp_debug: true
-  savequeries: false
+    blogdescription: Hello VCCW.
+  config:
+    force_ssl_admin: false
+    wp_debug: true
+    savequeries: false
   theme_unit_test: false
-  reset_db: true
-  rewrite_structure: /archives/%post_id%
-
+  theme_unit_test_uri: https://wpcom-themes.svn.automattic.com/demo/theme-unit-test-data.xml
+  # theme_unit_test_uri: https://raw.githubusercontent.com/jawordpressorg/theme-test-data-ja/master/wordpress-theme-test-date-ja.xml
+  reset_db_on_provision: true

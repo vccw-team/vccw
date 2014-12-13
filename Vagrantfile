@@ -12,12 +12,15 @@ _conf = YAML.load(
   ).read
 )
 
-chef_cookbooks_path = File.join(File.dirname(__FILE__), 'chef') # path to the cookbooks (e.g. ~/vccw)
 
-if (ENV['wp_lang'] || _conf['wp']['lang']) === 'ja' then
-  theme_unit_test_data_uri = 'https://raw.githubusercontent.com/jawordpressorg/theme-test-data-ja/master/wordpress-theme-test-date-ja.xml'
+# path to the cookbooks (e.g. ~/vagrants/vccw)
+if File.exists?(_conf['chef_cookbook_path'])
+  chef_cookbooks_path = _conf['chef_cookbook_path']
+elsif File.exists?(File.join(File.dirname(__FILE__), _conf['chef_cookbook_path']))
+  chef_cookbooks_path = File.join(File.dirname(__FILE__), _conf['chef_cookbook_path'])
 else
-  theme_unit_test_data_uri = 'https://wpcom-themes.svn.automattic.com/demo/theme-unit-test-data.xml'
+  puts "Can't find "+_conf['chef_cookbook_path']+'. Please check chef_cookbooks_path in the config.'
+  exit 1
 end
 
 
@@ -88,8 +91,8 @@ Vagrant.configure(2) do |config|
       'wpcli' => {
         :wp_version        => ENV['wp_version'] || _conf['wp']['version'],
         :wp_host           => _conf['network']['hostname'],
-        :wp_home           => _conf['wp']['wp_home'],
-        :wp_siteurl        => _conf['wp']['wp_siteurl'],
+        :wp_home           => _conf['wp']['path']['wp_home'],
+        :wp_siteurl        => _conf['wp']['path']['wp_siteurl'],
         :locale            => ENV['wp_lang'] || _conf['wp']['lang'],
         :admin_user        => _conf['wp']['admin']['user'],
         :admin_password    => _conf['wp']['admin']['pass'],
@@ -97,11 +100,11 @@ Vagrant.configure(2) do |config|
         :default_theme     => _conf['wp']['theme'],
         :title             => _conf['wp']['title'],
         :is_multisite      => _conf['wp']['multisite'],
-        :force_ssl_admin   => _conf['wp']['force_ssl_admin'],
-        :debug_mode        => _conf['wp']['wp_debug'],
-        :savequeries       => _conf['wp']['savequeries'],
+        :force_ssl_admin   => _conf['wp']['config']['force_ssl_admin'],
+        :debug_mode        => _conf['wp']['config']['wp_debug'],
+        :savequeries       => _conf['wp']['config']['savequeries'],
         :theme_unit_test   => _conf['wp']['theme_unit_test'],
-        :theme_unit_test_data_url => theme_unit_test_data_uri,
+        :theme_unit_test_data_url => _conf['wp']['theme_unit_test_uri'],
         :always_reset      => _conf['wp']['reset_db'],
         :dbhost            => _conf['wp']['db']['host'],
         :dbprefix          => _conf['wp']['db']['prefix'],
@@ -111,8 +114,8 @@ Vagrant.configure(2) do |config|
       :vccw => {
         :wordmove => {
           :movefile        => File.join('/vagrant', 'Movefile'),
-          :url             => 'http://' << File.join(_conf['network']['hostname'], _conf['wp']['wp_home']),
-          :wpdir           => File.join('www/wordpress', _conf['wp']['wp_siteurl']),
+          :url             => 'http://' << File.join(_conf['network']['hostname'], _conf['wp']['path']['wp_home']),
+          :wpdir           => File.join('www/wordpress', _conf['wp']['path']['wp_siteurl']),
           :dbhost          => _conf['wp']['db']['host']
         }
       },
