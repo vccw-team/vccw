@@ -9,3 +9,5 @@ provision/*
 !provision/.gitkeep
 !provision/packaging.sh
 package.box
+config/local.yml
+site.yml

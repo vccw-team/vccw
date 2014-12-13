@@ -1,40 +1,80 @@
 # encoding: utf-8
 # vim: ft=ruby expandtab shiftwidth=2 tabstop=2
 
+#
+# General Settings
+#
 wp_box: miya0001/vccw
 chef_cookbook_path: ./chef
 
-network:
-  hostname: wordpress.local
-  ip: 192.168.33.10
+#
+# Network Settings
+#
+hostname: wordpress.local
+ip: 192.168.33.10
 
-wp:
-  version: latest
-  lang: en_US
-  title: Welcome to the Vagrant
-  multisite: false
-  rewrite_structure: /archives/%post_id%
-  path:
-    wp_home: ''
-    wp_siteurl: ''
-  admin:
-    user: admin
-    pass: admin
-  db:
-    prefix: wp_
-    host: localhost
-  plugins:
-    - theme-check
-    - plugin-check
-    - dynamic-hostname
-  theme: ''
-  options:
-    blogdescription: Hello VCCW.
-  config:
-    force_ssl_admin: false
-    wp_debug: true
-    savequeries: false
-  theme_unit_test: false
-  theme_unit_test_uri: https://wpcom-themes.svn.automattic.com/demo/theme-unit-test-data.xml
-  # theme_unit_test_uri: https://raw.githubusercontent.com/jawordpressorg/theme-test-data-ja/master/wordpress-theme-test-date-ja.xml
-  reset_db_on_provision: true
+#
+# WordPress Settings
+#
+version: latest
+lang: en_US
+title: Welcome to the Vagrant
+multisite: false
+rewrite_structure: /archives/%post_id%
+
+#
+# WordPress Path
+#
+wp_home: ''
+wp_siteurl: ''
+
+#
+# WordPress User
+#
+admin_user: admin
+admin_pass: admin
+
+#
+# WordPress Database
+#
+db_prefix: wp_
+db_host: localhost
+
+#
+# WordPress Default Plugins
+#
+plugins:
+  - theme-check
+  - plugin-check
+  - dynamic-hostname
+
+#
+# WordPress Default Theme
+#
+theme: ''
+
+#
+# WordPress Options
+#
+options:
+  blogdescription: Hello VCCW.
+
+#
+# The values of wp-config.php
+#
+force_ssl_admin: false
+wp_debug: true
+savequeries: false
+
+#
+# Theme unit testing
+#
+theme_unit_test: false
+theme_unit_test_uri: https://wpcom-themes.svn.automattic.com/demo/theme-unit-test-data.xml
+# theme_unit_test_uri: https://raw.githubusercontent.com/jawordpressorg/theme-test-data-ja/master/wordpress-theme-test-date-ja.xml
+
+#
+# DB wil be reset when provision
+#
+reset_db_on_provision: true
+

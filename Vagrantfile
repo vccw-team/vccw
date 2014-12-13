@@ -12,6 +12,25 @@ _conf = YAML.load(
   ).read
 )
 
+if File.exists?(File.join(File.dirname(__FILE__), 'config/local.yml'))
+  _local = YAML.load(
+    File.open(
+      File.join(File.dirname(__FILE__), 'config/local.yml'),
+      File::RDONLY
+    ).read
+  )
+  _conf.merge!(_local) if _local.is_a?(Hash)
+end
+
+if File.exists?('./site.yml')
+  _site = YAML.load(
+    File.open(
+      File.join('./site.yml'),
+      File::RDONLY
+    ).read
+  )
+  _conf.merge!(_site) if _site.is_a?(Hash)
+end
 
 # path to the cookbooks (e.g. ~/vagrants/vccw)
 if File.exists?(_conf['chef_cookbook_path'])
@@ -31,8 +50,8 @@ Vagrant.configure(2) do |config|
 
   config.vm.box_check_update = true
 
-  config.vm.hostname = _conf['network']['hostname']
-  config.vm.network :private_network, ip: _conf['network']['ip']
+  config.vm.hostname = _conf['hostname']
+  config.vm.network :private_network, ip: _conf['ip']
 
   config.vm.synced_folder 'www/wordpress/', '/var/www/wordpress', :create => 'true'
 
@@ -89,34 +108,34 @@ Vagrant.configure(2) do |config|
         :server_repl_password   => 'wordpress'
       },
       'wpcli' => {
-        :wp_version        => ENV['wp_version'] || _conf['wp']['version'],
-        :wp_host           => _conf['network']['hostname'],
-        :wp_home           => _conf['wp']['path']['wp_home'],
-        :wp_siteurl        => _conf['wp']['path']['wp_siteurl'],
-        :locale            => ENV['wp_lang'] || _conf['wp']['lang'],
-        :admin_user        => _conf['wp']['admin']['user'],
-        :admin_password    => _conf['wp']['admin']['pass'],
-        :default_plugins   => _conf['wp']['plugins'],
-        :default_theme     => _conf['wp']['theme'],
-        :title             => _conf['wp']['title'],
-        :is_multisite      => _conf['wp']['multisite'],
-        :force_ssl_admin   => _conf['wp']['config']['force_ssl_admin'],
-        :debug_mode        => _conf['wp']['config']['wp_debug'],
-        :savequeries       => _conf['wp']['config']['savequeries'],
-        :theme_unit_test   => _conf['wp']['theme_unit_test'],
-        :theme_unit_test_data_url => _conf['wp']['theme_unit_test_uri'],
-        :always_reset      => _conf['wp']['reset_db'],
-        :dbhost            => _conf['wp']['db']['host'],
-        :dbprefix          => _conf['wp']['db']['prefix'],
-        :options           => _conf['wp']['options'],
-        :rewrite_structure => _conf['wp']['rewrite_structure']
+        :wp_version        => ENV['wp_version'] || _conf['version'],
+        :wp_host           => _conf['hostname'],
+        :wp_home           => _conf['wp_home'],
+        :wp_siteurl        => _conf['wp_siteurl'],
+        :locale            => ENV['wp_lang'] || _conf['lang'],
+        :admin_user        => _conf['admin_user'],
+        :admin_password    => _conf['admin_pass'],
+        :default_plugins   => _conf['plugins'],
+        :default_theme     => _conf['theme'],
+        :title             => _conf['title'],
+        :is_multisite      => _conf['multisite'],
+        :force_ssl_admin   => _conf['force_ssl_admin'],
+        :debug_mode        => _conf['wp_debug'],
+        :savequeries       => _conf['savequeries'],
+        :theme_unit_test   => _conf['theme_unit_test'],
+        :theme_unit_test_data_url => _conf['theme_unit_test_uri'],
+        :always_reset      => _conf['reset_db'],
+        :dbhost            => _conf['db_host'],
+        :dbprefix          => _conf['db_prefix'],
+        :options           => _conf['options'],
+        :rewrite_structure => _conf['rewrite_structure']
       },
       :vccw => {
         :wordmove => {
           :movefile        => File.join('/vagrant', 'Movefile'),
-          :url             => 'http://' << File.join(_conf['network']['hostname'], _conf['wp']['path']['wp_home']),
-          :wpdir           => File.join('www/wordpress', _conf['wp']['path']['wp_siteurl']),
-          :dbhost          => _conf['wp']['db']['host']
+          :url             => 'http://' << File.join(_conf['hostname'], _conf['wp_home']),
+          :wpdir           => File.join('www/wordpress', _conf['wp_siteurl']),
+          :dbhost          => _conf['db_host']
         }
       },
       :rbenv => {
