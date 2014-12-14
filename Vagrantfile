@@ -5,45 +5,52 @@ require 'yaml'
 
 Vagrant.require_version '>= 1.5'
 
-_conf = YAML.load(
-  File.open(
-    File.join(File.dirname(__FILE__), 'config/default.yml'),
-    File::RDONLY
-  ).read
-)
-
-if File.exists?(File.join(File.dirname(__FILE__), 'config/local.yml'))
-  _local = YAML.load(
-    File.open(
-      File.join(File.dirname(__FILE__), 'config/local.yml'),
-      File::RDONLY
-    ).read
-  )
-  _conf.merge!(_local) if _local.is_a?(Hash)
-end
-
-if File.exists?('./site.yml')
-  _site = YAML.load(
-    File.open(
-      File.join(ENV['VAGRANT_DOTFILE_PATH'], 'site.yml'),
-      File::RDONLY
-    ).read
-  )
-  _conf.merge!(_site) if _site.is_a?(Hash)
-end
-
-# path to the cookbooks (e.g. ~/vagrants/vccw)
-if File.exists?(_conf['chef_cookbook_path'])
-  chef_cookbooks_path = _conf['chef_cookbook_path']
-elsif File.exists?(File.join(File.dirname(__FILE__), _conf['chef_cookbook_path']))
-  chef_cookbooks_path = File.join(File.dirname(__FILE__), _conf['chef_cookbook_path'])
-else
-  puts "Can't find "+_conf['chef_cookbook_path']+'. Please check chef_cookbooks_path in the config.'
-  exit 1
-end
-
-
 Vagrant.configure(2) do |config|
+
+  _conf = YAML.load(
+    File.open(
+      File.join(File.dirname(__FILE__), 'config/default.yml'),
+      File::RDONLY
+    ).read
+  )
+
+  if File.exists?(File.join(File.dirname(__FILE__), 'config/local.yml'))
+    _local = YAML.load(
+      File.open(
+        File.join(File.dirname(__FILE__), 'config/local.yml'),
+        File::RDONLY
+      ).read
+    )
+    _conf.merge!(_local) if _local.is_a?(Hash)
+  end
+
+  if File.exists?(File.join(File.dirname(ENV['VAGRANT_DOTFILE_PATH']), 'site.yml'))
+    _site = YAML.load(
+      File.open(
+        File.join(File.dirname(ENV['VAGRANT_DOTFILE_PATH']), 'site.yml'),
+        File::RDONLY
+      ).read
+    )
+    _conf.merge!(_site) if _site.is_a?(Hash)
+  elsif File.exists?(File.join(File.join(File.dirname(__FILE__), 'site.yml'))
+    _site = YAML.load(
+      File.open(
+        File.join(File.dirname(File.join(File.dirname(__FILE__), 'site.yml'),
+        File::RDONLY
+      ).read
+    )
+    _conf.merge!(_site) if _site.is_a?(Hash)
+  end
+
+  # path to the cookbooks (e.g. ~/vagrants/vccw)
+  if File.exists?(_conf['chef_cookbook_path'])
+    chef_cookbooks_path = _conf['chef_cookbook_path']
+  elsif File.exists?(File.join(File.dirname(__FILE__), _conf['chef_cookbook_path']))
+    chef_cookbooks_path = File.join(File.dirname(__FILE__), _conf['chef_cookbook_path'])
+  else
+    puts "Can't find "+_conf['chef_cookbook_path']+'. Please check chef_cookbooks_path in the config.'
+    exit 1
+  end
 
   config.vm.box = ENV['wp_box'] || _conf['wp_box']
   config.ssh.forward_agent = true
@@ -72,8 +79,10 @@ Vagrant.configure(2) do |config|
         inline: 'curl -L https://www.opscode.com/chef/install.sh | sudo bash -s -- -v 11'
   end
 
-  if File.exists?(File.join(File.expand_path(File.dirname(__FILE__)), 'provision', 'provision-pre.sh')) then
-    config.vm.provision :shell, :path => File.join( 'provision', 'provision-pre.sh' )
+  if File.exists?(File.join(File.dirname(ENV['VAGRANT_DOTFILE_PATH']), 'provision', 'provision-post.sh'))
+    config.vm.provision :shell, :path => File.join( File.dirname(ENV['VAGRANT_DOTFILE_PATH']), 'provision', 'provision-post.sh' )
+  elsif File.exists?(File.join(File.dirname(__FILE__), 'provision', 'provision-post.sh')) then
+    config.vm.provision :shell, :path => File.join( File.dirname(__FILE__), 'provision', 'provision-post.sh' )
   end
 
   config.vm.provision :chef_solo do |chef|
@@ -174,8 +183,10 @@ Vagrant.configure(2) do |config|
 
   end
 
-  if File.exists?(File.join(File.expand_path(File.dirname(__FILE__)), 'provision', 'provision-post.sh')) then
-    config.vm.provision :shell, :path => File.join( 'provision', 'provision-post.sh' )
+  if File.exists?(File.join(File.dirname(ENV['VAGRANT_DOTFILE_PATH']), 'provision', 'provision-post.sh'))
+    config.vm.provision :shell, :path => File.join( File.dirname(ENV['VAGRANT_DOTFILE_PATH']), 'provision', 'provision-post.sh' )
+  elsif File.exists?(File.join(File.dirname(__FILE__), 'provision', 'provision-post.sh')) then
+    config.vm.provision :shell, :path => File.join( File.dirname(__FILE__), 'provision', 'provision-post.sh' )
   end
 
 end
