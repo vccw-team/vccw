@@ -25,7 +25,7 @@ end
 if File.exists?('./site.yml')
   _site = YAML.load(
     File.open(
-      File.join('./site.yml'),
+      File.join(ENV['VAGRANT_DOTFILE_PATH'], 'site.yml'),
       File::RDONLY
     ).read
   )
