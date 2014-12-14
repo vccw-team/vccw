@@ -24,7 +24,7 @@ Vagrant.configure(2) do |config|
     _conf.merge!(_local) if _local.is_a?(Hash)
   end
 
-  if File.exists?(File.join(File.dirname(ENV['VAGRANT_DOTFILE_PATH']), 'site.yml'))
+  if ENV['VAGRANT_DOTFILE_PATH'] && File.exists?(File.join(File.dirname(ENV['VAGRANT_DOTFILE_PATH']), 'site.yml'))
     _site = YAML.load(
       File.open(
         File.join(File.dirname(ENV['VAGRANT_DOTFILE_PATH']), 'site.yml'),
@@ -32,10 +32,10 @@ Vagrant.configure(2) do |config|
       ).read
     )
     _conf.merge!(_site) if _site.is_a?(Hash)
-  elsif File.exists?(File.join(File.join(File.dirname(__FILE__), 'site.yml'))
+  elsif File.exists?(File.join(File.dirname(__FILE__), 'site.yml'))
     _site = YAML.load(
       File.open(
-        File.join(File.dirname(File.join(File.dirname(__FILE__), 'site.yml'),
+        File.join(File.dirname(__FILE__), 'site.yml'),
         File::RDONLY
       ).read
     )
@@ -79,7 +79,7 @@ Vagrant.configure(2) do |config|
         inline: 'curl -L https://www.opscode.com/chef/install.sh | sudo bash -s -- -v 11'
   end
 
-  if File.exists?(File.join(File.dirname(ENV['VAGRANT_DOTFILE_PATH']), 'provision', 'provision-post.sh'))
+  if ENV['VAGRANT_DOTFILE_PATH'] && File.exists?(File.join(File.dirname(ENV['VAGRANT_DOTFILE_PATH']), 'provision', 'provision-post.sh'))
     config.vm.provision :shell, :path => File.join( File.dirname(ENV['VAGRANT_DOTFILE_PATH']), 'provision', 'provision-post.sh' )
   elsif File.exists?(File.join(File.dirname(__FILE__), 'provision', 'provision-post.sh')) then
     config.vm.provision :shell, :path => File.join( File.dirname(__FILE__), 'provision', 'provision-post.sh' )
@@ -183,7 +183,7 @@ Vagrant.configure(2) do |config|
 
   end
 
-  if File.exists?(File.join(File.dirname(ENV['VAGRANT_DOTFILE_PATH']), 'provision', 'provision-post.sh'))
+  if ENV['VAGRANT_DOTFILE_PATH'] && File.exists?(File.join(File.dirname(ENV['VAGRANT_DOTFILE_PATH']), 'provision', 'provision-post.sh'))
     config.vm.provision :shell, :path => File.join( File.dirname(ENV['VAGRANT_DOTFILE_PATH']), 'provision', 'provision-post.sh' )
   elsif File.exists?(File.join(File.dirname(__FILE__), 'provision', 'provision-post.sh')) then
     config.vm.provision :shell, :path => File.join( File.dirname(__FILE__), 'provision', 'provision-post.sh' )
