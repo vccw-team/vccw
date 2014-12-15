@@ -57,7 +57,7 @@ theme: ''
 # WordPress Options
 #
 options:
-  blogdescription: Hello VCCW.
+  - blogdescription: Hello VCCW.
 
 #
 # The values of wp-config.php
