@@ -9,3 +9,4 @@ provision/*
 !provision/.gitkeep
 !provision/packaging.sh
 package.box
+.idea/
