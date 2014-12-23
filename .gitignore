@@ -11,3 +11,4 @@ provision/*
 package.box
 config/local.yml
 site.yml
+.idea/
