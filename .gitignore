@@ -1,6 +1,5 @@
 .vagrant
 www
-Vagrantfile
 Movefile
 _site
 .DS_Store
