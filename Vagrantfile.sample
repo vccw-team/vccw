@@ -18,7 +18,7 @@ WP_HOSTNAME          = "wordpress.local" # e.g example.com
 WP_IP                = "192.168.33.10" # host ip address
 
 WP_HOME              = "" # path to WP_HOME, e.g blank or /wp or ...
-WP_SITEURL           = "" # path to WP_SITEURL, e.g blank or /wp or ...
+WP_ADDRESS           = "" # path to WordPress directory, e.g blank or sub-directory name like "wp".
 
 WP_TITLE             = "Welcome to the Vagrant" # title
 WP_ADMIN_USER        = "admin" # default user
