@@ -60,11 +60,7 @@ Vagrant.configure(2) do |config|
   config.vm.hostname = _conf['hostname']
   config.vm.network :private_network, ip: _conf['ip']
 
-  if ENV['VAGRANT_DOTFILE_PATH']
-    config.vm.synced_folder File.join(ENV['VAGRANT_DOTFILE_PATH'], 'www/wordpress/'), '/var/www/wordpress', :create => 'true'
-  else
-    config.vm.synced_folder 'www/wordpress/', '/var/www/wordpress', :create => 'true'
-  end
+  config.vm.synced_folder 'www/wordpress/', '/var/www/wordpress', :create => 'true'
 
   if Vagrant.has_plugin?('vagrant-hostsupdater')
     config.hostsupdater.remove_on_suspend = true
