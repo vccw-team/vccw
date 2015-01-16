@@ -10,7 +10,7 @@ Vagrant.require_version ">= 1.5"
 
 VM_BOX               = "miya0001/vccw" # pre-installed box
 
-DOCUMENT_ROOT        = "www/wordpress" # your site's document-root path from this directory.
+DOCUMENT_ROOT        = "www/wordpress" # path to your site's document-root
 
 WP_VERSION           = ENV["wp_version"] || 'latest' # latest or 3.4 or later or http(s):// URL to zipfile
 WP_LANG              = ENV["wp_lang"] || "en_US" # WordPress locale (e.g. ja)
@@ -75,7 +75,7 @@ Vagrant.configure(2) do |config|
   config.vm.hostname = WP_HOSTNAME
   config.vm.network :private_network, ip: WP_IP
 
-  config.vm.synced_folder "#{DOCUMENT_ROOT}/", "/var/#{DOCUMENT_ROOT}", :create => "true"
+  config.vm.synced_folder File.join(DOCUMENT_ROOT, "/"), File.join("/var", DOCUMENT_ROOT), :create => "true"
 
   if Vagrant.has_plugin?("vagrant-hostsupdater")
     config.hostsupdater.remove_on_suspend = true
@@ -98,7 +98,7 @@ Vagrant.configure(2) do |config|
 
     chef.json = {
       :apache => {
-        :docroot_dir  => "/var/#{DOCUMENT_ROOT}",
+        :docroot_dir  => File.join("/var", DOCUMENT_ROOT),
         :user         => 'vagrant',
         :group        => 'vagrant',
         :listen_ports => ["80", "443"]
@@ -125,7 +125,7 @@ Vagrant.configure(2) do |config|
         :wp_host           => WP_HOSTNAME,
         :wp_home           => WP_HOME,
         :wp_siteurl        => WP_SITEURL,
-        :wp_docroot        => "/var/#{DOCUMENT_ROOT}",
+        :wp_docroot        => File.join("/var", DOCUMENT_ROOT),
         :locale            => WP_LANG,
         :admin_user        => WP_ADMIN_USER,
         :admin_password    => WP_ADMIN_PASS,
@@ -138,7 +138,7 @@ Vagrant.configure(2) do |config|
         :savequeries       => WP_SAVEQUERIES,
         :theme_unit_test   => WP_THEME_UNIT_TEST,
         :theme_unit_test_data_url => WP_THEME_UNIT_TEST_DATA_URI,
-        :gitignore         => "/var/#{DOCUMENT_ROOT}/.gitignore",
+        :gitignore         => File.join("/var", DOCUMENT_ROOT, ".gitignore"),
         :always_reset      => WP_ALWAYS_RESET,
         :dbhost            => WP_DB_HOST,
         :dbname            => WP_DB_NAME,
@@ -152,7 +152,7 @@ Vagrant.configure(2) do |config|
         :wordmove => {
           :movefile        => File.join('/vagrant', "Movefile"),
           :url             => "http://" << File.join(WP_HOSTNAME, WP_DIR),
-          :wpdir           => File.join("/var/#{DOCUMENT_ROOT}", WP_DIR),
+          :wpdir           => File.join("/var", DOCUMENT_ROOT, WP_DIR),
           :dbhost          => WP_DB_HOST,
           :dbname          => WP_DB_NAME,
           :dbuser          => WP_DB_USER,
