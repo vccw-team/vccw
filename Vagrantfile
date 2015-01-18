@@ -47,7 +47,7 @@ WP_THEME_UNIT_TEST   = false # automatic import theme unit test data
 
 WP_ALWAYS_RESET      = true # always reset database
 
-WP_CHEF_COOKBOOKS_PATH = File.dirname(__FILE__) # path to the cookbooks (e.g. ~/vccw)
+WP_CHEF_COOKBOOKS_PATH = File.join(File.dirname(__FILE__), 'provision') # path to the cookbooks (e.g. ~/vccw)
 
 if WP_LANG === 'ja' then
   WP_THEME_UNIT_TEST_DATA_URI = 'https://raw.githubusercontent.com/jawordpressorg/theme-test-data-ja/master/wordpress-theme-test-date-ja.xml'
