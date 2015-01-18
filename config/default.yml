@@ -5,7 +5,7 @@
 # General Settings
 #
 wp_box: miya0001/vccw
-chef_cookbook_path: ./chef
+chef_cookbook_path: ./provision
 
 #
 # Network Settings
