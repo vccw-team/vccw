@@ -9,3 +9,7 @@ provision/*
 !provision/site-cookbooks
 package.box
 .idea/
+Gemfile
+Gemfile.lock
+Rakefile
+spec
