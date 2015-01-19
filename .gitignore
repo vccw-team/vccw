@@ -4,9 +4,6 @@ Movefile
 _site
 .DS_Store
 Movefile
-provision/*
-!provision/.gitkeep
-!provision/packaging.sh
 package.box
 config/local.yml
 site.yml
