@@ -243,7 +243,7 @@ end
 remote_file node[:wpcli][:gitignore] do
   source node[:wpcli][:gitignore_url]
   mode 0644
-  action :create
+  action :create_if_missing
 end
 
 apache_site "000-default" do

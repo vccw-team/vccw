@@ -33,7 +33,7 @@ WP_DB_PASS           = 'wordpress'
 
 WP_DB_ROOT_PASS      = 'wordpress'
 
-WP_DEFAULT_PLUGINS   = %w(theme-check debug-bar dynamic-hostname)
+WP_DEFAULT_PLUGINS   = %w(dynamic-hostname wp-total-hacks tinymce-templates)
 WP_DEFAULT_THEME     = ENV["wp_theme"] || '' # e.g. twentyfifteen
 WP_OPTIONS           = {}
 WP_REWRITE_STRUCTURE = '/archives/%post_id%'
@@ -88,7 +88,7 @@ Vagrant.configure(2) do |config|
 
     chef.json = {
       :apache => {
-        :docroot_dir  => File.join("/var", DOCUMENT_ROOT),
+        :docroot_dir  => DOCUMENT_ROOT,
         :user         => 'vagrant',
         :group        => 'vagrant',
         :listen_ports => ["80", "443"]
