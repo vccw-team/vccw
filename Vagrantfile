@@ -42,7 +42,7 @@ Vagrant.configure(2) do |config|
   config.vm.hostname = _conf['hostname']
   config.vm.network :private_network, ip: _conf['ip']
 
-  config.vm.synced_folder 'www/wordpress/', '/var/www/wordpress', :create => 'true'
+  config.vm.synced_folder 'www/wordpress/', _conf['document_root'], :create => 'true'
 
   if Vagrant.has_plugin?('vagrant-hostsupdater')
     config.hostsupdater.remove_on_suspend = true
@@ -74,7 +74,7 @@ Vagrant.configure(2) do |config|
 
     chef.json = {
       :apache => {
-        :docroot_dir  => '/var/www/wordpress',
+        :docroot_dir  => _conf['document_root'],
         :user         => 'vagrant',
         :group        => 'vagrant',
         :listen_ports => ['80', '443']
@@ -101,6 +101,7 @@ Vagrant.configure(2) do |config|
         :wp_host           => _conf['hostname'],
         :wp_home           => _conf['wp_home'],
         :wp_siteurl        => _conf['wp_siteurl'],
+        :wp_docroot        => _conf['document_root'],
         :locale            => ENV['wp_lang'] || _conf['lang'],
         :admin_user        => _conf['admin_user'],
         :admin_password    => _conf['admin_pass'],
@@ -113,6 +114,7 @@ Vagrant.configure(2) do |config|
         :savequeries       => _conf['savequeries'],
         :theme_unit_test   => _conf['theme_unit_test'],
         :theme_unit_test_data_url => _conf['theme_unit_test_uri'],
+        :gitignore         => File.join(_conf['document_root'], ".gitignore"),
         :always_reset      => _conf['reset_db'],
         :dbhost            => _conf['db_host'],
         :dbprefix          => _conf['db_prefix'],
@@ -123,7 +125,7 @@ Vagrant.configure(2) do |config|
         :wordmove => {
           :movefile        => File.join('/vagrant', 'Movefile'),
           :url             => 'http://' << File.join(_conf['hostname'], _conf['wp_home']),
-          :wpdir           => File.join('www/wordpress', _conf['wp_siteurl']),
+          :wpdir           => File.join(_conf['document_root'], _conf['wp_siteurl']),
           :dbhost          => _conf['db_host']
         }
       },

@@ -25,6 +25,7 @@ rewrite_structure: /archives/%post_id%
 #
 # WordPress Path
 #
+document_root: '/var/www/wordpress'
 wp_home: ''
 wp_siteurl: ''
 
@@ -77,4 +78,3 @@ theme_unit_test_uri: https://wpcom-themes.svn.automattic.com/demo/theme-unit-tes
 # DB wil be reset when provision
 #
 reset_db_on_provision: true
-
