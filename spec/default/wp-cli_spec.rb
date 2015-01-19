@@ -70,16 +70,6 @@ describe command("wget --no-check-certificate -q https://localhost/ -O - | head 
   it { should return_stdout /<meta name="generator" content="WordPress .*"/i }
 end
 
-describe file('/var/www/wordpress/wp-content/plugins/theme-check/readme.txt') do
-  let(:disable_sudo) { true }
-  it { should be_file }
-end
-
-describe file('/var/www/wordpress/wp-content/plugins/plugin-check/readme.txt') do
-  let(:disable_sudo) { true }
-  it { should be_file }
-end
-
 describe file('/var/www/wordpress/wp-content/plugins/dynamic-hostname/readme.txt') do
   let(:disable_sudo) { true }
   it { should be_file }
