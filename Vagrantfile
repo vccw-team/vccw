@@ -79,6 +79,10 @@ Vagrant.configure(2) do |config|
     ]
   end
 
+  if File.exists?(File.join(File.dirname(__FILE__), 'provision-pre.sh')) then
+    config.vm.provision :shell, :path => File.join( File.dirname(__FILE__), 'provision-pre.sh' )
+  end
+
   config.vm.provision :chef_solo do |chef|
 
     chef.cookbooks_path = [
@@ -183,6 +187,10 @@ Vagrant.configure(2) do |config|
     chef.add_recipe "wpcli::install"
     chef.add_recipe "vccw"
 
+  end
+
+  if File.exists?(File.join(File.dirname(__FILE__), 'provision-post.sh')) then
+    config.vm.provision :shell, :path => File.join( File.dirname(__FILE__), 'provision-post.sh' )
   end
 
 end
