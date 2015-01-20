@@ -75,6 +75,6 @@ theme_unit_test_uri: https://wpcom-themes.svn.automattic.com/demo/theme-unit-tes
 # theme_unit_test_uri: https://raw.githubusercontent.com/jawordpressorg/theme-test-data-ja/master/wordpress-theme-test-date-ja.xml
 
 #
-# DB wil be reset when provision
+# DB will be reset when provision
 #
 reset_db_on_provision: true
