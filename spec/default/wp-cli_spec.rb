@@ -5,24 +5,42 @@ require 'serverspec'
 require 'pathname'
 require 'net/ssh'
 require 'spec_helper'
+require 'yaml'
 
 include SpecInfra::Helper::Ssh
 include SpecInfra::Helper::DetectOS
+
+_conf = YAML.load(
+  File.open(
+    'provision/default.yml',
+    File::RDONLY
+  ).read
+)
+
+if File.exists?('site.yml')
+  _site = YAML.load(
+    File.open(
+      'site.yml',
+      File::RDONLY
+    ).read
+  )
+  _conf.merge!(_site) if _site.is_a?(Hash)
+end
 
 describe package('httpd') do
   it { should be_installed }
 end
 
 describe service('httpd') do
-    it { should be_enabled }
+  it { should be_enabled }
 end
 
 describe service('httpd') do
-    it { should be_running }
+  it { should be_running }
 end
 
 describe port(80) do
-    it { should be_listening }
+  it { should be_listening }
 end
 
 describe 'PHP config parameters' do
@@ -62,30 +80,36 @@ describe command('wp help dictator') do
   it { should return_exit_status 0 }
 end
 
-describe command("wget -q http://localhost/ -O - | head -100 | grep generator") do
+describe command("wget -q http://" + File.join(_conf['ip'], _conf['wp_home'], '/') + " -O - | head -100 | grep generator") do
     it { should return_stdout /<meta name="generator" content="WordPress .*"/i }
 end
 
-describe command("wget --no-check-certificate -q https://localhost/ -O - | head -100 | grep generator") do
+describe command("wget -q http://" + File.join(_conf['ip'], _conf['wp_siteurl'], '/readme.html')) do
+    it { should return_exit_status 0 }
+end
+
+describe command("wget --no-check-certificate -q https://" + File.join(_conf['ip'], _conf['wp_home'], '/') + " -O - | head -100 | grep generator") do
   it { should return_stdout /<meta name="generator" content="WordPress .*"/i }
 end
 
-describe file('/var/www/wordpress/wp-content/plugins/tinymce-templates/readme.txt') do
+_conf['plugins'].each do |plugin|
+  describe file(File.join(_conf['document_root'], _conf['wp_siteurl'], 'wp-content/plugins', plugin, 'readme.txt')) do
+    let(:disable_sudo) { true }
+    it { should be_file }
+  end
+end
+
+describe file(File.join(_conf['document_root'], _conf['wp_home'], '.htaccess')) do
   let(:disable_sudo) { true }
   it { should be_file }
 end
 
-describe file('/var/www/wordpress/wp-content/plugins/wp-total-hacks/readme.txt') do
+describe file(File.join(_conf['document_root'], _conf['wp_home'], 'index.php')) do
   let(:disable_sudo) { true }
   it { should be_file }
 end
 
-describe file('/var/www/wordpress/wp-content/plugins/dynamic-hostname/readme.txt') do
-  let(:disable_sudo) { true }
-  it { should be_file }
-end
-
-describe file('/var/www/wordpress/.htaccess') do
+describe file(File.join(_conf['document_root'], _conf['wp_siteurl'], 'wp-load.php')) do
   let(:disable_sudo) { true }
   it { should be_file }
 end

@@ -42,7 +42,7 @@ template '/home/vagrant/.wp-cli/config.yml' do
   group node[:wpcli][:group]
   mode "0644"
   variables(
-    :docroot => node[:wpcli][:wp_docroot]
+    :docroot => File.join(node[:wpcli][:wp_docroot], node[:wpcli][:wp_siteurl])
   )
 end
 
