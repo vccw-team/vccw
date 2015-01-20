@@ -61,8 +61,8 @@ Vagrant.configure(2) do |config|
         inline: 'curl -L https://www.opscode.com/chef/install.sh | sudo bash -s -- -v 11'
   end
 
-  if File.exists?(File.join(File.dirname(__FILE__), 'provision', 'provision-pre.sh')) then
-    config.vm.provision :shell, :path => File.join( File.dirname(__FILE__), 'provision', 'provision-pre.sh' )
+  if File.exists?(File.join(File.dirname(__FILE__), 'provision-pre.sh')) then
+    config.vm.provision :shell, :path => File.join( File.dirname(__FILE__), 'provision-pre.sh' )
   end
 
   config.vm.provision :chef_solo do |chef|
@@ -165,8 +165,8 @@ Vagrant.configure(2) do |config|
 
   end
 
-  if File.exists?(File.join(File.dirname(__FILE__), 'provision', 'provision-post.sh')) then
-    config.vm.provision :shell, :path => File.join( File.dirname(__FILE__), 'provision', 'provision-post.sh' )
+  if File.exists?(File.join(File.dirname(__FILE__), 'provision-post.sh')) then
+    config.vm.provision :shell, :path => File.join( File.dirname(__FILE__), 'provision-post.sh' )
   end
 
 end
