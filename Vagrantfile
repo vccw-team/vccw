@@ -24,7 +24,6 @@ Vagrant.configure(2) do |config|
     _conf.merge!(_site) if _site.is_a?(Hash)
   end
 
-  # path to the cookbooks (e.g. ~/vagrants/vccw)
   if File.exists?(_conf['chef_cookbook_path'])
     chef_cookbooks_path = _conf['chef_cookbook_path']
   elsif File.exists?(File.join(File.dirname(__FILE__), _conf['chef_cookbook_path']))
