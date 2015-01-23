@@ -79,8 +79,3 @@ theme_unit_test_uri: https://wpcom-themes.svn.automattic.com/demo/theme-unit-tes
 #
 reset_db_on_provision: true
 
-#
-# Run serverspec tests after provision.
-# You need vagrant-serverspec plugin
-#
-serverspec: false

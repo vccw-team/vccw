@@ -168,10 +168,4 @@ Vagrant.configure(2) do |config|
   if File.exists?(File.join(File.dirname(__FILE__), 'provision-post.sh')) then
     config.vm.provision :shell, :path => File.join( File.dirname(__FILE__), 'provision-post.sh' )
   end
-
-  if true == _conf['serverspec'] && Vagrant.has_plugin?('vagrant-serverspec')
-    config.vm.provision :serverspec do |spec|
-      spec.pattern = 'spec/*/*_spec.rb'
-    end
-  end
 end
