@@ -1,14 +1,8 @@
 # encoding: utf-8
 # vim: ft=ruby expandtab shiftwidth=2 tabstop=2
 
-require 'serverspec'
-require 'pathname'
-require 'net/ssh'
 require 'spec_helper'
 require 'yaml'
-
-include SpecInfra::Helper::Ssh
-include SpecInfra::Helper::DetectOS
 
 _conf = YAML.load(
   File.open(
@@ -73,24 +67,24 @@ end
 
 describe command('wp --version') do
   let(:disable_sudo) { true }
-  it { should return_exit_status 0 }
+  its(:exit_status) { should eq 0 }
 end
 
 describe command('wp help dictator') do
   let(:disable_sudo) { true }
-  it { should return_exit_status 0 }
+  its(:exit_status) { should eq 0 }
 end
 
 describe command("wget -q http://" + File.join(_conf['ip'], _conf['wp_home'], '/') + " -O - | head -100 | grep generator") do
-    it { should return_stdout /<meta name="generator" content="WordPress .*"/i }
+    its(:stdout) { should match /<meta name="generator" content="WordPress .*"/i }
 end
 
 describe command("wget -q http://" + File.join(_conf['ip'], _conf['wp_siteurl'], '/readme.html')) do
-    it { should return_exit_status 0 }
+    its(:exit_status) { should eq 0 }
 end
 
 describe command("wget --no-check-certificate -q https://" + File.join(_conf['ip'], _conf['wp_home'], '/') + " -O - | head -100 | grep generator") do
-  it { should return_stdout /<meta name="generator" content="WordPress .*"/i }
+    its(:stdout) { should match /<meta name="generator" content="WordPress .*"/i }
 end
 
 _conf['plugins'].each do |plugin|
