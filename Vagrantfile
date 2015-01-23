@@ -47,7 +47,7 @@ WP_THEME_UNIT_TEST   = false # automatic import theme unit test data
 
 WP_ALWAYS_RESET      = true # always reset database
 
-WP_CHEF_COOKBOOKS_PATH = File.join(File.dirname(__FILE__), 'provision') # path to the cookbooks (e.g. ~/vccw)
+WP_CHEF_COOKBOOKS_PATH = File.join(File.dirname(__FILE__), 'provision')
 
 if WP_LANG === 'ja' then
   WP_THEME_UNIT_TEST_DATA_URI = 'https://raw.githubusercontent.com/jawordpressorg/theme-test-data-ja/master/wordpress-theme-test-date-ja.xml'
@@ -65,6 +65,7 @@ Vagrant.configure(2) do |config|
   config.vm.hostname = WP_HOSTNAME
   config.vm.network :private_network, ip: WP_IP
 
+  config.vm.synced_folder ".", "/vagrant", :mount_options => ['dmode=755', 'fmode=644']
   config.vm.synced_folder "www/wordpress/", DOCUMENT_ROOT, :create => "true", :mount_options => ['dmode=755', 'fmode=644']
 
   if Vagrant.has_plugin?("vagrant-hostsupdater")
