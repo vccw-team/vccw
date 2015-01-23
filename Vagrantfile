@@ -65,6 +65,7 @@ Vagrant.configure(2) do |config|
   config.vm.hostname = WP_HOSTNAME
   config.vm.network :private_network, ip: WP_IP
 
+  config.vm.synced_folder ".", "/vagrant", :mount_options => ['dmode=755', 'fmode=644']
   config.vm.synced_folder "www/wordpress/", DOCUMENT_ROOT, :create => "true", :mount_options => ['dmode=755', 'fmode=644']
 
   if Vagrant.has_plugin?("vagrant-hostsupdater")
