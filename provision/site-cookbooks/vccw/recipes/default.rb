@@ -36,7 +36,7 @@ end
 # Setup Grunt
 #
 
-execute "npm install -g grunt-init grunt-cli" do
+execute "npm install -g grunt-init grunt-cli gulp" do
   user "root"
   group "root"
 end
@@ -200,4 +200,3 @@ template node[:vccw][:wordmove][:movefile] do
   )
   action :create_if_missing
 end
-
