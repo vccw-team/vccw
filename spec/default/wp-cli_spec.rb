@@ -62,7 +62,6 @@ describe 'PHP config parameters' do
   context php_config('session.save_path') do
     its(:value) { should eq '/tmp' }
   end
-
 end
 
 describe command('wp --version') do
