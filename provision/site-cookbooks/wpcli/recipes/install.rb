@@ -38,6 +38,13 @@ execute "create wordpress database" do
 end
 
 
+directory File.join(node[:wpcli][:wp_docroot], node[:wpcli][:wp_home]) do
+    recursive true
+    owner node[:wpcli][:user]
+    group node[:wpcli][:group]
+end
+
+
 bash "wordpress-core-download" do
   user node[:wpcli][:user]
   group node[:wpcli][:group]
@@ -118,12 +125,6 @@ bash "wordpress-core-install" do
   EOH
 end
 
-
-directory File.join(node[:wpcli][:wp_docroot], node[:wpcli][:wp_home]) do
-  recursive true
-  owner node[:wpcli][:user]
-  group node[:wpcli][:group]
-end
 
 unless node[:wpcli][:wp_home] == node[:wpcli][:wp_siteurl]
   unless File.exist?(File.join(node[:wpcli][:wp_docroot], node[:wpcli][:wp_home], 'index.php'))

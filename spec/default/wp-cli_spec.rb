@@ -90,20 +90,36 @@ _conf['plugins'].each do |plugin|
   describe file(File.join(_conf['document_root'], _conf['wp_siteurl'], 'wp-content/plugins', plugin, 'readme.txt')) do
     let(:disable_sudo) { true }
     it { should be_file }
+    it { should be_owned_by 'vagrant' }
   end
+end
+
+describe file(File.join(_conf['document_root'], _conf['wp_home'])) do
+    let(:disable_sudo) { true }
+    it { should be_directory }
+    it { should be_owned_by 'vagrant' }
+end
+
+describe file(File.join(_conf['document_root'], _conf['wp_siteurl'])) do
+    let(:disable_sudo) { true }
+    it { should be_directory }
+    it { should be_owned_by 'vagrant' }
 end
 
 describe file(File.join(_conf['document_root'], _conf['wp_home'], '.htaccess')) do
   let(:disable_sudo) { true }
   it { should be_file }
+  it { should be_owned_by 'vagrant' }
 end
 
 describe file(File.join(_conf['document_root'], _conf['wp_home'], 'index.php')) do
   let(:disable_sudo) { true }
   it { should be_file }
+  it { should be_owned_by 'vagrant' }
 end
 
 describe file(File.join(_conf['document_root'], _conf['wp_siteurl'], 'wp-load.php')) do
   let(:disable_sudo) { true }
   it { should be_file }
+  it { should be_owned_by 'vagrant' }
 end
