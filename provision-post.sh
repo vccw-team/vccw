@@ -8,7 +8,6 @@ sudo rm -fr /var/www/wordpress
 sudo rm -f /etc/httpd/sites-available/wordpress.conf
 sudo rm -f /etc/httpd/sites-enabled/wordpress.conf
 
-rm -rf /tmp/*
 rm -f /etc/ssh/ssh_host_*
 cd /var/log
 find /var/log/ -type f -name '*.log' -exec cp /dev/null {} \;
