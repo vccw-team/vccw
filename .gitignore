@@ -4,12 +4,14 @@ Movefile
 _site
 .DS_Store
 Movefile
-provision/*
-!provision/cookbooks
-!provision/site-cookbooks
 package.box
+config/local.yml
+site.yml
 .idea/
 Gemfile
 Gemfile.lock
 Rakefile
 spec
+provision-pre.sh
+provision-post.sh
+.rspec

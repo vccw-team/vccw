@@ -1,0 +1,81 @@
+# encoding: utf-8
+# vim: ft=ruby expandtab shiftwidth=2 tabstop=2
+
+#
+# General Settings
+#
+wp_box: miya0001/vccw
+chef_cookbook_path: ./provision
+
+#
+# Network Settings
+#
+hostname: wordpress.local
+ip: 192.168.33.10
+
+#
+# WordPress Settings
+#
+version: latest
+lang: en_US
+title: Welcome to the Vagrant
+multisite: false
+rewrite_structure: /archives/%post_id%
+
+#
+# WordPress Path
+#
+document_root: '/var/www/wordpress'
+wp_home: ''
+wp_siteurl: ''
+
+#
+# WordPress User
+#
+admin_user: admin
+admin_pass: admin
+
+#
+# WordPress Database
+#
+db_prefix: wp_
+db_host: localhost
+
+#
+# WordPress Default Plugins
+#
+plugins:
+  - dynamic-hostname
+  - wp-total-hacks
+  - tinymce-templates
+
+#
+# WordPress Default Theme
+#
+theme: ''
+
+#
+# WordPress Options
+#
+options:
+  blogdescription: Hello VCCW.
+
+#
+# The values of wp-config.php
+#
+force_ssl_admin: false
+wp_debug: true
+savequeries: false
+
+#
+# Theme unit testing
+#
+theme_unit_test: false
+theme_unit_test_uri: https://wpcom-themes.svn.automattic.com/demo/theme-unit-test-data.xml
+# theme_unit_test_uri: https://raw.githubusercontent.com/jawordpressorg/theme-test-data-ja/master/wordpress-theme-test-date-ja.xml
+
+#
+# DB will be reset when provision
+#
+reset_db_on_provision: true
+
