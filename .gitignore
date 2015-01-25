@@ -15,3 +15,4 @@ spec
 provision-pre.sh
 provision-post.sh
 .rspec
+.gitattribute
