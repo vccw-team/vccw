@@ -9,3 +9,4 @@ config/local.yml
 site.yml
 .idea/
 provision-pre.sh
+provision-post.sh

@@ -112,6 +112,12 @@ describe file(File.join(_conf['document_root'], _conf['wp_home'], '.htaccess')) 
   it { should be_owned_by 'vagrant' }
 end
 
+describe file(File.join(_conf['document_root'], _conf['wp_home'], '.gitignore')) do
+    let(:disable_sudo) { true }
+    it { should be_file }
+    it { should be_owned_by 'vagrant' }
+end
+
 describe file(File.join(_conf['document_root'], _conf['wp_home'], 'index.php')) do
   let(:disable_sudo) { true }
   it { should be_file }

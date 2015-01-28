@@ -14,15 +14,15 @@ Vagrant.configure(2) do |config|
     ).read
   )
 
-  # if File.exists?(File.join(File.dirname(__FILE__), 'site.yml'))
-  #   _site = YAML.load(
-  #     File.open(
-  #       File.join(File.dirname(__FILE__), 'site.yml'),
-  #       File::RDONLY
-  #     ).read
-  #   )
-  #   _conf.merge!(_site) if _site.is_a?(Hash)
-  # end
+  if File.exists?(File.join(File.dirname(__FILE__), 'site.yml'))
+    _site = YAML.load(
+      File.open(
+        File.join(File.dirname(__FILE__), 'site.yml'),
+        File::RDONLY
+      ).read
+    )
+    _conf.merge!(_site) if _site.is_a?(Hash)
+  end
 
   if File.exists?(_conf['chef_cookbook_path'])
     chef_cookbooks_path = _conf['chef_cookbook_path']
@@ -34,19 +34,19 @@ Vagrant.configure(2) do |config|
   end
 
   config.vm.box = ENV['wp_box'] || _conf['wp_box']
-  # config.ssh.forward_agent = true
+  config.ssh.forward_agent = true
 
   config.vm.box_check_update = true
 
-  # config.vm.hostname = _conf['hostname']
-  # config.vm.network :private_network, ip: _conf['ip']
+  config.vm.hostname = _conf['hostname']
+  config.vm.network :private_network, ip: _conf['ip']
 
-  # config.vm.synced_folder ".", "/vagrant", :mount_options => ['dmode=755', 'fmode=644']
-  # config.vm.synced_folder "www/wordpress/", _conf['document_root'], :create => "true", :mount_options => ['dmode=755', 'fmode=644']
+  config.vm.synced_folder ".", "/vagrant", :mount_options => ['dmode=755', 'fmode=644']
+  config.vm.synced_folder _conf['sync_folder'], _conf['document_root'], :create => "true", :mount_options => ['dmode=755', 'fmode=644']
 
-  # if Vagrant.has_plugin?('vagrant-hostsupdater')
-  #   config.hostsupdater.remove_on_suspend = true
-  # end
+  if Vagrant.has_plugin?('vagrant-hostsupdater')
+    config.hostsupdater.remove_on_suspend = true
+  end
 
   config.vm.provider :virtualbox do |vb|
     vb.customize [
