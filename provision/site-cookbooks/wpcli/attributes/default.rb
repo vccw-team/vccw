@@ -1,6 +1,6 @@
 #
 # Cookbook Name:: wpcli
-# Attributes:: deafault
+# Attributes:: default
 #
 # Author:: Takayuki Miyauchi
 # License: MIT
