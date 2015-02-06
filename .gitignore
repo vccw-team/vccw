@@ -4,7 +4,6 @@
 .vagrant
 Movefile
 _site
-config/local.yml
 package.box
 provision-post.sh
 provision-pre.sh
