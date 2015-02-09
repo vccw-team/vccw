@@ -3,6 +3,7 @@
 
 require 'spec_helper'
 require 'yaml'
+require 'shellwords'
 
 _conf = YAML.load(
   File.open(
@@ -19,6 +20,14 @@ if File.exists?('site.yml')
     ).read
   )
   _conf.merge!(_site) if _site.is_a?(Hash)
+end
+
+describe host(_conf['hostname']) do
+  it { should be_resolvable.by('hosts') }
+end
+
+describe interface('eth1') do
+  it { should have_ipv4_address(_conf['ip']) }
 end
 
 describe package('httpd') do

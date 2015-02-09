@@ -12,6 +12,7 @@ chef_cookbook_path: ./provision
 #
 hostname: wordpress.local
 ip: 192.168.33.10
+sync_folder: 'www/wordpress'
 
 #
 # WordPress Settings
@@ -25,7 +26,6 @@ rewrite_structure: /archives/%post_id%
 #
 # WordPress Path
 #
-sync_folder: 'www/wordpress'
 document_root: '/var/www/wordpress'
 wp_home: ''     # Path to the WP_HOME like "wp"
 wp_siteurl: ''  # Path to the WP_SITEURL like "wp"
@@ -81,4 +81,3 @@ theme_unit_test_uri: https://wpcom-themes.svn.automattic.com/demo/theme-unit-tes
 # DB will be reset when provision
 #
 reset_db_on_provision: true
-

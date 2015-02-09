@@ -3,6 +3,7 @@
 
 require 'spec_helper'
 require 'yaml'
+require 'shellwords'
 
 describe file('/usr/local/share/wp-i18n/makepot.php') do
   let(:disable_sudo) { true }
