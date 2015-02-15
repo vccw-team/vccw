@@ -14,10 +14,10 @@ Vagrant.configure(2) do |config|
     ).read
   )
 
-  if File.exists?(File.join(File.dirname(__FILE__), 'site.yml'))
+  if File.exists?('site.yml'))
     _site = YAML.load(
       File.open(
-        File.join(File.dirname(__FILE__), 'site.yml'),
+        File.join('site.yml'),
         File::RDONLY
       ).read
     )
