@@ -24,10 +24,10 @@ Vagrant.configure(2) do |config|
     _conf.merge!(_custom) if _custom.is_a?(Hash)
   end
 
-  if File.exists?('site.yml')
+  if File.exists?(File.join(File.dirname(__FILE__), 'site.yml'))
     _site = YAML.load(
       File.open(
-        File.join('site.yml'),
+        File.join(File.dirname(__FILE__), 'site.yml'),
         File::RDONLY
       ).read
     )
