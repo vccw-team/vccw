@@ -12,10 +12,20 @@ _conf = YAML.load(
   ).read
 )
 
+if File.exists?(File.join(ENV["HOME"], '.vccw/config.yml'))
+  _custom = YAML.load(
+    File.open(
+      File.join(ENV["HOME"], '.vccw/config.yml'),
+      File::RDONLY
+    ).read
+  )
+  _conf.merge!(_custom) if _custom.is_a?(Hash)
+end
+
 if File.exists?('site.yml')
   _site = YAML.load(
     File.open(
-      'site.yml',
+      File.join('site.yml'),
       File::RDONLY
     ).read
   )
