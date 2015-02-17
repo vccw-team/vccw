@@ -10,7 +10,7 @@ packages.each do |pkg|
 end
 
 git node[:wpcli][:dir] do
-  repository "git://github.com/wp-cli/builds.git"
+  repository "https://github.com/wp-cli/builds.git"
   action :sync
 end
 
