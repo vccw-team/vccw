@@ -47,7 +47,7 @@ template '/home/vagrant/.wp-cli/config.yml' do
 end
 
 git 'home/vagrant/.wp-cli/commands/dictator' do
-  repository "git://github.com/danielbachhuber/dictator.git"
+  repository "https://github.com/danielbachhuber/dictator.git"
   user node[:wpcli][:user]
   group node[:wpcli][:group]
   action :sync
