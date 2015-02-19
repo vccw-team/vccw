@@ -12,13 +12,14 @@ chef_cookbook_path: ./provision
 #
 hostname: wordpress.local
 ip: 192.168.33.10
+sync_folder: 'www/wordpress'
 
 #
 # WordPress Settings
 #
 version: latest
 lang: en_US
-title: Welcome to the Vagrant
+title: Welcome to the VCCW
 multisite: false
 rewrite_structure: /archives/%post_id%
 
@@ -26,8 +27,8 @@ rewrite_structure: /archives/%post_id%
 # WordPress Path
 #
 document_root: '/var/www/wordpress'
-wp_home: ''
-wp_siteurl: ''
+wp_home: ''     # Path to the WP_HOME like "wp"
+wp_siteurl: ''  # Path to the WP_SITEURL like "wp"
 
 #
 # WordPress User
@@ -43,6 +44,7 @@ db_host: localhost
 
 #
 # WordPress Default Plugins
+# Plugin's slug or url to the plugin's slug.
 #
 plugins:
   - dynamic-hostname
@@ -51,6 +53,7 @@ plugins:
 
 #
 # WordPress Default Theme
+# Theme's slug or url to the theme's .zip.
 #
 theme: ''
 
@@ -78,4 +81,3 @@ theme_unit_test_uri: https://wpcom-themes.svn.automattic.com/demo/theme-unit-tes
 # DB will be reset when provision
 #
 reset_db_on_provision: true
-
