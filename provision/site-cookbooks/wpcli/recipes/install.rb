@@ -64,7 +64,7 @@ WP_CLI_CONFIG_PATH=#{Shellwords.shellescape(node[:wpcli][:config_path])} wp core
 WP_CLI_CONFIG_PATH=#{Shellwords.shellescape(node[:wpcli][:config_path])} wp core download \\
 --path=#{File.join(node[:wpcli][:wp_docroot], node[:wpcli][:wp_siteurl])} \\
 --locale=#{Shellwords.shellescape(node[:wpcli][:locale])} \\
---version=#{Shellwords.shellescape(node[:wpcli][:wp_version])} \\
+--version=#{Shellwords.shellescape(node[:wpcli][:wp_version].to_s)} \\
 --force
       EOH
   end
@@ -96,6 +96,10 @@ define( 'JETPACK_DEV_DEBUG', #{node[:wpcli][:debug_mode]} );
 define( 'WP_DEBUG', #{node[:wpcli][:debug_mode]} );
 define( 'FORCE_SSL_ADMIN', #{node[:wpcli][:force_ssl_admin]} );
 define( 'SAVEQUERIES', #{node[:wpcli][:savequeries]} );
+#{if node[:wpcli][:is_multisite] == true then <<MULTISITE
+define( 'WP_ALLOW_MULTISITE', true );
+MULTISITE
+end}
 PHP
   EOH
 end
@@ -203,7 +207,7 @@ node[:wpcli][:options].each do |key, value|
     user node[:wpcli][:user]
     group node[:wpcli][:group]
     cwd File.join(node[:wpcli][:wp_docroot], node[:wpcli][:wp_siteurl])
-    code "WP_CLI_CONFIG_PATH=#{Shellwords.shellescape(node[:wpcli][:config_path])} wp option update #{Shellwords.shellescape(key)} #{Shellwords.shellescape(value)}"
+    code "WP_CLI_CONFIG_PATH=#{Shellwords.shellescape(node[:wpcli][:config_path])} wp option update #{Shellwords.shellescape(key.to_s)} #{Shellwords.shellescape(value.to_s)}"
   end
 end
 
