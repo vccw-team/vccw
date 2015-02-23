@@ -38,6 +38,12 @@ describe command("wp user get #{Shellwords.shellescape(_conf['admin_user'])} --f
   its(:stdout){ should eq 'administrator' + "\n" }
 end
 
+describe command("wp user get #{Shellwords.shellescape(_conf['admin_user'])} --format=json | jq -r .user_email") do
+  let(:disable_sudo) { true }
+  its(:exit_status) { should eq 0 }
+  its(:stdout){ should eq _conf['admin_email'] + "\n" }
+end
+
 describe command("wp eval 'echo get_locale();'") do
   let(:disable_sudo) { true }
   its(:exit_status) { should eq 0 }
