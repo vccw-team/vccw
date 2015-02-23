@@ -115,6 +115,7 @@ Vagrant.configure(2) do |config|
         :locale            => ENV['wp_lang'] || _conf['lang'],
         :admin_user        => _conf['admin_user'],
         :admin_password    => _conf['admin_pass'],
+        :admin_email       => _conf['admin_email'],
         :default_plugins   => _conf['plugins'],
         :default_theme     => _conf['theme'],
         :title             => _conf['title'],
