@@ -6,7 +6,7 @@
 
   <Directory <%= @params[:docroot] %>>
     Options FollowSymLinks
-    AllowOverride FileInfo Options
+    AllowOverride FileInfo Options Limit
     Order allow,deny
     Allow from all
   </Directory>
@@ -35,7 +35,7 @@
 
   <Directory <%= @params[:docroot] %>>
     Options FollowSymLinks
-    AllowOverride FileInfo Options
+    AllowOverride FileInfo Options Limit
     Order allow,deny
     Allow from all
   </Directory>
