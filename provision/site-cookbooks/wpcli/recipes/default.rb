@@ -1,6 +1,9 @@
 # encoding: utf-8
 # vim: ft=ruby expandtab shiftwidth=2 tabstop=2
 
+include_recipe "yum::remi"
+include_recipe 'php::package'
+
 packages = %w{git subversion zip unzip kernel-devel gcc perl make jq}
 
 packages.each do |pkg|
