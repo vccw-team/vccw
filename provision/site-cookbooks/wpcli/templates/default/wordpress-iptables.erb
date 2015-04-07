@@ -1,3 +1,16 @@
+*filter
+:INPUT DROP
+:FORWARD DROP
+:OUTPUT ACCEPT
+:FWR -
+-A INPUT -j FWR
+-A FWR -i lo -j ACCEPT
+
+# Any established connection is money
+-A FWR -m state --state RELATED,ESTABLISHED -j ACCEPT
+
+# ICMP 
+-A FWR -p icmp -j ACCEPT
 # HTTP
 -A FWR -m tcp -p tcp --dport 80 -j ACCEPT
 -A FWR -m tcp -p tcp --dport 443 -j ACCEPT
@@ -7,3 +20,8 @@
 
 # SSH
 -A FWR -m tcp -p tcp --dport 22 -j ACCEPT
+
+# Rejects all remaining connections with port-unreachable errors.
+-A FWR -p tcp -m tcp --tcp-flags SYN,RST,ACK SYN -j REJECT --reject-with icmp-port-unreachable
+-A FWR -p udp -j REJECT --reject-with icmp-port-unreachable
+COMMIT

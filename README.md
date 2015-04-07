@@ -28,4 +28,15 @@ There is automated tests using [Serverspec](http://serverspec.org/).
 
 The tests files are in the `spec/` directory.
 
-To run the Serverspec tests, just run `rake spec`.
+
+Before running the serverspec tests, you'll need some dependencies.
+
+```
+$ bundle install --path=vendor/bundle
+```
+
+Then to run the tests, just execute following.
+
+```
+$ bundle exec rake spec
+```
