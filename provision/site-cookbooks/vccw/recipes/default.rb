@@ -95,21 +95,16 @@ link node[:vccw][:phpunit][:link] do
 end
 
 execute "wp-test-install" do
-  command <<-EOH
-#{node[:vccw][:phpunit][:wp_test_install]} \
-#{Shellwords.shellescape(node[:vccw][:phpunit][:mysql_name])} \
-root \
-#{Shellwords.shellescape(node[:mysql][:server_root_password])} \
-localhost \
-#{Shellwords.shellescape(node[:vccw][:phpunit][:wp_version])}
-  EOH
+  user  "vagrant"
+  group "vagrant"
+  command node[:vccw][:phpunit][:wp_test_install]
   action :nothing
 end
 
 template node[:vccw][:phpunit][:wp_test_install] do
   source "wp-test-install.sh.erb"
-  owner "root"
-  group "root"
+  owner "vagrant"
+  group "vagrant"
   mode "0755"
   notifies :run, "execute[wp-test-install]", :immediately
 end
