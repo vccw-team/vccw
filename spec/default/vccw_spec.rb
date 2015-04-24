@@ -35,6 +35,24 @@ describe command('/usr/local/bin/phpunit --version') do
   its(:exit_status) { should eq 0 }
 end
 
+describe file('/tmp/wordpress') do
+  it { should be_directory }
+  it { should be_owned_by 'vagrant' }
+  it { should be_writable.by_user('vagrant') }
+end
+
+describe file('/tmp/wordpress-tests-lib') do
+  it { should be_directory }
+  it { should be_owned_by 'vagrant' }
+  it { should be_writable.by_user('vagrant') }
+end
+
+describe file('/tmp/wordpress.tar.gz') do
+  it { should be_file }
+  it { should be_owned_by 'vagrant' }
+  it { should be_writable.by_user('vagrant') }
+end
+
 describe file('/tmp/wordpress/license.txt') do
   let(:disable_sudo) { true }
   it { should be_file }
