@@ -95,6 +95,8 @@ link node[:vccw][:phpunit][:link] do
 end
 
 execute "wp-test-install" do
+  user  "vagrant"
+  group "vagrant"
   command node[:vccw][:phpunit][:wp_test_install]
   action :nothing
 end

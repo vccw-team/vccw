@@ -11,11 +11,15 @@ WP_VERSION='latest'
 echo "DROP DATABASE IF EXISTS $DB_NAME;" | mysql -u root -p$DB_PASS
 
 if [ -e /tmp/wordpress ]; then
-    rm -fr /tmp/wordpress
+    sudo rm -fr /tmp/wordpress
 fi
 
 if [ -e /tmp/wordpress-tests-lib ]; then
-    rm -fr /tmp/wordpress-tests-lib
+    sudo rm -fr /tmp/wordpress-tests-lib
+fi
+
+if [ -e /tmp/wordpress.tar.gz ]; then
+    sudo rm -fr /tmp/wordpress.tar.gz
 fi
 
 WP_TESTS_DIR=${WP_TESTS_DIR-/tmp/wordpress-tests-lib}
