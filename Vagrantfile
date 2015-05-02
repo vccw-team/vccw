@@ -68,6 +68,8 @@ Vagrant.configure(2) do |config|
       '--natdnsproxy1', 'on',
       '--natdnshostresolver1', 'on'
     ]
+    vb.memory = _conf['memory'].to_i
+    vb.cpus = _conf['cpus'].to_i
   end
 
   if 'miya0001/vccw' != config.vm.box && 'provision' != ARGV[0]
