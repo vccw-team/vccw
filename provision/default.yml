@@ -8,6 +8,12 @@ wp_box: miya0001/vccw
 chef_cookbook_path: ./provision
 
 #
+# Virtual Machine Settings
+#
+memory: 512
+cpus: 1
+
+#
 # Network Settings
 #
 hostname: wordpress.local
@@ -82,3 +88,8 @@ theme_unit_test_uri: https://wpcom-themes.svn.automattic.com/demo/theme-unit-tes
 # DB will be reset when provision
 #
 reset_db_on_provision: true
+
+#
+# Are you hurrying a lot?
+#
+disable_vccw_cookbook: false

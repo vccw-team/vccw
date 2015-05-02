@@ -58,12 +58,18 @@ Vagrant.configure(2) do |config|
     config.hostsupdater.remove_on_suspend = true
   end
 
+  if Vagrant.has_plugin?('vagrant-vbguest')
+    config.vbguest.auto_update = false
+  end
+
   config.vm.provider :virtualbox do |vb|
     vb.customize [
       'modifyvm', :id,
       '--natdnsproxy1', 'on',
       '--natdnshostresolver1', 'on'
     ]
+    vb.memory = _conf['memory'].to_i
+    vb.cpus = _conf['cpus'].to_i
   end
 
   if 'miya0001/vccw' != config.vm.box && 'provision' != ARGV[0]
@@ -164,7 +170,9 @@ Vagrant.configure(2) do |config|
 
     chef.add_recipe 'wpcli'
     chef.add_recipe 'wpcli::install'
-    chef.add_recipe 'vccw'
+    if true != _conf['disable_vccw_cookbook']
+      chef.add_recipe 'vccw'
+    end
 
   end
 
