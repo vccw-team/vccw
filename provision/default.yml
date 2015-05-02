@@ -82,3 +82,8 @@ theme_unit_test_uri: https://wpcom-themes.svn.automattic.com/demo/theme-unit-tes
 # DB will be reset when provision
 #
 reset_db_on_provision: true
+
+#
+# Are you hurrying a lot?
+#
+disable_vccw_cookbook: false

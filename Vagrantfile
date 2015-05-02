@@ -164,7 +164,9 @@ Vagrant.configure(2) do |config|
 
     chef.add_recipe 'wpcli'
     chef.add_recipe 'wpcli::install'
-    chef.add_recipe 'vccw'
+    if true != _conf['disable_vccw_cookbook'] then
+      chef.add_recipe 'vccw'
+    end
 
   end
 
