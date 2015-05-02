@@ -58,6 +58,10 @@ Vagrant.configure(2) do |config|
     config.hostsupdater.remove_on_suspend = true
   end
 
+  if Vagrant.has_plugin?('vagrant-vbguest')
+    config.vbguest.auto_update = false
+  end
+
   config.vm.provider :virtualbox do |vb|
     vb.customize [
       'modifyvm', :id,
@@ -164,7 +168,7 @@ Vagrant.configure(2) do |config|
 
     chef.add_recipe 'wpcli'
     chef.add_recipe 'wpcli::install'
-    if true != _conf['disable_vccw_cookbook'] then
+    if true != _conf['disable_vccw_cookbook']
       chef.add_recipe 'vccw'
     end
 
