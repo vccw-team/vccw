@@ -63,13 +63,13 @@ Vagrant.configure(2) do |config|
   end
 
   config.vm.provider :virtualbox do |vb|
-    vb.customize [
-      'modifyvm', :id,
-      '--natdnsproxy1', 'on',
-      '--natdnshostresolver1', 'on'
-    ]
     vb.memory = _conf['memory'].to_i
     vb.cpus = _conf['cpus'].to_i
+    if 1 < _conf['cpus'].to_i
+      vb.customize ['modifyvm', :id, '--ioapic', 'on']
+    end
+    vb.customize ['modifyvm', :id, '--natdnsproxy1', 'on']
+    vb.customize ['modifyvm', :id, '--natdnshostresolver1', 'on']
   end
 
   if 'miya0001/vccw' != config.vm.box && 'provision' != ARGV[0]
