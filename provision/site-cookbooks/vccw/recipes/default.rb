@@ -195,3 +195,15 @@ template node[:vccw][:wordmove][:movefile] do
   )
   action :create_if_missing
 end
+
+# Generate Banner
+template "/etc/motd" do
+  source "motd.erb"
+  owner "root"
+  group "root"
+  mode "0644"
+  variables(
+    :version => node[:vccw][:version]
+  )
+  action :create
+end
