@@ -36,6 +36,9 @@ Vagrant.configure(2) do |config|
     _conf.merge!(_site) if _site.is_a?(Hash)
   end
 
+  _conf['user'] = 'vagrant'
+  _conf['group'] = 'vagrant'
+
   if File.exists?(_conf['chef_cookbook_path'])
     chef_cookbooks_path = _conf['chef_cookbook_path']
   elsif File.exists?(File.join(File.dirname(__FILE__), _conf['chef_cookbook_path']))
@@ -93,8 +96,8 @@ Vagrant.configure(2) do |config|
     chef.json = {
       :apache => {
         :docroot_dir  => _conf['document_root'],
-        :user         => 'vagrant',
-        :group        => 'vagrant',
+        :user         => _conf['user'],
+        :group        => _conf['group'],
         :listen_ports => ['80', '443']
       },
       :php => {
@@ -115,6 +118,8 @@ Vagrant.configure(2) do |config|
         :server_repl_password   => 'wordpress'
       },
       'wpcli' => {
+        :user              => _conf['user'],
+        :group              => _conf['group'],
         :wp_version        => ENV['wp_version'] || _conf['version'],
         :wp_host           => _conf['hostname'],
         :wp_home           => _conf['wp_home'],
