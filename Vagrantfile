@@ -93,8 +93,8 @@ Vagrant.configure(2) do |config|
     chef.json = {
       :apache => {
         :docroot_dir  => _conf['document_root'],
-        :user         => 'vagrant',
-        :group        => 'vagrant',
+        :user         => _conf['user'],
+        :group        => _conf['group'],
         :listen_ports => ['80', '443']
       },
       :php => {
@@ -115,6 +115,8 @@ Vagrant.configure(2) do |config|
         :server_repl_password   => 'wordpress'
       },
       'wpcli' => {
+        :user              => _conf['user'],
+        :group              => _conf['group'],
         :wp_version        => ENV['wp_version'] || _conf['version'],
         :wp_host           => _conf['hostname'],
         :wp_home           => _conf['wp_home'],
@@ -142,6 +144,8 @@ Vagrant.configure(2) do |config|
       },
       :vccw => {
         :version           => vccw_version,
+        :user              => _conf['user'],
+        :group              => _conf['group'],
         :wordmove => {
           :movefile        => File.join('/vagrant', 'Movefile'),
           :url             => 'http://' << File.join(_conf['hostname'], _conf['wp_home']),
