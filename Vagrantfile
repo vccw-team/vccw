@@ -36,9 +36,6 @@ Vagrant.configure(2) do |config|
     _conf.merge!(_site) if _site.is_a?(Hash)
   end
 
-  _conf['user'] = 'vagrant'
-  _conf['group'] = 'vagrant'
-
   if File.exists?(_conf['chef_cookbook_path'])
     chef_cookbooks_path = _conf['chef_cookbook_path']
   elsif File.exists?(File.join(File.dirname(__FILE__), _conf['chef_cookbook_path']))
@@ -147,6 +144,8 @@ Vagrant.configure(2) do |config|
       },
       :vccw => {
         :version           => vccw_version,
+        :user              => _conf['user'],
+        :group              => _conf['group'],
         :wordmove => {
           :movefile        => File.join('/vagrant', 'Movefile'),
           :url             => 'http://' << File.join(_conf['hostname'], _conf['wp_home']),

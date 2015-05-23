@@ -93,3 +93,10 @@ reset_db_on_provision: true
 # Are you hurrying a lot?
 #
 disable_vccw_cookbook: false
+
+
+#
+# User and Group
+#
+user: vagrant
+group: vagrant

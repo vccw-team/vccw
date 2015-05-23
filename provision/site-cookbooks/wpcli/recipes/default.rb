@@ -1,6 +1,8 @@
 # encoding: utf-8
 # vim: ft=ruby expandtab shiftwidth=2 tabstop=2
 
+require 'shellwords'
+
 include_recipe "yum::remi"
 include_recipe 'php::package'
 
@@ -27,19 +29,19 @@ link node[:wpcli][:link] do
   to bin
 end
 
-directory '/home/vagrant/.wp-cli' do
+directory File.join("/home/", Shellwords.shellescape(node[:wpcli][:user]), "/.wp-cli") do
   recursive true
   owner node[:wpcli][:user]
   group node[:wpcli][:group]
 end
 
-directory '/home/vagrant/.wp-cli/commands' do
+directory File.join("/home/", Shellwords.shellescape(node[:wpcli][:user]), "/.wp-cli/commands") do
   recursive true
   owner node[:wpcli][:user]
   group node[:wpcli][:group]
 end
 
-template '/home/vagrant/.wp-cli/config.yml' do
+template File.join("/home/", Shellwords.shellescape(node[:wpcli][:user]), "/.wp-cli/config.yml") do
   source "config.yml.erb"
   owner node[:wpcli][:user]
   group node[:wpcli][:group]
@@ -49,7 +51,7 @@ template '/home/vagrant/.wp-cli/config.yml' do
   )
 end
 
-git 'home/vagrant/.wp-cli/commands/dictator' do
+git File.join("/home/", Shellwords.shellescape(node[:wpcli][:user]), "/.wp-cli/commands/dictator") do
   repository "https://github.com/danielbachhuber/dictator.git"
   user node[:wpcli][:user]
   group node[:wpcli][:group]

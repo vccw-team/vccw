@@ -25,3 +25,6 @@ default[:vccw][:wordmove][:dbhost]     = 'localhost'
 default[:vccw][:wordmove][:dbname]     = 'wordpress'
 default[:vccw][:wordmove][:dbuser]     = 'wordpress'
 default[:vccw][:wordmove][:dbpassword] = 'wordpress'
+
+default[:vccw][:user] = 'vagrant'
+default[:vccw][:group] = 'vagrant'
