@@ -46,32 +46,32 @@ end
 #  group "root"
 #end
 
-directory '/home/vagrant/.grunt-init' do
+directory File.join("/home/", Shellwords.shellescape(node[:vccw][:user]), "/.grunt-init") do
   recursive true
-  user "vagrant"
-  group "vagrant"
+  user node[:vccw][:user]
+  group node[:vccw][:group]
 end
 
-git "/home/vagrant/.grunt-init/hatamoto" do
+git File.join("/home/", Shellwords.shellescape(node[:vccw][:user]), "/.grunt-init/hatamoto") do
   repository node[:vccw][:hatamoto_repository]
   reference  "master"
-  user "vagrant"
-  group "vagrant"
+  user node[:vccw][:user]
+  group node[:vccw][:group]
   action :sync
 end
 
-git "/home/vagrant/.grunt-init/iemoto" do
+git File.join("/home/", Shellwords.shellescape(node[:vccw][:user]), "/.grunt-init/iemoto") do
   repository node[:vccw][:iemoto_repositry]
   reference  "master"
-  user "vagrant"
-  group "vagrant"
+  user node[:vccw][:user]
+  group node[:vccw][:group]
   action :sync
 end
 
-template  "/home/vagrant/.grunt-init/defaults.json" do
+template File.join("/home/", Shellwords.shellescape(node[:vccw][:user]), "/.grunt-init/defaults.json") do
   source  "defaults.json.erb"
-  owner   "vagrant"
-  group   "vagrant"
+  owner node[:vccw][:user]
+  group node[:vccw][:group]
   mode    "0600"
 end
 
@@ -95,16 +95,16 @@ link node[:vccw][:phpunit][:link] do
 end
 
 execute "wp-test-install" do
-  user  "vagrant"
-  group "vagrant"
+  user node[:vccw][:user]
+  group node[:vccw][:group]
   command node[:vccw][:phpunit][:wp_test_install]
   action :nothing
 end
 
 template node[:vccw][:phpunit][:wp_test_install] do
   source "wp-test-install.sh.erb"
-  owner "vagrant"
-  group "vagrant"
+  owner node[:vccw][:user]
+  group node[:vccw][:group]
   mode "0755"
   notifies :run, "execute[wp-test-install]", :immediately
 end
@@ -132,14 +132,14 @@ link node[:vccw][:composer][:link] do
 end
 
 directory node[:vccw][:composer_home] do
-  user  "vagrant"
-  group "vagrant"
+  user node[:vccw][:user]
+  group node[:vccw][:group]
   recursive true
 end
 
 execute "phpcs-install" do
-  user  "vagrant"
-  group "vagrant"
+  user node[:vccw][:user]
+  group node[:vccw][:group]
   environment ({'COMPOSER_HOME' => node[:vccw][:composer_home]})
   command <<-EOH
     #{node[:vccw][:composer][:link]} global require #{Shellwords.shellescape(node[:vccw][:phpcs][:composer])}
@@ -163,16 +163,16 @@ execute "echo 'export PATH=~/.composer/vendor/bin:$PATH' >> #{node[:vccw][:bash_
 end
 
 execute "phpcs-set-config" do
-  user  "vagrant"
-  group "vagrant"
+  user node[:vccw][:user]
+  group node[:vccw][:group]
   command <<-EOH
-    /home/vagrant/.composer/vendor/bin/phpcs --config-set installed_paths #{File.join(node[:vccw][:src_path], node[:vccw][:phpcs][:sniffs])}
+    /home/#{Shellwords.shellescape(node[:vccw][:user])}/.composer/vendor/bin/phpcs --config-set installed_paths #{File.join(node[:vccw][:src_path], node[:vccw][:phpcs][:sniffs])}
   EOH
 end
 
 execute "phpcs-add-alias" do
-  user  "vagrant"
-  group "vagrant"
+  user node[:vccw][:user]
+  group node[:vccw][:group]
   command <<-EOH
     echo 'alias #{node[:vccw][:phpcs][:alias]}="phpcs -p -s -v --standard=WordPress-Core"' >> #{node[:vccw][:bash_profile]}
   EOH
@@ -182,8 +182,8 @@ end
 # Generate Movefile
 template node[:vccw][:wordmove][:movefile] do
   source "Movefile.erb"
-  owner "vagrant"
-  group "vagrant"
+  owner node[:vccw][:user]
+  group node[:vccw][:group]
   mode "0600"
   variables(
     :url        => node[:vccw][:wordmove][:url].sub(/\/$/, ''),

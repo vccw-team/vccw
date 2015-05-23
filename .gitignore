@@ -2,3 +2,5 @@
 .bundle
 .idea/
 .vagrant
+Movefile
+www
