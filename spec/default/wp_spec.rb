@@ -56,12 +56,6 @@ describe command("wp eval \"bloginfo('name');\"") do
   its(:stdout){ should eq _conf['title'] }
 end
 
-describe command("wp option get permalink_structure") do
-  let(:disable_sudo) { true }
-  its(:exit_status) { should eq 0 }
-  its(:stdout){ should eq _conf['rewrite_structure'] + "\n" }
-end
-
 _conf['plugins'].each do |plugin|
   describe command("wp --no-color plugin status " + Shellwords.shellescape(plugin)) do
     let(:disable_sudo) { true }
@@ -81,5 +75,27 @@ _conf['options'].each do |key, value|
     let(:disable_sudo) { true }
     its(:exit_status) { should eq 0 }
     its(:stdout){ should eq value.to_s + "\n" }
+  end
+end
+
+#
+# Multi site
+#
+if true == _conf['multisite']
+  describe command("wp eval 'echo WP_ALLOW_MULTISITE;'") do
+    let(:disable_sudo) { true }
+    its(:exit_status) { should eq 0 }
+    its(:stdout){ should eq '1' }
+  end
+  describe command("wp option get permalink_structure") do
+    let(:disable_sudo) { true }
+    its(:exit_status) { should eq 0 }
+    its(:stdout){ should eq '/blog/%year%/%monthnum%/%day%/%postname%/' + "\n" }
+  end
+else
+  describe command("wp option get permalink_structure") do
+    let(:disable_sudo) { true }
+    its(:exit_status) { should eq 0 }
+    its(:stdout){ should eq _conf['rewrite_structure'] + "\n" }
   end
 end
