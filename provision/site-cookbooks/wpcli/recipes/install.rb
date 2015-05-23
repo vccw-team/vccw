@@ -112,10 +112,6 @@ define( 'JETPACK_DEV_DEBUG', #{node[:wpcli][:debug_mode]} );
 define( 'WP_DEBUG', #{node[:wpcli][:debug_mode]} );
 define( 'FORCE_SSL_ADMIN', #{node[:wpcli][:force_ssl_admin]} );
 define( 'SAVEQUERIES', #{node[:wpcli][:savequeries]} );
-#{if node[:wpcli][:is_multisite] == true then <<MULTISITE
-define( 'WP_ALLOW_MULTISITE', true );
-MULTISITE
-end}
 PHP
   EOH
 end
