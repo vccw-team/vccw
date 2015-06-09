@@ -37,3 +37,6 @@ PLATFORMS
 DEPENDENCIES
   rake
   serverspec
+
+BUNDLED WITH
+   1.10.3
