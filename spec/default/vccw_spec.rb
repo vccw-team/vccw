@@ -2,35 +2,7 @@
 # vim: ft=ruby expandtab shiftwidth=2 tabstop=2
 
 require 'spec_helper'
-require 'yaml'
 require 'shellwords'
-
-_conf = YAML.load(
-  File.open(
-    'provision/default.yml',
-    File::RDONLY
-  ).read
-)
-
-if File.exists?(File.join(ENV["HOME"], '.vccw/config.yml'))
-  _custom = YAML.load(
-    File.open(
-      File.join(ENV["HOME"], '.vccw/config.yml'),
-      File::RDONLY
-    ).read
-  )
-  _conf.merge!(_custom) if _custom.is_a?(Hash)
-end
-
-if File.exists?('site.yml')
-  _site = YAML.load(
-    File.open(
-      'site.yml',
-      File::RDONLY
-    ).read
-  )
-  _conf.merge!(_site) if _site.is_a?(Hash)
-end
 
 describe file('/usr/local/share/wp-i18n/makepot.php') do
   let(:disable_sudo) { true }
@@ -47,12 +19,12 @@ describe command('grunt-init --version') do
   its(:exit_status) { should eq 0 }
  end
 
-describe file("/home/#{Shellwords.shellescape(_conf['user'])}/.grunt-init/hatamoto/README.md") do
+describe file("/home/#{Shellwords.shellescape($conf['user'])}/.grunt-init/hatamoto/README.md") do
   let(:disable_sudo) { true }
   it { should be_file }
 end
 
-describe file("/home/#{Shellwords.shellescape(_conf['user'])}/.grunt-init/iemoto/README.md") do
+describe file("/home/#{Shellwords.shellescape($conf['user'])}/.grunt-init/iemoto/README.md") do
   let(:disable_sudo) { true }
   it { should be_file }
 end

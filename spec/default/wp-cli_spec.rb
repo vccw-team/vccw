@@ -2,42 +2,14 @@
 # vim: ft=ruby expandtab shiftwidth=2 tabstop=2
 
 require 'spec_helper'
-require 'yaml'
 require 'shellwords'
 
-_conf = YAML.load(
-  File.open(
-    'provision/default.yml',
-    File::RDONLY
-  ).read
-)
-
-if File.exists?(File.join(ENV["HOME"], '.vccw/config.yml'))
-  _custom = YAML.load(
-    File.open(
-      File.join(ENV["HOME"], '.vccw/config.yml'),
-      File::RDONLY
-    ).read
-  )
-  _conf.merge!(_custom) if _custom.is_a?(Hash)
-end
-
-if File.exists?('site.yml')
-  _site = YAML.load(
-    File.open(
-      'site.yml',
-      File::RDONLY
-    ).read
-  )
-  _conf.merge!(_site) if _site.is_a?(Hash)
-end
-
-describe host(_conf['hostname']) do
+describe host($conf['hostname']) do
   it { should be_resolvable.by('hosts') }
 end
 
 describe interface('eth1') do
-  it { should have_ipv4_address(_conf['ip']) }
+  it { should have_ipv4_address($conf['ip']) }
 end
 
 describe package('httpd') do
@@ -93,58 +65,58 @@ describe command('wp help dictator') do
   its(:exit_status) { should eq 0 }
 end
 
-describe command("wget -q http://" + File.join(_conf['ip'], _conf['wp_home'], '/') + " -O - | head -100 | grep generator") do
+describe command("wget -q http://" + File.join($conf['ip'], $conf['wp_home'], '/') + " -O - | head -100 | grep generator") do
     its(:stdout) { should match /<meta name="generator" content="WordPress .*"/i }
 end
 
-describe command("wget -q http://" + File.join(_conf['ip'], _conf['wp_siteurl'], '/readme.html')) do
+describe command("wget -q http://" + File.join($conf['ip'], $conf['wp_siteurl'], '/readme.html')) do
     its(:exit_status) { should eq 0 }
 end
 
-describe command("wget --no-check-certificate -q https://" + File.join(_conf['ip'], _conf['wp_home'], '/') + " -O - | head -100 | grep generator") do
+describe command("wget --no-check-certificate -q https://" + File.join($conf['ip'], $conf['wp_home'], '/') + " -O - | head -100 | grep generator") do
     its(:stdout) { should match /<meta name="generator" content="WordPress .*"/i }
 end
 
-_conf['plugins'].each do |plugin|
-  describe file(File.join(_conf['document_root'], _conf['wp_siteurl'], 'wp-content/plugins', plugin, 'readme.txt')) do
+$conf['plugins'].each do |plugin|
+  describe file(File.join($conf['document_root'], $conf['wp_siteurl'], 'wp-content/plugins', plugin, 'readme.txt')) do
     let(:disable_sudo) { true }
     it { should be_file }
-    it { should be_owned_by _conf['user'] }
+    it { should be_owned_by $conf['user'] }
   end
 end
 
-describe file(File.join(_conf['document_root'], _conf['wp_home'])) do
+describe file(File.join($conf['document_root'], $conf['wp_home'])) do
     let(:disable_sudo) { true }
     it { should be_directory }
-    it { should be_owned_by _conf['user'] }
+    it { should be_owned_by $conf['user'] }
 end
 
-describe file(File.join(_conf['document_root'], _conf['wp_siteurl'])) do
+describe file(File.join($conf['document_root'], $conf['wp_siteurl'])) do
     let(:disable_sudo) { true }
     it { should be_directory }
-    it { should be_owned_by _conf['user'] }
+    it { should be_owned_by $conf['user'] }
 end
 
-describe file(File.join(_conf['document_root'], _conf['wp_home'], '.htaccess')) do
+describe file(File.join($conf['document_root'], $conf['wp_home'], '.htaccess')) do
   let(:disable_sudo) { true }
   it { should be_file }
-  it { should be_owned_by _conf['user'] }
+  it { should be_owned_by $conf['user'] }
 end
 
-describe file(File.join(_conf['document_root'], _conf['wp_home'], '.gitignore')) do
+describe file(File.join($conf['document_root'], $conf['wp_home'], '.gitignore')) do
     let(:disable_sudo) { true }
     it { should be_file }
-    it { should be_owned_by _conf['user'] }
+    it { should be_owned_by $conf['user'] }
 end
 
-describe file(File.join(_conf['document_root'], _conf['wp_home'], 'index.php')) do
+describe file(File.join($conf['document_root'], $conf['wp_home'], 'index.php')) do
   let(:disable_sudo) { true }
   it { should be_file }
-  it { should be_owned_by _conf['user'] }
+  it { should be_owned_by $conf['user'] }
 end
 
-describe file(File.join(_conf['document_root'], _conf['wp_siteurl'], 'wp-load.php')) do
+describe file(File.join($conf['document_root'], $conf['wp_siteurl'], 'wp-load.php')) do
   let(:disable_sudo) { true }
   it { should be_file }
-  it { should be_owned_by _conf['user'] }
+  it { should be_owned_by $conf['user'] }
 end

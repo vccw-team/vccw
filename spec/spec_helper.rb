@@ -1,40 +1,43 @@
 require 'serverspec'
 require 'net/ssh'
 require 'tempfile'
+require 'yaml'
+
+$conf = YAML.load(
+  File.open(
+    'provision/default.yml',
+    File::RDONLY
+  ).read
+)
+
+if File.exists?(File.join(ENV["HOME"], '.vccw/config.yml'))
+  _custom = YAML.load(
+    File.open(
+      File.join(ENV["HOME"], '.vccw/config.yml'),
+      File::RDONLY
+    ).read
+  )
+  $conf.merge!(_custom) if _custom.is_a?(Hash)
+end
+
+if File.exists?('site.yml')
+  _site = YAML.load(
+    File.open(
+      'site.yml',
+      File::RDONLY
+    ).read
+  )
+  $conf.merge!(_site) if _site.is_a?(Hash)
+end
 
 set :backend, :ssh
 
-if ENV['ASK_SUDO_PASSWORD']
-  begin
-    require 'highline/import'
-  rescue LoadError
-    fail "highline is not available. Try installing it."
-  end
-  set :sudo_password, ask("Enter sudo password: ") { |q| q.echo = false }
-else
-  set :sudo_password, ENV['SUDO_PASSWORD']
-end
-
-host = ENV['TARGET_HOST']
-
-`vagrant up #{host}`
+host = $conf['hostname']
 
 config = Tempfile.new('', Dir.tmpdir)
 `vagrant ssh-config #{host} > #{config.path}`
 
 options = Net::SSH::Config.for(host, [config.path])
 
-options[:user] ||= Etc.getlogin
-
-set :host,        options[:host_name] || host
+set :host,        host
 set :ssh_options, options
-
-# Disable sudo
-# set :disable_sudo, true
-
-
-# Set environment variables
-# set :env, :LANG => 'C', :LC_MESSAGES => 'C' 
-
-# Set PATH
-# set :path, '/sbin:/usr/local/sbin:$PATH'
