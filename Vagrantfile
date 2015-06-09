@@ -45,6 +45,9 @@ Vagrant.configure(2) do |config|
     exit 1
   end
 
+  config.vm.define _conf['hostname'] do |v|
+  end
+
   config.vm.box = ENV['wp_box'] || _conf['wp_box']
   config.ssh.forward_agent = true
 
@@ -65,6 +68,7 @@ Vagrant.configure(2) do |config|
   end
 
   config.vm.provider :virtualbox do |vb|
+    vb.name = _conf['hostname']
     vb.memory = _conf['memory'].to_i
     vb.cpus = _conf['cpus'].to_i
     if 1 < _conf['cpus'].to_i
