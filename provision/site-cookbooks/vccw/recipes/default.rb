@@ -5,6 +5,7 @@ require 'shellwords'
 
 include_recipe 'ruby_build'
 include_recipe 'rbenv::system'
+include_recipe 'vccw::phpenv'
 
 packages = %w{gettext subversion npm lftp sshpass}
 
