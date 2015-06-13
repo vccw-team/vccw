@@ -31,3 +31,4 @@ default[:vccw][:group] = 'vagrant'
 
 default[:vccw][:phpenv][:phpenv_root]  = '/usr/local/phpenv'
 default[:vccw][:phpenv][:install]      = 'curl -L https://raw.github.com/CHH/phpenv/master/bin/phpenv-install.sh | sh'
+default[:vccw][:phpenv][:php_version]  = 'default'
