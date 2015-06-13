@@ -155,6 +155,9 @@ Vagrant.configure(2) do |config|
           :url             => 'http://' << File.join(_conf['hostname'], _conf['wp_home']),
           :wpdir           => File.join(_conf['document_root'], _conf['wp_siteurl']),
           :dbhost          => _conf['db_host']
+        },
+        :phpenv => {
+          :php_version     => _conf['php_version']
         }
       },
       :rbenv => {

@@ -100,3 +100,9 @@ disable_vccw_cookbook: false
 #
 user: vagrant
 group: vagrant
+
+
+#
+# phpenv
+#
+php_version: default
