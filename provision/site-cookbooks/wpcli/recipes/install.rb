@@ -180,13 +180,7 @@ if node[:wpcli][:default_theme] != '' then
       user node[:wpcli][:user]
       group node[:wpcli][:group]
       cwd File.join(node[:wpcli][:wp_docroot], node[:wpcli][:wp_siteurl])
-      code "WP_CLI_CONFIG_PATH=#{Shellwords.shellescape(node[:wpcli][:config_path])} wp theme install #{Shellwords.shellescape(node[:wpcli][:default_theme])}"
-    end
-    bash "WordPress #{node[:wpcli][:default_theme]} activate" do
-      user node[:wpcli][:user]
-      group node[:wpcli][:group]
-      cwd File.join(node[:wpcli][:wp_docroot], node[:wpcli][:wp_siteurl])
-      code "WP_CLI_CONFIG_PATH=#{Shellwords.shellescape(node[:wpcli][:config_path])} wp theme activate #{File.basename(Shellwords.shellescape(node[:wpcli][:default_theme])).sub(/\..*$/, '')}"
+      code "WP_CLI_CONFIG_PATH=#{Shellwords.shellescape(node[:wpcli][:config_path])} wp theme install #{Shellwords.shellescape(node[:wpcli][:default_theme])} --activate"
     end
 end
 
