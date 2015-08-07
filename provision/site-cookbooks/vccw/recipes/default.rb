@@ -3,17 +3,17 @@
 
 require 'shellwords'
 
-include_recipe 'ruby_build'
-include_recipe 'rbenv::system'
-include_recipe 'vccw::phpenv'
-
-packages = %w{gettext subversion npm lftp sshpass}
+packages = %w{gettext subversion npm lftp sshpass sqlite-devel}
 
 packages.each do |pkg|
   package pkg do
     action [:install, :upgrade]
   end
 end
+
+include_recipe 'ruby_build'
+include_recipe 'rbenv::system'
+include_recipe 'vccw::phpenv'
 
 #
 # Setup WordPress i18n Tools
