@@ -11,14 +11,7 @@ include_recipe 'mysql::ruby'
 
 service "iptables" do
   supports :status => true, :restart => true
-  action [:enable, :start]
-end
-
-template "/etc/sysconfig/iptables" do
-  source "wordpress-iptables.erb"
-  owner "root"
-  group "root"
-  mode "0600"
+  action [:disable, :stop]
 end
 
 execute "mysql-install-wp-privileges" do

@@ -176,6 +176,10 @@ Vagrant.configure(2) do |config|
             {
               name: 'wordmove',
               options: '--no-ri --no-rdoc'
+            },
+            {
+              name: 'mailcatcher',
+              options: '--no-ri --no-rdoc'
             }
           ]
         }
