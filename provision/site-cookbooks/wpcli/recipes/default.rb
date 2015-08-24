@@ -6,7 +6,7 @@ require 'shellwords'
 include_recipe "yum::remi"
 include_recipe 'php::package'
 
-packages = %w{git subversion zip unzip kernel-devel gcc perl make jq}
+packages = %w{git subversion zip unzip kernel-devel gcc perl make jq httpd-devel libxml2-devel libcurl-devel libjpeg-turbo-devel libpng-devel giflib-devel gd-devel libmcrypt-devel sqlite-devel libtidy-devel libxslt-devel}
 
 packages.each do |pkg|
   package pkg do

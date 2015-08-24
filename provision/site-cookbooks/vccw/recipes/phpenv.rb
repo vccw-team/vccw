@@ -5,14 +5,6 @@ require 'shellwords'
 
 if /^[0-9]/ =~ node[:vccw][:phpenv][:php_version].to_s
 
-  packages = %w{httpd-devel libxml2-devel libcurl-devel libjpeg-turbo-devel libpng-devel giflib-devel gd-devel libmcrypt-devel sqlite-devel libtidy-devel libxslt-devel}
-
-  packages.each do |pkg|
-    package pkg do
-      action [:install, :upgrade]
-    end
-  end
-
   execute node[:vccw][:phpenv][:install] do
     user "root"
     group "root"
