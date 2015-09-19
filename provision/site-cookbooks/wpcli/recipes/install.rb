@@ -271,7 +271,7 @@ bash "create-ssl-keys" do
   cwd File.join(node[:apache][:dir], 'ssl')
   code <<-EOH
     openssl genrsa -out server.key 2048
-    openssl req -new -key server.key -subj '/C=JP/ST=Wakayama/L=Kushimoto/O=My Corporate/CN=#{node[:fqdn]}' -out server.csr
+    openssl req -new -key server.key -sha256 -subj '/C=JP/ST=Wakayama/L=Kushimoto/O=My Corporate/CN=#{node[:fqdn]}' -out server.csr
     openssl x509 -in server.csr -days 365 -req -signkey server.key > server.crt
   EOH
   notifies :restart, "service[apache2]"
