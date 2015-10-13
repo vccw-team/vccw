@@ -276,3 +276,11 @@ bash "create-ssl-keys" do
   EOH
   notifies :restart, "service[apache2]"
 end
+
+template File.join( node[:wpcli][:wp_docroot], ".editorconfig" ) do
+  source "editorconfig.erb"
+  owner node[:wpcli][:user]
+  group node[:wpcli][:group]
+  mode "0644"
+  action :create_if_missing
+end
