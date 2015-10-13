@@ -33,8 +33,8 @@ rewrite_structure: /archives/%post_id%
 # WordPress Path
 #
 document_root: '/var/www/wordpress'
-wp_home: ''     # Path to the WP_HOME like "wp"
 wp_siteurl: ''  # Path to the WP_SITEURL like "wp"
+wp_home: ''     # Path to the WP_HOME like "wp"
 
 #
 # WordPress User
