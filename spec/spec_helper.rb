@@ -35,9 +35,9 @@ set :backend, :ssh
 host = $conf['hostname']
 
 config = Tempfile.new('', Dir.tmpdir)
-`vagrant ssh-config #{host} > #{config.path}`
+`unset RUBYLIB; vagrant ssh-config #{host} > #{config.path}`
 
 options = Net::SSH::Config.for(host, [config.path])
-
+puts options.to_s
 set :host,        host
 set :ssh_options, options
