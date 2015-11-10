@@ -57,6 +57,7 @@ plugins:
   - dynamic-hostname
   - wp-total-hacks
   - tinymce-templates
+  - hello-kushimoto
 
 #
 # WordPress Default Theme
