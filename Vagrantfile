@@ -7,7 +7,7 @@ Vagrant.require_version '>= 1.5'
 
 Vagrant.configure(2) do |config|
 
-  vccw_version = '2.8.2';
+  vccw_version = '2.18.0';
 
   _conf = YAML.load(
     File.open(
@@ -140,7 +140,7 @@ Vagrant.configure(2) do |config|
         :theme_unit_test   => _conf['theme_unit_test'],
         :theme_unit_test_data_url => _conf['theme_unit_test_uri'],
         :gitignore         => File.join(_conf['document_root'], ".gitignore"),
-        :always_reset      => _conf['reset_db'],
+        :always_reset      => _conf['reset_db_on_provision'],
         :dbhost            => _conf['db_host'],
         :dbprefix          => _conf['db_prefix'],
         :options           => _conf['options'],
