@@ -109,7 +109,8 @@ Vagrant.configure(2) do |config|
             'mbstring.internal_encoding' => 'UTF-8',
             'date.timezone'              => 'UTC',
             'short_open_tag'             => 'Off',
-            'session.save_path'          => '/tmp'
+            'session.save_path'          => '/tmp',
+            'upload_max_filesize'        => '32M'
         }
       },
       :mysql => {
