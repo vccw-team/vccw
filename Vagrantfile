@@ -3,7 +3,7 @@
 
 require 'yaml'
 
-Vagrant.require_version '>= 1.5'
+Vagrant.require_version '>= 1.8'
 
 Vagrant.configure(2) do |config|
 
@@ -68,6 +68,7 @@ Vagrant.configure(2) do |config|
   end
 
   config.vm.provider :virtualbox do |vb|
+    vb.linked_clone = _conf['linked_clone']
     vb.name = _conf['hostname']
     vb.memory = _conf['memory'].to_i
     vb.cpus = _conf['cpus'].to_i
