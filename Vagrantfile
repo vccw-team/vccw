@@ -3,7 +3,7 @@
 
 require 'yaml'
 
-Vagrant.require_version '>= 1.5'
+Vagrant.require_version '>= 1.8'
 
 Vagrant.configure(2) do |config|
 
@@ -64,10 +64,11 @@ Vagrant.configure(2) do |config|
   end
 
   if Vagrant.has_plugin?('vagrant-vbguest')
-    config.vbguest.auto_update = false
+    config.vbguest.auto_update = true
   end
 
   config.vm.provider :virtualbox do |vb|
+    vb.linked_clone = _conf['linked_clone']
     vb.name = _conf['hostname']
     vb.memory = _conf['memory'].to_i
     vb.cpus = _conf['cpus'].to_i
@@ -109,7 +110,8 @@ Vagrant.configure(2) do |config|
             'mbstring.internal_encoding' => 'UTF-8',
             'date.timezone'              => 'UTC',
             'short_open_tag'             => 'Off',
-            'session.save_path'          => '/tmp'
+            'session.save_path'          => '/tmp',
+            'upload_max_filesize'        => '32M'
         }
       },
       :mysql => {
