@@ -27,6 +27,7 @@ version: latest
 lang: en_US
 title: Welcome to the VCCW
 multisite: false
+subdomain: false
 rewrite_structure: /archives/%post_id%
 
 #
