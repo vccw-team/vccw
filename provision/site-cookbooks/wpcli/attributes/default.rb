@@ -40,6 +40,7 @@ default[:wpcli][:default_plugins] = []
 default[:wpcli][:default_theme] = ''
 
 default[:wpcli][:is_multisite] = false
+default[:wpcli][:is_subdomain] = false
 default[:wpcli][:debug_mode] = false
 default[:wpcli][:savequeries] = false
 
