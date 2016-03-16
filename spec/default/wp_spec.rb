@@ -64,6 +64,13 @@ if true == $conf['multisite']
     its(:exit_status) { should eq 0 }
     its(:stdout){ should eq '/blog/%year%/%monthnum%/%day%/%postname%/' + "\n" }
   end
+  $conf['multisite_options'].each do |key, value|
+    describe command("wp meta get 1 " + Shellwords.shellescape(key.to_s)) do
+      let(:disable_sudo) { true }
+      its(:exit_status) { should eq 0 }
+      its(:stdout){ should eq value.to_s + "\n" }
+    end
+  end
 else
   describe command("wp option get permalink_structure") do
     let(:disable_sudo) { true }
