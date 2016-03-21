@@ -146,6 +146,7 @@ Vagrant.configure(2) do |config|
         :dbhost            => _conf['db_host'],
         :dbprefix          => _conf['db_prefix'],
         :options           => _conf['options'],
+        :multisite_options => _conf['multisite_options'],
         :rewrite_structure => _conf['rewrite_structure']
       },
       :vccw => {
