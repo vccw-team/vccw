@@ -170,19 +170,19 @@ Vagrant.configure(2) do |config|
           '2.1.2' => [
             {
               name: 'bundler',
-              options: '--no-ri --no-rdoc'
+              options: '--no-document'
             },
             {
               name: 'sass',
-              options: '--no-ri --no-rdoc'
+              options: '--no-document'
             },
             {
               name: 'wordmove',
-              options: '--no-ri --no-rdoc'
+              options: '--no-document'
             },
             {
               name: 'mailcatcher',
-              options: '--no-ri --no-rdoc'
+              options: '--no-document'
             }
           ]
         }

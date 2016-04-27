@@ -6,7 +6,7 @@ export def="$(basename $ruby_root)"
 load _verify_tests
 
 @test "Ruby $def can use openssl from stdlib" {
-  run gem install jruby-openssl --no-ri --no-rdoc
+  run gem install jruby-openssl --no-document
   [ $status -eq 0 ]
   run_openssl_test
 }
