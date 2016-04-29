@@ -19,7 +19,7 @@ setup() {
   requires="require 'nokogiri';"
   script="$requires puts Nokogiri::HTML(open('$https_url')).css('input')"
 
-  run gem install nokogiri -v 1.5.11 --no-ri --no-rdoc
+  run gem install nokogiri -v 1.5.11 --no-document
   [ $status -eq 0 ]
 
   run ruby -rrubygems -ropen-uri -e "$script"
