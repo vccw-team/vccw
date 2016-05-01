@@ -31,7 +31,7 @@ setup() {
 
 @test "global Ruby can install nokogiri gem" {
   export RBENV_VERSION=$global_ruby
-  run gem install nokogiri --no-ri --no-rdoc
+  run gem install nokogiri --no-document
   [ $status -eq 0 ]
 }
 

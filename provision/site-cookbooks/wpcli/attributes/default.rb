@@ -55,4 +55,5 @@ default[:wpcli][:force_ssl_admin] = false
 default[:wpcli][:always_reset] = true
 
 default[:wpcli][:options] = {}
+default[:wpcli][:multisite_options] = {}
 default[:wpcli][:rewrite_structure] = '/archives/%post_id%'

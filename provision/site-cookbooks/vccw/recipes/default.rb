@@ -180,6 +180,15 @@ execute "phpcs-add-alias" do
   not_if "grep 'alias #{node[:vccw][:phpcs][:alias]}=' #{node[:vccw][:bash_profile]}"
 end
 
+execute "phpdoc-install" do
+  user node[:vccw][:user]
+  group node[:vccw][:group]
+  environment ({'COMPOSER_HOME' => node[:vccw][:composer_home]})
+  command <<-EOH
+    #{node[:vccw][:composer][:link]} global require #{Shellwords.shellescape(node[:vccw][:phpdoc][:composer])}
+  EOH
+end
+
 # Generate Movefile
 template node[:vccw][:wordmove][:movefile] do
   source "Movefile.erb"

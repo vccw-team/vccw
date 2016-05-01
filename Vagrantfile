@@ -146,6 +146,7 @@ Vagrant.configure(2) do |config|
         :dbhost            => _conf['db_host'],
         :dbprefix          => _conf['db_prefix'],
         :options           => _conf['options'],
+        :multisite_options => _conf['multisite_options'],
         :rewrite_structure => _conf['rewrite_structure']
       },
       :vccw => {
@@ -169,19 +170,19 @@ Vagrant.configure(2) do |config|
           '2.1.2' => [
             {
               name: 'bundler',
-              options: '--no-ri --no-rdoc'
+              options: '--no-document'
             },
             {
               name: 'sass',
-              options: '--no-ri --no-rdoc'
+              options: '--no-document'
             },
             {
               name: 'wordmove',
-              options: '--no-ri --no-rdoc'
+              options: '--no-document'
             },
             {
               name: 'mailcatcher',
-              options: '--no-ri --no-rdoc'
+              options: '--no-document'
             }
           ]
         }

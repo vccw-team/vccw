@@ -20,7 +20,7 @@ run_openssl_test() {
 }
 
 run_nokogiri_install_test() {
-  run gem install nokogiri --no-ri --no-rdoc
+  run gem install nokogiri --no-document
   [ $status -eq 0 ]
 }
 

@@ -53,8 +53,8 @@ describe Chef::Resource::RbenvGem do
   end
 
   it "attribute options takes a String value" do
-    resource.options("--no-rdoc")
-    expect(resource.options).to eq("--no-rdoc")
+    resource.options("--no-document")
+    expect(resource.options).to eq("--no-document")
   end
 
   it "attribute options takes a Hash value" do
