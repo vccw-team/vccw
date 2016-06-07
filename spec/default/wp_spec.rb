@@ -78,3 +78,10 @@ else
     its(:stdout){ should eq $conf['rewrite_structure'] + "\n" }
   end
 end
+if true == $conf['subdomain']
+  describe command("wp eval 'echo SUBDOMAIN_INSTALL;'") do
+    let(:disable_sudo) { true }
+    its(:exit_status) { should eq 0 }
+    its(:stdout){ should eq '1' }
+  end
+end

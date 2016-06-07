@@ -136,6 +136,7 @@ Vagrant.configure(2) do |config|
         :default_theme     => _conf['theme'],
         :title             => _conf['title'],
         :is_multisite      => _conf['multisite'],
+        :is_subdomain      => _conf['subdomain'],
         :force_ssl_admin   => _conf['force_ssl_admin'],
         :debug_mode        => _conf['wp_debug'],
         :savequeries       => _conf['savequeries'],

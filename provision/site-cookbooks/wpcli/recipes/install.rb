@@ -233,7 +233,8 @@ if node[:wpcli][:is_multisite] == true then
     user node[:wpcli][:user]
     group node[:wpcli][:group]
     cwd File.join(node[:wpcli][:wp_docroot], node[:wpcli][:wp_siteurl])
-    code "WP_CLI_CONFIG_PATH=#{Shellwords.shellescape(node[:wpcli][:config_path])} wp core multisite-convert"
+    options = node[:wpcli][:is_subdomain] ? "--subdomains" : ""
+    code "WP_CLI_CONFIG_PATH=#{Shellwords.shellescape(node[:wpcli][:config_path])} wp core multisite-convert #{options}"
   end
 
   template File.join(node[:wpcli][:wp_docroot], node[:wpcli][:wp_home], '.htaccess') do
