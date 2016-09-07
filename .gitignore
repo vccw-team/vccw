@@ -5,6 +5,7 @@
 Movefile
 _site
 package.box
+playbook.retry
 provision-post.sh
 provision-pre.sh
 site.yml
