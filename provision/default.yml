@@ -4,8 +4,7 @@
 #
 # General Settings
 #
-wp_box: miya0001/vccw
-chef_cookbook_path: ./provision
+wp_box: vccw/xenial64
 
 #
 # Virtual Machine Settings

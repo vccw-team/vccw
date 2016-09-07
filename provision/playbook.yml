@@ -1,0 +1,40 @@
+- hosts: all
+  vars:
+    wp_cli_bin_url: https://raw.githubusercontent.com/wp-cli/builds/gh-pages/phar/wp-cli.phar
+    rubygems:
+      - bundler
+      - wordmove
+      - mailcatcher
+    npms:
+      - grunt
+      - grunt-init
+      - grunt-cli
+      - gulp
+
+  tasks:
+
+    # Setup bash
+    - name: Place ~/.bash_profile
+      template: 
+        src: templates/.bash_profile
+        dest: "{{ ansible_env.HOME }}/.bash_profile"
+
+    # Install WP-CLI
+    - name: Install WP-CLI
+      become: yes
+      get_url: 
+        url: "{{ wp_cli_bin_url }}"
+        dest: /usr/local/bin/wp
+        mode: 0755
+
+    # Install Ruby gems
+    - name: Install Ruby gems
+      become: yes
+      shell: gem install {{ item }}
+      with_items: "{{ rubygems }}"
+
+    # Install npm packages
+    - name: Install npm packages
+      become: yes
+      shell: npm install -g {{ item }}
+      with_items: "{{ npms }}"
