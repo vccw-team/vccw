@@ -15,14 +15,14 @@
 
     # Setup bash
     - name: Place ~/.bash_profile
-      template: 
+      template:
         src: templates/.bash_profile
         dest: "{{ ansible_env.HOME }}/.bash_profile"
 
     # Install WP-CLI
     - name: Install WP-CLI
       become: yes
-      get_url: 
+      get_url:
         url: "{{ wp_cli_bin_url }}"
         dest: /usr/local/bin/wp
         mode: 0755
@@ -30,7 +30,11 @@
     # Install Ruby gems
     - name: Install Ruby gems
       become: yes
-      shell: gem install {{ item }}
+      gem:
+        name: "{{ item }}"
+        state: latest
+        user_install: no
+        executable: /usr/bin/gem
       with_items: "{{ rubygems }}"
 
     # Install npm packages
