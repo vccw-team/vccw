@@ -10,6 +10,10 @@
       - grunt-init
       - grunt-cli
       - gulp
+    composers:
+      - phpmd/phpmd:*
+      - phpunit/phpunit:*
+      - squizlabs/php_codesniffer:*
 
   tasks:
 
@@ -43,5 +47,11 @@
       shell: npm install -g {{ item }}
       with_items: "{{ npms }}"
 
+    # Install PHP composer libraries
+    - name: Install PHP composer libraries
+      shell: /bin/bash -lc "composer global require '{{ item }}'"
+      with_items: "{{ composers }}"
+
+    # Just example
     - name: "hello {{ vccw.wp_box }}"
-      shell: echo "{{ vccw.wp_box }}" > hello.txt
+      shell: echo "{{ vccw.wp_box }}"
