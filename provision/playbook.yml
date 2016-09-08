@@ -11,6 +11,7 @@
       - grunt-cli
       - gulp
     composers:
+      - hirak/prestissimo:*
       - phpmd/phpmd:*
       - phpunit/phpunit:*
       - squizlabs/php_codesniffer:*
