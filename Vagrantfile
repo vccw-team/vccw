@@ -63,7 +63,9 @@ Vagrant.configure(2) do |config|
   end
 
   config.vm.provision "ansible_local" do |ansible|
-    extra_vars = _conf
+    ansible.extra_vars = {
+      vccw: _conf
+    }
     ansible.playbook = "provision/playbook.yml"
   end
 

@@ -42,3 +42,6 @@
       become: yes
       shell: npm install -g {{ item }}
       with_items: "{{ npms }}"
+
+    - name: "hello {{ vccw.wp_box }}"
+      shell: echo "{{ vccw.wp_box }}" > hello.txt
