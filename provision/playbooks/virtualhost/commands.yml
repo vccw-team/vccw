@@ -2,10 +2,10 @@
   tasks:
 
     # Setup Document Root
-    - name: Place /etc/apache2/sites-available/wordpress.conf
+    - name: Place /etc/apache2/sites-available/site.conf
       become: yes
       template:
-        src: templates/wordpress.conf
+        src: templates/site.conf
         dest: "/etc/apache2/sites-available/{{ vccw.hostname }}.conf"
       notify:
         - restart apache2
