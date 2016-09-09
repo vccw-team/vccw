@@ -1,0 +1,3 @@
+# for centos
+apache: httpd
+default_conf: default
