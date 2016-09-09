@@ -8,7 +8,7 @@ describe host($conf['hostname']) do
   it { should be_resolvable.by('hosts') }
 end
 
-describe interface('eth1') do
+describe interface('enp0s8') do
   it { should have_ipv4_address($conf['ip']) }
 end
 
