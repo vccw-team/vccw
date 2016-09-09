@@ -15,21 +15,28 @@
       become: yes
       template:
         src: templates/site.conf
-        dest: "/etc/{{ apache }}/sites-available/{{ vccw.hostname }}.conf"
+        dest: /etc/{{ apache }}/sites-available/{{ vccw.hostname }}.conf
       notify:
         - restart apache
 
     # enable wordpress.conf
     - name: enable wordpress.conf
       become: yes
-      command: a2ensite {{ vccw.hostname }}
+      #command: a2ensite {{ vccw.hostname }}
+      file:
+        src: /etc/{{ apache }}/sites-available/{{ vccw.hostname }}.conf
+        dest: /etc/{{ apache }}/sites-enabled/{{ vccw.hostname }}.conf
+        state: link
       notify:
         - restart apache
 
     # disable default
     - name: disable 000-default.conf
       become: yes
-      command: a2dissite 000-default
+      #command: a2dissite 000-default
+      file:
+        path: /etc/{{ apache }}/sites-enabled/{{ default_conf }}
+        state: absent
       notify:
         - restart apache
 

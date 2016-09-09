@@ -1,1 +1,3 @@
+# for ubuntu
 apache: apache2
+default_conf: 000-default.conf
