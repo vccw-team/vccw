@@ -15,6 +15,7 @@
       - phpmd/phpmd:*
       - phpunit/phpunit:*
       - squizlabs/php_codesniffer:*
+      - wp-coding-standards/wpcs
 
   tasks:
 
@@ -52,6 +53,10 @@
     - name: Install PHP composer libraries
       shell: /bin/bash -lc "composer global require '{{ item }}'"
       with_items: "{{ composers }}"
+
+    # Setup WordPress coding standard
+    - name: Setup WordPress coding standard
+      shell: /bin/bash -lc "phpcs --config-set installed_paths {{ ansible_env.HOME }}/.composer/vendor/wp-coding-standards/wpcs"
 
     # Just example
     - name: "hello {{ vccw.wp_box }}"
