@@ -1,2 +1,2 @@
 - include: playbooks/commands.yml
-- include: playbooks/virtualhost/commands.yml
+- include: playbooks/virtualhost/playbook.yml

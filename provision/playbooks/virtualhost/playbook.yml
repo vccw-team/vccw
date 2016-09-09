@@ -31,7 +31,7 @@
         - restart apache
 
     # disable default
-    - name: disable 000-default.conf
+    - name: disable default site
       become: yes
       #command: a2dissite 000-default
       file:
