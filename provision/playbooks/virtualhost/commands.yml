@@ -1,5 +1,12 @@
 - hosts: all
   tasks:
+    # Create SSL Keys
+    - name: create ssl Keys
+      become: yes
+      command: openssl req -batch -new -x509 -newkey rsa:2048 -nodes -sha256 \
+        -subj /CN=*.{{ vccw.hostname }}/O=oreore -days 3650 \
+        -keyout /etc/apache2/ssl/{{ vccw.hostname }}.key \
+        -out /etc/apache2/ssl/{{ vccw.hostname }}.crt
 
     # Setup Document Root
     - name: Place /etc/apache2/sites-available/site.conf
