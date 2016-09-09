@@ -1,0 +1,30 @@
+- hosts: all
+  tasks:
+
+    # Setup Document Root
+    - name: Place /etc/apache2/sites-available/wordpress.conf
+      become: yes
+      template:
+        src: templates/wordpress.conf
+        dest: "/etc/apache2/sites-available/{{ vccw.hostname }}.conf"
+      notify:
+        - restart apache2
+
+    # enable wordpress.conf
+    - name: enable wordpress.conf
+      become: yes
+      command: a2ensite {{ vccw.hostname }}
+      notify:
+        - restart apache2
+
+    # disable default
+    - name: disable 000-default.conf
+      become: yes
+      command: a2dissite 000-default
+      notify:
+        - restart apache2
+
+  handlers:
+    - name: restart apache2
+      become: yes
+      service: name=apache2 state=restarted
