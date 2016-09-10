@@ -6,10 +6,9 @@
       - wordmove
       - mailcatcher
     npms:
-      - grunt
       - grunt-init
       - grunt-cli
-      - gulp
+      - gulp-cli
     composers:
       - hirak/prestissimo:*
       - phpmd/phpmd:*
@@ -49,7 +48,9 @@
     # Install npm packages
     - name: Install npm packages
       become: yes
-      shell: npm install -g {{ item }}
+      npm:
+        name: "{{ item }}"
+        global: yes
       with_items: "{{ npms }}"
 
     # Install PHP composer libraries
