@@ -1,6 +1,0 @@
-- include: playbooks/commands.yml
-<<<<<<< HEAD
-- include: playbooks/wordpress/playbook.yml
-=======
-- include: playbooks/virtualhost/playbook.yml
->>>>>>> 50d977675d97987c79158adfdfce0f2c3737700f
