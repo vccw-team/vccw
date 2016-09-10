@@ -1,0 +1,18 @@
+- name: create wp dir
+  file:
+    path: "{{ vccw.document_root }}/{{ vccw.wp_siteurl }}"
+    state: directory
+    mode: 0755
+
+- name: wordpress core download zip
+  get_url:
+    url: "{{ vccw.version }}"
+    dest: /tmp/download.zip
+
+- name: wordpress core unzip
+  unarchive:
+    src: /tmp/download.zip
+    dest: /tmp
+
+- name: mv wordpress core
+  shell: "cp -u -R /tmp/wordpress/* {{ vccw.document_root }}/{{ vccw.wp_siteurl }}"

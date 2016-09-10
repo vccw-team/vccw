@@ -1,0 +1,15 @@
+- hosts: all
+  tasks:
+  - name: wordpress core download
+    command: |
+      wp core download
+      --path={{ vccw.document_root }}/{{ vccw.wp_siteurl }}
+      --locale={{ vccw.lang }}
+      --version={{ vccw.version }}
+      --force
+    when: vccw.version.find('http') == -1 or vccw.version.find('zip') == -1
+
+  - include: tasks/direct-download.yml
+    when:
+      - vccw.version.find('http') != -1
+      - vccw.version.find('zip') != -1
