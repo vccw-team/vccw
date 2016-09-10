@@ -1,9 +1,11 @@
 - hosts: all
+  vars:
+    path: "{{ vccw.document_root }}/{{ vccw.wp_siteurl }}"
   tasks:
   - name: wordpress core download
     command: |
       wp core download
-      --path={{ vccw.document_root }}/{{ vccw.wp_siteurl }}
+      --path={{ path }}
       --locale={{ vccw.lang }}
       --version={{ vccw.version }}
       --force
