@@ -2,6 +2,12 @@
   vars_files:
     - [ "vars/{{ ansible_os_family }}.yml", "vars/defaults.yml" ]
   tasks:
+    - name: create ssl dir
+      become: yes
+      file:
+        path: /etc/{{ apache }}/ssl
+        state: directory
+
     # Create SSL Keys
     - name: create ssl Keys
       become: yes
