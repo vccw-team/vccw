@@ -34,6 +34,7 @@
         url: "{{ wp_cli_bin_url }}"
         dest: /usr/local/bin/wp
         mode: 0755
+        force: yes
 
     # Install Ruby gems
     - name: Install Ruby gems
