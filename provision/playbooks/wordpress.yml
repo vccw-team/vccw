@@ -7,9 +7,3 @@
       --locale={{ vccw.lang }}
       --version={{ vccw.version }}
       --force
-    when: vccw.version.find('http') == -1 or vccw.version.find('zip') == -1
-
-  - include: tasks/direct-download.yml
-    when:
-      - vccw.version.find('http') != -1
-      - vccw.version.find('zip') != -1

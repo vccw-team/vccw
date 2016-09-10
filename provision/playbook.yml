@@ -1,3 +1,3 @@
 - include: playbooks/commands.yml
-- include: playbooks/virtualhost/playbook.yml
-- include: playbooks/wordpress/playbook.yml
+- include: playbooks/apache2.yml
+- include: playbooks/wordpress.yml
