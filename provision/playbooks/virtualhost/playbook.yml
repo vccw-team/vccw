@@ -1,0 +1,46 @@
+- hosts: all
+  vars_files:
+    - [ "vars/{{ ansible_os_family }}.yml", "vars/defaults.yml" ]
+  tasks:
+    # Create SSL Keys
+    - name: create ssl Keys
+      become: yes
+      command: openssl req -batch -new -x509 -newkey rsa:2048 -nodes -sha256 \
+        -subj /CN=*.{{ vccw.hostname }}/O=oreore -days 3650 \
+        -keyout /etc/{{ apache }}/ssl/{{ vccw.hostname }}.key \
+        -out /etc/{{ apache }}/ssl/{{ vccw.hostname }}.crt
+
+    # Setup Document Root
+    - name: Place /etc/{{ apache }}/sites-available/site.conf
+      become: yes
+      template:
+        src: templates/site.conf
+        dest: /etc/{{ apache }}/sites-available/{{ vccw.hostname }}.conf
+      notify:
+        - restart apache
+
+    # enable wordpress.conf
+    - name: enable wordpress.conf
+      become: yes
+      #command: a2ensite {{ vccw.hostname }}
+      file:
+        src: /etc/{{ apache }}/sites-available/{{ vccw.hostname }}.conf
+        dest: /etc/{{ apache }}/sites-enabled/{{ vccw.hostname }}.conf
+        state: link
+      notify:
+        - restart apache
+
+    # disable default
+    - name: disable default site
+      become: yes
+      #command: a2dissite 000-default
+      file:
+        path: /etc/{{ apache }}/sites-enabled/{{ default_conf }}
+        state: absent
+      notify:
+        - restart apache
+
+  handlers:
+    - name: restart apache
+      become: yes
+      service: name={{ apache }} state=restarted
