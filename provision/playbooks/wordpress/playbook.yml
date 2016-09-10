@@ -1,0 +1,38 @@
+- hosts: all
+  tasks:
+  - name: wordpress core download
+    command: |
+      wp core download
+      --path={{ vccw.document_root }}/{{ vccw.wp_siteurl }}
+      --locale={{ vccw.lang }}
+      --version={{ vccw.version }}
+      --force
+    when: vccw.version.find('http') == -1 or vccw.version.find('zip') == -1
+
+  - name: create wp dir
+    file:
+      path: "{{ vccw.document_root }}/{{ vccw.wp_siteurl }}"
+      state: directory
+      mode: 0755
+
+  - name: wordpress core download zip
+    get_url:
+      url: "{{ vccw.version }}"
+      dest: /tmp/download.zip
+    when:
+      - vccw.version.find('http') != -1
+      - vccw.version.find('zip') != -1
+
+  - name: wordpress core unzip
+    unarchive:
+      src: /tmp/download.zip
+      dest: /tmp
+    when:
+      - vccw.version.find('http') != -1
+      - vccw.version.find('zip') != -1
+
+  - name: mv wordpress core
+    shell: "cp -u -R /tmp/wordpress/* {{ vccw.document_root }}/{{ vccw.wp_siteurl }}"
+    when:
+      - vccw.version.find('http') != -1
+      - vccw.version.find('zip') != -1

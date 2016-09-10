@@ -1,1 +1,2 @@
 - include: playbooks/commands.yml
+- include: playbooks/wordpress/playbook.yml
