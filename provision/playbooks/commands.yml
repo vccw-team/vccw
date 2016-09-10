@@ -51,6 +51,7 @@
       npm:
         name: "{{ item }}"
         global: yes
+        executable: /usr/bin/npm
       with_items: "{{ npms }}"
 
     # Install PHP composer libraries
