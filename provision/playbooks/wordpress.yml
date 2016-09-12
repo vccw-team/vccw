@@ -24,17 +24,6 @@
       host: "{{ vccw.db_host }}"
       state: present
 
-  # create default wp-cli config.
-  - name: create ~/.wp-cli/
-    file:
-      path: "{{ ansible_env.HOME }}/.wp-cli/"
-      state: directory
-
-  - name: create ~/.wp-cli/config.yml
-    template:
-      src: templates/config.yml
-      dest: "{{ ansible_env.HOME }}/.wp-cli/config.yml"
-
   # download wordpress
   - name: wordpress core download
     command: |
