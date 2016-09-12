@@ -24,6 +24,17 @@
       host: "{{ vccw.db_host }}"
       state: present
 
+  # create default wp-cli config.
+  - name: create ~/.wp-cli/
+    file:
+      path: "{{ ansible_env.HOME }}/.wp-cli/"
+      state: directory
+
+  - name: create ~/.wp-cli/config.yml
+    template:
+      src: templates/config.yml
+      dest: "{{ ansible_env.HOME }}/.wp-cli/config.yml"
+
   # download wordpress
   - name: wordpress core download
     command: |
@@ -79,3 +90,82 @@
     template:
       src: templates/index.php
       dest: "{{ vccw.document_root }}/index.php"
+
+  - name: create editorconfig
+    template:
+      src: templates/editorconfig
+      dest: "{{ vccw.document_root }}/.editorconfig"
+
+  - name: create gitignore
+    template:
+      src: templates/gitignore
+      dest: "{{ vccw.document_root }}/.gitignore"
+
+  # Install Plugins
+  - name: install plugins
+    command: |
+      wp plugin install {{ item }}
+      --activate
+      --path={{ path }}
+    with_items: "{{ vccw.plugins }}"
+
+  # Install Theme
+  - name: install theme
+    command: |
+      wp theme install {{ vccw.theme }}
+      --path={{ path }}
+    when: vccw.theme != ''
+
+  # Import Theme Unit Test Data
+  - name: install wordpress-importer
+    command: |
+      wp plugin install wordpress-importer
+      --activate
+      --path={{ path }}
+  - name: Download unit test Data
+    when: vccw.theme_unit_test
+    get_url:
+      url: "{{ vccw.theme_unit_test_uri }}"
+      dest: "{{ theme_unit_test_data }}"
+  - name: Import theme unit test data
+    when: vccw.theme_unit_test
+    command: |
+      wp import
+      --authors=create {{ theme_unit_test_data }}
+      --path={{ path }}
+
+  #Import Options
+  - name: import Options
+    command: |
+      wp option update {{ item.key }} '{{ item.value }}'
+      --path={{ path }}
+    with_dict: "{{ vccw.options }}"
+
+  #Setting Permalink
+  - name: Permalink structure
+    command: |
+      wp rewrite structure {{ vccw.rewrite_structure }}
+      --path={{ path }}
+  - name: Flush rewrite rules
+    command: |
+      wp rewrite flush
+      --hard
+      --path={{ path }}
+
+ #multisite Settings
+  - name: convert multisite
+    when: vccw.multisite
+    command: |
+      wp core multisite-convert
+      --path={{ path }}
+  - name: create htaccess for multisite
+    when: vccw.multisite
+    template:
+      src: templates/multisite-htaccess
+      dest: "{{ vccw.document_root }}/.htaccess"
+  - name: Setting up Wordpress multisite options
+    command: |
+      wp network meta update 1 {{ item.key }} '{{ item.value }}'
+      --path={{ path }}
+    with_dict: "{{ vccw.multisite_options }}"
+    when: vccw.multisite_options is defined
