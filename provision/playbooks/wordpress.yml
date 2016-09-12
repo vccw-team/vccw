@@ -37,16 +37,19 @@
       state: absent
       path: "{{ path }}/wp-config.php"
 
+  #create wp-config.php
+  - name: create extra-php
+    template:
+      src: templates/extra-php.txt
+      dest: "{{ path }}/extra-php.txt"
+
   - name: create wp-config.php
-    command: |
-      wp core config
-      --path={{ path }}
-      --dbhost={{ vccw.db_host }}
-      --dbname={{ dbname }}
-      --dbuser={{ dbuser }}
-      --dbpass={{ dbpassword }}
-      --dbprefix={{ vccw.db_prefix }}
-      --locale={{ vccw.lang }}
+    shell: wp core config --path={{ path }} --dbhost={{ vccw.db_host }} --dbname={{ dbname }} --dbuser={{ dbuser }} --dbpass={{ dbpassword }} --dbprefix={{ vccw.db_prefix }} --locale={{ vccw.lang }} --extra-php < {{ path | realpath }}/extra-php.txt
+
+  - name: Delete extra-php
+    file:
+      state: absent
+      path: "{{ path }}/extra-php.txt"
 
   - name: reset db reset
     command: wp db reset --yes --path={{ path }}
@@ -61,3 +64,9 @@
       --admin_user={{ vccw.admin_user }}
       --admin_password={{ vccw.admin_pass }}
       --admin_email={{ vccw.admin_email }}
+
+  - name: create index.php for wp_siteurl changed
+    when: vccw.wp_siteurl != ''
+    template:
+      src: templates/index.php
+      dest: "{{ vccw.document_root }}/index.php"
