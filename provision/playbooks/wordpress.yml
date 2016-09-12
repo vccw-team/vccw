@@ -7,13 +7,13 @@
 
   tasks:
 
+  # Database Settings
   - name: create Database
     mysql_db:
       login_user: root
       login_password: wordpress
       name: "{{ dbname }}"
       state: present
-
   - name: create MySQL user
     mysql_user:
       login_user: root
@@ -24,6 +24,7 @@
       host: "{{ vccw.db_host }}"
       state: present
 
+  # download wordpress
   - name: wordpress core download
     command: |
       wp core download
@@ -32,29 +33,37 @@
       --version={{ vccw.version }}
       --force
 
+  # wp-config.php
   - name: Delete wp-config.php
     file:
       state: absent
       path: "{{ path }}/wp-config.php"
-
-  #create wp-config.php
   - name: create extra-php
     template:
       src: templates/extra-php.txt
       dest: "{{ path }}/extra-php.txt"
-
   - name: create wp-config.php
-    shell: wp core config --path={{ path }} --dbhost={{ vccw.db_host }} --dbname={{ dbname }} --dbuser={{ dbuser }} --dbpass={{ dbpassword }} --dbprefix={{ vccw.db_prefix }} --locale={{ vccw.lang }} --extra-php < {{ path | realpath }}/extra-php.txt
-
+    shell: |
+       wp core config \
+       --path={{ path }} \
+       --dbhost={{ vccw.db_host }} \
+       --dbname={{ dbname }} \
+       --dbuser={{ dbuser }} \
+       --dbpass={{ dbpassword }} \
+       --dbprefix={{ vccw.db_prefix }} \
+       --locale={{ vccw.lang }} \
+       --extra-php < {{ path | realpath }}/extra-php.txt
   - name: Delete extra-php
     file:
       state: absent
       path: "{{ path }}/extra-php.txt"
 
+  # Reset Database
   - name: reset db reset
     command: wp db reset --yes --path={{ path }}
     when: vccw.reset_db_on_provision
 
+  # install wordpress
   - name: install wordpress core
     command: |
       wp core install
