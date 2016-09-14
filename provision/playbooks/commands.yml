@@ -18,6 +18,7 @@
       - sebastian/phpcpd:*
       - phploc/phploc:*
       - phing/phing:*
+      - danielbachhuber/dictator:dev-master
 
   tasks:
 

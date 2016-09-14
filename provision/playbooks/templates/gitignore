@@ -1,0 +1,12 @@
+.htaccess
+sitemap.xml
+sitemap.xml.gz
+{{ vccw.wp_siteurl }}wp-config.php
+{{ vccw.wp_siteurl }}wp-content/advanced-cache.php
+{{ vccw.wp_siteurl }}wp-content/backup-db/
+{{ vccw.wp_siteurl }}wp-content/backups/
+{{ vccw.wp_siteurl }}wp-content/blogs.dir/
+{{ vccw.wp_siteurl }}wp-content/cache/
+{{ vccw.wp_siteurl }}wp-content/upgrade/
+{{ vccw.wp_siteurl }}wp-content/uploads/
+{{ vccw.wp_siteurl }}wp-content/wp-cache-config.php
