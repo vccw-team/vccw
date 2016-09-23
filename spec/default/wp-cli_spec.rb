@@ -12,11 +12,11 @@ describe interface('enp0s8') do
   it { should have_ipv4_address($conf['ip']) }
 end
 
-describe package('httpd') do
+describe package('apache2') do
   it { should be_installed }
 end
 
-describe service('httpd') do
+describe service('apache2') do
   it { should be_enabled }
   it { should be_running }
 end
@@ -30,7 +30,7 @@ describe port(443) do
 end
 
 describe 'PHP config parameters' do
-  context  php_config('default_charset') do
+  context php_config('default_charset') do
     its(:value) { should eq 'UTF-8' }
   end
 
