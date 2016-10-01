@@ -4,6 +4,7 @@
 .vagrant
 Movefile
 _site
+npm-debug.log
 package.box
 playbook.retry
 provision-post.sh
