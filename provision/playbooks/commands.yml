@@ -18,15 +18,25 @@
       - sebastian/phpcpd:*
       - phploc/phploc:*
       - phing/phing:*
-      - danielbachhuber/dictator:dev-master
 
   tasks:
 
     # Setup bash
     - name: Place ~/.bash_profile
+      become: no
       template:
         src: templates/.bash_profile
         dest: "{{ ansible_env.HOME }}/.bash_profile"
+    - name: Place ~/.bash.d/
+      become: no
+      file:
+        path: "{{ ansible_env.HOME }}/.bash.d"
+        state: directory
+    - name: Place ~/.bash.d/vccw.sh
+      become: no
+      template:
+        src: templates/vccw.sh
+        dest: "{{ ansible_env.HOME }}/.bash.d/vccw.sh"
 
     # Install WP-CLI
     - name: Install WP-CLI
@@ -38,30 +48,39 @@
         force: yes
 
     # Install Ruby gems
+    - name: Place ~/.gemrc
+      become: no
+      template:
+        src: templates/.gemrc
+        dest: "{{ ansible_env.HOME }}/.gemrc"
     - name: Install Ruby gems
-      become: yes
+      become: no
       gem:
         name: "{{ item }}"
         state: latest
-        user_install: no
-        executable: /usr/bin/gem
+        user_install: yes
       with_items: "{{ rubygems }}"
 
     # Install npm packages
+    - name: Place ~/.npmrc
+      become: no
+      template:
+        src: templates/.npmrc
+        dest: "{{ ansible_env.HOME }}/.npmrc"
     - name: Install npm packages
-      become: yes
+      become: no
       npm:
         name: "{{ item }}"
         global: yes
         executable: /usr/bin/npm
       with_items: "{{ npms }}"
 
-    # Install PHP composer libraries
-    - name: Install PHP composer libraries
+    # Install Composer libraries
+    - name: Install Composer libraries
       shell: /bin/bash -lc "composer global require '{{ item }}'"
       with_items: "{{ composers }}"
 
-    # Setup WordPress coding standard
+    # Setup WordPress coding standards
     - name: Setup WordPress coding standard
       shell: /bin/bash -lc "phpcs --config-set installed_paths {{ ansible_env.HOME }}/.composer/vendor/wp-coding-standards/wpcs"
 
@@ -72,5 +91,5 @@
         dest: "{{ ansible_env.HOME }}/.wp-i18n/"
 
     # Just example
-    - name: "hello {{ vccw.wp_box }}"
-      shell: echo "{{ vccw.wp_box }}"
+    # - name: "hello {{ vccw.wp_box }}"
+    #   shell: echo "{{ vccw.wp_box }}"

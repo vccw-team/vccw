@@ -1,5 +1,4 @@
-path: "{{ vccw.document_root }}/{{ vccw.wp_siteurl }}"
+path:
+  "{{ vccw.document_root }}/{{ vccw.wp_siteurl }}"
 apache_modules:
   - mod_rewrite
-require:
-  - {{ ansible_env.HOME }}/.composer/vendor/danielbachhuber/dictator/dictator.php

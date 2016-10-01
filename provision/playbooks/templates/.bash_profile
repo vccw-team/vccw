@@ -2,9 +2,9 @@
 # The .bash_profile for VCCW
 #
 
-export COMPOSER_HOME=$HOME/.composer
-
-export PATH=$HOME/.composer/vendor/bin:$PATH
-
-alias wpcs="phpcs --standard=WordPress"
-alias makepot="/usr/bin/env php $HOME/.wp-i18n/makepot.php"
+if [ -d "${HOME}/.bash.d" ] ; then
+  for f in "${HOME}"/.bash.d/*.sh ; do
+    source "$f"
+  done
+  unset f
+fi
