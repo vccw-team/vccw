@@ -60,11 +60,6 @@ describe command('wp --version') do
   its(:exit_status) { should eq 0 }
 end
 
-describe command('wp help dictator') do
-  let(:disable_sudo) { true }
-  its(:exit_status) { should eq 0 }
-end
-
 describe command("wget -q http://" + File.join($conf['ip'], $conf['wp_home'], '/') + " -O - | head -100 | grep generator") do
     its(:stdout) { should match /<meta name="generator" content="WordPress .*"/i }
 end
