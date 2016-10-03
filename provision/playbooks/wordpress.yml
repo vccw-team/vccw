@@ -3,158 +3,16 @@
     path: "{{ vccw.document_root }}/{{ vccw.wp_siteurl }}"
     dbname: "wordpress"
     dbuser: "wordpress"
-    dbpassword: "wordpress"
+    dbpassword: "wordpress
 
   tasks:
-
-  # Database Settings
-  - name: create Database
-    mysql_db:
-      login_user: root
-      login_password: wordpress
-      name: "{{ dbname }}"
-      state: present
-  - name: create MySQL user
-    mysql_user:
-      login_user: root
-      login_password: wordpress
-      name: "{{ dbuser }}"
-      password: "{{ dbpassword }}"
-      priv: "wordpress.*:ALL"
-      host: "{{ vccw.db_host }}"
-      state: present
-
-  # download wordpress
-  - name: wordpress core download
-    command: |
-      wp core download
-      --path={{ path }}
-      --locale={{ vccw.lang }}
-      --version={{ vccw.version }}
-      --force
-
-  # wp-config.php
-  - name: Delete wp-config.php
+  # create default wp-cli config.
+  - name: create ~/.wp-cli/
     file:
-      state: absent
-      path: "{{ path }}/wp-config.php"
-  - name: create extra-php
+      path: "{{ ansible_env.HOME }}/.wp-cli/"
+      state: directory
+
+  - name: create ~/.wp-cli/config.yml
     template:
-      src: templates/extra-php.txt
-      dest: "{{ path }}/extra-php.txt"
-  - name: create wp-config.php
-    shell: |
-       wp core config \
-       --path={{ path }} \
-       --dbhost={{ vccw.db_host }} \
-       --dbname={{ dbname }} \
-       --dbuser={{ dbuser }} \
-       --dbpass={{ dbpassword }} \
-       --dbprefix={{ vccw.db_prefix }} \
-       --locale={{ vccw.lang }} \
-       --extra-php < {{ path | realpath }}/extra-php.txt
-  - name: Delete extra-php
-    file:
-      state: absent
-      path: "{{ path }}/extra-php.txt"
-
-  # Reset Database
-  - name: reset db reset
-    command: wp db reset --yes --path={{ path }}
-    when: vccw.reset_db_on_provision
-
-  # install wordpress
-  - name: install wordpress core
-    command: |
-      wp core install
-      --path={{ path }}
-      --url=http://{{ vccw.hostname }}/{{ vccw.wp_siteurl }}
-      --title='{{ vccw.title }}'
-      --admin_user={{ vccw.admin_user }}
-      --admin_password={{ vccw.admin_pass }}
-      --admin_email={{ vccw.admin_email }}
-
-  - name: create index.php for wp_siteurl changed
-    when: vccw.wp_siteurl != ''
-    template:
-      src: templates/index.php
-      dest: "{{ vccw.document_root }}/index.php"
-
-  - name: create editorconfig
-    template:
-      src: templates/editorconfig
-      dest: "{{ vccw.document_root }}/.editorconfig"
-
-  - name: create gitignore
-    template:
-      src: templates/gitignore
-      dest: "{{ vccw.document_root }}/.gitignore"
-
-  # Install Plugins
-  - name: install plugins
-    command: |
-      wp plugin install {{ item }}
-      --activate
-      --path={{ path }}
-    with_items: "{{ vccw.plugins }}"
-
-  # Install Theme
-  - name: install theme
-    command: |
-      wp theme install {{ vccw.theme }}
-      --path={{ path }}
-    when: vccw.theme != ''
-
-  # Import Theme Unit Test Data
-  - name: install wordpress-importer
-    command: |
-      wp plugin install wordpress-importer
-      --activate
-      --path={{ path }}
-  - name: Download unit test Data
-    when: vccw.theme_unit_test
-    get_url:
-      url: "{{ vccw.theme_unit_test_uri }}"
-      dest: "{{ theme_unit_test_data }}"
-  - name: Import theme unit test data
-    when: vccw.theme_unit_test
-    command: |
-      wp import
-      --authors=create {{ theme_unit_test_data }}
-      --path={{ path }}
-
-  #Import Options
-  - name: import Options
-    command: |
-      wp option update {{ item.key }} '{{ item.value }}'
-      --path={{ path }}
-    with_dict: "{{ vccw.options }}"
-
-  #Setting Permalink
-  - name: Permalink structure
-    command: |
-      wp rewrite structure {{ vccw.rewrite_structure }}
-      --path={{ path }}
-  - name: Flush rewrite rules
-    command: |
-      wp rewrite flush
-      --hard
-      --path={{ path }}
-
- #multisite Settings
-  - name: convert multisite
-    when: vccw.multisite
-    command: |
-      wp core multisite-convert
-      --path={{ path }}
-  - name: create htaccess for multisite
-    when: vccw.multisite
-    template:
-      src: templates/multisite-htaccess
-      dest: "{{ vccw.document_root }}/.htaccess"
-  - name: Setting up Wordpress multisite options
-    command: |
-      wp network meta update 1 {{ item.key }} '{{ item.value }}'
-      --path={{ path }}
-    with_dict: "{{ vccw.multisite_options }}"
-    when: vccw.multisite_options is defined
+      src: templates/config.yml
+      dest: "{{ ansible_env.HOME }}/.wp-cli/config.yml"

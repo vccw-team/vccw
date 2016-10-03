@@ -1,4 +1,3 @@
 - include: playbooks/commands.yml
-- include: playbooks/apache2.yml
-- include: playbooks/wp-cli.yml
+- include: playbooks/middleware.yml
 - include: playbooks/wordpress.yml
