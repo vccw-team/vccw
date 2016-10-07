@@ -89,7 +89,3 @@
       subversion:
         repo: http://i18n.svn.wordpress.org/tools/trunk/
         dest: "{{ ansible_env.HOME }}/.wp-i18n/"
-
-    # Just example
-    # - name: "hello {{ vccw.wp_box }}"
-    #   shell: echo "{{ vccw.wp_box }}"
