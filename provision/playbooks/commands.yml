@@ -6,18 +6,18 @@
       - wordmove
       - mailcatcher
     npms:
-      - grunt-init
-      - grunt-cli
       - gulp-cli
+      # - grunt-init
+      # - grunt-cli
     composers:
       - hirak/prestissimo:*
-      - phpmd/phpmd:*
       - phpunit/phpunit:*
       - squizlabs/php_codesniffer:*
       - wp-coding-standards/wpcs:*
-      - sebastian/phpcpd:*
-      - phploc/phploc:*
-      - phing/phing:*
+      # - phpmd/phpmd:*
+      # - sebastian/phpcpd:*
+      # - phploc/phploc:*
+      # - phing/phing:*
 
   tasks:
 

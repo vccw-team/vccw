@@ -166,5 +166,5 @@
     command: |
       wp network meta update 1 {{ item.key }} '{{ item.value }}'
       --path={{ path }}
-    with_dict: "{{ vccw.multisite_options }}"
-    when: vccw.multisite_options is defined
+    with_dict: "{{ vccw.multisite_options | default({}) }}"
+    when: vccw.multisite
