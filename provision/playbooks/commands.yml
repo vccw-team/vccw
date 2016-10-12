@@ -15,6 +15,9 @@
       - phpunit/phpunit:*
       - squizlabs/php_codesniffer:*
       - wp-coding-standards/wpcs:*
+    wp_cli_packages:
+      - vccw/wp-cli-scaffold-movefile:@stable
+
 
   tasks:
 
@@ -43,6 +46,10 @@
         dest: /usr/local/bin/wp
         mode: 0755
         force: yes
+    - name: Install WP-CLI packages
+      become: no
+      shell: /bin/bash -lc "wp package install '{{ item }}'"
+      with_items: "{{ wp_cli_packages | default([]) }}"
 
     # Install Ruby gems
     - name: Place ~/.gemrc
@@ -109,3 +116,13 @@
     - name: Install user's Composer libraries
       shell: /bin/bash -lc "composer global require '{{ item }}'"
       with_items: "{{ vccw.composers | default([]) }}"
+
+    # Install Composer libraries
+    - name: Install user's Composer libraries
+      shell: /bin/bash -lc "composer global require '{{ item }}'"
+      with_items: "{{ vccw.composers | default([]) }}"
+
+    - name: Install user's WP-CLI packages
+      become: no
+      shell: /bin/bash -lc "wp package install '{{ item }}'"
+      with_items: "{{ vccw.wp_cli_packages | default([]) }}"

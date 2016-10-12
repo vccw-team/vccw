@@ -123,12 +123,17 @@ linked_clone: false
 # npms:
 #   - grunt-cli
 
-
+#
 # composer
-
+#
 # composers:
 #   - phpmd/phpmd:*
 #   - sebastian/phpcpd:*
 #   - phploc/phploc:*
 #   - phing/phing:*
 
+#
+# wp-cli package commands
+#
+# wp_cli_packages:
+#   - shifter/cli:@stable
