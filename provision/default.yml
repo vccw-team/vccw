@@ -110,3 +110,25 @@ php_version: default
 # Linked Clone for Vagrant v1.8
 #
 linked_clone: false
+
+#
+# RubyGems
+#
+# ruby_gems:
+#   - serverspec
+
+#
+# NPM modules
+#
+# npms:
+#   - grunt-cli
+
+
+# composer
+
+# composers:
+#   - phpmd/phpmd:*
+#   - sebastian/phpcpd:*
+#   - phploc/phploc:*
+#   - phing/phing:*
+

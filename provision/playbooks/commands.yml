@@ -1,23 +1,20 @@
 - hosts: all
   vars:
     wp_cli_bin_url: https://raw.githubusercontent.com/wp-cli/builds/gh-pages/phar/wp-cli.phar
+    # Required rubygems
     rubygems:
       - bundler
       - wordmove
       - mailcatcher
+    # Required npms
     npms:
       - gulp-cli
-      # - grunt-init
-      # - grunt-cli
+    # Required composer
     composers:
       - hirak/prestissimo:*
       - phpunit/phpunit:*
       - squizlabs/php_codesniffer:*
       - wp-coding-standards/wpcs:*
-      # - phpmd/phpmd:*
-      # - sebastian/phpcpd:*
-      # - phploc/phploc:*
-      # - phing/phing:*
 
   tasks:
 
@@ -89,3 +86,26 @@
       subversion:
         repo: http://i18n.svn.wordpress.org/tools/trunk/
         dest: "{{ ansible_env.HOME }}/.wp-i18n/"
+
+    # Install user's Ruby gems
+    - name: Install user's Ruby gems
+      become: no
+      gem:
+        name: "{{ item }}"
+        state: latest
+        user_install: yes
+      with_items: "{{ vccw.ruby_gems | default([]) }}"
+
+    # Install user's npms
+    - name: Install user's npm packages
+      become: no
+      npm:
+        name: "{{ item }}"
+        global: yes
+        executable: /usr/bin/npm
+      with_items: "{{ vccw.npms | default([]) }}"
+
+    # Install Composer libraries
+    - name: Install user's Composer libraries
+      shell: /bin/bash -lc "composer global require '{{ item }}'"
+      with_items: "{{ vccw.composers | default([]) }}"
