@@ -17,7 +17,6 @@ cpus: 1
 #
 hostname: vccw.dev
 ip: 192.168.33.10
-sync_folder: 'www/wordpress'
 
 #
 # WordPress Settings
@@ -31,7 +30,6 @@ rewrite_structure: /archives/%post_id%
 #
 # WordPress Path
 #
-document_root: '/var/www/wordpress'
 wp_siteurl: ''  # Path to the WP_SITEURL like "wp"
 wp_home: ''     # Path to the WP_HOME like "wp"
 
@@ -87,24 +85,6 @@ theme_unit_test_uri: https://wpcom-themes.svn.automattic.com/demo/theme-unit-tes
 # DB will be reset when provision
 #
 reset_db_on_provision: true
-
-#
-# Are you hurrying a lot?
-#
-disable_vccw_cookbook: false
-
-
-#
-# User and Group
-#
-user: vagrant
-group: vagrant
-
-
-#
-# phpenv
-#
-php_version: default
 
 #
 # Linked Clone for Vagrant v1.8

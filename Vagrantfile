@@ -36,6 +36,12 @@ Vagrant.configure(2) do |config|
     _conf.merge!(_site) if _site.is_a?(Hash)
   end
 
+  # forcing config variables
+  _conf["sync_folder"] = "ww/wordpress"
+  _conf["document_root"] = "/var/www/wordpress"
+  _conf["user"] = "vagrant"
+  _conf["group"] = "vagrant"
+
   config.vm.define _conf['hostname'] do |v|
   end
 
