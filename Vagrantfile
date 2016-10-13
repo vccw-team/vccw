@@ -37,7 +37,7 @@ Vagrant.configure(2) do |config|
   end
 
   # forcing config variables
-  _conf["sync_folder"] = "ww/wordpress"
+  _conf["sync_folder"] = "www/wordpress"
   _conf["document_root"] = "/var/www/wordpress"
   _conf["user"] = "vagrant"
   _conf["group"] = "vagrant"
