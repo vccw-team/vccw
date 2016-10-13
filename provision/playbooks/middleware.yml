@@ -1,4 +1,19 @@
 - hosts: all
+  vars:
+    php_ini_config:
+    - regexp: '^;?(default_charset) =.*'
+      line: '\1 = UTF-8'
+    - regexp: '^;?(mbstring.language) =.*'
+      line: '\1 = neutral'
+    - regexp: '^;?(mbstring.internal_encoding) =.*'
+      line: '\1 = UTF-8'
+    - regexp: '^;?(date.timezone) =.*'
+      line: '\1 = UTC'
+    - regexp: '^;?(short_open_tag) =.*'
+      line: '\1 = Off'
+    - regexp: '^;?(session.save_path) =.*'
+      line: '\1 = /tmp'
+
   vars_files:
     - [ "vars/{{ ansible_os_family }}.yml", "vars/defaults.yml" ]
   tasks:
@@ -43,6 +58,18 @@
       file:
         path: /etc/{{ apache }}/sites-enabled/{{ default_conf }}
         state: absent
+      notify:
+        - restart apache
+
+    #php config.
+    - name: php.ini config.
+      become: yes
+      lineinfile:
+        dest: "{{ php_ini_path }}"
+        backrefs: yes
+        regexp: '{{ item.regexp }}'
+        line: '{{ item.line }}'
+      with_items: "{{ php_ini_config }}"
       notify:
         - restart apache
 
