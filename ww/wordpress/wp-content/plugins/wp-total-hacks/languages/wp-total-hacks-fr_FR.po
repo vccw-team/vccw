@@ -1,0 +1,485 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: WP Total Hacks v1.1.0\n"
+"Report-Msgid-Bugs-To: http://wordpress.org/tag/wp-total-hacks\n"
+"POT-Creation-Date: 2014-09-06 03:35:26+00:00\n"
+"PO-Revision-Date: 2012-12-16 19:27:02+0000\n"
+"Last-Translator: webimmac <webimmac@gmail.com>\n"
+"Language-Team: \n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Poedit-Language: French\n"
+"X-Poedit-Country: FRANCE\n"
+"X-Poedit-SourceCharset: utf-8\n"
+"X-Poedit-KeywordsList: __;_e;__ngettext:1,2;_n:1,2;__ngettext_noop:1,2;"
+"_n_noop:1,2;_c,_nc:4c,1,2;_x:1,2c;_ex:1,2c;_nx:4c,1,2;_nx_noop:4c,1,2;\n"
+"X-Poedit-Basepath: ../\n"
+"X-Poedit-Bookmarks: \n"
+"X-Poedit-SearchPath-0: .\n"
+"X-Textdomain-Support: yes\n"
+
+# @ wp-total-hacks
+#: includes/admin.php:260 includes/form/appearance.php:11
+#: includes/form/appearance.php:35 includes/form/site.php:9
+#: includes/form/site.php:19
+msgid "Select File"
+msgstr "Sélectionner le fichier"
+
+# @ default
+#: includes/admin.php:390
+msgid "Saved."
+msgstr ""
+
+# @ default
+#: includes/admin.php:397
+msgid "Save Changes"
+msgstr ""
+
+# @ default
+#: includes/admin.php:442
+msgid "Deactivate"
+msgstr ""
+
+# @ default
+#: includes/admin.php:444 includes/admin.php:446
+msgid "Activate"
+msgstr ""
+
+# @ wp-total-hacks
+#: includes/form/appearance.php:3
+msgid "Appearance in admin"
+msgstr "Apparence de l'administration"
+
+# @ wp-total-hacks
+#: includes/form/appearance.php:6
+msgid "Change admin header logo"
+msgstr "Changer le logo de l'en-tête de l'administration"
+
+# @ wp-total-hacks
+#: includes/form/appearance.php:8
+msgid "Upload %s x %s pixel image for admin header logo."
+msgstr ""
+"Envoyer une image de %s x %s pixel pour le logo de l'en-tête de "
+"l'administration"
+
+# @ wp-total-hacks
+#: includes/form/appearance.php:16
+msgid "Change admin footer text"
+msgstr "Changer le texte du pied de page de l'administration"
+
+# @ wp-total-hacks
+#: includes/form/appearance.php:18
+msgid "You can edit admin footer text. Line breaks will remove."
+msgstr ""
+"Vous pouvez éditer le texte du pied de page de la page d'administration. Les "
+"lignes séparatrices seront retirées."
+
+# @ wp-total-hacks
+#: includes/form/appearance.php:29
+msgid "Change login logo"
+msgstr "Changer le logo de la page de connexion"
+
+# @ wp-total-hacks
+#: includes/form/appearance.php:31
+msgid ""
+"You can customize logo, URL and Title. The logo image size is recommended "
+"310 x 70 pixel."
+msgstr ""
+"Vous pouvez personnaliser le logo, l'URL et le titre. La taille recommandée "
+"pour le logo est de 310 x 70 pixel."
+
+# @ wp-total-hacks
+#: includes/form/appearance.php:34
+msgid "Logo"
+msgstr "Logo"
+
+# @ wp-total-hacks
+#: includes/form/appearance.php:36
+msgid "URL"
+msgstr "URL"
+
+# @ wp-total-hacks
+#: includes/form/appearance.php:38
+msgid "Title"
+msgstr "Titre"
+
+# @ wp-total-hacks
+#: includes/form/footer.php:2
+msgid "Translators"
+msgstr "Traducteurs"
+
+# @ wp-total-hacks
+#: includes/form/footer.php:7
+msgid "Contributors"
+msgstr "Contributeurs"
+
+# @ wp-total-hacks
+#: includes/form/other.php:2
+msgid "Other"
+msgstr "Autre"
+
+# @ wp-total-hacks
+#: includes/form/other.php:5
+msgid "Deactivate Dashboard Widgets"
+msgstr "Désactiver les Widgets du tableau de bord"
+
+# @ wp-total-hacks
+#: includes/form/other.php:7 includes/form/post.php:8
+#: includes/form/post.php:27
+msgid "Choose the items you want to remove."
+msgstr "Choisissez les items que vous souhaitez retirer."
+
+#: includes/form/other.php:24
+msgid "Enable shortcode in the text widget"
+msgstr ""
+
+#: includes/form/other.php:26
+msgid ""
+"By default, the Text widget only support text and HTML. If you activate it, "
+"shortcode would be supported."
+msgstr ""
+
+#: includes/form/other.php:32
+msgid "Enable oEmbed in the text widget"
+msgstr ""
+
+#: includes/form/other.php:34
+msgid ""
+"By default, the Text widget only support text and HTML. If you activate it, "
+"oEmbed would be supported."
+msgstr ""
+
+# @ wp-total-hacks
+#: includes/form/other.php:40
+msgid "Add role \"Webmaster\""
+msgstr "Ajouter un rôle \"Webmaster\""
+
+# @ wp-total-hacks
+#: includes/form/other.php:42
+msgid ""
+"This role has the capabilities of an \"Editor\", but can also edit theme "
+"options."
+msgstr ""
+"Ce rôle a les capacités d'un \"Éditeur\\\", mais il peut aussi éditer les "
+"options du thème."
+
+# @ wp-total-hacks
+#: includes/form/other.php:48
+msgid "Change default email address"
+msgstr "Changer l'adresse mail par défaut"
+
+# @ wp-total-hacks
+#: includes/form/other.php:50
+msgid ""
+"Change the email address and sender name used by automatic email "
+"notifications."
+msgstr ""
+"Modifier l'adresse e-mail et le nom de l'expéditeur utilisés par les "
+"notifications automatiques par courriel."
+
+# @ wp-total-hacks
+#: includes/form/other.php:52
+msgid "Name"
+msgstr "Nom"
+
+# @ wp-total-hacks
+#: includes/form/other.php:54
+msgid "Email"
+msgstr "Courriel"
+
+# @ wp-total-hacks
+#: includes/form/other.php:61
+msgid "Delete default contact methods"
+msgstr "Supprimer les méthodes de contact par défaut"
+
+# @ wp-total-hacks
+#: includes/form/other.php:63
+msgid "Delete default contact methods from user profile."
+msgstr "Supprimer les méthodes de contact par défaut du profil utilisateur."
+
+# @ wp-total-hacks
+#: includes/form/other.php:80
+msgid "Remove Update Notification"
+msgstr "Retirer la notification de mise à jour"
+
+# @ wp-total-hacks
+#: includes/form/other.php:82
+msgid "Remove Update Notification for all users except Admin User."
+msgstr ""
+"Retirer la notification de mise à jour pour tous les utilisateurs sauf "
+"l'utilisateur Admin."
+
+# @ wp-total-hacks
+#: includes/form/post.php:3
+msgid "Posts &amp; Pages"
+msgstr "Articles &amp; Pages"
+
+# @ wp-total-hacks
+#: includes/form/post.php:6
+msgid "Remove meta boxes for Posts"
+msgstr "Retirer les boîtes de méta pour les articles"
+
+# @ wp-total-hacks
+#: includes/form/post.php:25
+msgid "Remove meta boxes for Pages"
+msgstr "Retirer les boîtes de méta pour les pages"
+
+# @ wp-total-hacks
+#: includes/form/post.php:44
+msgid "Revision Control"
+msgstr "Contrôle de révision"
+
+# @ wp-total-hacks
+#: includes/form/post.php:46
+msgid "Limit the number of revisions allowed."
+msgstr "Limiter le nombre de révisions autorisées"
+
+# @ wp-total-hacks
+#: includes/form/post.php:48
+msgid "Store All"
+msgstr "Tout stocker"
+
+# @ wp-total-hacks
+#: includes/form/post.php:64
+msgid "Stop self-pingbacks"
+msgstr "Arrêtez les rétroliens"
+
+# @ wp-total-hacks
+#: includes/form/post.php:66
+msgid ""
+"Stop sending pingbacks from your own site to your own site when writing "
+"posts."
+msgstr ""
+"Cessez d'envoyer des rétroliens depuis votre propre site sur votre propre "
+"site lors de l'écriture des articles."
+
+# @ wp-total-hacks
+#: includes/form/post.php:72
+msgid "Add \"Excerpt\" support for Pages."
+msgstr "Ajouter le support des \"Extrait\" pour les pages."
+
+# @ wp-total-hacks
+#: includes/form/post.php:74
+msgid "Allows you to add excerpt text to pages."
+msgstr "Vous permet d'ajouter un extrait du texte des pages."
+
+# @ wp-total-hacks
+#: includes/form/post.php:80
+msgid "Allow you to create child page for \"draft\"."
+msgstr "Vous permet de créer la page enfant pour les \"brouillon\"."
+
+# @ wp-total-hacks
+#: includes/form/post.php:82
+msgid "You can create child page for non-publish Page."
+msgstr "Vous pouvez créer une page enfant pour les pages non-publiées."
+
+# @ wp-total-hacks
+#: includes/form/site.php:2
+msgid "Site Settings"
+msgstr "Paramètres du site"
+
+# @ wp-total-hacks
+#: includes/form/site.php:5
+msgid "Add a favicon"
+msgstr "Ajouter un favicon"
+
+# @ wp-total-hacks
+#: includes/form/site.php:7
+msgid "Please upload .ico image."
+msgstr "Veuillez charger le fichier .ico de l'image."
+
+# @ wp-total-hacks
+#: includes/form/site.php:10
+msgid "Use this favicon with administration screens."
+msgstr "Utiliser le favicon sur les écrans d'administration."
+
+# @ wp-total-hacks
+#: includes/form/site.php:15
+msgid "Add a apple-touch-icon"
+msgstr "Ajouter un apple-touch-icon"
+
+# @ wp-total-hacks
+#: includes/form/site.php:17
+msgid "Please upload .png image."
+msgstr "Veuillez charger une image .png"
+
+# @ wp-total-hacks
+#: includes/form/site.php:31
+msgid "Remove \"wlwmanifest\" and \"xmlrpc\" from meta."
+msgstr "Retirer \"wlwmanifest\" et \"xmlrpc\" des métas."
+
+# @ wp-total-hacks
+#: includes/form/site.php:33
+msgid ""
+"If you don't use \"<a href=\"%s\">Remote Publishing</a>\", remove "
+"unnecessary tags from head."
+msgstr ""
+"Si vous n'utilisez pas \"<a href=\"%s\">Publication distante</a>\", retire "
+"les tags non nécessaires de l'en tête."
+
+# @ wp-total-hacks
+#: includes/form/site.php:39
+msgid "Remove adjacent posts rel links from head on Pages"
+msgstr "Retirer les liens relatifs à l'article adjacent de l'en-tête des pages"
+
+# @ wp-total-hacks
+#: includes/form/site.php:41
+msgid ""
+"Remove adjacent posts rel links from head on Pages.<br /><span class=\"ex"
+"\">e.g. &lt;link rel=\"next\" ...&gt; &lt;link rel=\"prev\" ...&gt;</span>"
+msgstr ""
+"Retirer les liens relatifs à l'article adjacent de l'en-tête des pages.<br /"
+"><span class=\"ex\">e.g. &lt;link rel=\"suivant\" ...&gt; &lt;link rel="
+"\"précédent\" ...&gt;</span>"
+
+# @ wp-total-hacks
+#: includes/form/site.php:47
+msgid "Remove version number from head"
+msgstr "Enlevez le numéro de version de l'en-tête"
+
+# @ wp-total-hacks
+#: includes/form/site.php:49
+msgid ""
+"Remove generator tag from head. <span class=\"ex\">e.g. &lt;meta name="
+"\"generator\" content=\"WordPress x.x.x\" /&gt;</span>"
+msgstr ""
+"Retirer le générateur de tag de l'en-tête. <span class=\"ex\">e.g. &lt;meta "
+"name=\"generator\" content=\"WordPress x.x.x\" /&gt;</span>"
+
+# @ wp-total-hacks
+#: includes/form/site.php:55
+msgid "Remove #more anchor"
+msgstr "Retirer l'ancre #plus"
+
+# @ wp-total-hacks
+#: includes/form/site.php:57
+msgid "Remove #more-xxx anchor from more links."
+msgstr "Retirer l'ancre #plus-xxx de plus de liens."
+
+# @ wp-total-hacks
+#: includes/form/site.php:63
+msgid "Remove \"[...]\" from excerpt"
+msgstr "Retirer \"[...]\" de l'extrait"
+
+# @ wp-total-hacks
+#: includes/form/site.php:65
+msgid "Remove \"[...]\" from output of the_excerpt()."
+msgstr "Retirer \"[...]\" de la sortie de the_excerpt()."
+
+# @ wp-total-hacks
+#: includes/form/site.php:71
+#, fuzzy
+msgid "Block all pingbacks"
+msgstr "Arrêtez les rétroliens"
+
+# @ wp-total-hacks
+#: includes/form/site.php:73
+#, fuzzy
+msgid "Block all pingbacks."
+msgstr "Arrêtez les rétroliens"
+
+# @ wp-total-hacks
+#: includes/form/site.php:79
+msgid "Install Google Analytics"
+msgstr "Installer Google Analytics"
+
+# @ wp-total-hacks
+#: includes/form/site.php:81
+msgid "Add Google analytics code."
+msgstr "Ajouter le code de Google analytics"
+
+# @ wp-total-hacks
+#: includes/form/site.php:88
+msgid "Exclude user logged in."
+msgstr "Exclure l'utilisateur connecté"
+
+# @ wp-total-hacks
+#: includes/form/site.php:93
+msgid "Webmaster Tools Verification"
+msgstr "Outils de vérification du Webmaster"
+
+# @ wp-total-hacks
+#: includes/form/site.php:95
+#, fuzzy
+msgid ""
+"Enter your meta key \"content\" value to verify your blog with <a href="
+"\"https://www.google.com/webmasters/tools/\">Google Webmaster Tools</a> and "
+"<a href=\"http://www.bing.com/webmaster\">Bing Webmaster Center</a>."
+msgstr ""
+"Entrez votre clé de méta \"contenu \" pour vérifier votre blog avec <a href="
+"\"https://www.google.com/webmasters/tools/\">Outils Google pour les "
+"webmasters</a>, <a href=\"https://siteexplorer.search.yahoo.com/\"> Yahoo! "
+"Site Explorer </a> et <a href=\"http://www.bing.com/webmaster\"> Bing "
+"Webmaster Center </a>."
+
+# @ wp-total-hacks
+#: wp-total-hacks.php:402
+msgid "Settings"
+msgstr "Paramètres"
+
+# @ wp-total-hacks
+#: wp-total-hacks.php:405
+msgid "Donate"
+msgstr "Faire un don"
+
+# @ wp-total-hacks
+#. Plugin Name of the plugin/theme
+msgid "WP Total Hacks"
+msgstr "WP Total Hacks"
+
+# @ wp-total-hacks
+#. Plugin URI of the plugin/theme
+msgid "http://wpist.me/wp/wp-total-hacks/"
+msgstr "http://wpist.me/wp/wp-total-hacks/"
+
+# @ wp-total-hacks
+#. Description of the plugin/theme
+msgid "WP Total Hacks can customize your WordPress."
+msgstr "WP Total Hacks peut customiser votre site WordPress"
+
+# @ wp-total-hacks
+#. Author of the plugin/theme
+msgid "Takayuki Miyauchi"
+msgstr "Takayuki Miyauchi"
+
+# @ wp-total-hacks
+#. Author URI of the plugin/theme
+msgid "http://wpist.me/"
+msgstr "http://wpist.me/"
+
+# @ wp-total-hacks
+#~ msgid "WordPress Plugins"
+#~ msgstr "Plugins WordPress"
+
+# @ wp-total-hacks
+#~ msgid "Make WordPress Site Load Faster"
+#~ msgstr "Faites en sorte que votre site WordPress se charge plus vite"
+
+# @ wp-total-hacks
+#~ msgid "http://wpbooster.net/"
+#~ msgstr "http://wpbooster.net/"
+
+# @ wp-total-hacks
+#~ msgid "This Plugin needs your support"
+#~ msgstr "Ce plugin a besoin de votre soutien"
+
+# @ wp-total-hacks
+#~ msgid "Please help support the continued development."
+#~ msgstr ""
+#~ "S'il vous plaît, soutenez le développement afin que celui-ci puisse "
+#~ "continuer."
+
+# @ wp-total-hacks
+#~ msgid "Contact"
+#~ msgstr "Contact"
+
+# @ wp-total-hacks
+#~ msgid "$200+ makes you an official contributor."
+#~ msgstr "Un don de 200 $ et plus, fait de vous un contributeur officiel."
+
+# @ wp-total-hacks
+#~ msgid "1.1.0"
+#~ msgstr "1.1.0"

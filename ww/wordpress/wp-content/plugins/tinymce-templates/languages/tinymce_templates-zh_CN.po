@@ -1,0 +1,105 @@
+# Copyright (C) 2015 TinyMCE Templates
+# This file is distributed under the same license as the TinyMCE Templates package.
+msgid ""
+msgstr ""
+"Project-Id-Version: TinyMCE Templates 4.3.2\n"
+"Report-Msgid-Bugs-To: http://wordpress.org/tag/tinymce-templates\n"
+"POT-Creation-Date: 2015-01-15 02:05:20+00:00\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"PO-Revision-Date: 2015-03-23 15:35+0800\n"
+"Last-Translator: \n"
+"Language-Team: Riant <rianthar@gmail.com>\n"
+"X-Generator: Poedit 1.7.5\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+"Language: zh_CN\n"
+
+#: tinymce-templates.php:203 tinymce-templates.php:206
+#: tinymce-templates.php:518 tinymce-templates.php:527
+msgid "Insert Template"
+msgstr "插入模板"
+
+#: tinymce-templates.php:255 tinymce-templates.php:273
+#: tinymce-templates.php:290
+msgid "Copy to a new template"
+msgstr "复制到一个新的模板"
+
+#: tinymce-templates.php:343 tinymce-templates.php:345
+msgid "Templates"
+msgstr "模板"
+
+#: tinymce-templates.php:346
+msgid "Add New Template"
+msgstr "新建模板"
+
+#: tinymce-templates.php:347
+msgid "Edit Template"
+msgstr "编辑模板"
+
+#: tinymce-templates.php:348
+msgid "Add New"
+msgstr "新建模板"
+
+#: tinymce-templates.php:349
+msgid "New Template"
+msgstr "新建模板"
+
+#: tinymce-templates.php:350
+msgid "View Template"
+msgstr "查看模板"
+
+#: tinymce-templates.php:351
+msgid "No templatess found."
+msgstr ""
+"没有找到模板，<a href=\"post-new.php?post_type=tinymcetemplates\">新建"
+"模板</a>"
+
+#: tinymce-templates.php:352
+msgid "No templates found in Trash."
+msgstr "回收站中没有模板"
+
+#: tinymce-templates.php:356
+msgid "Search Templates"
+msgstr "搜索模板"
+
+#: tinymce-templates.php:389
+msgid "Insert as Shortcode"
+msgstr "以短码形式插入"
+
+#: tinymce-templates.php:398
+msgid "Translators"
+msgstr "翻译者"
+
+#: tinymce-templates.php:417 tinymce-templates.php:420
+msgid "Yes"
+msgstr "是"
+
+#: tinymce-templates.php:418 tinymce-templates.php:421
+msgid "No"
+msgstr "否"
+
+#: tinymce-templates.php:526
+msgid "Note: The template will be inserted as shortcode."
+msgstr "注：该模板将会以短码（shortcode）形式插入"
+
+#. Plugin Name of the plugin/theme
+msgid "TinyMCE Templates"
+msgstr ""
+
+#. Plugin URI of the plugin/theme
+#. Author URI of the plugin/theme
+msgid "http://miya0001.github.io/tinymce-templates/"
+msgstr ""
+
+#. Description of the plugin/theme
+msgid ""
+"TinyMCE Templates plugin will enable to use HTML template on WordPress "
+"Visual Editor."
+msgstr ""
+"TinyMCE Templates 插件可以让编辑在 Wordpress 可视化编辑器中使用管理员定"
+"义的 HTML 模板。"
+
+#. Author of the plugin/theme
+msgid "Takayuki Miyauchi"
+msgstr ""

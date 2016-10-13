@@ -1,0 +1,172 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: TinyMCE Templates 1.1.1\n"
+"Report-Msgid-Bugs-To: http://wordpress.org/tag/tinymce-templates\n"
+"POT-Creation-Date: 2015-01-15 02:05:20+00:00\n"
+"PO-Revision-Date: 2013-01-12 20:51+0800\n"
+"Last-Translator: Martin Lettner <m.lettner@gmail.com>\n"
+"Language-Team: \n"
+"Language: de\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Poedit 1.5.4\n"
+
+#: tinymce-templates.php:203 tinymce-templates.php:206
+#: tinymce-templates.php:518 tinymce-templates.php:527
+#, fuzzy
+msgid "Insert Template"
+msgstr "Bagong Padron"
+
+#: tinymce-templates.php:255 tinymce-templates.php:273
+#: tinymce-templates.php:290
+msgid "Copy to a new template"
+msgstr "Kopyahin sa bagong padron"
+
+#: tinymce-templates.php:343 tinymce-templates.php:345
+msgid "Templates"
+msgstr "Mga Padron "
+
+#: tinymce-templates.php:346
+msgid "Add New Template"
+msgstr "Magdagdag ng Bagong Padron"
+
+#: tinymce-templates.php:347
+msgid "Edit Template"
+msgstr "Baguhin ang Padron"
+
+#: tinymce-templates.php:348
+msgid "Add New"
+msgstr "Magdagdag ng bago"
+
+#: tinymce-templates.php:349
+msgid "New Template"
+msgstr "Bagong Padron"
+
+#: tinymce-templates.php:350
+msgid "View Template"
+msgstr "Tingnan ang Padron"
+
+#: tinymce-templates.php:351
+msgid "No templatess found."
+msgstr "Walang natagpuang padron."
+
+#: tinymce-templates.php:352
+msgid "No templates found in Trash."
+msgstr "Walang natagpuang padron sa Basura."
+
+#: tinymce-templates.php:356
+msgid "Search Templates"
+msgstr "Hanapin ang mga Padron"
+
+#: tinymce-templates.php:389
+msgid "Insert as Shortcode"
+msgstr ""
+
+#: tinymce-templates.php:398
+msgid "Translators"
+msgstr "Tagasalin"
+
+#: tinymce-templates.php:417 tinymce-templates.php:420
+msgid "Yes"
+msgstr ""
+
+#: tinymce-templates.php:418 tinymce-templates.php:421
+msgid "No"
+msgstr ""
+
+#: tinymce-templates.php:526
+msgid "Note: The template will be inserted as shortcode."
+msgstr ""
+
+#. Plugin Name of the plugin/theme
+msgid "TinyMCE Templates"
+msgstr "TinyMCE-mga Padron"
+
+#. #-#-#-#-#  tinymce_templates.pot (TinyMCE Templates 4.3.2)  #-#-#-#-#
+#. Plugin URI of the plugin/theme
+#. #-#-#-#-#  tinymce_templates.pot (TinyMCE Templates 4.3.2)  #-#-#-#-#
+#. Author URI of the plugin/theme
+#, fuzzy
+msgid "http://miya0001.github.io/tinymce-templates/"
+msgstr "http://wpist.me/wp/tinymce-templates/"
+
+#. Description of the plugin/theme
+msgid ""
+"TinyMCE Templates plugin will enable to use HTML template on WordPress "
+"Visual Editor."
+msgstr ""
+"Ang TinyMCE Templates ay papaganahin ang padron na HTML para magamit sa "
+"WordPress Visual Editor."
+
+#. Author of the plugin/theme
+msgid "Takayuki Miyauchi"
+msgstr "Takayuki Miyauchi"
+
+#, fuzzy
+#~ msgid "Insert template"
+#~ msgstr "Bagong Padron"
+
+#, fuzzy
+#~ msgid "No templates defined"
+#~ msgstr "Walang natagpuang padron."
+
+#~ msgid "Shared"
+#~ msgstr "Naibahagi na"
+
+#~ msgid "Share"
+#~ msgstr "Magbahagi"
+
+#~ msgid "Private"
+#~ msgstr "Pribado"
+
+#~ msgid "http://wpist.me/"
+#~ msgstr "http://wpist.me/"
+
+#~ msgid "Donate"
+#~ msgstr "Magbigay"
+
+#~ msgid ""
+#~ "It is hard to continue development and support for WordPress plugins "
+#~ "without contributions from users like you."
+#~ msgstr ""
+#~ "Mahirap magpatuloy sa pagbuo at suporta para sa WordPress plugins nang "
+#~ "walang kontribusyon mula sa mga gumagamit tulay mo."
+
+#~ msgid "Templates permanently deleted."
+#~ msgstr "Vorlagen dauerhaft entfernt."
+
+#~ msgid "Name"
+#~ msgstr "Name"
+
+#~ msgid "Description"
+#~ msgstr "Beschreibung"
+
+#~ msgid "Author"
+#~ msgstr "Autor"
+
+#~ msgid "Delete checked items"
+#~ msgstr "Ausgewählte Elemente entfernen"
+
+#~ msgid "Template saved."
+#~ msgstr "Vorlagen gespeichert."
+
+#~ msgid "All entry must not be blank."
+#~ msgstr "Bitte füllen Sie alle Felder aus."
+
+#~ msgid "Template Name"
+#~ msgstr "Name der Vorlage"
+
+#~ msgid "Template Description"
+#~ msgstr "Beschreibung der Vorlage"
+
+#~ msgid "Template Contents"
+#~ msgstr "Inhalt der Vorlage"
+
+#~ msgid "Edit"
+#~ msgstr "Bearbeiten"

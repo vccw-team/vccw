@@ -1,0 +1,392 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: http://wordpress.org/tag/wp-total-hacks\n"
+"POT-Creation-Date: 2014-09-06 03:35:26+00:00\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: includes/admin.php:260 includes/form/appearance.php:11
+#: includes/form/appearance.php:35 includes/form/site.php:9
+#: includes/form/site.php:19
+msgid "Select File"
+msgstr "ファイルを選択"
+
+#: includes/admin.php:390
+msgid "Saved."
+msgstr ""
+
+#: includes/admin.php:397
+msgid "Save Changes"
+msgstr ""
+
+#: includes/admin.php:442
+msgid "Deactivate"
+msgstr ""
+
+#: includes/admin.php:444 includes/admin.php:446
+msgid "Activate"
+msgstr ""
+
+#: includes/form/appearance.php:3
+msgid "Appearance in admin"
+msgstr "外観"
+
+#: includes/form/appearance.php:6
+msgid "Change admin header logo"
+msgstr "管理画面のヘッダーのロゴを変更"
+
+#: includes/form/appearance.php:8
+msgid "Upload %s x %s pixel image for admin header logo."
+msgstr "%s x %s ピクセルの画像をアップロードしてください。"
+
+#: includes/form/appearance.php:16
+msgid "Change admin footer text"
+msgstr "管理画面フッターを変更"
+
+#: includes/form/appearance.php:18
+msgid "You can edit admin footer text. Line breaks will remove."
+msgstr "管理画面フッターのテキストを変更できます。改行は無視されます。"
+
+#: includes/form/appearance.php:29
+msgid "Change login logo"
+msgstr "ログイン画面のロゴを変更"
+
+#: includes/form/appearance.php:31
+msgid ""
+"You can customize logo, URL and Title. The logo image size is recommended "
+"310 x 70 pixel."
+msgstr ""
+"ログイン画面のロゴ、リンク先URL、リンクタイトルを変更できます。ロゴ画像のサイ"
+"ズは、310 x 70 ピクセルをおすすめします。"
+
+#: includes/form/appearance.php:34
+msgid "Logo"
+msgstr "ロゴ"
+
+#: includes/form/appearance.php:36
+msgid "URL"
+msgstr "URL"
+
+#: includes/form/appearance.php:38
+msgid "Title"
+msgstr "タイトル"
+
+#: includes/form/footer.php:2
+msgid "Translators"
+msgstr "翻訳者"
+
+#: includes/form/footer.php:7
+msgid "Contributors"
+msgstr "開発者及び協力者"
+
+#: includes/form/other.php:2
+msgid "Other"
+msgstr "その他"
+
+#: includes/form/other.php:5
+msgid "Deactivate Dashboard Widgets"
+msgstr "ダッシュボードウィジェットの無効化"
+
+#: includes/form/other.php:7 includes/form/post.php:8
+#: includes/form/post.php:27
+msgid "Choose the items you want to remove."
+msgstr "削除したい項目をクリックしてください。"
+
+#: includes/form/other.php:24
+msgid "Enable shortcode in the text widget"
+msgstr "テキストウィジェットでショートコードを使用可能にする"
+
+#: includes/form/other.php:26
+msgid ""
+"By default, the Text widget only support text and HTML. If you activate it, "
+"shortcode would be supported."
+msgstr ""
+"デフォルトでは、テキストウィジェットはテキストとHTMLしかサポートしていませんが、これを有効化するとショートコードが使用できるようになります。"
+
+
+#: includes/form/other.php:32
+msgid "Enable oEmbed in the text widget"
+msgstr "テキストウィジェットでoEmbedを使用可能にする"
+
+#: includes/form/other.php:34
+msgid ""
+"By default, the Text widget only support text and HTML. If you activate it, "
+"oEmbed would be supported."
+msgstr ""
+"デフォルトでは、テキストウィジェットはテキストとHTMLしかサポートしていませんが、これを有効化するとoEmbedが使用できるようになります。"
+
+#: includes/form/other.php:40
+msgid "Add role \"Webmaster\""
+msgstr "\"Webmaster\" 権限を追加"
+
+#: includes/form/other.php:42
+msgid ""
+"This role has the capabilities of an \"Editor\", but can also edit theme "
+"options."
+msgstr ""
+"\"Webmaster\" は、\"Editor\" 権限と \"edit_theme_options\" が可能です。"
+
+#: includes/form/other.php:48
+msgid "Change default email address"
+msgstr "デフォルトのメールアドレスを変更"
+
+#: includes/form/other.php:50
+msgid ""
+"Change the email address and sender name used by automatic email "
+"notifications."
+msgstr "デフォルトのメールアドレスと送信者名を変更します。"
+
+#: includes/form/other.php:52
+msgid "Name"
+msgstr "名前"
+
+#: includes/form/other.php:54
+msgid "Email"
+msgstr "Email"
+
+#: includes/form/other.php:61
+msgid "Delete default contact methods"
+msgstr "デフォルトの連絡先情報を削除"
+
+#: includes/form/other.php:63
+msgid "Delete default contact methods from user profile."
+msgstr "ユーザーの編集からデフォルトの連絡先情報を削除します。"
+
+#: includes/form/other.php:80
+msgid "Remove Update Notification"
+msgstr "アップデート通知を停止"
+
+#: includes/form/other.php:82
+msgid "Remove Update Notification for all users except Admin User."
+msgstr "アップデート通知を管理者以外の全てのユーザーに対して停止します。"
+
+#: includes/form/post.php:3
+msgid "Posts &amp; Pages"
+msgstr "投稿 & ページ"
+
+#: includes/form/post.php:6
+msgid "Remove meta boxes for Posts"
+msgstr "投稿のメタボックスを削除"
+
+#: includes/form/post.php:25
+msgid "Remove meta boxes for Pages"
+msgstr "ページのメタボックスを削除"
+
+#: includes/form/post.php:44
+msgid "Revision Control"
+msgstr "リビジョンコントロール"
+
+#: includes/form/post.php:46
+msgid "Limit the number of revisions allowed."
+msgstr "保存するリビジョン数を選択してください。"
+
+#: includes/form/post.php:48
+msgid "Store All"
+msgstr "全て保存"
+
+#: includes/form/post.php:64
+msgid "Stop self-pingbacks"
+msgstr "セルフピンバックを停止"
+
+#: includes/form/post.php:66
+msgid ""
+"Stop sending pingbacks from your own site to your own site when writing "
+"posts."
+msgstr "あなたのサイトからあなたのサイトへのピンバックを停止する。"
+
+#: includes/form/post.php:72
+msgid "Add \"Excerpt\" support for Pages."
+msgstr "ページに\"抜粋\"を追加"
+
+#: includes/form/post.php:74
+msgid "Allows you to add excerpt text to pages."
+msgstr "ページに\"抜粋\"を追加できます。"
+
+#: includes/form/post.php:80
+msgid "Allow you to create child page for \"draft\"."
+msgstr "下書きページへの子ページの作成を許可"
+
+#: includes/form/post.php:82
+msgid "You can create child page for non-publish Page."
+msgstr "公開されていないページの子ページを作成することができます。"
+
+#: includes/form/site.php:2
+msgid "Site Settings"
+msgstr "サイト設定"
+
+#: includes/form/site.php:5
+msgid "Add a favicon"
+msgstr "Faviconを追加"
+
+#: includes/form/site.php:7
+msgid "Please upload .ico image."
+msgstr ".ico 画像をアップロードしてください。"
+
+#: includes/form/site.php:10
+msgid "Use this favicon with administration screens."
+msgstr "faviconを管理画面でも使用する。"
+
+#: includes/form/site.php:15
+msgid "Add a apple-touch-icon"
+msgstr "apple-touch-icon を追加"
+
+#: includes/form/site.php:17
+msgid "Please upload .png image."
+msgstr ".png 画像をアップロードしてください。"
+
+#: includes/form/site.php:31
+msgid "Remove \"wlwmanifest\" and \"xmlrpc\" from meta."
+msgstr "\"wlwmanifest\" と \"xmlrpc\" の自動削除"
+
+#: includes/form/site.php:33
+msgid ""
+"If you don't use \"<a href=\"%s\">Remote Publishing</a>\", remove "
+"unnecessary tags from head."
+msgstr ""
+"もし、\"<a href=\"%s\">リモート投稿</a>\" を使用しないなら、不必要なタグを "
+"head から取り除きます。"
+
+#: includes/form/site.php:39
+msgid "Remove adjacent posts rel links from head on Pages"
+msgstr "前後の投稿へのリンクをページで無効化"
+
+#: includes/form/site.php:41
+msgid ""
+"Remove adjacent posts rel links from head on Pages.<br /><span class=\"ex"
+"\">e.g. &lt;link rel=\"next\" ...&gt; &lt;link rel=\"prev\" ...&gt;</span>"
+msgstr ""
+"前後の投稿へのリンクをページで無効にする。<br /><span class=\"ex\">e.g. &lt;"
+"link rel=\"next\" ...&gt; &lt;link rel=\"prev\" ...&gt;</span>"
+
+#: includes/form/site.php:47
+msgid "Remove version number from head"
+msgstr "バージョン情報を head から削除"
+
+#: includes/form/site.php:49
+msgid ""
+"Remove generator tag from head. <span class=\"ex\">e.g. &lt;meta name="
+"\"generator\" content=\"WordPress x.x.x\" /&gt;</span>"
+msgstr ""
+"generator タグを head から削除します。<span class=\"ex\">e.g. &lt;meta name="
+"\"generator\" content=\"WordPress x.x.x\" /&gt;</span>"
+
+#: includes/form/site.php:55
+msgid "Remove #more anchor"
+msgstr "#more アンカーの削除"
+
+#: includes/form/site.php:57
+msgid "Remove #more-xxx anchor from more links."
+msgstr "more リンクから、#more-xxx アンカーを削除します。"
+
+#: includes/form/site.php:63
+msgid "Remove \"[...]\" from excerpt"
+msgstr "抜粋から、[...] を削除"
+
+#: includes/form/site.php:65
+msgid "Remove \"[...]\" from output of the_excerpt()."
+msgstr "the_excerpt() の出力結果から、[...] を削除します。"
+
+#: includes/form/site.php:71
+msgid "Block all pingbacks"
+msgstr "すべてのピンバックを拒否"
+
+#: includes/form/site.php:73
+msgid "Block all pingbacks."
+msgstr "すべてのピンバックを拒否"
+
+#: includes/form/site.php:79
+msgid "Install Google Analytics"
+msgstr "Google Analytics をインストール"
+
+#: includes/form/site.php:81
+msgid "Add Google analytics code."
+msgstr "Google Analytics コードを入力してください。"
+
+#: includes/form/site.php:88
+msgid "Exclude user logged in."
+msgstr "ログインユーザーには無効にする。"
+
+#: includes/form/site.php:93
+msgid "Webmaster Tools Verification"
+msgstr "ウェブマスターツールの認証"
+
+#: includes/form/site.php:95
+msgid ""
+"Enter your meta key \"content\" value to verify your blog with <a href="
+"\"https://www.google.com/webmasters/tools/\">Google Webmaster Tools</a> and "
+"<a href=\"http://www.bing.com/webmaster\">Bing Webmaster Center</a>."
+msgstr ""
+"認証用の meta \"content\" の値を入力してください。 <a href=\"https://www."
+"google.com/webmasters/tools/\">Google Webmaster Tools</a>, <a href=\"https://"
+"siteexplorer.search.yahoo.com/\">Yahoo! Site Explorer</a>, and <a href="
+"\"http://www.bing.com/webmaster\">Bing Webmaster Center</a>."
+
+#: wp-total-hacks.php:402
+msgid "Settings"
+msgstr "設定"
+
+#: wp-total-hacks.php:405
+msgid "Donate"
+msgstr "寄付"
+
+#. Plugin Name of the plugin/theme
+msgid "WP Total Hacks"
+msgstr "WP Total Hacks"
+
+#. Plugin URI of the plugin/theme
+msgid "http://wpist.me/wp/wp-total-hacks/"
+msgstr "http://firegoby.theta.ne.jp/wp/wp-total-hacks"
+
+#. Description of the plugin/theme
+msgid "WP Total Hacks can customize your WordPress."
+msgstr "20項目以上のカスタマイズができるWordPressプラグイン"
+
+#. Author of the plugin/theme
+msgid "Takayuki Miyauchi"
+msgstr "Takayuki Miyauchi"
+
+#. Author URI of the plugin/theme
+msgid "http://wpist.me/"
+msgstr "http://firegoby.theta.ne.jp/"
+
+#~ msgid "WordPress Plugins"
+#~ msgstr "WordPress プラグイン"
+
+#~ msgid "Make WordPress Site Load Faster"
+#~ msgstr "WordPressを高速化"
+
+#~ msgid "http://wpbooster.net/"
+#~ msgstr "http://ja.wpbooster.net/"
+
+#~ msgid "This Plugin needs your support"
+#~ msgstr "あなたのサポートが必要です"
+
+#~ msgid "Please help support the continued development."
+#~ msgstr "開発を継続するための支援をお願いします。"
+
+#~ msgid "Contact"
+#~ msgstr "連絡先"
+
+#~ msgid "$200+ makes you an official contributor."
+#~ msgstr "200ドル以上の寄付で公式な協力者としてご紹介させていただきます。"
+
+#~ msgid "Disable Auto Save"
+#~ msgstr "自動保存を無効"
+
+#~ msgid "Remove attachment link from media uploader."
+#~ msgstr "メディアアプローダーから添付ファイルのページへのリンクを削除"
+
+#~ msgid "Allows you to remove link for attachment page from media uploader."
+#~ msgstr "メディアアプローダーから添付ファイルのページへのリンクを削除"

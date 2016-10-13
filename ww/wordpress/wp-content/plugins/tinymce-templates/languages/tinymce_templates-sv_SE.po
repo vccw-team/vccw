@@ -1,0 +1,155 @@
+# This file is distributed under the same license as the PACKAGE package.
+# Tobias Bergius <bergius.tobias@gmail.com>, 2011.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: http://wordpress.org/tag/tinymce-templates\n"
+"POT-Creation-Date: 2015-01-15 02:05:20+00:00\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: Tobias Bergius <bergius.tobias@gmail.com>\n"
+"Language: Swedish\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: tinymce-templates.php:203 tinymce-templates.php:206
+#: tinymce-templates.php:518 tinymce-templates.php:527
+#, fuzzy
+msgid "Insert Template"
+msgstr "Skapa ny mall"
+
+#: tinymce-templates.php:255 tinymce-templates.php:273
+#: tinymce-templates.php:290
+msgid "Copy to a new template"
+msgstr ""
+
+#: tinymce-templates.php:343 tinymce-templates.php:345
+msgid "Templates"
+msgstr "Mallar"
+
+#: tinymce-templates.php:346
+#, fuzzy
+msgid "Add New Template"
+msgstr "Skapa ny mall"
+
+#: tinymce-templates.php:347
+#, fuzzy
+msgid "Edit Template"
+msgstr "Redigera mallar"
+
+#: tinymce-templates.php:348
+msgid "Add New"
+msgstr "Skapa ny"
+
+#: tinymce-templates.php:349
+#, fuzzy
+msgid "New Template"
+msgstr "Skapa ny mall"
+
+#: tinymce-templates.php:350
+#, fuzzy
+msgid "View Template"
+msgstr "Spara mall"
+
+#: tinymce-templates.php:351
+msgid "No templatess found."
+msgstr ""
+
+#: tinymce-templates.php:352
+msgid "No templates found in Trash."
+msgstr ""
+
+#: tinymce-templates.php:356
+#, fuzzy
+msgid "Search Templates"
+msgstr "Spara mall"
+
+#: tinymce-templates.php:389
+msgid "Insert as Shortcode"
+msgstr ""
+
+#: tinymce-templates.php:398
+msgid "Translators"
+msgstr ""
+
+#: tinymce-templates.php:417 tinymce-templates.php:420
+msgid "Yes"
+msgstr ""
+
+#: tinymce-templates.php:418 tinymce-templates.php:421
+msgid "No"
+msgstr ""
+
+#: tinymce-templates.php:526
+msgid "Note: The template will be inserted as shortcode."
+msgstr ""
+
+#. Plugin Name of the plugin/theme
+#, fuzzy
+msgid "TinyMCE Templates"
+msgstr "tinyMCE-mallar"
+
+#. #-#-#-#-#  tinymce_templates.pot (TinyMCE Templates 4.3.2)  #-#-#-#-#
+#. Plugin URI of the plugin/theme
+#. #-#-#-#-#  tinymce_templates.pot (TinyMCE Templates 4.3.2)  #-#-#-#-#
+#. Author URI of the plugin/theme
+msgid "http://miya0001.github.io/tinymce-templates/"
+msgstr ""
+
+#. Description of the plugin/theme
+msgid ""
+"TinyMCE Templates plugin will enable to use HTML template on WordPress "
+"Visual Editor."
+msgstr ""
+
+#. Author of the plugin/theme
+msgid "Takayuki Miyauchi"
+msgstr ""
+
+#, fuzzy
+#~ msgid "Insert template"
+#~ msgstr "Skapa ny mall"
+
+#~ msgid "Shared"
+#~ msgstr "Delad"
+
+#~ msgid "Share"
+#~ msgstr "Dela"
+
+#~ msgid "Private"
+#~ msgstr "Privat"
+
+#~ msgid "Templates permanently deleted."
+#~ msgstr "Mallarna permanent borttagna."
+
+#~ msgid "Name"
+#~ msgstr "Namn"
+
+#~ msgid "Description"
+#~ msgstr "Beskrivning"
+
+#~ msgid "Author"
+#~ msgstr "Författare"
+
+#~ msgid "Delete checked items"
+#~ msgstr "Ta bort markerade"
+
+#~ msgid "Template saved."
+#~ msgstr "Mall sparad."
+
+#~ msgid "All entry must not be blank."
+#~ msgstr "Alla fält måste fyllas i."
+
+#~ msgid "Template Name"
+#~ msgstr "Namn"
+
+#~ msgid "Template Description"
+#~ msgstr "Beskrivning"
+
+#~ msgid "Template Contents"
+#~ msgstr "Innehåll"
+
+#~ msgid "Edit"
+#~ msgstr "Redigera"

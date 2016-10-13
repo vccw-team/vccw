@@ -1,0 +1,388 @@
+# Copyright (C) 2013 WP Total Hacks
+# This file is distributed under the same license as the WP Total Hacks package.
+msgid ""
+msgstr ""
+"Project-Id-Version: WP Total Hacks 1.2.2\n"
+"Report-Msgid-Bugs-To: http://wordpress.org/tag/wp-total-hacks\n"
+"POT-Creation-Date: 2014-09-06 03:35:26+00:00\n"
+"PO-Revision-Date: 2014-01-18 21:11+0700\n"
+"Last-Translator: \n"
+"Language-Team: OSS localization blog | http://bizover.net <contact@bizover."
+"net>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Generator: Poedit 1.5.7\n"
+
+#: includes/admin.php:260 includes/form/appearance.php:11
+#: includes/form/appearance.php:35 includes/form/site.php:9
+#: includes/form/site.php:19
+msgid "Select File"
+msgstr "Chọn tập tin"
+
+#: includes/admin.php:390
+msgid "Saved."
+msgstr "Lưu."
+
+#: includes/admin.php:397
+msgid "Save Changes"
+msgstr "Lưu thay đổi"
+
+#: includes/admin.php:442
+msgid "Deactivate"
+msgstr "Tắt"
+
+#: includes/admin.php:444 includes/admin.php:446
+msgid "Activate"
+msgstr "Kích hoạt"
+
+#: includes/form/appearance.php:3
+msgid "Appearance in admin"
+msgstr "Xuất hiện trong quản trị"
+
+#: includes/form/appearance.php:6
+msgid "Change admin header logo"
+msgstr "Thay đổi admin tiêu đề biểu tượng"
+
+#: includes/form/appearance.php:8
+msgid "Upload %s x %s pixel image for admin header logo."
+msgstr "Tải lên %s x %s điểm ảnh hình ảnh cho admin tiêu đề biểu tượng."
+
+#: includes/form/appearance.php:16
+msgid "Change admin footer text"
+msgstr "Thay đổi admin chân trang văn bản"
+
+#: includes/form/appearance.php:18
+msgid "You can edit admin footer text. Line breaks will remove."
+msgstr "Bạn có thể chỉnh sửa admin chân trang văn bản. Ngắt dòng sẽ loại bỏ."
+
+#: includes/form/appearance.php:29
+msgid "Change login logo"
+msgstr "Thay đổi đăng nhập biểu tượng"
+
+#: includes/form/appearance.php:31
+msgid ""
+"You can customize logo, URL and Title. The logo image size is recommended "
+"310 x 70 pixel."
+msgstr ""
+"Bạn có thể tùy chỉnh biểu tượng, URL và tiêu đề. Kích thước hình ảnh logo "
+"được khuyến khích 310 x 70 điểm ảnh."
+
+#: includes/form/appearance.php:34
+msgid "Logo"
+msgstr "Biểu tượng"
+
+#: includes/form/appearance.php:36
+msgid "URL"
+msgstr "URL"
+
+#: includes/form/appearance.php:38
+msgid "Title"
+msgstr "Tiêu đề"
+
+#: includes/form/footer.php:2
+msgid "Translators"
+msgstr "Phiên dịch"
+
+#: includes/form/footer.php:7
+msgid "Contributors"
+msgstr "Những người đóng góp"
+
+#: includes/form/other.php:2
+msgid "Other"
+msgstr "Khác"
+
+#: includes/form/other.php:5
+msgid "Deactivate Dashboard Widgets"
+msgstr "Tắt bảng điều khiển Widget"
+
+#: includes/form/other.php:7 includes/form/post.php:8
+#: includes/form/post.php:27
+msgid "Choose the items you want to remove."
+msgstr "Chọn các mục bạn muốn loại bỏ."
+
+#: includes/form/other.php:24
+msgid "Enable shortcode in the text widget"
+msgstr ""
+
+#: includes/form/other.php:26
+msgid ""
+"By default, the Text widget only support text and HTML. If you activate it, "
+"shortcode would be supported."
+msgstr ""
+
+#: includes/form/other.php:32
+msgid "Enable oEmbed in the text widget"
+msgstr ""
+
+#: includes/form/other.php:34
+msgid ""
+"By default, the Text widget only support text and HTML. If you activate it, "
+"oEmbed would be supported."
+msgstr ""
+
+#: includes/form/other.php:40
+msgid "Add role \"Webmaster\""
+msgstr "Thêm vai trò \"Webmaster\""
+
+#: includes/form/other.php:42
+msgid ""
+"This role has the capabilities of an \"Editor\", but can also edit theme "
+"options."
+msgstr ""
+"Vai trò này có khả năng của một \"Editor\", nhưng cũng có thể chỉnh sửa tùy "
+"chọn chủ đề."
+
+#: includes/form/other.php:48
+msgid "Change default email address"
+msgstr "Thay đổi địa chỉ thư điện tử mặc định"
+
+#: includes/form/other.php:50
+msgid ""
+"Change the email address and sender name used by automatic email "
+"notifications."
+msgstr ""
+"Thay đổi email địa chỉ và gửi tên được sử dụng bởi thông báo email tự động."
+
+#: includes/form/other.php:52
+msgid "Name"
+msgstr "Tên"
+
+#: includes/form/other.php:54
+msgid "Email"
+msgstr "Thư điện tử"
+
+#: includes/form/other.php:61
+msgid "Delete default contact methods"
+msgstr "Xóa phương pháp liên lạc mặc định"
+
+#: includes/form/other.php:63
+msgid "Delete default contact methods from user profile."
+msgstr "Xóa phương pháp liên lạc mặc định từ hồ sơ người dùng."
+
+#: includes/form/other.php:80
+msgid "Remove Update Notification"
+msgstr "Loại bỏ bản cập nhật thông báo"
+
+#: includes/form/other.php:82
+msgid "Remove Update Notification for all users except Admin User."
+msgstr ""
+"Loại bỏ bản cập nhật thông báo cho tất cả người dùng ngoại trừ người dùng "
+"quản trị."
+
+#: includes/form/post.php:3
+msgid "Posts &amp; Pages"
+msgstr "Bài viết &amp; Trang"
+
+#: includes/form/post.php:6
+msgid "Remove meta boxes for Posts"
+msgstr "Loại bỏ meta hộp cho bài viết"
+
+#: includes/form/post.php:25
+msgid "Remove meta boxes for Pages"
+msgstr "Loại bỏ hộp meta cho các trang web"
+
+#: includes/form/post.php:44
+msgid "Revision Control"
+msgstr "Revision kiểm soát"
+
+#: includes/form/post.php:46
+msgid "Limit the number of revisions allowed."
+msgstr "Giới hạn số lượng các sửa đổi được cho phép."
+
+#: includes/form/post.php:48
+msgid "Store All"
+msgstr "Lưu trữ tất cả"
+
+#: includes/form/post.php:64
+msgid "Stop self-pingbacks"
+msgstr "Ngừng tự-pingbacks"
+
+#: includes/form/post.php:66
+msgid ""
+"Stop sending pingbacks from your own site to your own site when writing "
+"posts."
+msgstr ""
+"Ngừng gửi pingbacks từ trang web của bạn đến trang web của riêng bạn khi "
+"viết bài viết."
+
+#: includes/form/post.php:72
+msgid "Add \"Excerpt\" support for Pages."
+msgstr "Thêm \"Excerpt\" hỗ trợ cho các trang."
+
+#: includes/form/post.php:74
+msgid "Allows you to add excerpt text to pages."
+msgstr "Cho phép bạn thêm văn bản trích dẫn trang."
+
+#: includes/form/post.php:80
+msgid "Allow you to create child page for \"draft\"."
+msgstr "Cho phép bạn tạo trang trẻ em cho \"draft\"."
+
+#: includes/form/post.php:82
+msgid "You can create child page for non-publish Page."
+msgstr "Bạn có thể tạo trang trẻ em cho non-publish trang."
+
+#: includes/form/site.php:2
+msgid "Site Settings"
+msgstr "Thiết lập trang web"
+
+#: includes/form/site.php:5
+msgid "Add a favicon"
+msgstr "Thêm một favicon"
+
+#: includes/form/site.php:7
+msgid "Please upload .ico image."
+msgstr "Xin vui lòng tải lên hình ảnh .ico."
+
+#: includes/form/site.php:10
+msgid "Use this favicon with administration screens."
+msgstr "Sử dụng favicon này với màn hình chính quyền."
+
+#: includes/form/site.php:15
+msgid "Add a apple-touch-icon"
+msgstr "Thêm một táo-liên lạc-biểu tượng"
+
+#: includes/form/site.php:17
+msgid "Please upload .png image."
+msgstr "Xin vui lòng tải lên hình ảnh .png."
+
+#: includes/form/site.php:31
+msgid "Remove \"wlwmanifest\" and \"xmlrpc\" from meta."
+msgstr "Loại bỏ \"wlwmanifest\" và \"xmlrpc\" từ meta."
+
+#: includes/form/site.php:33
+msgid ""
+"If you don't use \"<a href=\"%s\">Remote Publishing</a>\", remove "
+"unnecessary tags from head."
+msgstr ""
+"Nếu bạn không sử dụng \"<a href=\"%s\">Remote Publishing</a>\", loại bỏ "
+"không cần thiết khoá từ đầu."
+
+#: includes/form/site.php:39
+msgid "Remove adjacent posts rel links from head on Pages"
+msgstr "Loại bỏ các bài viết liền kề rel liên kết từ đầu trên các trang"
+
+#: includes/form/site.php:41
+msgid ""
+"Remove adjacent posts rel links from head on Pages.<br /><span class=\"ex"
+"\">e.g. &lt;link rel=\"next\" ...&gt; &lt;link rel=\"prev\" ...&gt;</span>"
+msgstr ""
+"Xoá bên cạnh bài viết rel liên kết từ đầu trên trang. <br /><span class=\"ex"
+"\">e.g. &lt;link rel=\"next\" ...&gt; &lt;link rel=\"prev\" ...&gt;</span>"
+
+#: includes/form/site.php:47
+msgid "Remove version number from head"
+msgstr "Loại bỏ số phiên bản từ đầu"
+
+#: includes/form/site.php:49
+msgid ""
+"Remove generator tag from head. <span class=\"ex\">e.g. &lt;meta name="
+"\"generator\" content=\"WordPress x.x.x\" /&gt;</span>"
+msgstr ""
+"Loại bỏ máy phát điện thẻ từ đầu. <span class=\"ex\">e.g. &lt;meta name="
+"\"generator\" content=\"WordPress x.x.x\" /&gt;</span>"
+
+#: includes/form/site.php:55
+msgid "Remove #more anchor"
+msgstr "Loại bỏ #more neo"
+
+#: includes/form/site.php:57
+msgid "Remove #more-xxx anchor from more links."
+msgstr "Loại bỏ các #more-xxx neo từ thêm liên kết."
+
+#: includes/form/site.php:63
+msgid "Remove \"[...]\" from excerpt"
+msgstr "Loại bỏ \"[...]\" từ đoạn trích"
+
+#: includes/form/site.php:65
+msgid "Remove \"[...]\" from output of the_excerpt()."
+msgstr "Loại bỏ \"[...]\" từ đầu ra của the_excerpt()."
+
+#: includes/form/site.php:71
+#, fuzzy
+msgid "Block all pingbacks"
+msgstr "Ngừng tự-pingbacks"
+
+#: includes/form/site.php:73
+#, fuzzy
+msgid "Block all pingbacks."
+msgstr "Ngừng tự-pingbacks"
+
+#: includes/form/site.php:79
+msgid "Install Google Analytics"
+msgstr "Cài đặt Google Analytics"
+
+#: includes/form/site.php:81
+msgid "Add Google analytics code."
+msgstr "Thêm Google analytics mã."
+
+#: includes/form/site.php:88
+msgid "Exclude user logged in."
+msgstr "Loại trừ người dùng đăng nhập."
+
+#: includes/form/site.php:93
+msgid "Webmaster Tools Verification"
+msgstr "Quản trị trang web công cụ xác minh"
+
+#: includes/form/site.php:95
+#, fuzzy
+msgid ""
+"Enter your meta key \"content\" value to verify your blog with <a href="
+"\"https://www.google.com/webmasters/tools/\">Google Webmaster Tools</a> and "
+"<a href=\"http://www.bing.com/webmaster\">Bing Webmaster Center</a>."
+msgstr ""
+"Nhập chìa khóa meta của bạn \"content\" giá trị để xác minh blog của bạn với "
+"<a href=\"https://www.google.com/webmasters/tools/\">Google Webmaster Tools</"
+"a>, <a href=\"https://siteexplorer.search.yahoo.com/\">Yahoo! Site Explorer</"
+"a>, and <a href=\"http://www.bing.com/webmaster\">Bing Webmaster Center</a>."
+
+#: wp-total-hacks.php:402
+msgid "Settings"
+msgstr "Cài đặt"
+
+#: wp-total-hacks.php:405
+msgid "Donate"
+msgstr "Quyên góp"
+
+#. Plugin Name of the plugin/theme
+msgid "WP Total Hacks"
+msgstr "Tổng số WP Hacks"
+
+#. Plugin URI of the plugin/theme
+msgid "http://wpist.me/wp/wp-total-hacks/"
+msgstr "http://wpist.me/wp/wp-Total-Hacks/"
+
+#. Description of the plugin/theme
+msgid "WP Total Hacks can customize your WordPress."
+msgstr "WP tất cả Hacks có thể tùy chỉnh WordPress của bạn."
+
+#. Author of the plugin/theme
+msgid "Takayuki Miyauchi"
+msgstr "Takayuki Miyauchi"
+
+#. Author URI of the plugin/theme
+msgid "http://wpist.me/"
+msgstr "http://wpist.me/"
+
+#~ msgid "WordPress Plugins"
+#~ msgstr "WordPress Plugins"
+
+#~ msgid "Make WordPress Site Load Faster"
+#~ msgstr "Làm cho WordPress trang web tải nhanh hơn"
+
+#~ msgid "http://wpbooster.net/"
+#~ msgstr "http://wpbooster.net/"
+
+#~ msgid "This Plugin needs your support"
+#~ msgstr "Plugin này cần hỗ trợ của bạn"
+
+#~ msgid "Please help support the continued development."
+#~ msgstr "Xin vui lòng giúp hỗ trợ việc phát triển."
+
+#~ msgid "Contact"
+#~ msgstr "Liên hệ"
+
+#~ msgid "$200+ makes you an official contributor."
+#~ msgstr "$200 + làm cho bạn một đóng góp chính thức."

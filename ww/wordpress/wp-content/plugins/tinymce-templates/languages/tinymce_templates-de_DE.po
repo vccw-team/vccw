@@ -1,0 +1,99 @@
+# Copyright (C) 2015 TinyMCE Templates
+# This file is distributed under the same license as the TinyMCE Templates package.
+msgid ""
+msgstr ""
+"Project-Id-Version: TinyMCE Templates 4.3.2\n"
+"Report-Msgid-Bugs-To: http://wordpress.org/tag/tinymce-templates\n"
+"POT-Creation-Date: 2015-01-15 02:05:20+00:00\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"PO-Revision-Date: 2015-05-05 17:50+0100\n"
+"Last-Translator: Nebojsa Simic\n"
+"Language-Team: \n"
+"Language: de_AT\n"
+"X-Generator: Poedit 1.7.5\n"
+
+#: tinymce-templates.php:203 tinymce-templates.php:206 tinymce-templates.php:518
+#: tinymce-templates.php:527
+msgid "Insert Template"
+msgstr "Vorlage hinzufügen"
+
+#: tinymce-templates.php:255 tinymce-templates.php:273 tinymce-templates.php:290
+msgid "Copy to a new template"
+msgstr "In eine neue Vorlage kopieren"
+
+#: tinymce-templates.php:343 tinymce-templates.php:345
+msgid "Templates"
+msgstr "Vorlagen"
+
+#: tinymce-templates.php:346
+msgid "Add New Template"
+msgstr "Eine neue Vorlage hinzufügen"
+
+#: tinymce-templates.php:347
+msgid "Edit Template"
+msgstr "Vorlage bearbeiten"
+
+#: tinymce-templates.php:348
+msgid "Add New"
+msgstr "Hinzufügen"
+
+#: tinymce-templates.php:349
+msgid "New Template"
+msgstr "Neue Vorlage"
+
+#: tinymce-templates.php:350
+msgid "View Template"
+msgstr "Vorlagen ansehen"
+
+#: tinymce-templates.php:351
+msgid "No templatess found."
+msgstr "Keine Vorlagen"
+
+#: tinymce-templates.php:352
+msgid "No templates found in Trash."
+msgstr "Keine Vorlagen im Papierkorb"
+
+#: tinymce-templates.php:356
+msgid "Search Templates"
+msgstr "Vorlagen suchen"
+
+#: tinymce-templates.php:389
+msgid "Insert as Shortcode"
+msgstr "Als Shortcode hinzufügen"
+
+#: tinymce-templates.php:398
+msgid "Translators"
+msgstr "Übersetzer"
+
+#: tinymce-templates.php:417 tinymce-templates.php:420
+msgid "Yes"
+msgstr "Ja"
+
+#: tinymce-templates.php:418 tinymce-templates.php:421
+msgid "No"
+msgstr "Nein"
+
+#: tinymce-templates.php:526
+msgid "Note: The template will be inserted as shortcode."
+msgstr "Diese Vorlage wird als Shortcode hinzugefügt"
+
+#. Plugin Name of the plugin/theme
+msgid "TinyMCE Templates"
+msgstr "TinyMCE Vorlagen"
+
+#. Plugin URI of the plugin/theme
+#. Author URI of the plugin/theme
+msgid "http://miya0001.github.io/tinymce-templates/"
+msgstr ""
+
+#. Description of the plugin/theme
+msgid ""
+"TinyMCE Templates plugin will enable to use HTML template on WordPress Visual "
+"Editor."
+msgstr ""
+
+#. Author of the plugin/theme
+msgid "Takayuki Miyauchi"
+msgstr ""

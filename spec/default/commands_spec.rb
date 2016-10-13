@@ -29,9 +29,7 @@ commands = [
   "phpmd --version",
   "wordmove help",
   "wp help",
-  "phpcpd --version",
-  "phploc --version",
-  "phing -h",
+  "wp help scaffold movefile",
   "mailcatcher --version",
   "bundle help"
 ]

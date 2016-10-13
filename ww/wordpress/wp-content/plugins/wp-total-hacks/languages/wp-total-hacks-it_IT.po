@@ -1,0 +1,385 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: http://wordpress.org/tag/wp-total-hacks\n"
+"POT-Creation-Date: 2014-09-06 03:35:26+00:00\n"
+"PO-Revision-Date: 2011-05-23 09:15+0100\n"
+"Last-Translator: Andrea Bersi\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: includes/admin.php:260 includes/form/appearance.php:11
+#: includes/form/appearance.php:35 includes/form/site.php:9
+#: includes/form/site.php:19
+msgid "Select File"
+msgstr "Seleziona file"
+
+#: includes/admin.php:390
+msgid "Saved."
+msgstr ""
+
+#: includes/admin.php:397
+msgid "Save Changes"
+msgstr "Salva"
+
+#: includes/admin.php:442
+msgid "Deactivate"
+msgstr "Disattiva"
+
+#: includes/admin.php:444 includes/admin.php:446
+msgid "Activate"
+msgstr "Attiva"
+
+#: includes/form/appearance.php:3
+msgid "Appearance in admin"
+msgstr "Aspetto in amministrazione"
+
+#: includes/form/appearance.php:6
+msgid "Change admin header logo"
+msgstr "Cambia logo in testata amministrazione"
+
+#: includes/form/appearance.php:8
+msgid "Upload %s x %s pixel image for admin header logo."
+msgstr "Carica immagine %s x %s pixel per logo amministrazione"
+
+#: includes/form/appearance.php:16
+msgid "Change admin footer text"
+msgstr "Cambia testo piè di pagina amministrazione"
+
+#: includes/form/appearance.php:18
+msgid "You can edit admin footer text. Line breaks will remove."
+msgstr ""
+"Puoi cambiare il testo del pié di pagina amministrazione. Gli a capo vengono "
+"rimosssi"
+
+#: includes/form/appearance.php:29
+msgid "Change login logo"
+msgstr "Cambia logo finestra accesso backend"
+
+#: includes/form/appearance.php:31
+msgid ""
+"You can customize logo, URL and Title. The logo image size is recommended "
+"310 x 70 pixel."
+msgstr ""
+"Puoi personalizzare logo, URL e titolo. L'immagine del logo raccomandata è "
+"310 x 70 pixel."
+
+#: includes/form/appearance.php:34
+msgid "Logo"
+msgstr "Logo"
+
+#: includes/form/appearance.php:36
+msgid "URL"
+msgstr "URL"
+
+#: includes/form/appearance.php:38
+msgid "Title"
+msgstr "Titolo"
+
+#: includes/form/footer.php:2
+msgid "Translators"
+msgstr "Traduttori"
+
+#: includes/form/footer.php:7
+msgid "Contributors"
+msgstr "Sostenitori"
+
+#: includes/form/other.php:2
+msgid "Other"
+msgstr "Altro"
+
+#: includes/form/other.php:5
+msgid "Deactivate Dashboard Widgets"
+msgstr "Disattiva Widgets Bacheca"
+
+#: includes/form/other.php:7 includes/form/post.php:8
+#: includes/form/post.php:27
+msgid "Choose the items you want to remove."
+msgstr "Click sul check box per cancellare"
+
+#: includes/form/other.php:24
+msgid "Enable shortcode in the text widget"
+msgstr ""
+
+#: includes/form/other.php:26
+msgid ""
+"By default, the Text widget only support text and HTML. If you activate it, "
+"shortcode would be supported."
+msgstr ""
+
+#: includes/form/other.php:32
+msgid "Enable oEmbed in the text widget"
+msgstr ""
+
+#: includes/form/other.php:34
+msgid ""
+"By default, the Text widget only support text and HTML. If you activate it, "
+"oEmbed would be supported."
+msgstr ""
+
+#: includes/form/other.php:40
+msgid "Add role \"Webmaster\""
+msgstr "Aggiungi ruolo \"Webmaster\""
+
+#: includes/form/other.php:42
+msgid ""
+"This role has the capabilities of an \"Editor\", but can also edit theme "
+"options."
+msgstr "\"Webmaster\"  è ruolo  analogo a \"Editor\" + \"edit_theme_options\" "
+
+#: includes/form/other.php:48
+msgid "Change default email address"
+msgstr "Cambia valore email di default"
+
+#: includes/form/other.php:50
+msgid ""
+"Change the email address and sender name used by automatic email "
+"notifications."
+msgstr "Cambia valore email di default e nome del sender"
+
+#: includes/form/other.php:52
+msgid "Name"
+msgstr "Nome"
+
+#: includes/form/other.php:54
+msgid "Email"
+msgstr "Email"
+
+#: includes/form/other.php:61
+msgid "Delete default contact methods"
+msgstr "Cancella metodo contatto di default"
+
+#: includes/form/other.php:63
+msgid "Delete default contact methods from user profile."
+msgstr "Cancella metodo contatto di default dak profilo utente"
+
+#: includes/form/other.php:80
+msgid "Remove Update Notification"
+msgstr "Rimuovi notifiche di aggiornamento"
+
+#: includes/form/other.php:82
+msgid "Remove Update Notification for all users except Admin User."
+msgstr ""
+"Rimuovi notifiche di aggiornamento per tutti utenti tranne Amministratore"
+
+#: includes/form/post.php:3
+msgid "Posts &amp; Pages"
+msgstr "Articoli e Pagine"
+
+#: includes/form/post.php:6
+msgid "Remove meta boxes for Posts"
+msgstr "Elimina meta box per Articoli"
+
+#: includes/form/post.php:25
+msgid "Remove meta boxes for Pages"
+msgstr "Elimina meta box per Pagine"
+
+#: includes/form/post.php:44
+msgid "Revision Control"
+msgstr "Controllo revisioni"
+
+#: includes/form/post.php:46
+msgid "Limit the number of revisions allowed."
+msgstr "Seleziona numero di revisione ammesse"
+
+#: includes/form/post.php:48
+msgid "Store All"
+msgstr "Registra tutto"
+
+#: includes/form/post.php:64
+msgid "Stop self-pingbacks"
+msgstr "Stop self-pingbacks"
+
+#: includes/form/post.php:66
+msgid ""
+"Stop sending pingbacks from your own site to your own site when writing "
+"posts."
+msgstr "Stop sending pings verso altri siti quando pubblichi contenuti."
+
+#: includes/form/post.php:72
+msgid "Add \"Excerpt\" support for Pages."
+msgstr "Aggiungi \"Riassunto\" alle pagine"
+
+#: includes/form/post.php:74
+msgid "Allows you to add excerpt text to pages."
+msgstr "Necessario per aggiungere riassunto alle pagine"
+
+#: includes/form/post.php:80
+msgid "Allow you to create child page for \"draft\"."
+msgstr ""
+
+#: includes/form/post.php:82
+msgid "You can create child page for non-publish Page."
+msgstr ""
+
+#: includes/form/site.php:2
+msgid "Site Settings"
+msgstr "Impostazioni sito"
+
+#: includes/form/site.php:5
+msgid "Add a favicon"
+msgstr "Aggiungi Favicon"
+
+#: includes/form/site.php:7
+msgid "Please upload .ico image."
+msgstr "Caricare una immagine .ico"
+
+#: includes/form/site.php:10
+msgid "Use this favicon with administration screens."
+msgstr ""
+
+#: includes/form/site.php:15
+msgid "Add a apple-touch-icon"
+msgstr "Aggiungi apple-touch-icon"
+
+#: includes/form/site.php:17
+msgid "Please upload .png image."
+msgstr "Caricare una immagine .png"
+
+#: includes/form/site.php:31
+msgid "Remove \"wlwmanifest\" and \"xmlrpc\" from meta."
+msgstr "Abilita la rimozione di \"wlwmanifest\" e \"xmlrpc\" dai meta tag"
+
+#: includes/form/site.php:33
+msgid ""
+"If you don't use \"<a href=\"%s\">Remote Publishing</a>\", remove "
+"unnecessary tags from head."
+msgstr ""
+"Se non usi \"<a href=\"%s\">Pubblucazione da remoto</a>\" rimuovi i tag "
+"relativi dai meta tag"
+
+#: includes/form/site.php:39
+msgid "Remove adjacent posts rel links from head on Pages"
+msgstr "Rimuovi rel links dall'head nelle pagine"
+
+#: includes/form/site.php:41
+msgid ""
+"Remove adjacent posts rel links from head on Pages.<br /><span class=\"ex"
+"\">e.g. &lt;link rel=\"next\" ...&gt; &lt;link rel=\"prev\" ...&gt;</span>"
+msgstr ""
+"Rimuovi rel links dall'head nelle pagine<br /><span class=\"ex\">e.g. &lt;"
+"link rel=\"next\" ...&gt; &lt;link rel=\"prev\" ...&gt;</span>"
+
+#: includes/form/site.php:47
+msgid "Remove version number from head"
+msgstr "Rimuovi tag di versione dai meta tag"
+
+#: includes/form/site.php:49
+msgid ""
+"Remove generator tag from head. <span class=\"ex\">e.g. &lt;meta name="
+"\"generator\" content=\"WordPress x.x.x\" /&gt;</span>"
+msgstr ""
+"Rimuovi tag di versione dai meta tag. <span class=\"ex\">e.g. &lt;meta name="
+"\"generator\" content=\"WordPress x.x.x\" /&gt;</span>"
+
+#: includes/form/site.php:55
+msgid "Remove #more anchor"
+msgstr "Rimuovi il tag #more "
+
+#: includes/form/site.php:57
+msgid "Remove #more-xxx anchor from more links."
+msgstr "Rimuovi il tag #more-xxx dai link"
+
+#: includes/form/site.php:63
+msgid "Remove \"[...]\" from excerpt"
+msgstr "Rimuovi [...] dai riassunti"
+
+#: includes/form/site.php:65
+msgid "Remove \"[...]\" from output of the_excerpt()."
+msgstr "Rimuovi [...] dal testo dei riassunti"
+
+#: includes/form/site.php:71
+#, fuzzy
+msgid "Block all pingbacks"
+msgstr "Stop self-pingbacks"
+
+#: includes/form/site.php:73
+#, fuzzy
+msgid "Block all pingbacks."
+msgstr "Stop self-pingbacks"
+
+#: includes/form/site.php:79
+msgid "Install Google Analytics"
+msgstr "Installa Google Analytics"
+
+#: includes/form/site.php:81
+msgid "Add Google analytics code."
+msgstr "Aggiungi codice pe rGoogle Analytics"
+
+#: includes/form/site.php:88
+msgid "Exclude user logged in."
+msgstr "Escludi utente loggato"
+
+#: includes/form/site.php:93
+msgid "Webmaster Tools Verification"
+msgstr "Webmaster Tools Verification"
+
+#: includes/form/site.php:95
+#, fuzzy
+msgid ""
+"Enter your meta key \"content\" value to verify your blog with <a href="
+"\"https://www.google.com/webmasters/tools/\">Google Webmaster Tools</a> and "
+"<a href=\"http://www.bing.com/webmaster\">Bing Webmaster Center</a>."
+msgstr ""
+"Inserisci la chiave dei meta tag  \"content\" per verificare il sito su  <a "
+"href=\"https://www.google.com/webmasters/tools/\">Google Webmaster Tools</"
+"a>, <a href=\"https://siteexplorer.search.yahoo.com/\">Yahoo! Site Explorer</"
+"a>, e <a href=\"http://www.bing.com/webmaster\">Bing Webmaster Center</a>."
+
+#: wp-total-hacks.php:402
+msgid "Settings"
+msgstr "Impostazioni"
+
+#: wp-total-hacks.php:405
+msgid "Donate"
+msgstr "Dona"
+
+#. Plugin Name of the plugin/theme
+msgid "WP Total Hacks"
+msgstr ""
+
+#. Plugin URI of the plugin/theme
+msgid "http://wpist.me/wp/wp-total-hacks/"
+msgstr ""
+
+#. Description of the plugin/theme
+msgid "WP Total Hacks can customize your WordPress."
+msgstr ""
+
+#. Author of the plugin/theme
+msgid "Takayuki Miyauchi"
+msgstr ""
+
+#. Author URI of the plugin/theme
+msgid "http://wpist.me/"
+msgstr ""
+
+#~ msgid "WordPress Plugins"
+#~ msgstr "WordPress Pulgins"
+
+#~ msgid "This Plugin needs your support"
+#~ msgstr "Questo plugin necessita del tuo supporto"
+
+#~ msgid "Please help support the continued development."
+#~ msgstr "Si prega di aiutare il mantenimento del plugin"
+
+#~ msgid "Contact"
+#~ msgstr "Contatto"
+
+#~ msgid "$200+ makes you an official contributor."
+#~ msgstr "$200 per diventare sostenitore ufficiale"
+
+#~ msgid "Disable Auto Save"
+#~ msgstr "Disabilita Salvataggio Automatico"
+
+#, fuzzy
+#~ msgid "Remove attachment link from media uploader."
+#~ msgstr "Rimuovi rel links dall'head nelle pagine"

@@ -30,6 +30,11 @@ if File.exists?('site.yml')
   $conf.merge!(_site) if _site.is_a?(Hash)
 end
 
+$conf["sync_folder"] = "ww/wordpress"
+$conf["document_root"] = "/var/www/wordpress"
+$conf["user"] = "vagrant"
+$conf["group"] = "vagrant"
+
 set :backend, :ssh
 
 host = $conf['hostname']

@@ -1,0 +1,136 @@
+# Copyright (C) 2010 TinyMCE Templates
+# This file is distributed under the same license as the TinyMCE Templates package.
+msgid ""
+msgstr ""
+"Project-Id-Version: TinyMCE Templates 2.8.0\n"
+"Report-Msgid-Bugs-To: http://wordpress.org/tag/tinymce-templates\n"
+"POT-Creation-Date: 2015-01-15 02:05:20+00:00\n"
+"PO-Revision-Date: 2013-01-23 12:50+0300\n"
+"Last-Translator: Serg\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Poedit 1.5.4\n"
+
+#: tinymce-templates.php:203 tinymce-templates.php:206
+#: tinymce-templates.php:518 tinymce-templates.php:527
+#, fuzzy
+msgid "Insert Template"
+msgstr "Nová šablóna"
+
+#: tinymce-templates.php:255 tinymce-templates.php:273
+#: tinymce-templates.php:290
+msgid "Copy to a new template"
+msgstr "Kopírovanie nové šablóny"
+
+#: tinymce-templates.php:343 tinymce-templates.php:345
+msgid "Templates"
+msgstr "Šablóny"
+
+#: tinymce-templates.php:346
+msgid "Add New Template"
+msgstr "Pridať novú šablónu"
+
+#: tinymce-templates.php:347
+msgid "Edit Template"
+msgstr "Upraviť šablónu"
+
+#: tinymce-templates.php:348
+msgid "Add New"
+msgstr "Pridať nové"
+
+#: tinymce-templates.php:349
+msgid "New Template"
+msgstr "Nová šablóna"
+
+#: tinymce-templates.php:350
+msgid "View Template"
+msgstr "Zobrazenie šablóny"
+
+#: tinymce-templates.php:351
+msgid "No templatess found."
+msgstr "Žiadne templatess našiel."
+
+#: tinymce-templates.php:352
+msgid "No templates found in Trash."
+msgstr "Žiadne šablóny, nachádza v koši."
+
+#: tinymce-templates.php:356
+msgid "Search Templates"
+msgstr "Hľadať šablóny"
+
+#: tinymce-templates.php:389
+msgid "Insert as Shortcode"
+msgstr ""
+
+#: tinymce-templates.php:398
+msgid "Translators"
+msgstr "Prekladatelia"
+
+#: tinymce-templates.php:417 tinymce-templates.php:420
+msgid "Yes"
+msgstr ""
+
+#: tinymce-templates.php:418 tinymce-templates.php:421
+msgid "No"
+msgstr ""
+
+#: tinymce-templates.php:526
+msgid "Note: The template will be inserted as shortcode."
+msgstr ""
+
+#. Plugin Name of the plugin/theme
+msgid "TinyMCE Templates"
+msgstr "TinyMCE šablóny"
+
+#. #-#-#-#-#  tinymce_templates.pot (TinyMCE Templates 4.3.2)  #-#-#-#-#
+#. Plugin URI of the plugin/theme
+#. #-#-#-#-#  tinymce_templates.pot (TinyMCE Templates 4.3.2)  #-#-#-#-#
+#. Author URI of the plugin/theme
+#, fuzzy
+msgid "http://miya0001.github.io/tinymce-templates/"
+msgstr "http://wpist.me/WP/TinyMCE-templates/"
+
+#. Description of the plugin/theme
+msgid ""
+"TinyMCE Templates plugin will enable to use HTML template on WordPress "
+"Visual Editor."
+msgstr ""
+"TinyMCE šablóny plugin vám umožní používať HTML šablóny na WordPress Visual "
+"Editor."
+
+#. Author of the plugin/theme
+msgid "Takayuki Miyauchi"
+msgstr "Takayuki Miyauchi"
+
+#, fuzzy
+#~ msgid "Insert template"
+#~ msgstr "Nová šablóna"
+
+#, fuzzy
+#~ msgid "No templates defined"
+#~ msgstr "Žiadne templatess našiel."
+
+#~ msgid "Shared"
+#~ msgstr "Zdieľané"
+
+#~ msgid "Share"
+#~ msgstr "Podiel"
+
+#~ msgid "Private"
+#~ msgstr "Súkromné"
+
+#~ msgid "http://wpist.me/"
+#~ msgstr "http://wpist.me/"
+
+#~ msgid "Donate"
+#~ msgstr "Darovať"
+
+#~ msgid ""
+#~ "It is hard to continue development and support for WordPress plugins "
+#~ "without contributions from users like you."
+#~ msgstr ""
+#~ "Je ťažké pokračovať rozvoj a podporu pre WordPress plugins bez príspevky "
+#~ "od užívateľov, ako ste vy."

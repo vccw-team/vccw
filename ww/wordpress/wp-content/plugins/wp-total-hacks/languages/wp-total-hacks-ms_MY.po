@@ -1,0 +1,393 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: http://wordpress.org/tag/wp-total-hacks\n"
+"POT-Creation-Date: 2014-09-06 03:35:26+00:00\n"
+"PO-Revision-Date: 2011-12-21 15:30+0900\n"
+"Last-Translator: Zairul Azmil <zazmil@gmail.com>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: includes/admin.php:260 includes/form/appearance.php:11
+#: includes/form/appearance.php:35 includes/form/site.php:9
+#: includes/form/site.php:19
+msgid "Select File"
+msgstr "Pilih Fail"
+
+#: includes/admin.php:390
+msgid "Saved."
+msgstr "Selamat disimpan."
+
+#: includes/admin.php:397
+msgid "Save Changes"
+msgstr "Simpan Perubahan"
+
+#: includes/admin.php:442
+msgid "Deactivate"
+msgstr "Nyahaktifkan"
+
+#: includes/admin.php:444 includes/admin.php:446
+msgid "Activate"
+msgstr "Aktifkan"
+
+#: includes/form/appearance.php:3
+msgid "Appearance in admin"
+msgstr "Rupa pada admin"
+
+#: includes/form/appearance.php:6
+msgid "Change admin header logo"
+msgstr "Tukar logo pengepala admin"
+
+#: includes/form/appearance.php:8
+msgid "Upload %s x %s pixel image for admin header logo."
+msgstr "Muat naik gambar saiz %s x %s pixel untuk logo pengepala admin."
+
+#: includes/form/appearance.php:16
+msgid "Change admin footer text"
+msgstr "Tukar teks pengaki admin"
+
+#: includes/form/appearance.php:18
+msgid "You can edit admin footer text. Line breaks will remove."
+msgstr "Anda boleh edit teks pengaki admin. Perenggan akan diabaikan."
+
+#: includes/form/appearance.php:29
+msgid "Change login logo"
+msgstr "Tukar logo log masuk"
+
+#: includes/form/appearance.php:31
+msgid ""
+"You can customize logo, URL and Title. The logo image size is recommended "
+"310 x 70 pixel."
+msgstr ""
+"Anda boleh menukar logo, URL dan Tajuk pautan. Ukuran logo yang disyorkan "
+"adalah 310 x 70 pixel."
+
+#: includes/form/appearance.php:34
+msgid "Logo"
+msgstr "Logo"
+
+#: includes/form/appearance.php:36
+msgid "URL"
+msgstr "URL"
+
+#: includes/form/appearance.php:38
+msgid "Title"
+msgstr "Tajuk"
+
+#: includes/form/footer.php:2
+msgid "Translators"
+msgstr "Penterjemah"
+
+#: includes/form/footer.php:7
+msgid "Contributors"
+msgstr "Penyumbang"
+
+#: includes/form/other.php:2
+msgid "Other"
+msgstr "Lain-lain"
+
+#: includes/form/other.php:5
+msgid "Deactivate Dashboard Widgets"
+msgstr "Nyahaktif Dashboard Widget "
+
+#: includes/form/other.php:7 includes/form/post.php:8
+#: includes/form/post.php:27
+msgid "Choose the items you want to remove."
+msgstr "Pilih item yang mahu dibuang."
+
+#: includes/form/other.php:24
+msgid "Enable shortcode in the text widget"
+msgstr ""
+
+#: includes/form/other.php:26
+msgid ""
+"By default, the Text widget only support text and HTML. If you activate it, "
+"shortcode would be supported."
+msgstr ""
+
+#: includes/form/other.php:32
+msgid "Enable oEmbed in the text widget"
+msgstr ""
+
+#: includes/form/other.php:34
+msgid ""
+"By default, the Text widget only support text and HTML. If you activate it, "
+"oEmbed would be supported."
+msgstr ""
+
+#: includes/form/other.php:40
+msgid "Add role \"Webmaster\""
+msgstr "Tambah jawatan \"Webmaster\""
+
+#: includes/form/other.php:42
+msgid ""
+"This role has the capabilities of an \"Editor\", but can also edit theme "
+"options."
+msgstr ""
+"Jawatan ini juga mempunyai keupayaan \"Editor\" dan boleh edit pilihan tema."
+
+#: includes/form/other.php:48
+msgid "Change default email address"
+msgstr "Tukar alamat emel lalai"
+
+#: includes/form/other.php:50
+msgid ""
+"Change the email address and sender name used by automatic email "
+"notifications."
+msgstr ""
+"Tukar alamat emel lalai dan nama pengirim yang digunakan pada notifikasi "
+"emel automatik."
+
+#: includes/form/other.php:52
+msgid "Name"
+msgstr "Nama"
+
+#: includes/form/other.php:54
+msgid "Email"
+msgstr "Emel"
+
+#: includes/form/other.php:61
+msgid "Delete default contact methods"
+msgstr "Padam kaedah hubungan lalai"
+
+#: includes/form/other.php:63
+msgid "Delete default contact methods from user profile."
+msgstr "Padam kaedah hubungan lalai dari profil pengguna."
+
+#: includes/form/other.php:80
+msgid "Remove Update Notification"
+msgstr "Buang Notifikasi Kemaskini"
+
+#: includes/form/other.php:82
+msgid "Remove Update Notification for all users except Admin User."
+msgstr "Buang Notifikasi Kemaskini pada semua pengguna kecuali Admin."
+
+#: includes/form/post.php:3
+msgid "Posts &amp; Pages"
+msgstr "Posts &amp; Pages"
+
+#: includes/form/post.php:6
+msgid "Remove meta boxes for Posts"
+msgstr "Buang kotak meta pada Posts"
+
+#: includes/form/post.php:25
+msgid "Remove meta boxes for Pages"
+msgstr "Buang kotak meta pada Pages"
+
+#: includes/form/post.php:44
+msgid "Revision Control"
+msgstr "Kawalan Semakan"
+
+#: includes/form/post.php:46
+msgid "Limit the number of revisions allowed."
+msgstr "Hadkan jumlah semakan"
+
+#: includes/form/post.php:48
+msgid "Store All"
+msgstr "Simpan Semua"
+
+#: includes/form/post.php:64
+msgid "Stop self-pingbacks"
+msgstr "Hentikan pingback sendiri"
+
+#: includes/form/post.php:66
+msgid ""
+"Stop sending pingbacks from your own site to your own site when writing "
+"posts."
+msgstr ""
+"Hentikan hantaran pingback dari laman sendiri ke laman sendiri semasa "
+"menulis Post."
+
+#: includes/form/post.php:72
+msgid "Add \"Excerpt\" support for Pages."
+msgstr "Tambah sokongan \"Petikan\" untuk Page."
+
+#: includes/form/post.php:74
+msgid "Allows you to add excerpt text to pages."
+msgstr "Tambahan teks \"Petikan\" dibenarkan pada Page."
+
+#: includes/form/post.php:80
+msgid "Allow you to create child page for \"draft\"."
+msgstr ""
+
+#: includes/form/post.php:82
+msgid "You can create child page for non-publish Page."
+msgstr ""
+
+#: includes/form/site.php:2
+msgid "Site Settings"
+msgstr "Tetapan laman"
+
+#: includes/form/site.php:5
+msgid "Add a favicon"
+msgstr "Tambah favicon"
+
+#: includes/form/site.php:7
+msgid "Please upload .ico image."
+msgstr "Sila muat naik fail gambar .ico."
+
+#: includes/form/site.php:10
+msgid "Use this favicon with administration screens."
+msgstr "Guna favicon ini pada paparan skrin admin"
+
+#: includes/form/site.php:15
+msgid "Add a apple-touch-icon"
+msgstr "Tambah ikon apple-touch"
+
+#: includes/form/site.php:17
+msgid "Please upload .png image."
+msgstr "Sila muat naik fail gambar .png."
+
+#: includes/form/site.php:31
+msgid "Remove \"wlwmanifest\" and \"xmlrpc\" from meta."
+msgstr "Buang \"wlwmanifest\" dan \"xmlrpc\" dari meta."
+
+#: includes/form/site.php:33
+msgid ""
+"If you don't use \"<a href=\"%s\">Remote Publishing</a>\", remove "
+"unnecessary tags from head."
+msgstr ""
+"Jika anda tidak menggunakan \"<a href=\"%s\">Penerbitan Jauh</a>\", buang "
+"tag yang tidak diperlukan dari pengepala."
+
+#: includes/form/site.php:39
+msgid "Remove adjacent posts rel links from head on Pages"
+msgstr "Buang pautan link bersebelahan dari pnegepala pada Page"
+
+#: includes/form/site.php:41
+msgid ""
+"Remove adjacent posts rel links from head on Pages.<br /><span class=\"ex"
+"\">e.g. &lt;link rel=\"next\" ...&gt; &lt;link rel=\"prev\" ...&gt;</span>"
+msgstr ""
+"Buang pautan link bersebelahan dari pengepala pada Page. <br /><span class="
+"\"ex\">Contoh. &lt;link rel=\"next\" ...&gt; &lt;link rel=\"prev\" ...&gt;</"
+"span>"
+
+#: includes/form/site.php:47
+msgid "Remove version number from head"
+msgstr "Buang nombor versi dari pengepala."
+
+#: includes/form/site.php:49
+msgid ""
+"Remove generator tag from head. <span class=\"ex\">e.g. &lt;meta name="
+"\"generator\" content=\"WordPress x.x.x\" /&gt;</span>"
+msgstr ""
+"Buang penjana tag dari pengepala. <span class=\"ex\">Contoh &lt;meta name="
+"\"generator\" content=\"WordPress x.x.x\" /&gt;</span>"
+
+#: includes/form/site.php:55
+msgid "Remove #more anchor"
+msgstr "Buang pelabuh #more"
+
+#: includes/form/site.php:57
+msgid "Remove #more-xxx anchor from more links."
+msgstr "Buang pelabuh #more-xx dari pautan more."
+
+#: includes/form/site.php:63
+msgid "Remove \"[...]\" from excerpt"
+msgstr "Buang \"[...]\" dari petikan"
+
+#: includes/form/site.php:65
+msgid "Remove \"[...]\" from output of the_excerpt()."
+msgstr "Buang \"[...]\" dari output 'the_excerpt()'"
+
+#: includes/form/site.php:71
+#, fuzzy
+msgid "Block all pingbacks"
+msgstr "Hentikan pingback sendiri"
+
+#: includes/form/site.php:73
+#, fuzzy
+msgid "Block all pingbacks."
+msgstr "Hentikan pingback sendiri"
+
+#: includes/form/site.php:79
+msgid "Install Google Analytics"
+msgstr "Pasang Google Analytics"
+
+#: includes/form/site.php:81
+msgid "Add Google analytics code."
+msgstr "Tambah kod Google Analytics."
+
+#: includes/form/site.php:88
+msgid "Exclude user logged in."
+msgstr "Mansuh log masuk pengguna."
+
+#: includes/form/site.php:93
+msgid "Webmaster Tools Verification"
+msgstr "Penentusahan Webmaster Tools"
+
+#: includes/form/site.php:95
+#, fuzzy
+msgid ""
+"Enter your meta key \"content\" value to verify your blog with <a href="
+"\"https://www.google.com/webmasters/tools/\">Google Webmaster Tools</a> and "
+"<a href=\"http://www.bing.com/webmaster\">Bing Webmaster Center</a>."
+msgstr ""
+"Masukkan kunci meta nilai \"content\" untuk menentusahkan blog dengan <a "
+"href=\"https://www.google.com/webmasters/tools/\">Google Webmaster Tools</"
+"a>, <a href=\"https://siteexplorer.search.yahoo.com/\">Yahoo! Site Explorer</"
+"a>, dan <a href=\"http://www.bing.com/webmaster\">Bing Webmaster Center</a>."
+
+#: wp-total-hacks.php:402
+msgid "Settings"
+msgstr "Tetapan"
+
+#: wp-total-hacks.php:405
+msgid "Donate"
+msgstr "Derma"
+
+#. Plugin Name of the plugin/theme
+msgid "WP Total Hacks"
+msgstr "WP Total Hacks"
+
+#. Plugin URI of the plugin/theme
+msgid "http://wpist.me/wp/wp-total-hacks/"
+msgstr "http://wpist.me/wp/wp-total-hacks/"
+
+#. Description of the plugin/theme
+msgid "WP Total Hacks can customize your WordPress."
+msgstr "WP Total Hacks boleh mengubah Wordpress anda."
+
+#. Author of the plugin/theme
+msgid "Takayuki Miyauchi"
+msgstr "Takayuki Miyauchi"
+
+#. Author URI of the plugin/theme
+msgid "http://wpist.me/"
+msgstr "http://wpist.me/"
+
+#~ msgid "WordPress Plugins"
+#~ msgstr "WordPress Plugins"
+
+#, fuzzy
+#~ msgid "http://wpbooster.net/"
+#~ msgstr "http://wpist.me/"
+
+#~ msgid "This Plugin needs your support"
+#~ msgstr "Plugin ini memerlukan sokongan dari anda"
+
+#~ msgid "Please help support the continued development."
+#~ msgstr "Sila bantu kami menyokong pembangunan plugin."
+
+#~ msgid "Contact"
+#~ msgstr "Hubung"
+
+#~ msgid "$200+ makes you an official contributor."
+#~ msgstr ""
+#~ "Dengan derma US$200, nama anda akan disenarai sebagai penyokong rasmi."
+
+#~ msgid "Disable Auto Save"
+#~ msgstr "Lumpuhkan Simpanan Automatik"
+
+#, fuzzy
+#~ msgid "Remove attachment link from media uploader."
+#~ msgstr "Buang pautan link bersebelahan dari pnegepala pada Page"

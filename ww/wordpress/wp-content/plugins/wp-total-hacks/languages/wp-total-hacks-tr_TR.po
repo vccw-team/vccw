@@ -1,0 +1,396 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Total Hacks Turkish\n"
+"Report-Msgid-Bugs-To: http://wordpress.org/tag/wp-total-hacks\n"
+"POT-Creation-Date: 2014-09-06 03:35:26+00:00\n"
+"PO-Revision-Date: 2014-01-24 09:02+0200\n"
+"Last-Translator: Serkan Algur <info@wpadami.com>\n"
+"Language-Team: kaisercrazy <info@kaisercrazy.com>\n"
+"Language: tr_TR\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Poedit-SourceCharset: UTF-8\n"
+"X-Generator: Poedit 1.6.3\n"
+"X-Poedit-Basepath: .\n"
+
+#: includes/admin.php:260 includes/form/appearance.php:11
+#: includes/form/appearance.php:35 includes/form/site.php:9
+#: includes/form/site.php:19
+msgid "Select File"
+msgstr "Gözat"
+
+#: includes/admin.php:390
+msgid "Saved."
+msgstr "Kaydedildi."
+
+#: includes/admin.php:397
+msgid "Save Changes"
+msgstr "Değişiklikleri Kaydet"
+
+#: includes/admin.php:442
+msgid "Deactivate"
+msgstr "Etkisizleştir"
+
+#: includes/admin.php:444 includes/admin.php:446
+msgid "Activate"
+msgstr "Etkinleştir"
+
+#: includes/form/appearance.php:3
+msgid "Appearance in admin"
+msgstr "Yönetim alanındaki görünüm"
+
+#: includes/form/appearance.php:6
+msgid "Change admin header logo"
+msgstr "Yönetim Alanı Logosunu Değiştir"
+
+#: includes/form/appearance.php:8
+msgid "Upload %s x %s pixel image for admin header logo."
+msgstr "Yönetim alanı logosu için %s x %s piksel bir resim yükleyin"
+
+#: includes/form/appearance.php:16
+msgid "Change admin footer text"
+msgstr "Yönetim alanı alt kısım yazısını değiştir."
+
+#: includes/form/appearance.php:18
+msgid "You can edit admin footer text. Line breaks will remove."
+msgstr ""
+"Yönetim alanı alt kısım yazsını düzenleyebilirsiniz. Alt satıra geçme "
+"etkisiz."
+
+#: includes/form/appearance.php:29
+msgid "Change login logo"
+msgstr "Giriş alanı logosunu değiştir."
+
+#: includes/form/appearance.php:31
+msgid ""
+"You can customize logo, URL and Title. The logo image size is recommended "
+"310 x 70 pixel."
+msgstr ""
+"Logo, link ve başlığı değiştirebilirsiniz. Logo boyutu 310 x 70 piksel "
+"idealdir."
+
+#: includes/form/appearance.php:34
+msgid "Logo"
+msgstr "Logo"
+
+#: includes/form/appearance.php:36
+msgid "URL"
+msgstr "Link"
+
+#: includes/form/appearance.php:38
+msgid "Title"
+msgstr "Başlık"
+
+#: includes/form/footer.php:2
+msgid "Translators"
+msgstr "Çevirenler"
+
+#: includes/form/footer.php:7
+msgid "Contributors"
+msgstr "Katkıda Bulunanlar"
+
+#: includes/form/other.php:2
+msgid "Other"
+msgstr "Diğer"
+
+#: includes/form/other.php:5
+msgid "Deactivate Dashboard Widgets"
+msgstr "Yönetim alanı bileşenlerini etkisizleştir"
+
+#: includes/form/other.php:7 includes/form/post.php:8
+#: includes/form/post.php:27
+msgid "Choose the items you want to remove."
+msgstr "Kaldırmak istediklerinizin yanındaki seçim kutucuğuna tıkalyın"
+
+#: includes/form/other.php:24
+msgid "Enable shortcode in the text widget"
+msgstr ""
+
+#: includes/form/other.php:26
+msgid ""
+"By default, the Text widget only support text and HTML. If you activate it, "
+"shortcode would be supported."
+msgstr ""
+
+#: includes/form/other.php:32
+msgid "Enable oEmbed in the text widget"
+msgstr ""
+
+#: includes/form/other.php:34
+msgid ""
+"By default, the Text widget only support text and HTML. If you activate it, "
+"oEmbed would be supported."
+msgstr ""
+
+#: includes/form/other.php:40
+msgid "Add role \"Webmaster\""
+msgstr "\"Webmaster\" rolü ekle"
+
+#: includes/form/other.php:42
+msgid ""
+"This role has the capabilities of an \"Editor\", but can also edit theme "
+"options."
+msgstr "\"Webmaster\" rolü \"Editor\" + \"edit_theme_options\"."
+
+#: includes/form/other.php:48
+msgid "Change default email address"
+msgstr "Varsayılan e-posta adresini değiştir"
+
+#: includes/form/other.php:50
+msgid ""
+"Change the email address and sender name used by automatic email "
+"notifications."
+msgstr "Varsayılan e-posta adresi ve gönderen ismini değiştir."
+
+#: includes/form/other.php:52
+msgid "Name"
+msgstr "İsim"
+
+#: includes/form/other.php:54
+msgid "Email"
+msgstr "E-Posta"
+
+#: includes/form/other.php:61
+msgid "Delete default contact methods"
+msgstr "Varsayılan iletişim metodlarını kaldır"
+
+#: includes/form/other.php:63
+msgid "Delete default contact methods from user profile."
+msgstr "Kullanıcı profilindeki varsayılan iletişim metodlarını kaldır"
+
+#: includes/form/other.php:80
+msgid "Remove Update Notification"
+msgstr "Güncelleme bildirimlerini etkisizleştir"
+
+#: includes/form/other.php:82
+msgid "Remove Update Notification for all users except Admin User."
+msgstr "Yönetici hariç tüm kullanıcılardan güncelleme bildirimlerini kaldır"
+
+#: includes/form/post.php:3
+msgid "Posts &amp; Pages"
+msgstr "Yazı ve Sayfalar"
+
+#: includes/form/post.php:6
+msgid "Remove meta boxes for Posts"
+msgstr "Yazıların meta kutularını kaldır"
+
+#: includes/form/post.php:25
+msgid "Remove meta boxes for Pages"
+msgstr "Sayfaların meta kurularını kaldır"
+
+#: includes/form/post.php:44
+msgid "Revision Control"
+msgstr "Revizyon kontrolü"
+
+#: includes/form/post.php:46
+msgid "Limit the number of revisions allowed."
+msgstr "İzin verilen revizyon sayısını belirleyin"
+
+#: includes/form/post.php:48
+msgid "Store All"
+msgstr "Hepsini kaydet"
+
+#: includes/form/post.php:64
+msgid "Stop self-pingbacks"
+msgstr "Kendine ping atmasını durdur"
+
+#: includes/form/post.php:66
+msgid ""
+"Stop sending pingbacks from your own site to your own site when writing "
+"posts."
+msgstr ""
+"Sitenizin kendi kendisine ping atmasını engeller (site içi linkler ile "
+"ilgili)"
+
+#: includes/form/post.php:72
+msgid "Add \"Excerpt\" support for Pages."
+msgstr "Sayfalar için \"Devamını oku\" desteğini aktif et"
+
+#: includes/form/post.php:74
+msgid "Allows you to add excerpt text to pages."
+msgstr "Devamını oku ibaresinin sayfalara eklenmesini gerektirir."
+
+#: includes/form/post.php:80
+msgid "Allow you to create child page for \"draft\"."
+msgstr "\"Taslak\" yazılar için alt sayfa oluşturmaya izin ver."
+
+#: includes/form/post.php:82
+msgid "You can create child page for non-publish Page."
+msgstr "Yayınlanmamış sayfalar için alt sayfa oluşutrabilirsiniz."
+
+#: includes/form/site.php:2
+msgid "Site Settings"
+msgstr "Site ayarları"
+
+#: includes/form/site.php:5
+msgid "Add a favicon"
+msgstr "Favicon Ekle"
+
+#: includes/form/site.php:7
+msgid "Please upload .ico image."
+msgstr "Lütfen .ico dosyası yükleyin"
+
+#: includes/form/site.php:10
+msgid "Use this favicon with administration screens."
+msgstr "Bu ikonu yönetim panelinde kullan."
+
+#: includes/form/site.php:15
+msgid "Add a apple-touch-icon"
+msgstr "Iphone Dokunmatik Resmi Ekle"
+
+#: includes/form/site.php:17
+msgid "Please upload .png image."
+msgstr "Lütfen .png dosyası yükleyin"
+
+#: includes/form/site.php:31
+msgid "Remove \"wlwmanifest\" and \"xmlrpc\" from meta."
+msgstr "\"wlwmanifest\" ve \"xmlrpc\" nin otomatik olarak silinmesini aktif et"
+
+#: includes/form/site.php:33
+msgid ""
+"If you don't use \"<a href=\"%s\">Remote Publishing</a>\", remove "
+"unnecessary tags from head."
+msgstr ""
+" \"<a href=\"%s\">Yönlendirmeli yayın</a>\" kullanmıyorsanız bu gereksiz "
+"eklentileri kaldırın"
+
+#: includes/form/site.php:39
+msgid "Remove adjacent posts rel links from head on Pages"
+msgstr "Sayfalardan gelişmiş yazı rel linklerini kaldır"
+
+#: includes/form/site.php:41
+msgid ""
+"Remove adjacent posts rel links from head on Pages.<br /><span class=\"ex"
+"\">e.g. &lt;link rel=\"next\" ...&gt; &lt;link rel=\"prev\" ...&gt;</span>"
+msgstr ""
+"Sayfalardan gelişmiş yazı rel linklerini kaldır<br />örn: <span class=\"ex"
+"\">&lt;link rel=\"next\" ...&gt; &lt;link rel=\"prev\" ...&gt;</span>"
+
+#: includes/form/site.php:47
+msgid "Remove version number from head"
+msgstr "Üst kısımdan WordPress versiyonunu kaldır"
+
+#: includes/form/site.php:49
+msgid ""
+"Remove generator tag from head. <span class=\"ex\">e.g. &lt;meta name="
+"\"generator\" content=\"WordPress x.x.x\" /&gt;</span>"
+msgstr ""
+"Üst kısımdan generator (oluşturucu) alanını kaldır örn: <span class=\"ex\"> "
+"&lt;meta name=\"generator\" content=\"WordPress x.x.x\" /&gt;</span>"
+
+#: includes/form/site.php:55
+msgid "Remove #more anchor"
+msgstr "#more ifadesini kaldır "
+
+#: includes/form/site.php:57
+msgid "Remove #more-xxx anchor from more links."
+msgstr "Yazı linklerinin sonundaki  #more-xxx ifadesini kaldır"
+
+#: includes/form/site.php:63
+msgid "Remove \"[...]\" from excerpt"
+msgstr "Devamını oku alanından \"[...]\" ifadesini kaldır"
+
+#: includes/form/site.php:65
+msgid "Remove \"[...]\" from output of the_excerpt()."
+msgstr "the_excerpt() kodundan \"[...]\" ifadesini kaldır"
+
+#: includes/form/site.php:71
+#, fuzzy
+msgid "Block all pingbacks"
+msgstr "Kendine ping atmasını durdur"
+
+#: includes/form/site.php:73
+#, fuzzy
+msgid "Block all pingbacks."
+msgstr "Kendine ping atmasını durdur"
+
+#: includes/form/site.php:79
+msgid "Install Google Analytics"
+msgstr "Google Analytics Ekle"
+
+#: includes/form/site.php:81
+msgid "Add Google analytics code."
+msgstr "Google Analytics kodunuzu ekleyin"
+
+#: includes/form/site.php:88
+msgid "Exclude user logged in."
+msgstr "Kullanıcı girişini durdurun"
+
+#: includes/form/site.php:93
+msgid "Webmaster Tools Verification"
+msgstr "Webmaster Tools Onayı"
+
+#: includes/form/site.php:95
+#, fuzzy
+msgid ""
+"Enter your meta key \"content\" value to verify your blog with <a href="
+"\"https://www.google.com/webmasters/tools/\">Google Webmaster Tools</a> and "
+"<a href=\"http://www.bing.com/webmaster\">Bing Webmaster Center</a>."
+msgstr ""
+"<a href=\"https://www.google.com/webmasters/tools/\">Google Webmaster Tools</"
+"a>, <a href=\"https://siteexplorer.search.yahoo.com/\">Yahoo! Site Explorer</"
+"a> ve <a href=\"http://www.bing.com/webmaster\">Bing Webmaster Center</a> "
+"sistemleriden aldığınızı meta \"content\" anahtarını girin "
+
+#: wp-total-hacks.php:402
+msgid "Settings"
+msgstr "Seçenekler"
+
+#: wp-total-hacks.php:405
+msgid "Donate"
+msgstr "Bağış Yap"
+
+#. Plugin Name of the plugin/theme
+msgid "WP Total Hacks"
+msgstr "WP Total Hacks"
+
+#. Plugin URI of the plugin/theme
+msgid "http://wpist.me/wp/wp-total-hacks/"
+msgstr "http://wpist.me/wp/wp-total-hacks/"
+
+#. Description of the plugin/theme
+msgid "WP Total Hacks can customize your WordPress."
+msgstr "Wp Total Hacks WordPress sisteminizi özelleştirebilir."
+
+#. Author of the plugin/theme
+msgid "Takayuki Miyauchi"
+msgstr "Takayuki Miyauchi"
+
+#. Author URI of the plugin/theme
+msgid "http://wpist.me/"
+msgstr "http://wpist.me/"
+
+#~ msgid "WordPress Plugins"
+#~ msgstr "WordPress Eklentileri"
+
+#~ msgid "Make WordPress Site Load Faster"
+#~ msgstr "WordPress siteni daha hılzı yükle"
+
+#~ msgid "http://wpbooster.net/"
+#~ msgstr "http://wpbooster.net/"
+
+#~ msgid "This Plugin needs your support"
+#~ msgstr "Bu eklentinin sizin desteğinize ihtiyacı var."
+
+#~ msgid "Please help support the continued development."
+#~ msgstr "Geliştirmenin devamının sağlanabilmesi için yardımda bulun"
+
+#~ msgid "Contact"
+#~ msgstr "İletişim"
+
+#~ msgid "$200+ makes you an official contributor."
+#~ msgstr ""
+#~ "200$ ve yukarısındaki bağışlar sizi katkıda bulunan kişilerden yapar"
+
+#~ msgid "Disable Auto Save"
+#~ msgstr "Otomatik kaydı kapat"
+
+#, fuzzy
+#~ msgid "Remove attachment link from media uploader."
+#~ msgstr "Sayfalardan gelişmiş yazı rel linklerini kaldır"

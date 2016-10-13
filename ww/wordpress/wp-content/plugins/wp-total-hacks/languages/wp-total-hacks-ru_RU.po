@@ -1,0 +1,396 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: wp-total-hacks\n"
+"Report-Msgid-Bugs-To: http://wordpress.org/tag/wp-total-hacks\n"
+"POT-Creation-Date: 2014-09-06 03:35:26+00:00\n"
+"PO-Revision-Date: 2011-05-24 23:36+0300\n"
+"Last-Translator: LiVsI <livsi1977@list.ru>\n"
+"Language-Team: LiVsI <pered@li.ru>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Poedit-KeywordsList: _;gettext;gettext_noop\n"
+"X-Poedit-Basepath: .\n"
+"Plural-Forms: nplurals=4; plural=(n==1) ? 0 : (n%10==1 && n%100!=11) ? 3 : "
+"((n%10>=2 && n%10<=4 && (n%100<10 || n%100>=20)) ? 1 : 2);\n"
+"X-Poedit-Language: Russian\n"
+"X-Poedit-Country: RUSSIAN FEDERATION\n"
+"X-Poedit-SourceCharset: utf-8\n"
+
+#: includes/admin.php:260 includes/form/appearance.php:11
+#: includes/form/appearance.php:35 includes/form/site.php:9
+#: includes/form/site.php:19
+msgid "Select File"
+msgstr "Выберите файл"
+
+#: includes/admin.php:390
+msgid "Saved."
+msgstr ""
+
+#: includes/admin.php:397
+msgid "Save Changes"
+msgstr "Сохранить изменения"
+
+#: includes/admin.php:442
+msgid "Deactivate"
+msgstr "Выключить"
+
+#: includes/admin.php:444 includes/admin.php:446
+msgid "Activate"
+msgstr "Включить"
+
+#: includes/form/appearance.php:3
+msgid "Appearance in admin"
+msgstr "Админинтерфейс"
+
+#: includes/form/appearance.php:6
+msgid "Change admin header logo"
+msgstr "Изменить логотип в заголовке админинтерфейса"
+
+#: includes/form/appearance.php:8
+msgid "Upload %s x %s pixel image for admin header logo."
+msgstr ""
+"Загрузить изображение (%s x %spx) для логотипа в заголовке админинтерфейса."
+
+#: includes/form/appearance.php:16
+msgid "Change admin footer text"
+msgstr "Изменить текст в \"подвале\" админинтерфейса"
+
+#: includes/form/appearance.php:18
+msgid "You can edit admin footer text. Line breaks will remove."
+msgstr ""
+"Можно отредактировать текст в \"подвале\". Разрывы строк будут удалены."
+
+#: includes/form/appearance.php:29
+msgid "Change login logo"
+msgstr "Изменить логотип в форме входа"
+
+#: includes/form/appearance.php:31
+msgid ""
+"You can customize logo, URL and Title. The logo image size is recommended "
+"310 x 70 pixel."
+msgstr ""
+"Можно изменить логотип, URL и заголовое страницы входа. Рекомендуемый размер "
+"логотипа - 310 x 70&nbsp;px."
+
+#: includes/form/appearance.php:34
+msgid "Logo"
+msgstr "Логотип"
+
+#: includes/form/appearance.php:36
+msgid "URL"
+msgstr "URL"
+
+#: includes/form/appearance.php:38
+msgid "Title"
+msgstr "Заголовок"
+
+#: includes/form/footer.php:2
+msgid "Translators"
+msgstr "Переводчики"
+
+#: includes/form/footer.php:7
+msgid "Contributors"
+msgstr "Разработчики"
+
+#: includes/form/other.php:2
+msgid "Other"
+msgstr "Дополнительно"
+
+#: includes/form/other.php:5
+msgid "Deactivate Dashboard Widgets"
+msgstr "Деактивировать виджеты в консоли"
+
+#: includes/form/other.php:7 includes/form/post.php:8
+#: includes/form/post.php:27
+msgid "Choose the items you want to remove."
+msgstr "Отметьте какие блоки Вы хотели бы скрыть."
+
+#: includes/form/other.php:24
+msgid "Enable shortcode in the text widget"
+msgstr ""
+
+#: includes/form/other.php:26
+msgid ""
+"By default, the Text widget only support text and HTML. If you activate it, "
+"shortcode would be supported."
+msgstr ""
+
+#: includes/form/other.php:32
+msgid "Enable oEmbed in the text widget"
+msgstr ""
+
+#: includes/form/other.php:34
+msgid ""
+"By default, the Text widget only support text and HTML. If you activate it, "
+"oEmbed would be supported."
+msgstr ""
+
+#: includes/form/other.php:40
+msgid "Add role \"Webmaster\""
+msgstr "Добавить роль \"Webmaster\""
+
+#: includes/form/other.php:42
+msgid ""
+"This role has the capabilities of an \"Editor\", but can also edit theme "
+"options."
+msgstr ""
+"\"Webmaster\" - роль с возможностями \"Editor\" + \"edit_theme_options\"."
+
+#: includes/form/other.php:48
+msgid "Change default email address"
+msgstr "Изменить e-mail по умолчанию"
+
+#: includes/form/other.php:50
+msgid ""
+"Change the email address and sender name used by automatic email "
+"notifications."
+msgstr "Изменение e-mail адреса и имени отправителя по умолчанию."
+
+#: includes/form/other.php:52
+msgid "Name"
+msgstr "Имя"
+
+#: includes/form/other.php:54
+msgid "Email"
+msgstr "E-mail"
+
+#: includes/form/other.php:61
+msgid "Delete default contact methods"
+msgstr "Удалить часть методов обратной связи"
+
+#: includes/form/other.php:63
+msgid "Delete default contact methods from user profile."
+msgstr "Выбранные методы обратной связи будут удалены из профиля пользователя."
+
+#: includes/form/other.php:80
+msgid "Remove Update Notification"
+msgstr "Убрать уведомления по обновлению"
+
+#: includes/form/other.php:82
+msgid "Remove Update Notification for all users except Admin User."
+msgstr ""
+"Убрать уведомления о обновлениях для всех пользователей за исключением "
+"Администратора."
+
+#: includes/form/post.php:3
+msgid "Posts &amp; Pages"
+msgstr "Записи и страницы"
+
+#: includes/form/post.php:6
+msgid "Remove meta boxes for Posts"
+msgstr "Убрать отдельные блоки из формы Записи"
+
+#: includes/form/post.php:25
+msgid "Remove meta boxes for Pages"
+msgstr "Убрать отдельные блоки из формы Страница"
+
+#: includes/form/post.php:44
+msgid "Revision Control"
+msgstr "Контроль ревизий"
+
+#: includes/form/post.php:46
+msgid "Limit the number of revisions allowed."
+msgstr "Укажите количество сохраняемых ревизий."
+
+#: includes/form/post.php:48
+msgid "Store All"
+msgstr "Сохранить все"
+
+#: includes/form/post.php:64
+msgid "Stop self-pingbacks"
+msgstr "Остановить пинг внутри сайта"
+
+#: includes/form/post.php:66
+msgid ""
+"Stop sending pingbacks from your own site to your own site when writing "
+"posts."
+msgstr ""
+"Остановить отсылку пингов внутри сайта (при написании записей, ссылающихся "
+"на уже существующие)."
+
+#: includes/form/post.php:72
+msgid "Add \"Excerpt\" support for Pages."
+msgstr "Добавить поддержку \"Цитат\" для Страниц."
+
+#: includes/form/post.php:74
+msgid "Allows you to add excerpt text to pages."
+msgstr "Установить поддержку цитирования текста для Страниц."
+
+#: includes/form/post.php:80
+msgid "Allow you to create child page for \"draft\"."
+msgstr ""
+
+#: includes/form/post.php:82
+msgid "You can create child page for non-publish Page."
+msgstr ""
+
+#: includes/form/site.php:2
+msgid "Site Settings"
+msgstr "Общие настройки"
+
+#: includes/form/site.php:5
+msgid "Add a favicon"
+msgstr "Добавить иконку для сайта"
+
+#: includes/form/site.php:7
+msgid "Please upload .ico image."
+msgstr "Загрузите .ico файл."
+
+#: includes/form/site.php:10
+msgid "Use this favicon with administration screens."
+msgstr ""
+
+#: includes/form/site.php:15
+#, fuzzy
+msgid "Add a apple-touch-icon"
+msgstr "Добавить иконку для сайта"
+
+#: includes/form/site.php:17
+#, fuzzy
+msgid "Please upload .png image."
+msgstr "Загрузите .ico файл."
+
+#: includes/form/site.php:31
+msgid "Remove \"wlwmanifest\" and \"xmlrpc\" from meta."
+msgstr ""
+"Установить автоматическое удаление \"wlwmanifest\" и \"xmlrpc\" из блока "
+"<head>."
+
+#: includes/form/site.php:33
+msgid ""
+"If you don't use \"<a href=\"%s\">Remote Publishing</a>\", remove "
+"unnecessary tags from head."
+msgstr ""
+"Если \"<a href=\"%s\">Удалённая публикация</a>\" не используется, можно "
+"удалить  \"лишние\" теги из секции <b>head</b> html разметки."
+
+#: includes/form/site.php:39
+msgid "Remove adjacent posts rel links from head on Pages"
+msgstr "Удалить ссылки на \"смежные\" записи из <head> секции html разметки"
+
+#: includes/form/site.php:41
+msgid ""
+"Remove adjacent posts rel links from head on Pages.<br /><span class=\"ex"
+"\">e.g. &lt;link rel=\"next\" ...&gt; &lt;link rel=\"prev\" ...&gt;</span>"
+msgstr ""
+"Удалить ссылки на смежные записи из <head> секции html разметки на Страницах."
+"<br /><span class=\"ex\">e.g. &lt;link rel=\"next\" ...&gt; &lt;link rel="
+"\"prev\" ...&gt;</span>"
+
+#: includes/form/site.php:47
+msgid "Remove version number from head"
+msgstr "Удалить номер версии Wordpress из секции <head> html разметки"
+
+#: includes/form/site.php:49
+msgid ""
+"Remove generator tag from head. <span class=\"ex\">e.g. &lt;meta name="
+"\"generator\" content=\"WordPress x.x.x\" /&gt;</span>"
+msgstr ""
+"Удалить тег \"generator\" из секции <head> html разметки: <span class=\"ex"
+"\">e.g. &lt;meta name=\"generator\" content=\"WordPress x.x.x\" /&gt;</span>"
+
+#: includes/form/site.php:55
+msgid "Remove #more anchor"
+msgstr "Удалить #more якорь"
+
+#: includes/form/site.php:57
+msgid "Remove #more-xxx anchor from more links."
+msgstr "Удалить #more-xxx якорь для ссылок \"Подробнее\"."
+
+#: includes/form/site.php:63
+msgid "Remove \"[...]\" from excerpt"
+msgstr "Удалить \"[...]\" из отрывков"
+
+#: includes/form/site.php:65
+msgid "Remove \"[...]\" from output of the_excerpt()."
+msgstr "Удалить \"[...]\" из вывода функции the_excerpt()."
+
+#: includes/form/site.php:71
+#, fuzzy
+msgid "Block all pingbacks"
+msgstr "Остановить пинг внутри сайта"
+
+#: includes/form/site.php:73
+#, fuzzy
+msgid "Block all pingbacks."
+msgstr "Остановить пинг внутри сайта"
+
+#: includes/form/site.php:79
+msgid "Install Google Analytics"
+msgstr "Установить код Google Analytics"
+
+#: includes/form/site.php:81
+msgid "Add Google analytics code."
+msgstr "Добавить код Google analytics."
+
+#: includes/form/site.php:88
+msgid "Exclude user logged in."
+msgstr "Exclude user logged in."
+
+#: includes/form/site.php:93
+msgid "Webmaster Tools Verification"
+msgstr "Подтверждение прав на управление сайтом"
+
+#: includes/form/site.php:95
+#, fuzzy
+msgid ""
+"Enter your meta key \"content\" value to verify your blog with <a href="
+"\"https://www.google.com/webmasters/tools/\">Google Webmaster Tools</a> and "
+"<a href=\"http://www.bing.com/webmaster\">Bing Webmaster Center</a>."
+msgstr ""
+"Введите ключ для отслеживания блога с помощью <a href=\"https://www.google."
+"com/webmasters/tools/\">Google Webmaster Tools</a>, <a href=\"https://"
+"siteexplorer.search.yahoo.com/\">Yahoo! Site Explorer</a>, и <a href="
+"\"http://www.bing.com/webmaster\">Bing Webmaster Center</a>."
+
+#: wp-total-hacks.php:402
+msgid "Settings"
+msgstr "Настройки"
+
+#: wp-total-hacks.php:405
+msgid "Donate"
+msgstr "Спонсировать"
+
+#. Plugin Name of the plugin/theme
+msgid "WP Total Hacks"
+msgstr ""
+
+#. Plugin URI of the plugin/theme
+msgid "http://wpist.me/wp/wp-total-hacks/"
+msgstr ""
+
+#. Description of the plugin/theme
+msgid "WP Total Hacks can customize your WordPress."
+msgstr ""
+
+#. Author of the plugin/theme
+msgid "Takayuki Miyauchi"
+msgstr ""
+
+#. Author URI of the plugin/theme
+msgid "http://wpist.me/"
+msgstr ""
+
+#~ msgid "WordPress Plugins"
+#~ msgstr "Плагины автора для WordPress"
+
+#~ msgid "This Plugin needs your support"
+#~ msgstr "Это плагин нуждается в Вашей поддержке"
+
+#~ msgid "Please help support the continued development."
+#~ msgstr "Вы можете оказать поддержку для продолжения разработки."
+
+#~ msgid "Contact"
+#~ msgstr "Контакты"
+
+#~ msgid "$200+ makes you an official contributor."
+#~ msgstr "Более $200 получено официальным разработчиком."
+
+#~ msgid "Disable Auto Save"
+#~ msgstr "Отключить автосохранение"
+
+#, fuzzy
+#~ msgid "Remove attachment link from media uploader."
+#~ msgstr "Удалить ссылки на \"смежные\" записи из <head> секции html разметки"

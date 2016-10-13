@@ -1,0 +1,396 @@
+# Copyright (C) 2013 WP Total Hacks
+# This file is distributed under the same license as the WP Total Hacks package.
+msgid ""
+msgstr ""
+"Project-Id-Version: WP Total Hacks 1.2.2\n"
+"Report-Msgid-Bugs-To: http://wordpress.org/tag/wp-total-hacks\n"
+"POT-Creation-Date: 2014-09-06 03:35:26+00:00\n"
+"PO-Revision-Date: 2013-05-18 21:06+0100\n"
+"Last-Translator: Anja Skrba <anjas@webhostinggeeks.com>\n"
+"Language-Team: Anja Skrba <anjas@webhostinggeeks.com>\n"
+"Language: sr_RS\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n"
+"%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
+"X-Generator: Poedit 1.5.5\n"
+"X-Poedit-SourceCharset: UTF-8\n"
+
+#: includes/admin.php:260 includes/form/appearance.php:11
+#: includes/form/appearance.php:35 includes/form/site.php:9
+#: includes/form/site.php:19
+msgid "Select File"
+msgstr "Izaberite fajl"
+
+#: includes/admin.php:390
+msgid "Saved."
+msgstr "Sačuvano."
+
+#: includes/admin.php:397
+msgid "Save Changes"
+msgstr "Sačuvati izmene"
+
+#: includes/admin.php:442
+msgid "Deactivate"
+msgstr "Deaktivirati"
+
+#: includes/admin.php:444 includes/admin.php:446
+msgid "Activate"
+msgstr "Aktivirate"
+
+#: includes/form/appearance.php:3
+msgid "Appearance in admin"
+msgstr "Izgled na strani za administraciju"
+
+#: includes/form/appearance.php:6
+msgid "Change admin header logo"
+msgstr "Izmeniti logo zaglavlja strane za administraciju"
+
+#: includes/form/appearance.php:8
+msgid "Upload %s x %s pixel image for admin header logo."
+msgstr ""
+"Otpremite sliku veličine %s x %s piksela, za logo zaglavlja strane za "
+"administraciju."
+
+#: includes/form/appearance.php:16
+msgid "Change admin footer text"
+msgstr "Izmeniti tekst podnožja strane za administraciju"
+
+#: includes/form/appearance.php:18
+msgid "You can edit admin footer text. Line breaks will remove."
+msgstr ""
+"Možete urediti tekst podnožja strane za administraciju. Prelomi redova će se "
+"ukloniti."
+
+#: includes/form/appearance.php:29
+msgid "Change login logo"
+msgstr "Izmeniti logo strane za prijavu"
+
+#: includes/form/appearance.php:31
+msgid ""
+"You can customize logo, URL and Title. The logo image size is recommended "
+"310 x 70 pixel."
+msgstr ""
+"Možete prilagoditi logo, URL i naslov. Preporučena veličina slike za logo je "
+"310 x 70 piksela."
+
+#: includes/form/appearance.php:34
+msgid "Logo"
+msgstr "Logo"
+
+#: includes/form/appearance.php:36
+msgid "URL"
+msgstr "URL"
+
+#: includes/form/appearance.php:38
+msgid "Title"
+msgstr "Naslov"
+
+#: includes/form/footer.php:2
+msgid "Translators"
+msgstr "Prevodioci"
+
+#: includes/form/footer.php:7
+msgid "Contributors"
+msgstr "Doprinosioci"
+
+#: includes/form/other.php:2
+msgid "Other"
+msgstr "Ostalo"
+
+#: includes/form/other.php:5
+msgid "Deactivate Dashboard Widgets"
+msgstr "Deaktivirati vidžete komandne table"
+
+#: includes/form/other.php:7 includes/form/post.php:8
+#: includes/form/post.php:27
+msgid "Choose the items you want to remove."
+msgstr "Odaberite stavke koje želite da uklonite."
+
+#: includes/form/other.php:24
+msgid "Enable shortcode in the text widget"
+msgstr ""
+
+#: includes/form/other.php:26
+msgid ""
+"By default, the Text widget only support text and HTML. If you activate it, "
+"shortcode would be supported."
+msgstr ""
+
+#: includes/form/other.php:32
+msgid "Enable oEmbed in the text widget"
+msgstr ""
+
+#: includes/form/other.php:34
+msgid ""
+"By default, the Text widget only support text and HTML. If you activate it, "
+"oEmbed would be supported."
+msgstr ""
+
+#: includes/form/other.php:40
+msgid "Add role \"Webmaster\""
+msgstr "Dodati ulogu \"Urednik web sajta (Webmaster)\""
+
+#: includes/form/other.php:42
+msgid ""
+"This role has the capabilities of an \"Editor\", but can also edit theme "
+"options."
+msgstr ""
+"Ova uloga ima mogućnosti \"Urednik (Editor)\" -a, a može da uređuje i opcije "
+"teme."
+
+#: includes/form/other.php:48
+msgid "Change default email address"
+msgstr "Izmeniti podrazumevanu e-mail adresu"
+
+#: includes/form/other.php:50
+msgid ""
+"Change the email address and sender name used by automatic email "
+"notifications."
+msgstr ""
+"Izmeniti e-mail adresu i ime pošiljaoca, koji se koriste za automatsko "
+"obaveštavanje e-mailom."
+
+#: includes/form/other.php:52
+msgid "Name"
+msgstr "Ime"
+
+#: includes/form/other.php:54
+msgid "Email"
+msgstr "E-mail"
+
+#: includes/form/other.php:61
+msgid "Delete default contact methods"
+msgstr "Obrisati podrazumevane metode kontakta"
+
+#: includes/form/other.php:63
+msgid "Delete default contact methods from user profile."
+msgstr "Obrisati podrazumevane metode kontakta sa profila korisnika."
+
+#: includes/form/other.php:80
+msgid "Remove Update Notification"
+msgstr "Ukloniti obaveštenje o ažuriranju"
+
+#: includes/form/other.php:82
+msgid "Remove Update Notification for all users except Admin User."
+msgstr ""
+"Ukloniti obaveštenje o ažuriranju za sve korisnike, osim Admin korisnika "
+"(administratora)."
+
+#: includes/form/post.php:3
+msgid "Posts &amp; Pages"
+msgstr "Postovi i strane"
+
+#: includes/form/post.php:6
+msgid "Remove meta boxes for Posts"
+msgstr "Ukloniti meta polja za postove"
+
+#: includes/form/post.php:25
+msgid "Remove meta boxes for Pages"
+msgstr "Ukloniti meta polja za strane"
+
+#: includes/form/post.php:44
+msgid "Revision Control"
+msgstr "Kontrola revizija"
+
+#: includes/form/post.php:46
+msgid "Limit the number of revisions allowed."
+msgstr "Ograničiti dozvoljen broj revizija."
+
+#: includes/form/post.php:48
+msgid "Store All"
+msgstr "Sačuvati sve"
+
+#: includes/form/post.php:64
+msgid "Stop self-pingbacks"
+msgstr "Zaustaviti auto ping odzive"
+
+#: includes/form/post.php:66
+msgid ""
+"Stop sending pingbacks from your own site to your own site when writing "
+"posts."
+msgstr ""
+"Zaustaviti slanje ping odziva sa vašeg sajta ka vašem sajtu, kada se pišu "
+"postovi."
+
+#: includes/form/post.php:72
+msgid "Add \"Excerpt\" support for Pages."
+msgstr "Dodati \"Izvod (Excerpt)\" podršku za strane."
+
+#: includes/form/post.php:74
+msgid "Allows you to add excerpt text to pages."
+msgstr "Omogućava vam da stranama dodajete tekst izvoda."
+
+#: includes/form/post.php:80
+msgid "Allow you to create child page for \"draft\"."
+msgstr "Dozvoliti vam kreiranje potomak-strane za \"nacrt (draft)\"."
+
+#: includes/form/post.php:82
+msgid "You can create child page for non-publish Page."
+msgstr "Možete kreirati potomak-stranu za neobjavljenu (non-publish) stranu."
+
+#: includes/form/site.php:2
+msgid "Site Settings"
+msgstr "Podešavanja sajta"
+
+#: includes/form/site.php:5
+msgid "Add a favicon"
+msgstr "Dodati favicon ikonu"
+
+#: includes/form/site.php:7
+msgid "Please upload .ico image."
+msgstr "Molim vas, otpremite .ico sliku."
+
+#: includes/form/site.php:10
+msgid "Use this favicon with administration screens."
+msgstr "Koristiti ovu favicon ikonu sa administracionim ekranima."
+
+#: includes/form/site.php:15
+msgid "Add a apple-touch-icon"
+msgstr "Dodati apple-touch-icon ikonu"
+
+#: includes/form/site.php:17
+msgid "Please upload .png image."
+msgstr "Molim vas, otpremite .png sliku."
+
+#: includes/form/site.php:31
+msgid "Remove \"wlwmanifest\" and \"xmlrpc\" from meta."
+msgstr "Ukloniti \"wlwmanifest\" i \"xmlrpc\" iz meta podataka."
+
+#: includes/form/site.php:33
+msgid ""
+"If you don't use \"<a href=\"%s\">Remote Publishing</a>\", remove "
+"unnecessary tags from head."
+msgstr ""
+"Ako ne koristite \"<a href=\"%s\">Remote Publishing</a>\" (objavljivanje na "
+"daljinu), uklonite iz head elementa tagove koji nisu neophodni."
+
+#: includes/form/site.php:39
+msgid "Remove adjacent posts rel links from head on Pages"
+msgstr "Ukloniti rel linkove susednih postova iz head elementa na stranama"
+
+#: includes/form/site.php:41
+msgid ""
+"Remove adjacent posts rel links from head on Pages.<br /><span class=\"ex"
+"\">e.g. &lt;link rel=\"next\" ...&gt; &lt;link rel=\"prev\" ...&gt;</span>"
+msgstr ""
+"Ukloniti rel linkove susednih postova iz head elementa na stranama.<br /"
+"><span class=\"ex\">e.g. &lt;link rel=\"next\" ...&gt; &lt;link rel=\"prev"
+"\" ...&gt;</span>"
+
+#: includes/form/site.php:47
+msgid "Remove version number from head"
+msgstr "Ukloniti broj verzije iz head elementa"
+
+#: includes/form/site.php:49
+msgid ""
+"Remove generator tag from head. <span class=\"ex\">e.g. &lt;meta name="
+"\"generator\" content=\"WordPress x.x.x\" /&gt;</span>"
+msgstr ""
+"Ukloniti generator tag iz head elementa. <span class=\"ex\">e.g. &lt;meta "
+"name=\"generator\" content=\"WordPress x.x.x\" /&gt;</span>"
+
+#: includes/form/site.php:55
+msgid "Remove #more anchor"
+msgstr "Ukloniti sidrište #more"
+
+#: includes/form/site.php:57
+msgid "Remove #more-xxx anchor from more links."
+msgstr "Ukloniti sidrište #more-xxx iz linkova \"više (more)\"."
+
+#: includes/form/site.php:63
+msgid "Remove \"[...]\" from excerpt"
+msgstr "Ukloniti \"[...]\" iz izvoda"
+
+#: includes/form/site.php:65
+msgid "Remove \"[...]\" from output of the_excerpt()."
+msgstr "Ukloniti \"[...]\" iz izlaza the_excerpt()."
+
+#: includes/form/site.php:71
+#, fuzzy
+msgid "Block all pingbacks"
+msgstr "Zaustaviti auto ping odzive"
+
+#: includes/form/site.php:73
+#, fuzzy
+msgid "Block all pingbacks."
+msgstr "Zaustaviti auto ping odzive"
+
+#: includes/form/site.php:79
+msgid "Install Google Analytics"
+msgstr "Instalacija Google Analytics -a"
+
+#: includes/form/site.php:81
+msgid "Add Google analytics code."
+msgstr "Dodaje Google analytics kod."
+
+#: includes/form/site.php:88
+msgid "Exclude user logged in."
+msgstr "Isključiti prijavljenog korisnika."
+
+#: includes/form/site.php:93
+msgid "Webmaster Tools Verification"
+msgstr "Webmaster Tools verifikacija"
+
+#: includes/form/site.php:95
+#, fuzzy
+msgid ""
+"Enter your meta key \"content\" value to verify your blog with <a href="
+"\"https://www.google.com/webmasters/tools/\">Google Webmaster Tools</a> and "
+"<a href=\"http://www.bing.com/webmaster\">Bing Webmaster Center</a>."
+msgstr ""
+"Unesite vašu vrednost meta ključa \"content\" (sadržaj), da verifikujete "
+"svoj blog pomoću <a href=\"https://www.google.com/webmasters/tools/\">Google "
+"Webmaster Tools</a> -a, <a href=\"https://siteexplorer.search.yahoo.com/"
+"\">Yahoo! Site Explorer</a> -a, i <a href=\"http://www.bing.com/webmaster"
+"\">Bing Webmaster Center</a> -a."
+
+#: wp-total-hacks.php:402
+msgid "Settings"
+msgstr "Podešavanja"
+
+#: wp-total-hacks.php:405
+msgid "Donate"
+msgstr "Donirajte"
+
+#. Plugin Name of the plugin/theme
+msgid "WP Total Hacks"
+msgstr "WP Total Hacks"
+
+#. Plugin URI of the plugin/theme
+msgid "http://wpist.me/wp/wp-total-hacks/"
+msgstr "http://wpist.me/wp/wp-total-hacks/"
+
+#. Description of the plugin/theme
+msgid "WP Total Hacks can customize your WordPress."
+msgstr "WP Total Hacks može da prilagodi vaš WordPress."
+
+#. Author of the plugin/theme
+msgid "Takayuki Miyauchi"
+msgstr "Takayuki Miyauchi"
+
+#. Author URI of the plugin/theme
+msgid "http://wpist.me/"
+msgstr "http://wpist.me/"
+
+#~ msgid "WordPress Plugins"
+#~ msgstr "WordPress dodaci (Plugins)"
+
+#~ msgid "Make WordPress Site Load Faster"
+#~ msgstr "Učinite da se WordPress sajt brže učitava"
+
+#~ msgid "http://wpbooster.net/"
+#~ msgstr "http://wpbooster.net/"
+
+#~ msgid "This Plugin needs your support"
+#~ msgstr "Ovom dodatku treba vaša podrška"
+
+#~ msgid "Please help support the continued development."
+#~ msgstr "Molimo vas, pomozite kontinuirani razvoj."
+
+#~ msgid "Contact"
+#~ msgstr "Kontakt"
+
+#~ msgid "$200+ makes you an official contributor."
+#~ msgstr "$200+ vas čini zvaničnim doprinosiocem."

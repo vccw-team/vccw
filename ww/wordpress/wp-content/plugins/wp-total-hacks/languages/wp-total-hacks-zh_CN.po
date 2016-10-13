@@ -1,0 +1,385 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: http://wordpress.org/tag/wp-total-hacks\n"
+"POT-Creation-Date: 2014-09-06 03:35:26+00:00\n"
+"PO-Revision-Date: 2011-09-18 21:11+0800\n"
+"Last-Translator: missing猪 <520@qq.com>\n"
+"Language-Team: \n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Poedit-KeywordsList: __;_e\n"
+"X-Poedit-Basepath: D:\\Program Files\\xampp\\htdocs\\WP-3.2.1\\wp-content"
+"\\plugins\\wp-total-hacks\n"
+"X-Poedit-SearchPath-0: .\n"
+
+#: includes/admin.php:260 includes/form/appearance.php:11
+#: includes/form/appearance.php:35 includes/form/site.php:9
+#: includes/form/site.php:19
+msgid "Select File"
+msgstr "选择文件"
+
+#: includes/admin.php:390
+msgid "Saved."
+msgstr ""
+
+#: includes/admin.php:397
+msgid "Save Changes"
+msgstr "保存更改"
+
+#: includes/admin.php:442
+msgid "Deactivate"
+msgstr ""
+
+#: includes/admin.php:444 includes/admin.php:446
+msgid "Activate"
+msgstr ""
+
+#: includes/form/appearance.php:3
+msgid "Appearance in admin"
+msgstr "后台外观"
+
+#: includes/form/appearance.php:6
+msgid "Change admin header logo"
+msgstr "修改后台头部 logo"
+
+#: includes/form/appearance.php:8
+msgid "Upload %s x %s pixel image for admin header logo."
+msgstr "上传 %s x %s 像素的图片作为后台头部的 logo。"
+
+#: includes/form/appearance.php:16
+msgid "Change admin footer text"
+msgstr "修改后台底部文字"
+
+#: includes/form/appearance.php:18
+msgid "You can edit admin footer text. Line breaks will remove."
+msgstr "你可以编辑底部文字，分隔符会被移除"
+
+#: includes/form/appearance.php:29
+msgid "Change login logo"
+msgstr "修改登录界面 logo"
+
+#: includes/form/appearance.php:31
+msgid ""
+"You can customize logo, URL and Title. The logo image size is recommended "
+"310 x 70 pixel."
+msgstr ""
+"你可以自定义 logo的图片、链接地址和鼠标悬浮文字，图片建议 310 x 70 像素大小。"
+
+#: includes/form/appearance.php:34
+msgid "Logo"
+msgstr "Logo图片"
+
+#: includes/form/appearance.php:36
+msgid "URL"
+msgstr "链接地址"
+
+#: includes/form/appearance.php:38
+msgid "Title"
+msgstr "鼠标悬浮文字"
+
+#: includes/form/footer.php:2
+msgid "Translators"
+msgstr "翻译人员"
+
+#: includes/form/footer.php:7
+msgid "Contributors"
+msgstr "贡献者"
+
+#: includes/form/other.php:2
+msgid "Other"
+msgstr "其它"
+
+#: includes/form/other.php:5
+msgid "Deactivate Dashboard Widgets"
+msgstr "禁用控制板小工具"
+
+#: includes/form/other.php:7 includes/form/post.php:8
+#: includes/form/post.php:27
+msgid "Choose the items you want to remove."
+msgstr "选择你想移除的项目"
+
+#: includes/form/other.php:24
+msgid "Enable shortcode in the text widget"
+msgstr ""
+
+#: includes/form/other.php:26
+msgid ""
+"By default, the Text widget only support text and HTML. If you activate it, "
+"shortcode would be supported."
+msgstr ""
+
+#: includes/form/other.php:32
+msgid "Enable oEmbed in the text widget"
+msgstr ""
+
+#: includes/form/other.php:34
+msgid ""
+"By default, the Text widget only support text and HTML. If you activate it, "
+"oEmbed would be supported."
+msgstr ""
+
+#: includes/form/other.php:40
+msgid "Add role \"Webmaster\""
+msgstr "添加角色\"Webmaster\"（网络管理员）"
+
+#: includes/form/other.php:42
+msgid ""
+"This role has the capabilities of an \"Editor\", but can also edit theme "
+"options."
+msgstr "这个角色拥有“编辑”的权限，但同时可以设置主题选项"
+
+#: includes/form/other.php:48
+msgid "Change default email address"
+msgstr "修改默认 e-mail 信息"
+
+#: includes/form/other.php:50
+msgid ""
+"Change the email address and sender name used by automatic email "
+"notifications."
+msgstr "修改wordpress的自动通知功能使用的 e-mail 信息"
+
+#: includes/form/other.php:52
+msgid "Name"
+msgstr ""
+
+#: includes/form/other.php:54
+msgid "Email"
+msgstr ""
+
+#: includes/form/other.php:61
+msgid "Delete default contact methods"
+msgstr "删除默认联系方式"
+
+#: includes/form/other.php:63
+msgid "Delete default contact methods from user profile."
+msgstr "删除用户个人资料里的默认联系方式"
+
+#: includes/form/other.php:80
+msgid "Remove Update Notification"
+msgstr "禁用升级提示"
+
+#: includes/form/other.php:82
+msgid "Remove Update Notification for all users except Admin User."
+msgstr "除管理员外的角色都禁用升级提示"
+
+#: includes/form/post.php:3
+msgid "Posts &amp; Pages"
+msgstr "文章 &amp; 页面"
+
+#: includes/form/post.php:6
+msgid "Remove meta boxes for Posts"
+msgstr "移除日志编辑选项"
+
+#: includes/form/post.php:25
+msgid "Remove meta boxes for Pages"
+msgstr "移除页面编辑选项"
+
+#: includes/form/post.php:44
+msgid "Revision Control"
+msgstr "修订版本控制"
+
+#: includes/form/post.php:46
+msgid "Limit the number of revisions allowed."
+msgstr "显示修订版本的数量"
+
+#: includes/form/post.php:48
+msgid "Store All"
+msgstr "保存全部"
+
+#: includes/form/post.php:64
+msgid "Stop self-pingbacks"
+msgstr "禁止自我广播pingback"
+
+#: includes/form/post.php:66
+msgid ""
+"Stop sending pingbacks from your own site to your own site when writing "
+"posts."
+msgstr "禁止发表日志后，发送通知广播到自己的网站"
+
+#: includes/form/post.php:72
+msgid "Add \"Excerpt\" support for Pages."
+msgstr "页面添加“摘要”"
+
+#: includes/form/post.php:74
+msgid "Allows you to add excerpt text to pages."
+msgstr "允许给页面添加“摘要”"
+
+#: includes/form/post.php:80
+msgid "Allow you to create child page for \"draft\"."
+msgstr ""
+
+#: includes/form/post.php:82
+msgid "You can create child page for non-publish Page."
+msgstr ""
+
+#: includes/form/site.php:2
+msgid "Site Settings"
+msgstr "网站设置"
+
+#: includes/form/site.php:5
+msgid "Add a favicon"
+msgstr "添加网站图标"
+
+#: includes/form/site.php:7
+msgid "Please upload .ico image."
+msgstr "请上传.ico图标"
+
+#: includes/form/site.php:10
+msgid "Use this favicon with administration screens."
+msgstr ""
+
+#: includes/form/site.php:15
+#, fuzzy
+msgid "Add a apple-touch-icon"
+msgstr "添加网站图标"
+
+#: includes/form/site.php:17
+#, fuzzy
+msgid "Please upload .png image."
+msgstr "请上传.ico图标"
+
+#: includes/form/site.php:31
+msgid "Remove \"wlwmanifest\" and \"xmlrpc\" from meta."
+msgstr "移除内容为\"wlwmanifest\" 和 \"xmlrpc\"的meat标签"
+
+#: includes/form/site.php:33
+msgid ""
+"If you don't use \"<a href=\"%s\">Remote Publishing</a>\", remove "
+"unnecessary tags from head."
+msgstr "如果不使用<a href=\"%s\">远程发布功能</a>，移除网页头部相关标签"
+
+#: includes/form/site.php:39
+msgid "Remove adjacent posts rel links from head on Pages"
+msgstr "移除头部相邻文章的相关链接"
+
+#: includes/form/site.php:41
+msgid ""
+"Remove adjacent posts rel links from head on Pages.<br /><span class=\"ex"
+"\">e.g. &lt;link rel=\"next\" ...&gt; &lt;link rel=\"prev\" ...&gt;</span>"
+msgstr ""
+"移除头部相邻文章的相关链接  <br /><span class=\"ex\">示例 &lt;link rel=\"next"
+"\" ...&gt; &lt;link rel=\"prev\" ...&gt;</span>"
+
+#: includes/form/site.php:47
+msgid "Remove version number from head"
+msgstr "移除头部wordpress版本号"
+
+#: includes/form/site.php:49
+msgid ""
+"Remove generator tag from head. <span class=\"ex\">e.g. &lt;meta name="
+"\"generator\" content=\"WordPress x.x.x\" /&gt;</span>"
+msgstr ""
+"移除头部的generator标签 <span class=\"ex\">示例 &lt;meta name=\"generator\" "
+"content=\"WordPress x.x.x\" /&gt;</span>"
+
+#: includes/form/site.php:55
+msgid "Remove #more anchor"
+msgstr "移除“阅读更多”链接中的锚点"
+
+#: includes/form/site.php:57
+msgid "Remove #more-xxx anchor from more links."
+msgstr "移除“阅读更多”链接中的 #more-xxx 锚点"
+
+#: includes/form/site.php:63
+msgid "Remove \"[...]\" from excerpt"
+msgstr " 从摘要中移除\"[...]\""
+
+#: includes/form/site.php:65
+msgid "Remove \"[...]\" from output of the_excerpt()."
+msgstr "移除 the_excerpt()函数输出内容中的 \"[...]\" "
+
+#: includes/form/site.php:71
+#, fuzzy
+msgid "Block all pingbacks"
+msgstr "禁止自我广播pingback"
+
+#: includes/form/site.php:73
+#, fuzzy
+msgid "Block all pingbacks."
+msgstr "禁止自我广播pingback"
+
+#: includes/form/site.php:79
+msgid "Install Google Analytics"
+msgstr "支持Google Analytics"
+
+#: includes/form/site.php:81
+msgid "Add Google analytics code."
+msgstr "添加 Google analytics 代码"
+
+#: includes/form/site.php:88
+msgid "Exclude user logged in."
+msgstr "拒绝用户登录"
+
+#: includes/form/site.php:93
+msgid "Webmaster Tools Verification"
+msgstr "网络管理员验证工具"
+
+#: includes/form/site.php:95
+#, fuzzy
+msgid ""
+"Enter your meta key \"content\" value to verify your blog with <a href="
+"\"https://www.google.com/webmasters/tools/\">Google Webmaster Tools</a> and "
+"<a href=\"http://www.bing.com/webmaster\">Bing Webmaster Center</a>."
+msgstr ""
+"输入 <a href=\"https://www.google.com/webmasters/tools/\">Google Webmaster "
+"Tools</a>, <a href=\"https://siteexplorer.search.yahoo.com/\">Yahoo! Site "
+"Explorer</a>, 和 <a href=\"http://www.bing.com/webmaster\">Bing Webmaster "
+"Center</a>代码."
+
+#: wp-total-hacks.php:402
+msgid "Settings"
+msgstr "设置"
+
+#: wp-total-hacks.php:405
+msgid "Donate"
+msgstr "捐助"
+
+#. Plugin Name of the plugin/theme
+msgid "WP Total Hacks"
+msgstr ""
+
+#. Plugin URI of the plugin/theme
+msgid "http://wpist.me/wp/wp-total-hacks/"
+msgstr ""
+
+#. Description of the plugin/theme
+msgid "WP Total Hacks can customize your WordPress."
+msgstr ""
+
+#. Author of the plugin/theme
+msgid "Takayuki Miyauchi"
+msgstr ""
+
+#. Author URI of the plugin/theme
+msgid "http://wpist.me/"
+msgstr ""
+
+#~ msgid "WordPress Plugins"
+#~ msgstr "WordPress 插件"
+
+#~ msgid "This Plugin needs your support"
+#~ msgstr "这款插件需要你的支持"
+
+#~ msgid "Please help support the continued development."
+#~ msgstr "请捐赠以支持插件的继续开发"
+
+#~ msgid "Contact"
+#~ msgstr "联系"
+
+#~ msgid "$200+ makes you an official contributor."
+#~ msgstr "$200+将让你成为官方的捐助者"
+
+#~ msgid "Disable Auto Save"
+#~ msgstr "禁用自动保存"
+
+#, fuzzy
+#~ msgid "Remove attachment link from media uploader."
+#~ msgstr "移除头部相邻文章的相关链接"

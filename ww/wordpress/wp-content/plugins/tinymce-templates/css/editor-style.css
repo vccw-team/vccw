@@ -1,0 +1,12 @@
+.mceContentBody table
+{
+    border: 1px dashed #cccccc;
+    width: 100%;
+}
+
+.mceContentBody th,
+.mceContentBody td
+{
+    border: 1px dashed #cccccc;
+    min-height: 1em;
+}

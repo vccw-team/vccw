@@ -1,0 +1,375 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: \n"
+"Report-Msgid-Bugs-To: http://wordpress.org/tag/wp-total-hacks\n"
+"POT-Creation-Date: 2014-09-06 03:35:26+00:00\n"
+"PO-Revision-Date: \n"
+"Last-Translator: Branco  <brradenovich@gmail.com>\n"
+"Language-Team: \n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Poedit 1.5.5\n"
+
+#: includes/admin.php:260 includes/form/appearance.php:11
+#: includes/form/appearance.php:35 includes/form/site.php:9
+#: includes/form/site.php:19
+msgid "Select File"
+msgstr "Výber súboru"
+
+#: includes/admin.php:390
+msgid "Saved."
+msgstr "Uložené."
+
+#: includes/admin.php:397
+msgid "Save Changes"
+msgstr "Uložiť zmeny"
+
+#: includes/admin.php:442
+msgid "Deactivate"
+msgstr "Deaktivova"
+
+#: includes/admin.php:444 includes/admin.php:446
+msgid "Activate"
+msgstr "Aktivova"
+
+#: includes/form/appearance.php:3
+msgid "Appearance in admin"
+msgstr "Vzhµad v admin"
+
+#: includes/form/appearance.php:6
+msgid "Change admin header logo"
+msgstr "Zmena admin hlavièku logo"
+
+#: includes/form/appearance.php:8
+msgid "Upload %s x %s pixel image for admin header logo."
+msgstr "Nahra» %s x %s obrazových bodov pre admin hlavièku logo."
+
+#: includes/form/appearance.php:16
+msgid "Change admin footer text"
+msgstr "Zmena admin päta text"
+
+#: includes/form/appearance.php:18
+msgid "You can edit admin footer text. Line breaks will remove."
+msgstr "Môzete upravova» admin text päty. Konce riadkov odstráni."
+
+#: includes/form/appearance.php:29
+msgid "Change login logo"
+msgstr "Zmena login logo"
+
+#: includes/form/appearance.php:31
+msgid ""
+"You can customize logo, URL and Title. The logo image size is recommended "
+"310 x 70 pixel."
+msgstr ""
+
+#: includes/form/appearance.php:34
+msgid "Logo"
+msgstr "Logo"
+
+#: includes/form/appearance.php:36
+msgid "URL"
+msgstr "URL"
+
+#: includes/form/appearance.php:38
+msgid "Title"
+msgstr "Názov"
+
+#: includes/form/footer.php:2
+msgid "Translators"
+msgstr "Prekladatelia"
+
+#: includes/form/footer.php:7
+msgid "Contributors"
+msgstr "Prispievatelia"
+
+#: includes/form/other.php:2
+msgid "Other"
+msgstr "Ďalšie"
+
+#: includes/form/other.php:5
+msgid "Deactivate Dashboard Widgets"
+msgstr "Deaktivova Dashboard Widget"
+
+#: includes/form/other.php:7 includes/form/post.php:8
+#: includes/form/post.php:27
+msgid "Choose the items you want to remove."
+msgstr "Vyberte polozky, ktoré chcete odstráni»."
+
+#: includes/form/other.php:24
+msgid "Enable shortcode in the text widget"
+msgstr ""
+
+#: includes/form/other.php:26
+msgid ""
+"By default, the Text widget only support text and HTML. If you activate it, "
+"shortcode would be supported."
+msgstr ""
+
+#: includes/form/other.php:32
+msgid "Enable oEmbed in the text widget"
+msgstr ""
+
+#: includes/form/other.php:34
+msgid ""
+"By default, the Text widget only support text and HTML. If you activate it, "
+"oEmbed would be supported."
+msgstr ""
+
+#: includes/form/other.php:40
+msgid "Add role \"Webmaster\""
+msgstr "Prida» role \"Webmaster\""
+
+#: includes/form/other.php:42
+msgid ""
+"This role has the capabilities of an \"Editor\", but can also edit theme "
+"options."
+msgstr ""
+
+#: includes/form/other.php:48
+msgid "Change default email address"
+msgstr "Zmena predvoleného e-mailová adresa"
+
+#: includes/form/other.php:50
+msgid ""
+"Change the email address and sender name used by automatic email "
+"notifications."
+msgstr ""
+
+#: includes/form/other.php:52
+msgid "Name"
+msgstr "Meno"
+
+#: includes/form/other.php:54
+msgid "Email"
+msgstr "Email"
+
+#: includes/form/other.php:61
+msgid "Delete default contact methods"
+msgstr "Odstráni» metódy predvolený kontakt"
+
+#: includes/form/other.php:63
+msgid "Delete default contact methods from user profile."
+msgstr "Odstráni» metódy predvolené kontaktné od profilu pou¾ívateµa."
+
+#: includes/form/other.php:80
+msgid "Remove Update Notification"
+msgstr "Odstráni» oznámenia o aktualizáciu"
+
+#: includes/form/other.php:82
+msgid "Remove Update Notification for all users except Admin User."
+msgstr ""
+"Odstráňte Aktualizácia oznámenia pre všetkých užívateľov s výnimkou Admin "
+"User."
+
+#: includes/form/post.php:3
+msgid "Posts &amp; Pages"
+msgstr "Príspevky a stránky"
+
+#: includes/form/post.php:6
+msgid "Remove meta boxes for Posts"
+msgstr "Odstráni» meta boxy pre príspevky"
+
+#: includes/form/post.php:25
+msgid "Remove meta boxes for Pages"
+msgstr "Odstráni» meta boxy pre stránky"
+
+#: includes/form/post.php:44
+msgid "Revision Control"
+msgstr "Revízia Control"
+
+#: includes/form/post.php:46
+msgid "Limit the number of revisions allowed."
+msgstr "Obmedzenie poètu povolených revízií."
+
+#: includes/form/post.php:48
+msgid "Store All"
+msgstr "Ulo¾enie All"
+
+#: includes/form/post.php:64
+msgid "Stop self-pingbacks"
+msgstr "Zastavi» self-Pingbacks"
+
+#: includes/form/post.php:66
+msgid ""
+"Stop sending pingbacks from your own site to your own site when writing "
+"posts."
+msgstr ""
+
+#: includes/form/post.php:72
+msgid "Add \"Excerpt\" support for Pages."
+msgstr "Pridať \"Excerpt\"  výpis podporu stránok."
+
+#: includes/form/post.php:74
+msgid "Allows you to add excerpt text to pages."
+msgstr "Umozòuje prida» výòatok textu na stránkach."
+
+#: includes/form/post.php:80
+msgid "Allow you to create child page for \"draft\"."
+msgstr "Umozòuje vytvori» peskoval stránky pre \"draft\"."
+
+#: includes/form/post.php:82
+msgid "You can create child page for non-publish Page."
+msgstr "Môzete vytvori» podstránku pre non-publikova» stránke."
+
+#: includes/form/site.php:2
+msgid "Site Settings"
+msgstr "Nastavenie webu"
+
+#: includes/form/site.php:5
+msgid "Add a favicon"
+msgstr "Prida» favicon"
+
+#: includes/form/site.php:7
+msgid "Please upload .ico image."
+msgstr "Prosím, nahrajte. ico image."
+
+#: includes/form/site.php:10
+msgid "Use this favicon with administration screens."
+msgstr "Pouzite túto favicon sa správnymi obrazoviek."
+
+#: includes/form/site.php:15
+msgid "Add a apple-touch-icon"
+msgstr "Prida» apple-touch-ikonu"
+
+#: includes/form/site.php:17
+msgid "Please upload .png image."
+msgstr "Prosím, nahrajte. png obrázok."
+
+#: includes/form/site.php:31
+msgid "Remove \"wlwmanifest\" and \"xmlrpc\" from meta."
+msgstr "Odstráni \"wlwmanifest\" and \"xmlrpc\" z meta."
+
+#: includes/form/site.php:33
+msgid ""
+"If you don't use \"<a href=\"%s\">Remote Publishing</a>\", remove "
+"unnecessary tags from head."
+msgstr ""
+
+#: includes/form/site.php:39
+msgid "Remove adjacent posts rel links from head on Pages"
+msgstr "Odstráni» priµahlé príspevky rel odkazy z hlavy na stránkach"
+
+#: includes/form/site.php:41
+msgid ""
+"Remove adjacent posts rel links from head on Pages.<br /><span class=\"ex"
+"\">e.g. &lt;link rel=\"next\" ...&gt; &lt;link rel=\"prev\" ...&gt;</span>"
+msgstr ""
+
+#: includes/form/site.php:47
+msgid "Remove version number from head"
+msgstr "Odstráni» èíslo verzie z hlavy"
+
+#: includes/form/site.php:49
+msgid ""
+"Remove generator tag from head. <span class=\"ex\">e.g. &lt;meta name="
+"\"generator\" content=\"WordPress x.x.x\" /&gt;</span>"
+msgstr ""
+
+#: includes/form/site.php:55
+msgid "Remove #more anchor"
+msgstr "Odstráni» # viac kotvu"
+
+#: includes/form/site.php:57
+msgid "Remove #more-xxx anchor from more links."
+msgstr "Odstráni» # more-xxx kotvu z viac odkazov."
+
+#: includes/form/site.php:63
+msgid "Remove \"[...]\" from excerpt"
+msgstr "Odstráni \"[…]\" od výpis"
+
+#: includes/form/site.php:65
+msgid "Remove \"[...]\" from output of the_excerpt()."
+msgstr "Odstráni \"[…]\" z výstupu the_excerpt ()."
+
+#: includes/form/site.php:71
+#, fuzzy
+msgid "Block all pingbacks"
+msgstr "Zastavi» self-Pingbacks"
+
+#: includes/form/site.php:73
+#, fuzzy
+msgid "Block all pingbacks."
+msgstr "Zastavi» self-Pingbacks"
+
+#: includes/form/site.php:79
+msgid "Install Google Analytics"
+msgstr "In¹talova» Google Analytics"
+
+#: includes/form/site.php:81
+msgid "Add Google analytics code."
+msgstr "Prida» kód Google Analytics."
+
+#: includes/form/site.php:88
+msgid "Exclude user logged in."
+msgstr "Vylúèi» uzívateµ prihlásený"
+
+#: includes/form/site.php:93
+msgid "Webmaster Tools Verification"
+msgstr "Nástroje pre webmasterov Overenie"
+
+#: includes/form/site.php:95
+msgid ""
+"Enter your meta key \"content\" value to verify your blog with <a href="
+"\"https://www.google.com/webmasters/tools/\">Google Webmaster Tools</a> and "
+"<a href=\"http://www.bing.com/webmaster\">Bing Webmaster Center</a>."
+msgstr ""
+
+#: wp-total-hacks.php:402
+msgid "Settings"
+msgstr "Nastavenia"
+
+#: wp-total-hacks.php:405
+msgid "Donate"
+msgstr "Donate"
+
+#. Plugin Name of the plugin/theme
+msgid "WP Total Hacks"
+msgstr "WP Celkom hacks"
+
+#. Plugin URI of the plugin/theme
+msgid "http://wpist.me/wp/wp-total-hacks/"
+msgstr "http://wpist.me/wp/wp-total-hacks/"
+
+#. Description of the plugin/theme
+msgid "WP Total Hacks can customize your WordPress."
+msgstr "hacks WP Celkom mô¾ete prispôsobi» WordPress."
+
+#. Author of the plugin/theme
+msgid "Takayuki Miyauchi"
+msgstr "Takayuki Miyauchi"
+
+#. Author URI of the plugin/theme
+msgid "http://wpist.me/"
+msgstr "http://wpist.me/"
+
+#~ msgid "WordPress Plugins"
+#~ msgstr "WordPress Plugins"
+
+#~ msgid "Make WordPress Site Load Faster"
+#~ msgstr "Skontrolujte, WordPress stránok Load Faster"
+
+#~ msgid "http://wpbooster.net/"
+#~ msgstr "http://wpbooster.net/"
+
+#~ msgid "This Plugin needs your support"
+#~ msgstr "Tento plugin potrebuje va¹u pomoc"
+
+#~ msgid "Please help support the continued development."
+#~ msgstr "Prosím, pomôzte podpori» ïal¹í vývoj."
+
+#~ msgid "Contact"
+#~ msgstr "Kontakt"
+
+#~ msgid "$200+ makes you an official contributor."
+#~ msgstr "$ 200 + robí oficiálne prispievateµom."
+
+#~ msgid "Disable Auto Save"
+#~ msgstr "Zakáza» Auto Save"
+
+#~ msgid "Remove attachment link from media uploader."
+#~ msgstr "Odstráni» prílohu odkaz z Media Uploader."
+
+#~ msgid "Allows you to remove link for attachment page from media uploader."
+#~ msgstr "Umozòuje odstráni» odkaz pre upevòovacie stránku z Media Uploader."

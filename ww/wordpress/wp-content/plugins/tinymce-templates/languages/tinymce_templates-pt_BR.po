@@ -1,0 +1,169 @@
+# This file is distributed under the same license as the PACKAGE package.
+# Tobias Bergius <bergius.tobias@gmail.com>, 2011.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: http://wordpress.org/tag/tinymce-templates\n"
+"POT-Creation-Date: 2015-01-15 02:05:20+00:00\n"
+"PO-Revision-Date: 2012-05-17 11:53-0300\n"
+"Last-Translator: Funchal <funchal@nomer.com.br>\n"
+"Language-Team: \n"
+"Language: Swedish\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: tinymce-templates.php:203 tinymce-templates.php:206
+#: tinymce-templates.php:518 tinymce-templates.php:527
+#, fuzzy
+msgid "Insert Template"
+msgstr "Novo modelo"
+
+#: tinymce-templates.php:255 tinymce-templates.php:273
+#: tinymce-templates.php:290
+msgid "Copy to a new template"
+msgstr ""
+
+#: tinymce-templates.php:343 tinymce-templates.php:345
+msgid "Templates"
+msgstr "Modelos"
+
+#: tinymce-templates.php:346
+msgid "Add New Template"
+msgstr "Adicionar um novo modelo"
+
+#: tinymce-templates.php:347
+msgid "Edit Template"
+msgstr "Editar modelo"
+
+#: tinymce-templates.php:348
+msgid "Add New"
+msgstr "Adicionar novo"
+
+#: tinymce-templates.php:349
+msgid "New Template"
+msgstr "Novo modelo"
+
+#: tinymce-templates.php:350
+msgid "View Template"
+msgstr "Visualizar modelo"
+
+#: tinymce-templates.php:351
+msgid "No templatess found."
+msgstr "Nenhum modelo encontrado."
+
+#: tinymce-templates.php:352
+msgid "No templates found in Trash."
+msgstr "Nenhum modelo na lixeira."
+
+#: tinymce-templates.php:356
+msgid "Search Templates"
+msgstr "Pesquisar modelos disponíveis"
+
+#: tinymce-templates.php:389
+msgid "Insert as Shortcode"
+msgstr ""
+
+#: tinymce-templates.php:398
+msgid "Translators"
+msgstr "Tradutores"
+
+#: tinymce-templates.php:417 tinymce-templates.php:420
+msgid "Yes"
+msgstr ""
+
+#: tinymce-templates.php:418 tinymce-templates.php:421
+msgid "No"
+msgstr ""
+
+#: tinymce-templates.php:526
+msgid "Note: The template will be inserted as shortcode."
+msgstr ""
+
+#. Plugin Name of the plugin/theme
+msgid "TinyMCE Templates"
+msgstr "TinyMCE Templates"
+
+#. #-#-#-#-#  tinymce_templates.pot (TinyMCE Templates 4.3.2)  #-#-#-#-#
+#. Plugin URI of the plugin/theme
+#. #-#-#-#-#  tinymce_templates.pot (TinyMCE Templates 4.3.2)  #-#-#-#-#
+#. Author URI of the plugin/theme
+#, fuzzy
+msgid "http://miya0001.github.io/tinymce-templates/"
+msgstr "http://wpist.me/wp/tinymce-templates/"
+
+#. Description of the plugin/theme
+msgid ""
+"TinyMCE Templates plugin will enable to use HTML template on WordPress "
+"Visual Editor."
+msgstr ""
+"O plugin TinyMCE Templates irá ajudá-lo a usar modelos HTML no seu editor "
+"visual do Wordpress."
+
+#. Author of the plugin/theme
+msgid "Takayuki Miyauchi"
+msgstr "Takayuki Miyauchi"
+
+#, fuzzy
+#~ msgid "Insert template"
+#~ msgstr "Novo modelo"
+
+#, fuzzy
+#~ msgid "No templates defined"
+#~ msgstr "Nenhum modelo encontrado."
+
+#~ msgid "Shared"
+#~ msgstr "Compartilhar"
+
+#~ msgid "Share"
+#~ msgstr "Compartilhar"
+
+#~ msgid "Private"
+#~ msgstr "Privado"
+
+#~ msgid "http://wpist.me/"
+#~ msgstr "http://wpist.me/"
+
+#~ msgid "Donate"
+#~ msgstr "Faça uma doação"
+
+#~ msgid ""
+#~ "It is hard to continue development and support for WordPress plugins "
+#~ "without contributions from users like you."
+#~ msgstr ""
+#~ "É complicado continuar desenvolvendo e atualizando plugins para o "
+#~ "Wordpress sem a ajuda de usuários como você."
+
+#~ msgid "Templates permanently deleted."
+#~ msgstr "Plantillas permanentemente borradas."
+
+#~ msgid "Name"
+#~ msgstr "Nombre"
+
+#~ msgid "Description"
+#~ msgstr "Descripción"
+
+#~ msgid "Author"
+#~ msgstr "Autor"
+
+#~ msgid "Delete checked items"
+#~ msgstr "Borrar elementos seleccionados"
+
+#~ msgid "Template saved."
+#~ msgstr "Plantilla guardada."
+
+#~ msgid "All entry must not be blank."
+#~ msgstr "No puede haber ningún campo en blanco."
+
+#~ msgid "Template Name"
+#~ msgstr "Nombre de la Plantilla"
+
+#~ msgid "Template Description"
+#~ msgstr "Descripción de la Plantilla"
+
+#~ msgid "Template Contents"
+#~ msgstr "Contenidos de la Plantilla"
+
+#~ msgid "Edit"
+#~ msgstr "Editar"

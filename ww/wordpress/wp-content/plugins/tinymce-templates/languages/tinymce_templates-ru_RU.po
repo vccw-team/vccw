@@ -1,0 +1,134 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: \n"
+"Report-Msgid-Bugs-To: http://wordpress.org/tag/tinymce-templates\n"
+"POT-Creation-Date: 2015-01-15 02:05:20+00:00\n"
+"PO-Revision-Date: \n"
+"Last-Translator: ihtimir <ihtimir@gmail.com>\n"
+"Language-Team: \n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Poedit-Language: Russian\n"
+"X-Poedit-Country: RUSSIAN FEDERATION\n"
+"X-Poedit-SourceCharset: utf-8\n"
+
+#: tinymce-templates.php:203 tinymce-templates.php:206
+#: tinymce-templates.php:518 tinymce-templates.php:527
+#, fuzzy
+msgid "Insert Template"
+msgstr "Новый шаблон"
+
+#: tinymce-templates.php:255 tinymce-templates.php:273
+#: tinymce-templates.php:290
+msgid "Copy to a new template"
+msgstr "Скопировать в новый шаблон"
+
+#: tinymce-templates.php:343 tinymce-templates.php:345
+msgid "Templates"
+msgstr "Шаблоны"
+
+#: tinymce-templates.php:346
+msgid "Add New Template"
+msgstr "Добавить новый шаблон"
+
+#: tinymce-templates.php:347
+msgid "Edit Template"
+msgstr "Редактировать шаблон"
+
+#: tinymce-templates.php:348
+msgid "Add New"
+msgstr "Добавить новый"
+
+#: tinymce-templates.php:349
+msgid "New Template"
+msgstr "Новый шаблон"
+
+#: tinymce-templates.php:350
+msgid "View Template"
+msgstr "Просмотреть шаблон"
+
+#: tinymce-templates.php:351
+msgid "No templatess found."
+msgstr "Шаблоны не найдены."
+
+#: tinymce-templates.php:352
+msgid "No templates found in Trash."
+msgstr "В корзине не найдено шаблонов."
+
+#: tinymce-templates.php:356
+msgid "Search Templates"
+msgstr "Поиск шаблонов"
+
+#: tinymce-templates.php:389
+msgid "Insert as Shortcode"
+msgstr ""
+
+#: tinymce-templates.php:398
+msgid "Translators"
+msgstr "Переводчики"
+
+#: tinymce-templates.php:417 tinymce-templates.php:420
+msgid "Yes"
+msgstr ""
+
+#: tinymce-templates.php:418 tinymce-templates.php:421
+msgid "No"
+msgstr ""
+
+#: tinymce-templates.php:526
+msgid "Note: The template will be inserted as shortcode."
+msgstr ""
+
+#. Plugin Name of the plugin/theme
+msgid "TinyMCE Templates"
+msgstr "Шаблоны TinyMCE"
+
+#. #-#-#-#-#  tinymce_templates.pot (TinyMCE Templates 4.3.2)  #-#-#-#-#
+#. Plugin URI of the plugin/theme
+#. #-#-#-#-#  tinymce_templates.pot (TinyMCE Templates 4.3.2)  #-#-#-#-#
+#. Author URI of the plugin/theme
+#, fuzzy
+msgid "http://miya0001.github.io/tinymce-templates/"
+msgstr "http://wpist.me/wp/tinymce-templates/"
+
+#. Description of the plugin/theme
+msgid ""
+"TinyMCE Templates plugin will enable to use HTML template on WordPress "
+"Visual Editor."
+msgstr "Плагин шаблонов TinyMCE будет включен для использования в редакторе"
+
+#. Author of the plugin/theme
+msgid "Takayuki Miyauchi"
+msgstr "Takayuki Miyauchi"
+
+#, fuzzy
+#~ msgid "Insert template"
+#~ msgstr "Новый шаблон"
+
+#, fuzzy
+#~ msgid "No templates defined"
+#~ msgstr "Шаблоны не найдены."
+
+#~ msgid "Shared"
+#~ msgstr "Общедоступный"
+
+#~ msgid "Share"
+#~ msgstr "Поделиться"
+
+#~ msgid "Private"
+#~ msgstr "Частный"
+
+#~ msgid "http://wpist.me/"
+#~ msgstr "http://wpist.me/"
+
+#~ msgid "Donate"
+#~ msgstr "Отблагодарить"
+
+#~ msgid ""
+#~ "It is hard to continue development and support for WordPress plugins "
+#~ "without contributions from users like you."
+#~ msgstr ""
+#~ "Нам сложно разрабатывать и поддерживать без помощи таких как вы "
+#~ "пользователей."

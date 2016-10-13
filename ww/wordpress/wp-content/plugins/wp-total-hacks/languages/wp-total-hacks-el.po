@@ -1,0 +1,484 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: WP Total Hacks v1.1.2\n"
+"Report-Msgid-Bugs-To: http://wordpress.org/tag/wp-total-hacks\n"
+"POT-Creation-Date: 2014-09-06 03:35:26+00:00\n"
+"PO-Revision-Date: 2013-01-29 02:20:34+0000\n"
+"Last-Translator: darkos <gsiamidis@gmail.com>\n"
+"Language-Team: \n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Poedit-Language: Greek\n"
+"X-Poedit-Country: GREECE\n"
+"X-Poedit-SourceCharset: utf-8\n"
+"X-Poedit-KeywordsList: __;_e;__ngettext:1,2;_n:1,2;__ngettext_noop:1,2;"
+"_n_noop:1,2;_c,_nc:4c,1,2;_x:1,2c;_ex:1,2c;_nx:4c,1,2;_nx_noop:4c,1,2;\n"
+"X-Poedit-Basepath: ../\n"
+"X-Poedit-Bookmarks: \n"
+"X-Poedit-SearchPath-0: .\n"
+"X-Textdomain-Support: yes\n"
+
+# @ wp-total-hacks
+#: includes/admin.php:260 includes/form/appearance.php:11
+#: includes/form/appearance.php:35 includes/form/site.php:9
+#: includes/form/site.php:19
+msgid "Select File"
+msgstr "Επιλογή Αρχείου"
+
+# @ default
+#: includes/admin.php:390
+msgid "Saved."
+msgstr ""
+
+# @ default
+#: includes/admin.php:397
+msgid "Save Changes"
+msgstr ""
+
+# @ default
+#: includes/admin.php:442
+msgid "Deactivate"
+msgstr ""
+
+# @ default
+#: includes/admin.php:444 includes/admin.php:446
+msgid "Activate"
+msgstr ""
+
+# @ wp-total-hacks
+#: includes/form/appearance.php:3
+msgid "Appearance in admin"
+msgstr "Εμφάνιση Διαχείρισης"
+
+# @ wp-total-hacks
+#: includes/form/appearance.php:6
+msgid "Change admin header logo"
+msgstr "Αλλαγή Λογότυπου Διαχείρισης"
+
+# @ wp-total-hacks
+#: includes/form/appearance.php:8
+msgid "Upload %s x %s pixel image for admin header logo."
+msgstr "Ανεβάστε %s x %s pixel εικόνα για Λογότυπο Διαχείρισης."
+
+# @ wp-total-hacks
+#: includes/form/appearance.php:16
+msgid "Change admin footer text"
+msgstr "Αλλαγή κειμένου Footer της Διαχείρισης"
+
+# @ wp-total-hacks
+#: includes/form/appearance.php:18
+msgid "You can edit admin footer text. Line breaks will remove."
+msgstr ""
+"Επεξεργασία κειμένου Footer Διαχείρισης. Τα κενά μεταξύ των γραμμών "
+"διαγράφονται."
+
+# @ wp-total-hacks
+#: includes/form/appearance.php:29
+msgid "Change login logo"
+msgstr "Αλλαγή Λογότυπου Διαχείρισης"
+
+# @ wp-total-hacks
+#: includes/form/appearance.php:31
+msgid ""
+"You can customize logo, URL and Title. The logo image size is recommended "
+"310 x 70 pixel."
+msgstr ""
+"Μπορείτε να επεξεργαστείτε το Λογότυπο, URL και Τίτλο. Το προτεινόμενο "
+"μέγεθος για το Λογότυπο είναι 310 x 70 pixel."
+
+# @ wp-total-hacks
+#: includes/form/appearance.php:34
+msgid "Logo"
+msgstr "Λογότυπο"
+
+# @ wp-total-hacks
+#: includes/form/appearance.php:36
+msgid "URL"
+msgstr "URL"
+
+# @ wp-total-hacks
+#: includes/form/appearance.php:38
+msgid "Title"
+msgstr "Τίτλος"
+
+# @ wp-total-hacks
+#: includes/form/footer.php:2
+msgid "Translators"
+msgstr "Μεταφραστές"
+
+# @ wp-total-hacks
+#: includes/form/footer.php:7
+msgid "Contributors"
+msgstr "Συντελεστές"
+
+# @ wp-total-hacks
+#: includes/form/other.php:2
+msgid "Other"
+msgstr "Άλλα"
+
+# @ wp-total-hacks
+#: includes/form/other.php:5
+msgid "Deactivate Dashboard Widgets"
+msgstr "Απενεργοποίηση Widgets του Πίνακα Ελέγχου"
+
+# @ wp-total-hacks
+#: includes/form/other.php:7 includes/form/post.php:8
+#: includes/form/post.php:27
+msgid "Choose the items you want to remove."
+msgstr "Επιλέξτε τα αντικείμενα που θέλετε να απενεργοποιήσετε."
+
+#: includes/form/other.php:24
+msgid "Enable shortcode in the text widget"
+msgstr ""
+
+#: includes/form/other.php:26
+msgid ""
+"By default, the Text widget only support text and HTML. If you activate it, "
+"shortcode would be supported."
+msgstr ""
+
+#: includes/form/other.php:32
+msgid "Enable oEmbed in the text widget"
+msgstr ""
+
+#: includes/form/other.php:34
+msgid ""
+"By default, the Text widget only support text and HTML. If you activate it, "
+"oEmbed would be supported."
+msgstr ""
+
+# @ wp-total-hacks
+#: includes/form/other.php:40
+msgid "Add role \"Webmaster\""
+msgstr "Προσθήκη ρόλου \"Webmaster\""
+
+# @ wp-total-hacks
+#: includes/form/other.php:42
+msgid ""
+"This role has the capabilities of an \"Editor\", but can also edit theme "
+"options."
+msgstr ""
+"Αυτός ο ρόλος έχει τις Δυνατότητες του  \"Editor\", αλλά μπορεί επίσης να "
+"επεξεργαστεί και τις επιλογές του Theme"
+
+# @ wp-total-hacks
+#: includes/form/other.php:48
+msgid "Change default email address"
+msgstr "Αλλαγή της προεπιλεγμένης διεύθυνσης Email"
+
+# @ wp-total-hacks
+#: includes/form/other.php:50
+msgid ""
+"Change the email address and sender name used by automatic email "
+"notifications."
+msgstr ""
+"Αλλαγή της διεύθυνσης Email και του ονόματος αποστολέα των αυτόματων "
+"Ειδοποιήσεων."
+
+# @ wp-total-hacks
+#: includes/form/other.php:52
+msgid "Name"
+msgstr "Όνομα"
+
+# @ wp-total-hacks
+#: includes/form/other.php:54
+msgid "Email"
+msgstr "Email"
+
+# @ wp-total-hacks
+#: includes/form/other.php:61
+msgid "Delete default contact methods"
+msgstr "Διαγραφή προεπιλεγμένων μεθόδων επικοινωνίας"
+
+# @ wp-total-hacks
+#: includes/form/other.php:63
+msgid "Delete default contact methods from user profile."
+msgstr "Διαγραφή προεπιλεγμένων μεθόδων επικοινωνίας από το Προφίλ Χρήστη"
+
+# @ wp-total-hacks
+#: includes/form/other.php:80
+msgid "Remove Update Notification"
+msgstr "Διαγραφή Ειδοποιήσεων για Ενημερώσεις"
+
+# @ wp-total-hacks
+#: includes/form/other.php:82
+msgid "Remove Update Notification for all users except Admin User."
+msgstr ""
+"Διαγραφή Ειδοποιήσεων για Ενημερώσεις για όλους του Χρήστες εκτός του "
+"Διαχειριστή."
+
+# @ wp-total-hacks
+#: includes/form/post.php:3
+msgid "Posts &amp; Pages"
+msgstr "Άρθρα &amp; Σελίδες"
+
+# @ wp-total-hacks
+#: includes/form/post.php:6
+msgid "Remove meta boxes for Posts"
+msgstr "Απόκρυψη κουτιών μεταστοιχείων από τα Άρθρα"
+
+# @ wp-total-hacks
+#: includes/form/post.php:25
+msgid "Remove meta boxes for Pages"
+msgstr "Απόκρυψη κουτιών μεταστοιχείων από τις Σελίδες"
+
+# @ wp-total-hacks
+#: includes/form/post.php:44
+msgid "Revision Control"
+msgstr "Έλεγχος Αναθεωρήσεων"
+
+# @ wp-total-hacks
+#: includes/form/post.php:46
+msgid "Limit the number of revisions allowed."
+msgstr "Επιτρεπτό όριο αναθεωρήσεων."
+
+# @ wp-total-hacks
+#: includes/form/post.php:48
+msgid "Store All"
+msgstr "Αποθήκευση Όλων"
+
+# @ wp-total-hacks
+#: includes/form/post.php:64
+msgid "Stop self-pingbacks"
+msgstr "Αποτροπή των Αυτο-Ειδοποιήσεων (Self-Pinbacks)"
+
+# @ wp-total-hacks
+#: includes/form/post.php:66
+msgid ""
+"Stop sending pingbacks from your own site to your own site when writing "
+"posts."
+msgstr ""
+"Αποτρέψετε την αποστολή Ειδοποιήσεων (Pingbacks) από το Site σας προς το "
+"δικό σας Site όταν γράφετε ένα Άρθρο."
+
+# @ wp-total-hacks
+#: includes/form/post.php:72
+msgid "Add \"Excerpt\" support for Pages."
+msgstr "Προσθέστε την δυνατότητα \"Αποσπάσματος (Excerpt)\" για τις Σελίδες"
+
+# @ wp-total-hacks
+#: includes/form/post.php:74
+msgid "Allows you to add excerpt text to pages."
+msgstr "Σας επιτρέπει να προσθέσετε κείμενο αποσπάσματος στις Σελίδες."
+
+# @ wp-total-hacks
+#: includes/form/post.php:80
+msgid "Allow you to create child page for \"draft\"."
+msgstr ""
+"Δυνατότητα δημιουργίας Υπο-Σελίδας (Child Page) για τα \"Προσχέδια (Draft)\"."
+
+# @ wp-total-hacks
+#: includes/form/post.php:82
+msgid "You can create child page for non-publish Page."
+msgstr ""
+"Μπορείτε να δημιουργήσετε Υπο-Σελίδα (Child Page) για μία μη δημοσιευμένη "
+"Σελίδα."
+
+# @ wp-total-hacks
+#: includes/form/site.php:2
+msgid "Site Settings"
+msgstr "Ρυθμίσεις Ιστοσελίδας"
+
+# @ wp-total-hacks
+#: includes/form/site.php:5
+msgid "Add a favicon"
+msgstr "Προσθήκη Favicon"
+
+# @ wp-total-hacks
+#: includes/form/site.php:7
+msgid "Please upload .ico image."
+msgstr "Παρακαλώ ανεβάστε μία εικόνα με κατάληξη .ico"
+
+# @ wp-total-hacks
+#: includes/form/site.php:10
+msgid "Use this favicon with administration screens."
+msgstr "Χρήση αυτού του Favicon για τη Διαχείριση."
+
+# @ wp-total-hacks
+#: includes/form/site.php:15
+msgid "Add a apple-touch-icon"
+msgstr "Προσθήκη Favicon για Apple Touch"
+
+# @ wp-total-hacks
+#: includes/form/site.php:17
+msgid "Please upload .png image."
+msgstr "Παρακαλώ ανεβάστε μία εικόνα με κατάληξη .png"
+
+# @ wp-total-hacks
+#: includes/form/site.php:31
+msgid "Remove \"wlwmanifest\" and \"xmlrpc\" from meta."
+msgstr "Διαγραφή \"wlwmanifest\" και \"xmlrpc\" από τα meta."
+
+# @ wp-total-hacks
+#: includes/form/site.php:33
+msgid ""
+"If you don't use \"<a href=\"%s\">Remote Publishing</a>\", remove "
+"unnecessary tags from head."
+msgstr ""
+"Εάν δεν χρησιμοποιείτε  \"<a href=\"%s\">Remote Publishing</a>\", αφαιρέστε "
+"τις άχρηστες ετικέτες από την κεφαλίδα."
+
+# @ wp-total-hacks
+#: includes/form/site.php:39
+msgid "Remove adjacent posts rel links from head on Pages"
+msgstr ""
+"Διαγραφή συνδέσμων rel από την κεφαλίδα των σελίδων για γειτονικές Σελίδες"
+
+# @ wp-total-hacks
+#: includes/form/site.php:41
+msgid ""
+"Remove adjacent posts rel links from head on Pages.<br /><span class=\"ex"
+"\">e.g. &lt;link rel=\"next\" ...&gt; &lt;link rel=\"prev\" ...&gt;</span>"
+msgstr ""
+"Διαγραφή συνδέσμων rel από την κεφαλίδα των σελίδων για γειτονικές Σελίδες."
+"<br /><span class=\"ex\">πχ. &lt;link rel=\"next\" ...&gt; &lt;link rel="
+"\"prev\" ...&gt;</span>"
+
+# @ wp-total-hacks
+#: includes/form/site.php:47
+msgid "Remove version number from head"
+msgstr "Απόκρυψη της Έκδοσης του Wordpress από την κεφαλίδα"
+
+# @ wp-total-hacks
+#: includes/form/site.php:49
+msgid ""
+"Remove generator tag from head. <span class=\"ex\">e.g. &lt;meta name="
+"\"generator\" content=\"WordPress x.x.x\" /&gt;</span>"
+msgstr ""
+"Απόκρυψη ετικέτας generator από την κεφαλίδα. <span class=\"ex\">πχ. &lt;"
+"meta name=\"generator\" content=\"WordPress x.x.x\" /&gt;</span>"
+
+# @ wp-total-hacks
+#: includes/form/site.php:55
+msgid "Remove #more anchor"
+msgstr "Διαγραφή της άγκυρας (anchor) #more"
+
+# @ wp-total-hacks
+#: includes/form/site.php:57
+msgid "Remove #more-xxx anchor from more links."
+msgstr "Διαγραφή της άγκυρας (anchor) #more-xxx από τους συνδέσμους"
+
+# @ wp-total-hacks
+#: includes/form/site.php:63
+msgid "Remove \"[...]\" from excerpt"
+msgstr "Διαγραφή \"[...]\" από τα αποσπάσματα"
+
+# @ wp-total-hacks
+#: includes/form/site.php:65
+msgid "Remove \"[...]\" from output of the_excerpt()."
+msgstr "Διαγραφή \"[...]\" από το output του the_excerpt()."
+
+# @ wp-total-hacks
+#: includes/form/site.php:71
+#, fuzzy
+msgid "Block all pingbacks"
+msgstr "Αποτροπή των Αυτο-Ειδοποιήσεων (Self-Pinbacks)"
+
+# @ wp-total-hacks
+#: includes/form/site.php:73
+#, fuzzy
+msgid "Block all pingbacks."
+msgstr "Αποτροπή των Αυτο-Ειδοποιήσεων (Self-Pinbacks)"
+
+# @ wp-total-hacks
+#: includes/form/site.php:79
+msgid "Install Google Analytics"
+msgstr "Εγκατάσταση Google Analytics"
+
+# @ wp-total-hacks
+#: includes/form/site.php:81
+msgid "Add Google analytics code."
+msgstr "Προσθήκη κώδικα Google Analytics"
+
+# @ wp-total-hacks
+#: includes/form/site.php:88
+msgid "Exclude user logged in."
+msgstr "Εξαίρεση συνδεδεμένου χρήστη."
+
+# @ wp-total-hacks
+#: includes/form/site.php:93
+msgid "Webmaster Tools Verification"
+msgstr "Επαλήθευση Webmaster Tools"
+
+# @ wp-total-hacks
+#: includes/form/site.php:95
+#, fuzzy
+msgid ""
+"Enter your meta key \"content\" value to verify your blog with <a href="
+"\"https://www.google.com/webmasters/tools/\">Google Webmaster Tools</a> and "
+"<a href=\"http://www.bing.com/webmaster\">Bing Webmaster Center</a>."
+msgstr ""
+"Γράψτε το meta key σας \"content\" για επαλήθευση τις σελίδας σας με το <a "
+"href=\"https://www.google.com/webmasters/tools/\">Google Webmaster Tools</"
+"a>, <a href=\"https://siteexplorer.search.yahoo.com/\">Yahoo! Site Explorer</"
+"a>, και <a href=\"http://www.bing.com/webmaster\">Bing Webmaster Center</a>."
+
+# @ wp-total-hacks
+#: wp-total-hacks.php:402
+msgid "Settings"
+msgstr "Ρυθμίσεις"
+
+# @ wp-total-hacks
+#: wp-total-hacks.php:405
+msgid "Donate"
+msgstr "Δωρεά"
+
+# @ wp-total-hacks
+#. Plugin Name of the plugin/theme
+msgid "WP Total Hacks"
+msgstr "WP Total Hacks"
+
+# @ wp-total-hacks
+#. Plugin URI of the plugin/theme
+msgid "http://wpist.me/wp/wp-total-hacks/"
+msgstr "http://wpist.me/wp/wp-total-hacks/"
+
+# @ wp-total-hacks
+#. Description of the plugin/theme
+msgid "WP Total Hacks can customize your WordPress."
+msgstr "Το WP Total Hacks σας δίνει τη δυνατότητα προσαρμογής του WordPress."
+
+# @ wp-total-hacks
+#. Author of the plugin/theme
+msgid "Takayuki Miyauchi"
+msgstr "Takayuki Miyauchi"
+
+# @ wp-total-hacks
+#. Author URI of the plugin/theme
+msgid "http://wpist.me/"
+msgstr "http://wpist.me/"
+
+# @ wp-total-hacks
+#~ msgid "WordPress Plugins"
+#~ msgstr "Ενθέματα του Wordpress"
+
+# @ wp-total-hacks
+#~ msgid "Make WordPress Site Load Faster"
+#~ msgstr "Κάνετε το Wordpress Site σας να Φορτώνει Γρηγορότερα"
+
+# @ wp-total-hacks
+#~ msgid "http://wpbooster.net/"
+#~ msgstr "http://wpbooster.net/"
+
+# @ wp-total-hacks
+#~ msgid "This Plugin needs your support"
+#~ msgstr "Αυτό το Plugin χρειάζεται την υποστήριξη σας"
+
+# @ wp-total-hacks
+#~ msgid "Please help support the continued development."
+#~ msgstr "Παρακαλώ βοηθήστε στην συνεχή ανάπτυξη."
+
+# @ wp-total-hacks
+#~ msgid "Contact"
+#~ msgstr "Επικοινωνία"
+
+# @ wp-total-hacks
+#~ msgid "$200+ makes you an official contributor."
+#~ msgstr "Με $200+ γίνεστε Επίσημος Συνεισφέρων."
+
+# @ wp-total-hacks
+#~ msgid "1.1.2"
+#~ msgstr "1.1.2"
