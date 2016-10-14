@@ -1,26 +1,12 @@
 - hosts: all
-  vars:
-    php_ini_config:
-    - regexp: '^;?(default_charset) =.*'
-      line: '\1 = UTF-8'
-    - regexp: '^;?(mbstring.language) =.*'
-      line: '\1 = neutral'
-    - regexp: '^;?(mbstring.internal_encoding) =.*'
-      line: '\1 = UTF-8'
-    - regexp: '^;?(date.timezone) =.*'
-      line: '\1 = UTC'
-    - regexp: '^;?(short_open_tag) =.*'
-      line: '\1 = Off'
-    - regexp: '^;?(session.save_path) =.*'
-      line: '\1 = /tmp'
-
   vars_files:
+    - "vars/main.yml"
     - [ "vars/{{ ansible_os_family }}.yml", "vars/defaults.yml" ]
   tasks:
     - name: create ssl dir
       become: yes
       file:
-        path: /etc/{{ apache }}/ssl
+        path: /etc/{{ apache.service }}/ssl
         state: directory
 
     # Create SSL Keys
@@ -28,15 +14,15 @@
       become: yes
       command: openssl req -batch -new -x509 -newkey rsa:2048 -nodes -sha256 \
         -subj /CN=*.{{ vccw.hostname }}/O=oreore -days 3650 \
-        -keyout /etc/{{ apache }}/ssl/{{ vccw.hostname }}.key \
-        -out /etc/{{ apache }}/ssl/{{ vccw.hostname }}.crt
+        -keyout /etc/{{ apache.service }}/ssl/{{ vccw.hostname }}.key \
+        -out /etc/{{ apache.service }}/ssl/{{ vccw.hostname }}.crt
 
     # Setup Document Root
-    - name: Place /etc/{{ apache }}/sites-available/site.conf
+    - name: Place /etc/{{ apache.service }}/sites-available/site.conf
       become: yes
       template:
         src: templates/site.conf
-        dest: /etc/{{ apache }}/sites-available/{{ vccw.hostname }}.conf
+        dest: /etc/{{ apache.service }}/sites-available/{{ vccw.hostname }}.conf
       notify:
         - restart apache
 
@@ -45,8 +31,8 @@
       become: yes
       #command: a2ensite {{ vccw.hostname }}
       file:
-        src: /etc/{{ apache }}/sites-available/{{ vccw.hostname }}.conf
-        dest: /etc/{{ apache }}/sites-enabled/{{ vccw.hostname }}.conf
+        src: /etc/{{ apache.service }}/sites-available/{{ vccw.hostname }}.conf
+        dest: /etc/{{ apache.service }}/sites-enabled/{{ vccw.hostname }}.conf
         state: link
       notify:
         - restart apache
@@ -56,7 +42,7 @@
       become: yes
       #command: a2dissite 000-default
       file:
-        path: /etc/{{ apache }}/sites-enabled/{{ default_conf }}
+        path: /etc/{{ apache.service }}/sites-enabled/{{ apache.default_conf }}
         state: absent
       notify:
         - restart apache
@@ -65,15 +51,15 @@
     - name: php.ini config.
       become: yes
       lineinfile:
-        dest: "{{ php_ini_path }}"
+        dest: "{{ php.config_file_path }}"
         backrefs: yes
         regexp: '{{ item.regexp }}'
         line: '{{ item.line }}'
-      with_items: "{{ php_ini_config }}"
+      with_items: "{{ php.config_values }}"
       notify:
         - restart apache
 
   handlers:
     - name: restart apache
       become: yes
-      service: name={{ apache }} state=restarted
+      service: name={{ apache.service }} state=restarted

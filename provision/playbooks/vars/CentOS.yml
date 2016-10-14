@@ -1,4 +1,6 @@
 # for centos
-apache: httpd
-default_conf: default
-php_ini_path: '/etc/php.ini'
+apache:
+  service: httpd
+  default_conf: default
+php:
+  config_file_path: '/etc/php.ini'
