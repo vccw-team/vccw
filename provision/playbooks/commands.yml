@@ -112,16 +112,12 @@
         executable: /usr/bin/npm
       with_items: "{{ vccw.npms | default([]) }}"
 
-    # Install Composer libraries
+    # Install user's Composer libraries
     - name: Install user's Composer libraries
       shell: /bin/bash -lc "composer global require '{{ item }}'"
       with_items: "{{ vccw.composers | default([]) }}"
 
-    # Install Composer libraries
-    - name: Install user's Composer libraries
-      shell: /bin/bash -lc "composer global require '{{ item }}'"
-      with_items: "{{ vccw.composers | default([]) }}"
-
+    # Install user's wp-cli packages
     - name: Install user's WP-CLI packages
       become: no
       shell: /bin/bash -lc "wp package install '{{ item }}'"
