@@ -174,5 +174,5 @@
     become: no
     shell: /bin/bash -lc "wp scaffold movefile"
     args:
-      chdir: /vagrant
+      chdir: "{{ vccw.vagrant_dir }}"
       creates: Movefile

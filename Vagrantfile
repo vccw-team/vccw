@@ -41,6 +41,8 @@ Vagrant.configure(2) do |config|
   _conf["document_root"] = "/var/www/wordpress"
   _conf["user"] = "vagrant"
   _conf["group"] = "vagrant"
+  _conf["vagrant_dir"] = "/vagrant"
+
 
   config.vm.define _conf['hostname'] do |v|
   end
