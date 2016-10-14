@@ -1,3 +1,6 @@
 # for ubuntu
-apache: apache2
-default_conf: 000-default.conf
+apache:
+  service: apache2
+  default_conf: 000-default.conf
+php:
+  config_file_path: '/etc/php/7.0/apache2/php.ini'

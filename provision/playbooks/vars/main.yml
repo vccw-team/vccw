@@ -1,0 +1,14 @@
+php:
+  config_values:
+  - regexp: '^;?(default_charset) =.*'
+    line: '\1 = UTF-8'
+  - regexp: '^;?(mbstring.language) =.*'
+    line: '\1 = neutral'
+  - regexp: '^;?(mbstring.internal_encoding) =.*'
+    line: '\1 = UTF-8'
+  - regexp: '^;?(date.timezone) =.*'
+    line: '\1 = UTC'
+  - regexp: '^;?(short_open_tag) =.*'
+    line: '\1 = Off'
+  - regexp: '^;?(session.save_path) =.*'
+    line: '\1 = /tmp'
