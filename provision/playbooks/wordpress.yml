@@ -168,3 +168,11 @@
       --path={{ path }}
     with_dict: "{{ vccw.multisite_options | default({}) }}"
     when: vccw.multisite
+
+  # Generate Movefile
+  - name: Create a Movefile
+    become: no
+    shell: /bin/bash -lc "wp scaffold movefile"
+    args:
+      chdir: /vagrant
+      creates: Movefile
