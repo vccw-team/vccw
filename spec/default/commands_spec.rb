@@ -21,12 +21,9 @@ end
 
 commands = [
   "phpunit --version",
-  "grunt --version",
-  "grunt-init --version",
   "gulp --version",
   "phpcs --help",
   "composer --version",
-  "phpmd --version",
   "wordmove help",
   "wp help",
   "wp help scaffold movefile",
