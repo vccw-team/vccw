@@ -59,6 +59,23 @@
       notify:
         - restart apache
 
+    # Install mailcatcher as root
+    - name: Install mailcatcher
+      become: yes
+      gem:
+        name: mailcatcher
+        state: latest
+        user_install: no
+    - name: Add mailcatcher to service
+      become: yes
+      template:
+        src: templates/mailcatcher
+        dest: /etc/init.d/mailcatcher
+        mode: 0755
+    - name: Start mailcatcher
+      become: yes
+      service: name=mailcatcher enabled=yes state=started
+
   handlers:
     - name: restart apache
       become: yes

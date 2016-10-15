@@ -2,10 +2,11 @@
   vars:
     wp_cli_bin_url: https://raw.githubusercontent.com/wp-cli/builds/gh-pages/phar/wp-cli.phar
     # Required rubygems
+    # mailcatcher should be installed as root because it will run as daemon,
+    # so it shouldn't install here.
     rubygems:
       - bundler
       - wordmove
-      - mailcatcher
     # Required npms
     npms:
       - gulp-cli
