@@ -52,8 +52,6 @@ db_host: localhost
 #
 plugins:
   - dynamic-hostname
-  - wp-total-hacks
-  - tinymce-templates
 
 #
 # WordPress Default Theme
