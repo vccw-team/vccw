@@ -12,3 +12,5 @@ php:
     line: '\1 = Off'
   - regexp: '^;?(session.save_path) =.*'
     line: '\1 = /tmp'
+  - regexp: '^;?(sendmail_path) =.*'
+    line: '\1 = /usr/bin/env catchmail'
