@@ -6,25 +6,15 @@
     dbpassword: "wordpress"
 
   tasks:
-  # create default wp-cli config.
-  - name: create ~/.wp-cli/
-    file:
-      path: "{{ ansible_env.HOME }}/.wp-cli/"
-      state: directory
-
-  - name: create ~/.wp-cli/config.yml
-    template:
-      src: templates/config.yml
-      dest: "{{ ansible_env.HOME }}/.wp-cli/config.yml"
 
   # Database Settings
-  - name: create Database
+  - name: Create Database
     mysql_db:
       login_user: root
       login_password: wordpress
       name: "{{ dbname }}"
       state: present
-  - name: create MySQL user
+  - name: Create MySQL user
     mysql_user:
       login_user: root
       login_password: wordpress
@@ -35,7 +25,7 @@
       state: present
 
   # download wordpress
-  - name: wordpress core download
+  - name: Run `wp core download`
     command: |
       wp core download
       --path={{ path }}
@@ -48,11 +38,11 @@
     file:
       state: absent
       path: "{{ path }}/wp-config.php"
-  - name: create extra-php
+  - name: Create temporary file for extra-php in wp-config.php
     template:
       src: templates/extra-php.txt
       dest: "{{ path }}/extra-php.txt"
-  - name: create wp-config.php
+  - name: Run `wp core config`
     shell: |
        wp core config \
        --path={{ path }} \
@@ -63,18 +53,18 @@
        --dbprefix={{ vccw.db_prefix }} \
        --locale={{ vccw.lang }} \
        --extra-php < {{ path | realpath }}/extra-php.txt
-  - name: Delete extra-php
+  - name: Delete temporary file
     file:
       state: absent
       path: "{{ path }}/extra-php.txt"
 
   # Reset Database
-  - name: reset db reset
+  - name: Run `wp db reset`
     command: wp db reset --yes --path={{ path }}
     when: vccw.reset_db_on_provision
 
   # install wordpress
-  - name: install wordpress core
+  - name: Run `wp core install`
     command: |
       wp core install
       --path={{ path }}
@@ -84,24 +74,24 @@
       --admin_password={{ vccw.admin_pass }}
       --admin_email={{ vccw.admin_email }}
 
-  - name: create index.php for wp_siteurl changed
+  - name: Create index.php for wp_siteurl
     when: vccw.wp_siteurl != ''
     template:
       src: templates/index.php
       dest: "{{ vccw.document_root }}/index.php"
 
-  - name: create editorconfig
+  - name: Create `.editorconfig`
     template:
       src: templates/editorconfig
       dest: "{{ vccw.document_root }}/.editorconfig"
 
-  - name: create gitignore
+  - name: Create `.gitignore`
     template:
       src: templates/gitignore
       dest: "{{ vccw.document_root }}/.gitignore"
 
   # Install Plugins
-  - name: install plugins
+  - name: Run `wp plugin install`
     command: |
       wp plugin install {{ item }}
       --activate
@@ -109,24 +99,24 @@
     with_items: "{{ vccw.plugins }}"
 
   # Install Theme
-  - name: install theme
+  - name: Run `wp theme install`
     command: |
       wp theme install {{ vccw.theme }}
       --path={{ path }}
     when: vccw.theme != ''
 
   # Import Theme Unit Test Data
-  - name: install wordpress-importer
+  - name: Run `wp plugin install wordpress-importer`
     command: |
       wp plugin install wordpress-importer
       --activate
       --path={{ path }}
-  - name: Download unit test Data
+  - name: Download WordPress theme unit test
     when: vccw.theme_unit_test
     get_url:
       url: "{{ vccw.theme_unit_test_uri }}"
       dest: "{{ theme_unit_test_data }}"
-  - name: Import theme unit test data
+  - name: Import WordPress theme unit test data
     when: vccw.theme_unit_test
     command: |
       wp import
@@ -134,14 +124,14 @@
       --path={{ path }}
 
   #Import Options
-  - name: import Options
+  - name: Run `wp options update`
     command: |
       wp option update {{ item.key }} '{{ item.value }}'
       --path={{ path }}
     with_dict: "{{ vccw.options }}"
 
   #Setting Permalink
-  - name: Permalink structure
+  - name: Run `wp rewrite structure`
     command: |
       wp rewrite structure {{ vccw.rewrite_structure }}
       --path={{ path }}
@@ -152,12 +142,12 @@
       --path={{ path }}
 
  #multisite Settings
-  - name: convert multisite
+  - name: Run `wp core multisite-convert`
     when: vccw.multisite
     command: |
       wp core multisite-convert
       --path={{ path }}
-  - name: create htaccess for multisite
+  - name: Create .htaccess for multisite
     when: vccw.multisite
     template:
       src: templates/multisite-htaccess

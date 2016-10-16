@@ -2,15 +2,17 @@
   vars_files:
     - "vars/main.yml"
     - [ "vars/{{ ansible_os_family }}.yml", "vars/defaults.yml" ]
+
   tasks:
-    - name: create ssl dir
+
+    - name: Create SSL dir
       become: yes
       file:
         path: /etc/{{ apache.service }}/ssl
         state: directory
 
     # Create SSL Keys
-    - name: create ssl Keys
+    - name: Create SSL keys
       become: yes
       command: openssl req -batch -new -x509 -newkey rsa:2048 -nodes -sha256 \
         -subj /CN=*.{{ vccw.hostname }}/O=oreore -days 3650 \
@@ -27,7 +29,7 @@
         - restart apache
 
     # enable wordpress.conf
-    - name: enable wordpress.conf
+    - name: Enable virtual host for WordPress
       become: yes
       #command: a2ensite {{ vccw.hostname }}
       file:
@@ -38,7 +40,7 @@
         - restart apache
 
     # disable default
-    - name: disable default site
+    - name: Disable default site
       become: yes
       #command: a2dissite 000-default
       file:
@@ -47,8 +49,8 @@
       notify:
         - restart apache
 
-    #php config.
-    - name: php.ini config.
+    # php config.
+    - name: Update php.ini
       become: yes
       lineinfile:
         dest: "{{ php.config_file_path }}"
