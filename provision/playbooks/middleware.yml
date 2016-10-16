@@ -5,6 +5,16 @@
 
   tasks:
 
+    - name: Allow remote connections to MySQL
+      become: yes
+      lineinfile:
+        dest: "/etc/mysql/mysql.conf.d/mysqld.cnf"
+        backrefs: yes
+        regexp: '^(bind-address)'
+        line: '# \1'
+      notify:
+        - restart mysql
+
     - name: Create SSL dir
       become: yes
       file:
@@ -82,3 +92,6 @@
     - name: restart apache
       become: yes
       service: name={{ apache.service }} state=restarted
+    - name: restart mysql
+      become: yes
+      service: name=mysql state=restarted

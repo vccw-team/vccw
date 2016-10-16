@@ -21,7 +21,7 @@
       name: "{{ dbuser }}"
       password: "{{ dbpassword }}"
       priv: "wordpress.*:ALL"
-      host: "{{ vccw.db_host }}"
+      host: "%"
       state: present
 
   # download wordpress
@@ -123,14 +123,14 @@
       --authors=create {{ theme_unit_test_data }}
       --path={{ path }}
 
-  #Import Options
+  # Import Options
   - name: Run `wp options update`
     command: |
       wp option update {{ item.key }} '{{ item.value }}'
       --path={{ path }}
     with_dict: "{{ vccw.options }}"
 
-  #Setting Permalink
+  # Setting Permalink
   - name: Run `wp rewrite structure`
     command: |
       wp rewrite structure {{ vccw.rewrite_structure }}
@@ -141,7 +141,7 @@
       --hard
       --path={{ path }}
 
- #multisite Settings
+ # multisite Settings
   - name: Run `wp core multisite-convert`
     when: vccw.multisite
     command: |
