@@ -96,7 +96,7 @@
       wp plugin install {{ item }}
       --activate
       --path={{ path }}
-    with_items: "{{ vccw.plugins }}"
+    with_items: "{{ vccw.plugins | default([]) }}"
 
   # Install Theme
   - name: Run `wp theme install`
@@ -111,7 +111,7 @@
       wp plugin install wordpress-importer
       --activate
       --path={{ path }}
-  - name: Download WordPress theme unit test
+  - name: Download WordPress theme unit test data
     when: vccw.theme_unit_test
     get_url:
       url: "{{ vccw.theme_unit_test_uri }}"
@@ -147,7 +147,7 @@
     command: |
       wp core multisite-convert
       --path={{ path }}
-  - name: Create .htaccess for multisite
+  - name: Create `.htaccess` for multisite
     when: vccw.multisite
     template:
       src: templates/multisite-htaccess
