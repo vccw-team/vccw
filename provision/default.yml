@@ -50,8 +50,7 @@ db_host: localhost
 # WordPress Default Plugins
 # Plugin's slug or url to the plugin's slug.
 #
-# plugins:
-#   - akismet
+plugins: []
 
 #
 # WordPress Default Theme

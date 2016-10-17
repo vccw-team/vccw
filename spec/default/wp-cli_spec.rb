@@ -73,14 +73,6 @@ describe command("wget --no-check-certificate -q https://" + File.join($conf['ip
     its(:stdout) { should match /<meta name="generator" content="WordPress .*"/i }
 end
 
-$conf['plugins'].each do |plugin|
-  describe file(File.join($conf['document_root'], $conf['wp_siteurl'], 'wp-content/plugins', plugin, 'readme.txt')) do
-    let(:disable_sudo) { true }
-    it { should be_file }
-    it { should be_owned_by $conf['user'] }
-  end
-end
-
 describe file(File.join($conf['document_root'], $conf['wp_home'])) do
     let(:disable_sudo) { true }
     it { should be_directory }
