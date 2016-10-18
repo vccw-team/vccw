@@ -71,6 +71,21 @@
       notify:
         - restart apache
 
+    - name: Activate remote debug
+      become: yes
+      blockinfile:
+        dest: "{{ php.xdebug_config_file_path }}"
+        block: |
+          xdebug.remote_enable=true
+          xdebug.remote_host=127.0.0.1
+          xdebug.remote_port=9000
+          xdebug.profiler_enable=true
+          xdebug.idekey=VCCWDEBUG
+          xdebug.remote_connect_back=true
+          xdebug.remote_autostart=true
+      notify:
+        - restart apache
+
     # Install mailcatcher as root
     - name: Install mailcatcher
       become: yes
