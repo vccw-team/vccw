@@ -12,28 +12,6 @@ describe interface('enp0s8') do
   it { should have_ipv4_address($conf['ip']) }
 end
 
-describe package('apache2') do
-  it { should be_installed }
-end
-
-describe service('apache2') do
-  it { should be_enabled }
-  it { should be_running }
-end
-
-describe port(80) do
-    it { should be_listening }
-end
-
-describe port(443) do
-    it { should be_listening }
-end
-
-describe command('wp --version') do
-  let(:disable_sudo) { true }
-  its(:exit_status) { should eq 0 }
-end
-
 describe command("wget -q http://" + File.join($conf['ip'], $conf['wp_home'], '/') + " -O - | head -100 | grep generator") do
     its(:stdout) { should match /<meta name="generator" content="WordPress .*"/i }
 end
