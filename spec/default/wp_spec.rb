@@ -4,6 +4,10 @@
 require 'spec_helper'
 require 'shellwords'
 
+#
+# Check the WordPress config
+#
+
 describe command("wp user get #{Shellwords.shellescape($conf['admin_user'])} --format=json | jq -r .roles") do
   let(:disable_sudo) { true }
   its(:exit_status) { should eq 0 }

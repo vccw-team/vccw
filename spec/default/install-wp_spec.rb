@@ -4,6 +4,10 @@
 require 'spec_helper'
 require 'shellwords'
 
+#
+# Check the WordPress installation was successful.
+#
+
 describe host($conf['hostname']) do
   it { should be_resolvable.by('hosts') }
 end
