@@ -4,3 +4,4 @@ apache:
   default_conf: default
 php:
   config_file_path: '/etc/php.ini'
+  xdebug_config_file_path: '/etc/php.d/xdebug.ini'
