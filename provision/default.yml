@@ -50,7 +50,8 @@ db_host: localhost
 # WordPress Default Plugins
 # Plugin's slug or url to the plugin's slug.
 #
-plugins: ['theme-check', 'debug-bar']
+plugins:
+  - debug-bar
 
 #
 # WordPress Default Theme
