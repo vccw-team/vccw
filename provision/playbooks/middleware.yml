@@ -42,8 +42,8 @@
       become: yes
       replace:
         dest: /etc/{{ apache.service }}/envvars
-        regexp: APACHE_RUN_USER=.*
-        replace: APACHE_RUN_USER=vagrant
+        regexp: APACHE_RUN_GROUP=.*
+        replace: APACHE_RUN_GROUP=vagrant
       notify:
         - restart apache
 
