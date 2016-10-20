@@ -2,8 +2,6 @@
 apache:
   service: apache2
   default_conf: 000-default.conf
-  default_user: www-data
-  default_group: www-data
 php:
   config_file_path: '/etc/php/7.0/apache2/php.ini'
   xdebug_config_file_path: '/etc/php/7.0/mods-available/xdebug.ini'

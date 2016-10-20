@@ -33,7 +33,7 @@
       become: yes
       replace:
         dest: /etc/{{ apache.service }}/envvars
-        regexp: APACHE_RUN_USER={{ apache.default_user }}
+        regexp: APACHE_RUN_USER=.*
         replace: APACHE_RUN_USER=vagrant
       notify:
         - restart apache
@@ -42,7 +42,7 @@
       become: yes
       replace:
         dest: /etc/{{ apache.service }}/envvars
-        regexp: APACHE_RUN_USER={{ apache.default_group }}
+        regexp: APACHE_RUN_USER=.*
         replace: APACHE_RUN_USER=vagrant
       notify:
         - restart apache
