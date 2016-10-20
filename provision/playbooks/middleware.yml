@@ -29,6 +29,24 @@
         -keyout /etc/{{ apache.service }}/ssl/{{ vccw.hostname }}.key \
         -out /etc/{{ apache.service }}/ssl/{{ vccw.hostname }}.crt
 
+    - name: "Replacing the Apache User"
+      become: yes
+      replace:
+        dest: /etc/{{ apache.service }}/envvars
+        regexp: APACHE_RUN_USER=.*
+        replace: APACHE_RUN_USER=vagrant
+      notify:
+        - restart apache
+
+    - name: "Replacing the Apache Group"
+      become: yes
+      replace:
+        dest: /etc/{{ apache.service }}/envvars
+        regexp: APACHE_RUN_USER=.*
+        replace: APACHE_RUN_USER=vagrant
+      notify:
+        - restart apache
+
     # Setup Document Root
     - name: Place /etc/{{ apache.service }}/sites-available/site.conf
       become: yes

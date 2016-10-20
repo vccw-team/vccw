@@ -15,6 +15,13 @@ describe command('apache2ctl -M') do
     its(:stdout) { should match /ssl_module/ }
 end
 
+describe command("ps -C apache2 -o user") do
+  its(:stdout) { should match /root/ }
+  its(:stdout) { should match /vagrant/ }
+  its(:stdout) { should_not match /www-data/ }
+
+end
+
 describe port(80) do
   it { should be_listening }
 end
