@@ -58,7 +58,7 @@ Vagrant.configure(2) do |config|
   end
 
   if Vagrant.has_plugin?('vagrant-vbguest')
-    config.vbguest.auto_update = true
+    config.vbguest.auto_update = false
   end
 
   if File.exists?(File.join(File.dirname(__FILE__), 'provision-pre.sh')) then
