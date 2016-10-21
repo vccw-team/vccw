@@ -119,6 +119,8 @@ linked_clone: false
 # wp_cli_packages:
 #   - shifter/cli:@stable
 
+
+
 #
 # Advanced Settings
 #
@@ -143,3 +145,6 @@ php_ini:
   xdebug.idekey: VCCWDEBUG
   xdebug.remote_connect_back: true
   xdebug.remote_autostart: true
+
+synced_folder: wordpress
+document_root: /var/www/html

@@ -37,8 +37,6 @@ Vagrant.configure(2) do |config|
   end
 
   # forcing config variables
-  _conf["sync_folder"] = "www/wordpress"
-  _conf["document_root"] = "/var/www/wordpress"
   _conf["user"] = "vagrant"
   _conf["group"] = "vagrant"
   _conf["vagrant_dir"] = "/vagrant"
@@ -56,7 +54,7 @@ Vagrant.configure(2) do |config|
   config.vm.network :private_network, ip: _conf['ip']
 
   config.vm.synced_folder ".", "/vagrant", :mount_options => ['dmode=755', 'fmode=644']
-  config.vm.synced_folder _conf['sync_folder'],
+  config.vm.synced_folder _conf['synced_folder'],
       _conf['document_root'], :create => "true", :mount_options => ['dmode=755', 'fmode=644']
 
   if Vagrant.has_plugin?('vagrant-hostsupdater')
