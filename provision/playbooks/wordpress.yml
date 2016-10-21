@@ -82,12 +82,12 @@
 
   - name: Create `.editorconfig`
     template:
-      src: templates/editorconfig
+      src: templates/.editorconfig
       dest: "{{ vccw.document_root }}/.editorconfig"
 
   - name: Create `.gitignore`
     template:
-      src: templates/gitignore
+      src: templates/.gitignore
       dest: "{{ vccw.document_root }}/.gitignore"
 
   # Install Plugins
