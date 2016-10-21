@@ -45,6 +45,9 @@ admin_email: vccw@example.com
 #
 db_prefix: wp_
 db_host: localhost
+db_name: wordpress
+db_user: wordpress
+db_pass: wordpress
 
 #
 # WordPress Default Plugins

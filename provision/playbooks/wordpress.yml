@@ -1,9 +1,6 @@
 - hosts: all
   vars:
     path: "{{ vccw.document_root }}/{{ vccw.wp_siteurl }}"
-    dbname: "wordpress"
-    dbuser: "wordpress"
-    dbpassword: "wordpress"
 
   tasks:
 
@@ -12,15 +9,15 @@
     mysql_db:
       login_user: root
       login_password: wordpress
-      name: "{{ dbname }}"
+      name: "{{ vccw.db_name }}"
       state: present
   - name: Create MySQL user
     mysql_user:
       login_user: root
       login_password: wordpress
-      name: "{{ dbuser }}"
-      password: "{{ dbpassword }}"
-      priv: "wordpress.*:ALL"
+      name: "{{ vccw.db_user }}"
+      password: "{{ vccw.db_pass }}"
+      priv: "{{ vccw.db_name }}.*:ALL"
       host: "%"
       state: present
 
@@ -47,9 +44,9 @@
        wp core config \
        --path={{ path }} \
        --dbhost={{ vccw.db_host }} \
-       --dbname={{ dbname }} \
-       --dbuser={{ dbuser }} \
-       --dbpass={{ dbpassword }} \
+       --dbname={{ vccw.db_name }} \
+       --dbuser={{ vccw.db_user }} \
+       --dbpass={{ vccw.db_pass }} \
        --dbprefix={{ vccw.db_prefix }} \
        --locale={{ vccw.lang }} \
        --extra-php < {{ path | realpath }}/extra-php.txt
