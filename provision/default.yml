@@ -115,3 +115,26 @@ linked_clone: false
 #
 # wp_cli_packages:
 #   - shifter/cli:@stable
+
+#
+# Advanced Settings
+#
+
+#
+# PHP ini values
+#
+php_ini:
+  default_charset: UTF-8
+  mbstring.language: neutral
+  mbstring.internal_encoding: UTF-8
+  date.timezone: UTC
+  short_open_tag: Off
+  session.save_path: /tmp
+  sendmail_path: /usr/bin/env catchmail
+  xdebug.remote_enable: true
+  xdebug.remote_host: 127.0.0.1
+  xdebug.remote_port: 9000
+  xdebug.profiler_enable: true
+  xdebug.idekey: VCCWDEBUG
+  xdebug.remote_connect_back: true
+  xdebug.remote_autostart: true

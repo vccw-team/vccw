@@ -1,6 +1,5 @@
 - hosts: all
   vars_files:
-    - "vars/main.yml"
     - [ "vars/{{ ansible_os_family }}.yml", "vars/defaults.yml" ]
 
   tasks:
@@ -81,26 +80,10 @@
     - name: Update php.ini
       become: yes
       lineinfile:
-        dest: "{{ php.config_file_path }}"
-        backrefs: yes
-        regexp: '{{ item.regexp }}'
-        line: '{{ item.line }}'
-      with_items: "{{ php.config_values }}"
-      notify:
-        - restart apache
-
-    - name: Activate remote debug
-      become: yes
-      blockinfile:
-        dest: "{{ php.xdebug_config_file_path }}"
-        block: |
-          xdebug.remote_enable=true
-          xdebug.remote_host=127.0.0.1
-          xdebug.remote_port=9000
-          xdebug.profiler_enable=true
-          xdebug.idekey=VCCWDEBUG
-          xdebug.remote_connect_back=true
-          xdebug.remote_autostart=true
+        dest: /etc/php/7.0/apache2/conf.d/99-vccw.ini
+        create: yes
+        line: "{{ item.key }} = {{ item.value }}"
+      with_dict: "{{ vccw.php_ini }}"
       notify:
         - restart apache
 
