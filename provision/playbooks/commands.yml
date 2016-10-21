@@ -54,10 +54,14 @@
       file:
         path: "{{ ansible_env.HOME }}/.wp-cli/"
         state: directory
-    - name: Create ~/.wp-cli/config.yml
+    - name: Create `~/.wp-cli/config.yml` on the Guest
       template:
-        src: templates/config.yml
+        src: templates/guest-wp-cli-config.yml
         dest: "{{ ansible_env.HOME }}/.wp-cli/config.yml"
+    - name: Create `/vagrant/wp-cli.yml`
+      template:
+        src: templates/host-wp-cli-config.yml
+        dest: "{{ vccw.vagrant_dir }}/wp-cli.yml"
 
     # Install Ruby gems
     - name: Place ~/.gemrc

@@ -11,4 +11,5 @@ provision-post.sh
 provision-pre.sh
 site.yml
 vendor
+wp-cli.yml
 www
