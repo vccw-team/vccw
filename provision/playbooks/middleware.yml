@@ -49,30 +49,14 @@
       become: yes
       template:
         src: templates/site.conf
-        dest: /etc/apache2/sites-available/{{ vccw.hostname }}.conf
+        dest: /etc/apache2/sites-available/000-default.conf
       notify:
         - restart apache
 
     # enable wordpress.conf
     - name: Enable virtual host for WordPress
       become: yes
-      #command: a2ensite {{ vccw.hostname }}
-      file:
-        src: /etc/apache2/sites-available/{{ vccw.hostname }}.conf
-        dest: /etc/apache2/sites-enabled/{{ vccw.hostname }}.conf
-        state: link
-      notify:
-        - restart apache
-
-    # disable default
-    - name: Disable default site
-      become: yes
-      #command: a2dissite 000-default
-      file:
-        path: /etc/apache2/sites-enabled/{{ apache. }}
-        state: absent
-      notify:
-        - restart apache
+      command: a2ensite 000-default
 
     # php config.
     - name: Update php.ini
