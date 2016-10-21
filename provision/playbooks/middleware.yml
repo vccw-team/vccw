@@ -1,6 +1,4 @@
 - hosts: all
-  vars_files:
-    - [ "vars/{{ ansible_os_family }}.yml", "vars/defaults.yml" ]
 
   tasks:
 
@@ -17,7 +15,7 @@
     - name: Create SSL dir
       become: yes
       file:
-        path: /etc/{{ apache.service }}/ssl
+        path: /etc/apache2/ssl
         state: directory
 
     # Create SSL Keys
@@ -25,13 +23,13 @@
       become: yes
       command: openssl req -batch -new -x509 -newkey rsa:2048 -nodes -sha256 \
         -subj /CN=*.{{ vccw.hostname }}/O=oreore -days 3650 \
-        -keyout /etc/{{ apache.service }}/ssl/{{ vccw.hostname }}.key \
-        -out /etc/{{ apache.service }}/ssl/{{ vccw.hostname }}.crt
+        -keyout /etc/apache2/ssl/{{ vccw.hostname }}.key \
+        -out /etc/apache2/ssl/{{ vccw.hostname }}.crt
 
     - name: "Replacing the Apache User"
       become: yes
       replace:
-        dest: /etc/{{ apache.service }}/envvars
+        dest: /etc/apache2/envvars
         regexp: APACHE_RUN_USER=.*
         replace: APACHE_RUN_USER=vagrant
       notify:
@@ -40,18 +38,18 @@
     - name: "Replacing the Apache Group"
       become: yes
       replace:
-        dest: /etc/{{ apache.service }}/envvars
+        dest: /etc/apache2/envvars
         regexp: APACHE_RUN_GROUP=.*
         replace: APACHE_RUN_GROUP=vagrant
       notify:
         - restart apache
 
     # Setup Document Root
-    - name: Place /etc/{{ apache.service }}/sites-available/site.conf
+    - name: Place /etc/apache2/sites-available/site.conf
       become: yes
       template:
         src: templates/site.conf
-        dest: /etc/{{ apache.service }}/sites-available/{{ vccw.hostname }}.conf
+        dest: /etc/apache2/sites-available/{{ vccw.hostname }}.conf
       notify:
         - restart apache
 
@@ -60,8 +58,8 @@
       become: yes
       #command: a2ensite {{ vccw.hostname }}
       file:
-        src: /etc/{{ apache.service }}/sites-available/{{ vccw.hostname }}.conf
-        dest: /etc/{{ apache.service }}/sites-enabled/{{ vccw.hostname }}.conf
+        src: /etc/apache2/sites-available/{{ vccw.hostname }}.conf
+        dest: /etc/apache2/sites-enabled/{{ vccw.hostname }}.conf
         state: link
       notify:
         - restart apache
@@ -71,7 +69,7 @@
       become: yes
       #command: a2dissite 000-default
       file:
-        path: /etc/{{ apache.service }}/sites-enabled/{{ apache.default_conf }}
+        path: /etc/apache2/sites-enabled/{{ apache. }}
         state: absent
       notify:
         - restart apache
@@ -107,7 +105,7 @@
   handlers:
     - name: restart apache
       become: yes
-      service: name={{ apache.service }} state=restarted
+      service: name=apache2 state=restarted
     - name: restart mysql
       become: yes
       service: name=mysql state=restarted
