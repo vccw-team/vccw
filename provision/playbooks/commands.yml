@@ -21,6 +21,12 @@
         src: templates/vccw.sh
         dest: "{{ ansible_env.HOME }}/.bash.d/vccw.sh"
 
+    # Install Composer libraries
+    - name: Install Composer libraries
+      shell: /bin/bash -lc "composer global require '{{ item }}'"
+      with_items: "{{ vccw.composers | default([]) }}"
+      ignore_errors: yes
+
     # Install WP-CLI
     - name: Install WP-CLI
       become: yes
@@ -75,12 +81,6 @@
         global: yes
         executable: /usr/bin/npm
       with_items: "{{ vccw.npms | default([]) }}"
-      ignore_errors: yes
-
-    # Install Composer libraries
-    - name: Install Composer libraries
-      shell: /bin/bash -lc "composer global require '{{ item }}'"
-      with_items: "{{ vccw.composers | default([]) }}"
       ignore_errors: yes
 
     # Setup WordPress coding standards
