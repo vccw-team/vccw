@@ -88,11 +88,6 @@ theme_unit_test_uri: https://wpcom-themes.svn.automattic.com/demo/theme-unit-tes
 reset_db_on_provision: true
 
 #
-# Linked Clone for Vagrant v1.8
-#
-linked_clone: false
-
-#
 # RubyGems
 #
 ruby_gems:
@@ -124,7 +119,10 @@ composers:
 wp_cli_packages:
   - vccw/wp-cli-scaffold-movefile:@stable
 
-
+#
+# Linked Clone for Vagrant v1.8
+#
+linked_clone: false
 
 #
 # Advanced Settings
