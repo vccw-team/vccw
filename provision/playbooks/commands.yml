@@ -16,8 +16,6 @@
       - phpunit/phpunit:*
       - squizlabs/php_codesniffer:*
       - wp-coding-standards/wpcs:*
-    wp_cli_packages:
-      - vccw/wp-cli-scaffold-movefile:@stable
 
   tasks:
 
@@ -46,10 +44,6 @@
         dest: /usr/local/bin/wp
         mode: 0755
         force: yes
-    - name: Install WP-CLI packages
-      become: no
-      shell: /bin/bash -lc "wp package install '{{ item }}'"
-      with_items: "{{ wp_cli_packages | default([]) }}"
     - name: Create ~/.wp-cli/
       file:
         path: "{{ ansible_env.HOME }}/.wp-cli/"
@@ -62,6 +56,11 @@
       template:
         src: templates/host-wp-cli-config.yml
         dest: "{{ vccw.vagrant_dir }}/wp-cli.yml"
+    - name: Install WP-CLI packages
+      become: no
+      shell: /bin/bash -lc "wp package install '{{ item }}'"
+      with_items: "{{ vccw.wp_cli_packages | default([]) }}"
+      ignore_errors: yes
 
     # Install Ruby gems
     - name: Place ~/.gemrc
@@ -128,9 +127,3 @@
     - name: Install custom Composer libraries
       shell: /bin/bash -lc "composer global require '{{ item }}'"
       with_items: "{{ vccw.composers | default([]) }}"
-
-    # Install user's wp-cli packages
-    - name: Install custom WP-CLI packages
-      become: no
-      shell: /bin/bash -lc "wp package install '{{ item }}'"
-      with_items: "{{ vccw.wp_cli_packages | default([]) }}"

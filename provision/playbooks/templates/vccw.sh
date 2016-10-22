@@ -10,5 +10,8 @@ if which ruby >/dev/null && which gem >/dev/null; then
   PATH="$(ruby -rubygems -e 'puts Gem.user_dir')/bin:$PATH"
 fi
 
-alias wpcs="phpcs --standard=WordPress"
+if which phpcs >/dev/null; then
+  alias wpcs="phpcs --standard=WordPress"
+fi
+
 alias makepot="/usr/bin/env php $HOME/.wp-i18n/makepot.php"

@@ -116,8 +116,8 @@ linked_clone: false
 #
 # wp-cli package commands
 #
-# wp_cli_packages:
-#   - shifter/cli:@stable
+wp_cli_packages:
+  - vccw/wp-cli-scaffold-movefile:@stable
 
 
 
