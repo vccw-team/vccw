@@ -12,6 +12,12 @@
       notify:
         - restart mysql
 
+    - name: Place ~/.my.cnf
+      become: no
+      template:
+        src: templates/.my.cnf
+        dest: "{{ ansible_env.HOME }}/.my.cnf"
+
     - name: Create SSL dir
       become: yes
       file:
