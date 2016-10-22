@@ -108,6 +108,7 @@
       wp plugin install wordpress-importer
       --activate
       --path={{ path }}
+    when: vccw.theme_unit_test
   - name: Download WordPress theme unit test data
     when: vccw.theme_unit_test
     get_url:
