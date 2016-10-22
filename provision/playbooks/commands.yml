@@ -1,21 +1,6 @@
 - hosts: all
   vars:
     wp_cli_bin_url: https://raw.githubusercontent.com/wp-cli/builds/gh-pages/phar/wp-cli.phar
-    # Required rubygems
-    # mailcatcher should be installed as root because it will run as daemon,
-    # so it shouldn't install here.
-    rubygems:
-      - bundler
-      - wordmove
-    # Required npms
-    npms:
-      - gulp-cli
-    # Required composer
-    composers:
-      - hirak/prestissimo:*
-      - phpunit/phpunit:*
-      - squizlabs/php_codesniffer:*
-      - wp-coding-standards/wpcs:*
 
   tasks:
 
@@ -74,7 +59,8 @@
         name: "{{ item }}"
         state: latest
         user_install: yes
-      with_items: "{{ rubygems }}"
+      with_items: "{{ vccw.ruby_gems | default([]) }}"
+      ignore_errors: yes
 
     # Install npm packages
     - name: Place ~/.npmrc
@@ -88,37 +74,26 @@
         name: "{{ item }}"
         global: yes
         executable: /usr/bin/npm
-      with_items: "{{ npms }}"
+      with_items: "{{ vccw.npms | default([]) }}"
+      ignore_errors: yes
 
     # Install Composer libraries
     - name: Install Composer libraries
       shell: /bin/bash -lc "composer global require '{{ item }}'"
       with_items: "{{ vccw.composers | default([]) }}"
+      ignore_errors: yes
 
     # Setup WordPress coding standards
+    - name: Check `phpcs` exists.
+      shell: bash -lc 'phpcs --help &> /dev/null; echo $?'
+      register: is_phpcs
     - name: Setup WordPress coding standard
       shell: /bin/bash -lc "phpcs --config-set installed_paths {{ ansible_env.HOME }}/.composer/vendor/wp-coding-standards/wpcs"
+      when: is_phpcs.stdout == "0"
 
     # WordPress i18n tools
     - name: Checkout WordPress i18n Tools
       subversion:
         repo: http://i18n.svn.wordpress.org/tools/trunk/
         dest: "{{ ansible_env.HOME }}/.wp-i18n/"
-
-    # Install user's Ruby gems
-    - name: Install custom Ruby gems
-      become: no
-      gem:
-        name: "{{ item }}"
-        state: latest
-        user_install: yes
-      with_items: "{{ vccw.ruby_gems | default([]) }}"
-
-    # Install user's npms
-    - name: Install custom npm packages
-      become: no
-      npm:
-        name: "{{ item }}"
-        global: yes
-        executable: /usr/bin/npm
-      with_items: "{{ vccw.npms | default([]) }}"
+      ignore_errors: yes

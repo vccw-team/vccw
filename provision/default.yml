@@ -95,14 +95,15 @@ linked_clone: false
 #
 # RubyGems
 #
-# ruby_gems:
-#   - serverspec
+ruby_gems:
+  - bundler
+  - wordmove
 
 #
 # NPM modules
 #
-# npms:
-#   - grunt-cli
+npms:
+  - gulp-cli
 
 #
 # composer

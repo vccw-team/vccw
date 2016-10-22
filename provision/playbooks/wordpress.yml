@@ -157,7 +157,7 @@
     when: vccw.multisite
 
   # Generate Movefile
-  - name: Check is installed `wp scaffold movefile`.
+  - name: Check `wp scaffold movefile` exists.
     shell: bash -lc 'wp help scaffold movefile &> /dev/null; echo $?'
     register: is_wp_cli_scaffold_movefile
   - name: Create a Movefile
