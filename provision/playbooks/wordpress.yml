@@ -158,13 +158,12 @@
 
   # Generate Movefile
   - name: Check is installed `wp scaffold movefile`.
-    shell: bash -lc "wp help scaffold movefile"
+    shell: bash -lc 'wp help scaffold movefile &> /dev/null; echo $?'
     register: is_wp_cli_scaffold_movefile
-    ignore_errors: yes
   - name: Create a Movefile
     become: no
     shell: /bin/bash -lc "wp scaffold movefile"
     args:
       chdir: "{{ vccw.vagrant_dir }}"
       creates: Movefile
-    when: is_wp_cli_scaffold_movefile | success
+    when: is_wp_cli_scaffold_movefile.stdout == "0"

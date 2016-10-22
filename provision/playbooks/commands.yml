@@ -93,7 +93,7 @@
     # Install Composer libraries
     - name: Install Composer libraries
       shell: /bin/bash -lc "composer global require '{{ item }}'"
-      with_items: "{{ composers }}"
+      with_items: "{{ vccw.composers | default([]) }}"
 
     # Setup WordPress coding standards
     - name: Setup WordPress coding standard
@@ -122,8 +122,3 @@
         global: yes
         executable: /usr/bin/npm
       with_items: "{{ vccw.npms | default([]) }}"
-
-    # Install user's Composer libraries
-    - name: Install custom Composer libraries
-      shell: /bin/bash -lc "composer global require '{{ item }}'"
-      with_items: "{{ vccw.composers | default([]) }}"

@@ -107,11 +107,15 @@ linked_clone: false
 #
 # composer
 #
-# composers:
-#   - phpmd/phpmd:*
-#   - sebastian/phpcpd:*
-#   - phploc/phploc:*
-#   - phing/phing:*
+composers:
+  - hirak/prestissimo:*
+  - phpunit/phpunit:*
+  - squizlabs/php_codesniffer:*
+  - wp-coding-standards/wpcs:*
+  # - phpmd/phpmd:*
+  # - sebastian/phpcpd:*
+  # - phploc/phploc:*
+  # - phing/phing:*
 
 #
 # wp-cli package commands
