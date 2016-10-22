@@ -22,8 +22,20 @@
         dest: "{{ ansible_env.HOME }}/.bash.d/vccw.sh"
 
     # Install Composer libraries
+    - name: Create ~/.composer/
+      file:
+        path: "{{ ansible_env.HOME }}/.composer/"
+        state: directory
+    - name: Setup composer.json
+      template:
+        src: templates/composer.json
+        dest: "{{ ansible_env.HOME }}/.composer/composer.json"
+        force: no
     - name: Install Composer libraries
-      shell: /bin/bash -lc "composer global require '{{ item }}'"
+      composer:
+        command: require
+        arguments: "{{ item }}"
+        working_dir: "{{ ansible_env.HOME }}/.composer"
       with_items: "{{ vccw.composers | default([]) }}"
       ignore_errors: yes
 
