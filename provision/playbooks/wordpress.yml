@@ -8,13 +8,11 @@
   - name: Create Database
     mysql_db:
       login_user: root
-      login_password: wordpress
       name: "{{ vccw.db_name }}"
       state: present
   - name: Create MySQL user
     mysql_user:
       login_user: root
-      login_password: wordpress
       name: "{{ vccw.db_user }}"
       password: "{{ vccw.db_pass }}"
       priv: "{{ vccw.db_name }}.*:ALL"
