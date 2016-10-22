@@ -1,6 +1,7 @@
 - hosts: all
   vars:
-    wp_cli_bin_url: https://raw.githubusercontent.com/wp-cli/builds/gh-pages/phar/wp-cli.phar
+    wp_cli_bin_url: https://raw.githubusercontent.com/wp-cli/builds/gh-pages/phar/wp-cli-nightly.phar
+    composer_version: 1.2.1
 
   tasks:
 
@@ -31,7 +32,7 @@
         force: yes
     - name: Run composer installer
       become: yes
-      shell: php /tmp/composer-setup.php --install-dir=/usr/local/bin --filename=composer
+      shell: php /tmp/composer-setup.php --install-dir=/usr/local/bin --filename=composer --version="{{ composer_version }}"
     - name: Create ~/.composer/
       file:
         path: "{{ ansible_env.HOME }}/.composer/"
