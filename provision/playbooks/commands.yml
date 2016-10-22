@@ -22,6 +22,16 @@
         dest: "{{ ansible_env.HOME }}/.bash.d/vccw.sh"
 
     # Install Composer libraries
+    - name: Download composer
+      become: yes
+      get_url:
+        url: https://getcomposer.org/installer
+        dest: /tmp/composer-setup.php
+        mode: 0755
+        force: yes
+    - name: Run composer installer
+      become: yes
+      shell: php /tmp/composer-setup.php --install-dir=/usr/local/bin --filename=composer
     - name: Create ~/.composer/
       file:
         path: "{{ ansible_env.HOME }}/.composer/"
