@@ -32,7 +32,7 @@
         force: yes
     - name: Run composer installer
       become: yes
-      shell: php /tmp/composer-setup.php --install-dir=/usr/local/bin --filename=composer --version="{{ composer_version }}"
+      shell: "php /tmp/composer-setup.php --install-dir=/usr/local/bin --filename=composer --version={{ composer_version }}"
     - name: Create ~/.composer/
       file:
         path: "{{ ansible_env.HOME }}/.composer/"
