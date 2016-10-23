@@ -105,8 +105,7 @@ ruby_gems:
 #
 # NPM modules
 #
-npms:
-  - gulp-cli
+npms: []
 
 #
 # composer
