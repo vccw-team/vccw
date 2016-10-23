@@ -35,8 +35,8 @@
       path: "{{ path }}/wp-config.php"
   - name: Create temporary file for extra-php in wp-config.php
     template:
-      src: templates/extra-php.txt
-      dest: "{{ path }}/extra-php.txt"
+      src: templates/extra-wp-config.php
+      dest: "/tmp/extra-wp-config.php"
   - name: Run `wp core config`
     shell: |
        wp core config \
@@ -47,11 +47,7 @@
        --dbpass={{ vccw.db_pass }} \
        --dbprefix={{ vccw.db_prefix }} \
        --locale={{ vccw.lang }} \
-       --extra-php < {{ path | realpath }}/extra-php.txt
-  - name: Delete temporary file
-    file:
-      state: absent
-      path: "{{ path }}/extra-php.txt"
+       --extra-php < /tmp/extra-wp-config.php
 
   # Reset Database
   - name: Run `wp db reset`

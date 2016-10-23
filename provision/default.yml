@@ -76,6 +76,14 @@ wp_debug: true
 savequeries: false
 
 #
+# Addtional PHP code in the wp-config.php
+#
+extra_wp_config: |
+  // Addtional PHP code in the wp-config.php
+  // These lines are inserted by VCCW.
+  // You can place addtional PHP code here!
+
+#
 # Theme unit testing
 #
 theme_unit_test: false
