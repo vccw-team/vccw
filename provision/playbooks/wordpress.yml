@@ -111,12 +111,13 @@
     when: vccw.theme_unit_test
     get_url:
       url: "{{ vccw.theme_unit_test_uri }}"
-      dest: "{{ theme_unit_test_data }}"
+      dest: "/tmp/theme-unit-test-data.xml"
   - name: Import WordPress theme unit test data
     when: vccw.theme_unit_test
     command: |
       wp import
-      --authors=create {{ theme_unit_test_data }}
+      /tmp/theme-unit-test-data.xml
+      --authors=create
       --path={{ path }}
 
   # Import Options
