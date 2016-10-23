@@ -65,6 +65,18 @@ Vagrant.configure(2) do |config|
     config.vm.provision :shell, :path => File.join( File.dirname(__FILE__), 'provision-pre.sh' )
   end
 
+  config.vm.provider :virtualbox do |vb|
+    vb.linked_clone = _conf['linked_clone']
+    vb.name = _conf['hostname']
+    vb.memory = _conf['memory'].to_i
+    vb.cpus = _conf['cpus'].to_i
+    if 1 < _conf['cpus'].to_i
+      vb.customize ['modifyvm', :id, '--ioapic', 'on']
+    end
+    vb.customize ['modifyvm', :id, '--natdnsproxy1', 'on']
+    vb.customize ['modifyvm', :id, '--natdnshostresolver1', 'on']
+  end
+
   config.vm.provision "ansible_local" do |ansible|
     ansible.extra_vars = {
       vccw: _conf
