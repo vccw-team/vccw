@@ -69,6 +69,11 @@ options:
   blogdescription: Hello VCCW.
 
 #
+# WordPress Multisite Options
+#
+multisite_options: {}
+
+#
 # The values of wp-config.php
 #
 force_ssl_admin: false
