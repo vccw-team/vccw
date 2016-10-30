@@ -26,14 +26,22 @@ Vagrant.configure(2) do |config|
     _conf.merge!(_custom) if _custom.is_a?(Hash)
   end
 
-  if File.exists?(File.join(File.dirname(__FILE__), 'site.yml'))
-    _site = YAML.load(
-      File.open(
-        File.join(File.dirname(__FILE__), 'site.yml'),
-        File::RDONLY
-      ).read
-    )
-    _conf.merge!(_site) if _site.is_a?(Hash)
+  _site_config_files = [File.join(File.dirname(__FILE__), 'site.yml')]
+  if _conf.key?('site_config_path')
+    _site_config_files.unshift(File.expand_path(_conf['site_config_path']))
+  end
+
+  _site_config_files.each do |file|
+    if File.exists?(file)
+      _site = YAML.load(
+        File.open(
+          file,
+          File::RDONLY
+        ).read
+      )
+      _conf.merge!(_site) if _site.is_a?(Hash)
+      break
+    end
   end
 
   # forcing config variables
