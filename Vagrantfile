@@ -27,8 +27,8 @@ Vagrant.configure(2) do |config|
   end
 
   _site_config_files = [File.join(File.dirname(__FILE__), 'site.yml')]
-  if _conf.key?('site_config_path')
-    _site_config_files.unshift(File.expand_path(_conf['site_config_path']))
+  if _conf.key?('site_config_dir')
+    _site_config_files.unshift(File.join(File.expand_path(_conf['site_config_dir']), 'site.yml'))
   end
 
   _site_config_files.each do |file|
