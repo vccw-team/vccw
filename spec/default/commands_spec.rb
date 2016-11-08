@@ -14,14 +14,8 @@ describe file('/vagrant/Movefile') do
   it { should be_file }
 end
 
-# describe command('wordmove help') do
-#   let(:disable_sudo) { true }
-#   its(:exit_status) { should eq 0 }
-# end
-
 commands = [
   "phpunit --version",
-  "gulp --version",
   "phpcs --help",
   "composer --version",
   "wordmove help",
