@@ -1,0 +1,3 @@
+path: {{ vccw.document_root }}/{{ vccw.wp_siteurl }}
+apache_modules:
+  - mod_rewrite

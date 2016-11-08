@@ -17,17 +17,15 @@ To get started, check out <http://vccw.cc/>
 
 ## Contribute
 
-### Setting up
+```
+$ git clone git@github.com:vccw-team/vccw.git
+$ cd vccw
+$ vagrant up
+```
 
-1. Clone this git repository on your local machine.
-2. Run `bundle install` to fetch all dependencies.
-
-### Running and writing tests
-
-There is automated tests using [Serverspec](http://serverspec.org/).
+There is automated tests by [Serverspec](http://serverspec.org/).
 
 The tests files are in the `spec/` directory.
-
 
 Before running the serverspec tests, you'll need some dependencies.
 

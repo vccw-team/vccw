@@ -1,0 +1,11 @@
+#
+# WP-CLI configuration for the VCCW
+#
+# Run `vagrant ssh-config >> ~/.ssh/config` once.
+# Then you can execute `wp` command from your host like following.
+#
+# $ wp @vccw plugin list
+#
+
+@vccw:
+  ssh: {{ vccw.hostname }}

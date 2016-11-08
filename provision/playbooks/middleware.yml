@@ -1,0 +1,101 @@
+- hosts: all
+
+  tasks:
+
+    - name: Allow remote connections to MySQL
+      become: yes
+      lineinfile:
+        dest: "/etc/mysql/mysql.conf.d/mysqld.cnf"
+        backrefs: yes
+        regexp: '^(bind-address)'
+        line: '# \1'
+      notify:
+        - restart mysql
+
+    - name: Place ~/.my.cnf
+      become: no
+      template:
+        src: templates/.my.cnf
+        dest: "{{ ansible_env.HOME }}/.my.cnf"
+
+    - name: Create SSL dir
+      become: yes
+      file:
+        path: /etc/apache2/ssl
+        state: directory
+
+    # Create SSL Keys
+    - name: Create SSL keys
+      become: yes
+      command: openssl req -batch -new -x509 -newkey rsa:2048 -nodes -sha256 \
+        -subj /CN=*.{{ vccw.hostname }}/O=oreore -days 3650 \
+        -keyout /etc/apache2/ssl/{{ vccw.hostname }}.key \
+        -out /etc/apache2/ssl/{{ vccw.hostname }}.crt
+
+    - name: "Replacing the Apache User"
+      become: yes
+      replace:
+        dest: /etc/apache2/envvars
+        regexp: APACHE_RUN_USER=.*
+        replace: "APACHE_RUN_USER={{ ansible_env.USER }}"
+      notify:
+        - restart apache
+
+    - name: "Replacing the Apache Group"
+      become: yes
+      replace:
+        dest: /etc/apache2/envvars
+        regexp: APACHE_RUN_GROUP=.*
+        replace: "APACHE_RUN_GROUP={{ ansible_env.USER }}"
+      notify:
+        - restart apache
+
+    # Setup Document Root
+    - name: Place /etc/apache2/sites-available/site.conf
+      become: yes
+      template:
+        src: templates/site.conf
+        dest: /etc/apache2/sites-available/000-default.conf
+      notify:
+        - restart apache
+
+    # enable wordpress.conf
+    - name: Enable virtual host for WordPress
+      become: yes
+      command: a2ensite 000-default
+
+    # php config.
+    - name: Update php.ini
+      become: yes
+      lineinfile:
+        dest: /etc/php/7.0/apache2/conf.d/99-vccw.ini
+        create: yes
+        line: "{{ item.key }} = {{ item.value }}"
+      with_dict: "{{ vccw.php_ini }}"
+      notify:
+        - restart apache
+
+    # Install mailcatcher as root
+    - name: Install mailcatcher
+      become: yes
+      gem:
+        name: mailcatcher
+        state: latest
+        user_install: no
+    - name: Add mailcatcher to service
+      become: yes
+      template:
+        src: templates/mailcatcher
+        dest: /etc/init.d/mailcatcher
+        mode: 0755
+    - name: Start mailcatcher
+      become: yes
+      service: name=mailcatcher enabled=yes state=started
+
+  handlers:
+    - name: restart apache
+      become: yes
+      service: name=apache2 state=restarted
+    - name: restart mysql
+      become: yes
+      service: name=mysql state=restarted

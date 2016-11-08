@@ -4,8 +4,7 @@
 #
 # General Settings
 #
-wp_box: miya0001/vccw
-chef_cookbook_path: ./provision
+wp_box: vccw-team/xenial64
 
 #
 # Virtual Machine Settings
@@ -18,7 +17,6 @@ cpus: 1
 #
 hostname: vccw.dev
 ip: 192.168.33.10
-sync_folder: 'www/wordpress'
 
 #
 # WordPress Settings
@@ -32,7 +30,6 @@ rewrite_structure: /archives/%post_id%
 #
 # WordPress Path
 #
-document_root: '/var/www/wordpress'
 wp_siteurl: ''  # Path to the WP_SITEURL like "wp"
 wp_home: ''     # Path to the WP_HOME like "wp"
 
@@ -48,15 +45,16 @@ admin_email: vccw@example.com
 #
 db_prefix: wp_
 db_host: localhost
+db_name: wordpress
+db_user: wordpress
+db_pass: wordpress
 
 #
 # WordPress Default Plugins
 # Plugin's slug or url to the plugin's slug.
 #
 plugins:
-  - dynamic-hostname
-  - wp-total-hacks
-  - tinymce-templates
+  - debug-bar
 
 #
 # WordPress Default Theme
@@ -71,11 +69,24 @@ options:
   blogdescription: Hello VCCW.
 
 #
+# WordPress Multisite Options
+#
+multisite_options: {}
+
+#
 # The values of wp-config.php
 #
 force_ssl_admin: false
 wp_debug: true
 savequeries: false
+
+#
+# Addtional PHP code in the wp-config.php
+#
+extra_wp_config: |
+  // Addtional PHP code in the wp-config.php
+  // These lines are inserted by VCCW.
+  // You can place addtional PHP code here!
 
 #
 # Theme unit testing
@@ -90,24 +101,65 @@ theme_unit_test_uri: https://wpcom-themes.svn.automattic.com/demo/theme-unit-tes
 reset_db_on_provision: true
 
 #
-# Are you hurrying a lot?
+# RubyGems
 #
-disable_vccw_cookbook: false
-
-
-#
-# User and Group
-#
-user: vagrant
-group: vagrant
-
+ruby_gems:
+  - bundler
+  - wordmove
 
 #
-# phpenv
+# NPM modules
 #
-php_version: default
+npms: []
+
+#
+# composer
+#
+composers:
+  - hirak/prestissimo:*
+  - phpunit/phpunit:*
+  - squizlabs/php_codesniffer:*
+  - wp-coding-standards/wpcs:*
+  # - phpmd/phpmd:*
+  # - sebastian/phpcpd:*
+  # - phploc/phploc:*
+  # - phing/phing:*
+
+#
+# wp-cli package commands
+#
+wp_cli_packages:
+  - vccw/wp-cli-scaffold-movefile:@stable
 
 #
 # Linked Clone for Vagrant v1.8
 #
 linked_clone: false
+
+#
+# Advanced Settings
+#
+
+#
+# PHP ini values
+#
+php_ini:
+  date.timezone: UTC
+  default_charset: UTF-8
+  mbstring.language: neutral
+  mbstring.internal_encoding: UTF-8
+  post_max_size: 1024M # Same with VVV
+  short_open_tag: Off
+  session.save_path: /tmp
+  sendmail_path: /usr/bin/env catchmail
+  upload_max_filesize: 1024M # Same with VVV
+  xdebug.remote_enable: true
+  xdebug.remote_host: 127.0.0.1
+  xdebug.remote_port: 9000
+  xdebug.profiler_enable: true
+  xdebug.idekey: VCCWDEBUG
+  xdebug.remote_connect_back: true
+  xdebug.remote_autostart: true
+
+synced_folder: wordpress
+document_root: /var/www/html

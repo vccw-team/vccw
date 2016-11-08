@@ -1,0 +1,127 @@
+- hosts: all
+  vars:
+    wp_cli_bin_url: https://raw.githubusercontent.com/wp-cli/builds/gh-pages/phar/wp-cli-nightly.phar
+    composer_version: 1.2.2
+
+  tasks:
+
+    # Setup bash
+    - name: Place a ~/.bash_profile
+      become: no
+      template:
+        src: templates/.bash_profile
+        dest: "{{ ansible_env.HOME }}/.bash_profile"
+    - name: Place a ~/.bash.d/
+      become: no
+      file:
+        path: "{{ ansible_env.HOME }}/.bash.d"
+        state: directory
+    - name: Place a ~/.bash.d/vccw.sh
+      become: no
+      template:
+        src: templates/vccw.sh
+        dest: "{{ ansible_env.HOME }}/.bash.d/vccw.sh"
+
+    # Install Composer libraries
+    - name: Download the Composer
+      become: yes
+      get_url:
+        url: https://getcomposer.org/installer
+        dest: /tmp/composer-setup.php
+        mode: 0755
+        force: yes
+    - name: Run the Composer installer
+      become: yes
+      shell: "php /tmp/composer-setup.php --install-dir=/usr/local/bin --filename=composer --version={{ composer_version }}"
+    - name: Create a ~/.composer/
+      file:
+        path: "{{ ansible_env.HOME }}/.composer/"
+        state: directory
+    - name: Place a composer.json
+      template:
+        src: templates/composer.json
+        dest: "{{ ansible_env.HOME }}/.composer/composer.json"
+        force: no
+    - name: Install Composer libraries
+      composer:
+        command: require
+        arguments: "{{ item }}"
+        working_dir: "{{ ansible_env.HOME }}/.composer"
+      with_items: "{{ vccw.composers | default([]) }}"
+      ignore_errors: yes
+
+    # Install WP-CLI
+    - name: Install the WP-CLI
+      become: yes
+      get_url:
+        url: "{{ wp_cli_bin_url }}"
+        dest: /usr/local/bin/wp
+        mode: 0755
+        force: yes
+    - name: Create a ~/.wp-cli/
+      file:
+        path: "{{ ansible_env.HOME }}/.wp-cli/"
+        state: directory
+    - name: Create a `~/.wp-cli/config.yml` on the Guest
+      template:
+        src: templates/guest-wp-cli-config.yml
+        dest: "{{ ansible_env.HOME }}/.wp-cli/config.yml"
+    - name: Create a `/vagrant/wp-cli.yml`
+      template:
+        src: templates/host-wp-cli-config.yml
+        dest: "{{ vccw.vagrant_dir }}/wp-cli.yml"
+    - name: Install WP-CLI packages
+      become: no
+      shell: /bin/bash -lc "wp package install '{{ item }}'"
+      with_items: "{{ vccw.wp_cli_packages | default([]) }}"
+      ignore_errors: yes
+    - name: Setup a bash completion for the WP-CLI
+      get_url:
+        url: https://raw.githubusercontent.com/wp-cli/wp-cli/master/utils/wp-completion.bash
+        dest: "{{ ansible_env.HOME }}/.bash.d/wp-completion.sh"
+        force: yes
+
+    # Install Ruby gems
+    - name: Place a ~/.gemrc
+      become: no
+      template:
+        src: templates/.gemrc
+        dest: "{{ ansible_env.HOME }}/.gemrc"
+    - name: Install Ruby gems
+      become: no
+      gem:
+        name: "{{ item }}"
+        state: latest
+        user_install: yes
+      with_items: "{{ vccw.ruby_gems | default([]) }}"
+      ignore_errors: yes
+
+    # Install npm packages
+    - name: Place a ~/.npmrc
+      become: no
+      template:
+        src: templates/.npmrc
+        dest: "{{ ansible_env.HOME }}/.npmrc"
+    - name: Install npm packages
+      become: no
+      npm:
+        name: "{{ item }}"
+        global: yes
+        executable: /usr/bin/npm
+      with_items: "{{ vccw.npms | default([]) }}"
+      ignore_errors: yes
+
+    # Setup WordPress coding standards
+    - name: Check the `phpcs` exists.
+      shell: bash -lc 'phpcs --help &> /dev/null; echo $?'
+      register: is_phpcs
+    - name: Setup the WordPress coding standard
+      shell: /bin/bash -lc "phpcs --config-set installed_paths {{ ansible_env.HOME }}/.composer/vendor/wp-coding-standards/wpcs"
+      when: is_phpcs.stdout == "0"
+
+    # WordPress i18n tools
+    - name: Checkout the WordPress i18n Tools
+      subversion:
+        repo: http://i18n.svn.wordpress.org/tools/trunk/
+        dest: "{{ ansible_env.HOME }}/.wp-i18n/"
+      ignore_errors: yes
