@@ -2,6 +2,7 @@
 .bundle
 .idea/
 .vagrant
+.ansible
 Movefile
 _site
 npm-debug.log
