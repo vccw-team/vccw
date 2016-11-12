@@ -1,10 +1,6 @@
 # Contribute
 
-```
-$ git clone git@github.com:vccw-team/vccw.git
-$ cd vccw
-$ vagrant up
-```
+We always welcome your contribution and pull request.
 
 ## Automated testing
 
