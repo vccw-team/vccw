@@ -125,12 +125,3 @@
         repo: http://i18n.svn.wordpress.org/tools/trunk/
         dest: "{{ ansible_env.HOME }}/.wp-i18n/"
       ignore_errors: yes
-
-    # Setup WordPress Test Suite
-    - name: Download install-wp-tests.sh
-      get_url:
-        url: https://raw.githubusercontent.com/wp-cli/wp-cli/master/templates/install-wp-tests.sh
-        dest: "{{ ansible_env.HOME }}/install-wp-tests.sh"
-        force: yes
-    - name: Install WordPress for testing.
-      shell: "bash {{ ansible_env.HOME }}/install-wp-tests.sh wordpress_test root {{ vccw.db_pass }} localhost latest"
