@@ -32,7 +32,7 @@ start() {
 		-- \
 		--foreground \
 		--http-ip 0.0.0.0 \
-    --no-quit \
+		--no-quit \
 	echo "."
 	return $?
 }
