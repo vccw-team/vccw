@@ -84,6 +84,19 @@ Vagrant.configure(2) do |config|
     ansible.playbook = "provision/playbook.yml"
   end
 
+  if File.exists?(File.join(ENV["HOME"], '.vccw/playbook-post.yml'))
+    config.vm.provision "ansible" do |ansible|
+      ansible.extra_vars = {
+        vccw: _conf
+      }
+      ansible.playbook = File.join(ENV["HOME"], '.vccw/playbook-post.yml')
+    end
+  end
+
+  if File.exists?(File.join(ENV["HOME"], '.vccw/provision-post.sh'))
+    config.vm.provision :shell, :path => File.join(ENV["HOME"], '.vccw/provision-post.sh')
+  end
+
   if File.exists?(File.join(File.dirname(__FILE__), 'playbook-post.yml')) then
     config.vm.provision "ansible_local" do |ansible|
       ansible.extra_vars = {
