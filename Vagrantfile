@@ -94,7 +94,7 @@ Vagrant.configure(2) do |config|
   end
 
   if File.exists?(File.join(ENV["HOME"], '.vccw/provision-post.sh'))
-    config.vm.provision :shell, :path => File.join(ENV["HOME"], '.vccw/provision-post.sh')
+    config.vm.provision :shell, :privileged => false, :path => File.join(ENV["HOME"], '.vccw/provision-post.sh')
   end
 
   if File.exists?(File.join(File.dirname(__FILE__), 'playbook-post.yml')) then
@@ -107,6 +107,6 @@ Vagrant.configure(2) do |config|
   end
 
   if File.exists?(File.join(File.dirname(__FILE__), 'provision-post.sh')) then
-    config.vm.provision :shell, :path => File.join( File.dirname(__FILE__), 'provision-post.sh' )
+    config.vm.provision :shell, :privileged => false, :path => File.join( File.dirname(__FILE__), 'provision-post.sh' )
   end
 end
