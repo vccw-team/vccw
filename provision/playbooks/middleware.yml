@@ -85,9 +85,9 @@
     - name: Add mailcatcher to service
       become: yes
       template:
-        src: templates/mailcatcher
-        dest: /etc/init.d/mailcatcher
-        mode: 0755
+        src: templates/mailcatcher.service
+        dest: /etc/systemd/system/mailcatcher.service
+        mode: 0644
     - name: Start mailcatcher
       become: yes
       service: name=mailcatcher enabled=yes state=started
