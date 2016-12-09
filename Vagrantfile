@@ -43,6 +43,7 @@ Vagrant.configure(2) do |config|
   end
 
   config.vm.box = ENV['wp_box'] || _conf['wp_box']
+  config.vm.box_version = "<= 20161209"
   config.ssh.forward_agent = true
 
   config.vm.box_check_update = true
