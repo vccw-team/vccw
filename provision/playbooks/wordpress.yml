@@ -96,10 +96,25 @@
       --path={{ path }}
     with_items: "{{ vccw.plugins | default([]) }}"
 
+  # Check exsist Theme
+  - name: Run `wp theme is-installed`
+    command: |
+      wp theme is-installed {{ vccw.theme }}
+      --path={{ path }}
+    register: theme_is_installed
+    ignore_errors: True
+    when: vccw.theme != ''
+
   # Install Theme
   - name: Run `wp theme install`
     command: |
       wp theme install {{ vccw.theme }}
+      --path={{ path }} --activate
+    when: vccw.theme != '' and theme_is_installed.stdout == "1"
+
+  - name: Run `wp theme activate`
+    command: |
+      wp theme activate {{ vccw.theme }}
       --path={{ path }}
     when: vccw.theme != ''
 
