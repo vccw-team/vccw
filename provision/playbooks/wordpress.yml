@@ -72,11 +72,13 @@
     command: "mv /tmp/index.php {{ vccw.document_root }}/index.php"
 
   - name: Create `.gitignore`
-    template:
-      src: templates/.gitignore
+    get_url:
+      url: https://raw.githubusercontent.com/github/gitignore/master/WordPress.gitignore
       dest: /tmp/.gitignore
+      mode: 0644
+      force: yes
   - name: Move `.gitignore`
-    command: "mv /tmp/.gitignore {{ vccw.document_root }}/.gitignore"
+    command: "mv /tmp/.gitignore {{ path }}/.gitignore"
 
   # Install Plugins
   - name: Run `wp plugin install`
