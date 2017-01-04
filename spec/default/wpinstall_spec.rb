@@ -69,7 +69,7 @@ describe file(File.join($conf['document_root'], $conf['wp_siteurl'], 'wp-load.ph
   it { should be_owned_by $conf['user'] }
 end
 
-describe file(File.join($conf['document_root'], '.editorconfig')) do
+describe file(File.join($conf['document_root'], $conf['wp_siteurl'], '.gitignore')) do
   let(:disable_sudo) { true }
   it { should be_file }
   it { should be_owned_by $conf['user'] }
