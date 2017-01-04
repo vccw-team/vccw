@@ -71,13 +71,6 @@
     when: vccw.wp_siteurl != ''
     command: "mv /tmp/index.php {{ vccw.document_root }}/index.php"
 
-  - name: Create `.editorconfig`
-    template:
-      src: templates/.editorconfig
-      dest: /tmp/.editorconfig
-  - name: Move `.editorconfig`
-    command: "mv /tmp/.editorconfig {{ vccw.document_root }}/.editorconfig"
-
   - name: Create `.gitignore`
     template:
       src: templates/.gitignore
