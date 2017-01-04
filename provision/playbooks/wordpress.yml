@@ -29,10 +29,6 @@
       --force
 
   # wp-config.php
-  - name: Delete wp-config.php
-    file:
-      state: absent
-      path: "{{ path }}/wp-config.php"
   - name: Create temporary file for extra-php in wp-config.php
     template:
       src: templates/extra-wp-config.php
@@ -40,6 +36,7 @@
   - name: Run `wp core config`
     shell: |
        wp core config \
+       --force \
        --path={{ path }} \
        --dbhost={{ vccw.db_host }} \
        --dbname={{ vccw.db_name }} \
