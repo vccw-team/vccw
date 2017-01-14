@@ -1,6 +1,8 @@
+---
 - hosts: all
   vars:
     path: "{{ vccw.document_root }}/{{ vccw.wp_siteurl }}"
+    user: "{{ ansible_env.USER | default( 'ubuntu' ) }}"
 
   tasks:
 
@@ -10,6 +12,7 @@
       login_user: root
       name: "{{ vccw.db_name }}"
       state: present
+
   - name: Create MySQL user
     mysql_user:
       login_user: root
@@ -18,6 +21,15 @@
       priv: "{{ vccw.db_name }}.*:ALL"
       host: "%"
       state: present
+
+  - name: "Change owner of the {{ path }}"
+    become: yes
+    file:
+      path: "{{ path }}"
+      state: directory
+      owner: "{{ user }}"
+      group: "{{ user }}"
+      mode: 0755
 
   # download wordpress
   - name: Run `wp core download`

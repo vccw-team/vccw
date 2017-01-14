@@ -11,6 +11,7 @@ playbook.retry
 provision-post.sh
 provision-pre.sh
 site.yml
+test.json
 vendor
 wp-cli.yml
 wordpress

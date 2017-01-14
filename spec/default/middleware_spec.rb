@@ -17,9 +17,8 @@ end
 
 describe command("ps -C apache2 -o user") do
   its(:stdout) { should match /root/ }
-  its(:stdout) { should match /vagrant/ }
+  its(:stdout) { should match /#{$conf['user']}/ }
   its(:stdout) { should_not match /www-data/ }
-
 end
 
 describe port(80) do

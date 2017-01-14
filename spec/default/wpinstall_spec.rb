@@ -8,30 +8,30 @@ require 'shellwords'
 # Check the WordPress installation was successful.
 #
 
-describe host($conf['hostname']) do
-  it { should be_resolvable.by('hosts') }
-end
+# describe host($conf['hostname']) do
+#   it { should be_resolvable.by('hosts') }
+# end
 
-describe interface('enp0s8') do
-  it { should have_ipv4_address($conf['ip']) }
-end
+# describe interface('enp0s8') do
+#   it { should have_ipv4_address($conf['ip']) }
+# end
 
-describe command('wp --version') do
-  let(:disable_sudo) { true }
-  its(:exit_status) { should eq 0 }
-end
+# describe command("su -l bash -lc 'wp --version'") do
+#   let(:disable_sudo) { true }
+#   its(:exit_status) { should eq 0 }
+# end
 
-describe command("wget -q http://" + File.join($conf['ip'], $conf['wp_home'], '/') + " -O - | head -100 | grep generator") do
-    its(:stdout) { should match /<meta name="generator" content="WordPress .*"/i }
-end
+# describe command("wget -q http://127.0.0.1/ -O - | head -100 | grep generator") do
+#     its(:stdout) { should match /<meta name="generator" content="WordPress .*"/i }
+# end
 
-describe command("wget -q http://" + File.join($conf['ip'], $conf['wp_siteurl'], '/readme.html')) do
-    its(:exit_status) { should eq 0 }
-end
+# describe command("wget -q http://" + File.join($conf['ip'], $conf['wp_siteurl'], '/readme.html')) do
+#     its(:exit_status) { should eq 0 }
+# end
 
-describe command("wget --no-check-certificate -q https://" + File.join($conf['ip'], $conf['wp_home'], '/') + " -O - | head -100 | grep generator") do
-    its(:stdout) { should match /<meta name="generator" content="WordPress .*"/i }
-end
+# describe command("wget --no-check-certificate -q https://" + File.join($conf['ip'], $conf['wp_home'], '/') + " -O - | head -100 | grep generator") do
+#     its(:stdout) { should match /<meta name="generator" content="WordPress .*"/i }
+# end
 
 describe file(File.join($conf['document_root'], $conf['wp_home'])) do
     let(:disable_sudo) { true }

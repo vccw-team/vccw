@@ -4,7 +4,7 @@
 require 'spec_helper'
 require 'shellwords'
 
-describe file("/home/vagrant/.wp-i18n/makepot.php") do
+describe file("/home/"+$conf['user']+"/.wp-i18n/makepot.php") do
   let(:disable_sudo) { true }
   it { should be_file }
 end
@@ -26,7 +26,7 @@ commands = [
 ]
 
 commands.each do |command|
-  describe command('bash -lc "' + command + '"') do
+  describe command('su -l '+$conf['user']+' bash -lc "' + command + '"') do
     let(:disable_sudo) { true }
     its(:exit_status) { should eq 0 }
   end

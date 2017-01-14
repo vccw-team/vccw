@@ -1,3 +1,4 @@
+---
 - hosts: all
   vars:
     wp_cli_bin_url: https://raw.githubusercontent.com/wp-cli/builds/gh-pages/phar/wp-cli-nightly.phar

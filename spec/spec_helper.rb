@@ -1,7 +1,5 @@
 require 'serverspec'
-require 'net/ssh'
-require 'tempfile'
-require 'yaml'
+require 'docker'
 
 $conf = YAML.load(
   File.open(
@@ -31,16 +29,23 @@ if File.exists?('site.yml')
 end
 
 $conf["vagrant_dir"] = "/vagrant"
-$conf["user"] = "vagrant"
+$conf["user"] = "ubuntu"
 
-set :backend, :ssh
+# set :backend, :ssh
 
-host = $conf['hostname']
+# host = $conf['hostname']
 
-config = Tempfile.new('', Dir.tmpdir)
-`unset RUBYLIB; vagrant ssh-config #{host} > #{config.path}`
+# config = Tempfile.new('', Dir.tmpdir)
+# `unset RUBYLIB; vagrant ssh-config #{host} > #{config.path}`
 
-options = Net::SSH::Config.for(host, [config.path])
-puts options.to_s
-set :host,        host
-set :ssh_options, options
+# options = Net::SSH::Config.for(host, [config.path])
+# puts options.to_s
+# set :host,        host
+# set :ssh_options, options
+
+set :backend, :docker
+set :docker_url, 'unix:///var/run/docker.sock'
+set :docker_container, 'vccw-test'
+
+# TODO https://github.com/swipely/docker-api/issues/202
+Excon.defaults[:ssl_verify_peer] = false
