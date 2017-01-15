@@ -1,5 +1,6 @@
 require 'serverspec'
 require 'docker'
+require 'json'
 
 $conf = YAML.load(
   File.open(
@@ -8,28 +9,13 @@ $conf = YAML.load(
   ).read
 )
 
-if File.exists?(File.join(ENV["HOME"], '.vccw/config.yml'))
-  _custom = YAML.load(
-    File.open(
-      File.join(ENV["HOME"], '.vccw/config.yml'),
-      File::RDONLY
-    ).read
-  )
-  $conf.merge!(_custom) if _custom.is_a?(Hash)
+if ENV['ANSIBLE_ENV'].instance_of?( String )
+  site = JSON.parse( ENV['ANSIBLE_ENV'] );
+  $conf.merge!( site ) if site.is_a?( Hash );
 end
 
-if File.exists?('site.yml')
-  _site = YAML.load(
-    File.open(
-      'site.yml',
-      File::RDONLY
-    ).read
-  )
-  $conf.merge!(_site) if _site.is_a?(Hash)
-end
-
-$conf["vagrant_dir"] = "/vagrant"
 $conf["user"] = "ubuntu"
+$conf["vagrant_dir"] = "/vagrant"
 
 # set :backend, :ssh
 
