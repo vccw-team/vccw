@@ -6,11 +6,7 @@ env:
 
 before_install:
   - bundle install --path vendor/bundle
-  - ruby -ryaml -rjson -e "conf = {:vccw =>YAML.load(STDIN.read)}; conf[:vccw][:vagrant_dir] = \"/vagrant\"; puts JSON.generate(conf);" < provision/default.yml > test.json
-  - docker pull vccw/vccw-xenial64
-  - docker run -idt --name vccw-test --privileged --volume="${PWD}":${VM_DIR}/:rw vccw/vccw-xenial64:latest "/sbin/init"
-  - sleep 120s
+  - /usr/bin/env bash bin/run-docker.sh
 
 script:
-  - docker exec --user ubuntu --tty vccw-test env TERM=xterm ansible-playbook ${VM_DIR}/provision/playbook.yml -e "@${VM_DIR}/test.json"
   - bundle exec rake spec

@@ -21,17 +21,13 @@ require 'shellwords'
 #   its(:exit_status) { should eq 0 }
 # end
 
-# describe command("wget -q http://127.0.0.1/ -O - | head -100 | grep generator") do
-#     its(:stdout) { should match /<meta name="generator" content="WordPress .*"/i }
-# end
+describe command("curl http://127.0.0.1/ | head -100 | grep generator") do
+    its(:stdout) { should match /<meta name="generator" content="WordPress .*"/i }
+end
 
-# describe command("wget -q http://" + File.join($conf['ip'], $conf['wp_siteurl'], '/readme.html')) do
-#     its(:exit_status) { should eq 0 }
-# end
-
-# describe command("wget --no-check-certificate -q https://" + File.join($conf['ip'], $conf['wp_home'], '/') + " -O - | head -100 | grep generator") do
-#     its(:stdout) { should match /<meta name="generator" content="WordPress .*"/i }
-# end
+describe command("curl -k http://127.0.0.1/ | head -100 | grep generator") do
+    its(:stdout) { should match /<meta name="generator" content="WordPress .*"/i }
+end
 
 describe file(File.join($conf['document_root'], $conf['wp_home'])) do
     let(:disable_sudo) { true }

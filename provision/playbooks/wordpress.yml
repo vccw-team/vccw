@@ -30,6 +30,13 @@
       owner: "{{ user }}"
       group: "{{ user }}"
       mode: 0755
+      recurse: yes
+
+  - name: "Remove index.html from document root"
+    become: yes
+    file:
+      path: "{{ path }}/index.html"
+      state: absent
 
   # download wordpress
   - name: Run `wp core download`
