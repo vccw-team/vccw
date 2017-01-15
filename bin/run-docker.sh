@@ -21,7 +21,7 @@ EOS
 
 docker pull vccw/vccw-xenial64
 
-docker run -idt --name vccw-test -p 80:80 -p 443:443 -p 3306:3306 \
+docker run -idt --name vccw-test -p 80:80 -p 443:443 \
 --privileged \
 --volume="$(pwd)":${VM_DIR}/:rw \
 vccw/vccw-xenial64:latest \
