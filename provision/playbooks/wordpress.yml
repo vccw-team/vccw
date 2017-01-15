@@ -1,6 +1,8 @@
+---
 - hosts: all
   vars:
     path: "{{ vccw.document_root }}/{{ vccw.wp_siteurl }}"
+    user: "{{ ansible_env.USER | default( 'ubuntu' ) }}"
 
   tasks:
 
@@ -10,6 +12,7 @@
       login_user: root
       name: "{{ vccw.db_name }}"
       state: present
+
   - name: Create MySQL user
     mysql_user:
       login_user: root
@@ -18,6 +21,22 @@
       priv: "{{ vccw.db_name }}.*:ALL"
       host: "%"
       state: present
+
+  - name: "Change owner of the {{ path }}"
+    become: yes
+    file:
+      path: "{{ path }}"
+      state: directory
+      owner: "{{ user }}"
+      group: "{{ user }}"
+      mode: 0755
+      recurse: yes
+
+  - name: "Remove index.html from document root"
+    become: yes
+    file:
+      path: "{{ path }}/index.html"
+      state: absent
 
   # download wordpress
   - name: Run `wp core download`
@@ -88,10 +107,25 @@
       --path={{ path }}
     with_items: "{{ vccw.plugins | default([]) }}"
 
+  # Check exsist Theme
+  - name: Run `wp theme is-installed`
+    command: |
+      wp theme is-installed {{ vccw.theme }}
+      --path={{ path }}
+    register: theme_is_installed
+    ignore_errors: True
+    when: vccw.theme != ''
+
   # Install Theme
   - name: Run `wp theme install`
     command: |
       wp theme install {{ vccw.theme }}
+      --path={{ path }} --activate
+    when: vccw.theme != '' and theme_is_installed.stdout == "1"
+
+  - name: Run `wp theme activate`
+    command: |
+      wp theme activate {{ vccw.theme }}
       --path={{ path }}
     when: vccw.theme != ''
 
