@@ -9,8 +9,18 @@ $conf = YAML.load(
   ).read
 )
 
-if ENV['ANSIBLE_ENV'].instance_of?( String )
-  site = JSON.parse( ENV['ANSIBLE_ENV'] );
+if File.exists?( 'site.yml' )
+  site = YAML.load(
+    File.open(
+      'site.yml',
+      File::RDONLY
+    ).read
+  )
+  $conf.merge!( site ) if site.is_a?( Hash )
+end
+
+if ENV['VCCW_ENV'].instance_of?( String )
+  site = JSON.parse( ENV['VCCW_ENV'] );
   $conf.merge!( site ) if site.is_a?( Hash );
 end
 
