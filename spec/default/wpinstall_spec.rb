@@ -25,7 +25,7 @@ describe command("curl http://127.0.0.1/ | head -100 | grep generator") do
     its(:stdout) { should match /<meta name="generator" content="WordPress .*"/i }
 end
 
-describe command("curl -k http://127.0.0.1/ | head -100 | grep generator") do
+describe command("curl -k https://127.0.0.1/ | head -100 | grep generator") do
     its(:stdout) { should match /<meta name="generator" content="WordPress .*"/i }
 end
 
