@@ -40,11 +40,13 @@ $conf['plugins'].each do |plugin|
   end
 end
 
-# describe command("su -l #{$conf['user']} bash -lc 'wp --no-color theme status " + Shellwords.shellescape($conf['theme'])+"'") do
-#   let(:disable_sudo) { true }
-#   its(:exit_status) { should eq 0 }
-#   its(:stdout){ should match /Status: Active/ }
-# end
+if $conf['theme'] != "" then
+  describe command("su -l #{$conf['user']} bash -lc 'wp --no-color theme status " + Shellwords.shellescape($conf['theme'])+"'") do
+    let(:disable_sudo) { true }
+    its(:exit_status) { should eq 0 }
+    its(:stdout){ should match /Status: Active/ }
+  end
+end
 
 $conf['options'].each do |key, value|
   describe command("su -l #{$conf['user']} bash -lc 'wp option get " + Shellwords.shellescape(key.to_s)+"'") do
