@@ -2,7 +2,7 @@ services: docker
 
 env:
   global:
-    - VM_DIR: /vagrant
+    - VM_DIR=/vagrant
   matrix:
     - VCCW_ENV='{ "hostname": "127.0.0.1" }'
     - VCCW_ENV='{ "hostname": "127.0.0.1", "lang": "ja", "plugins": [ "simple-map" ], "theme": "twentyfifteen" }'
