@@ -5,7 +5,7 @@ env:
     - VM_DIR: /vagrant
   matrix:
     - VCCW_ENV='{ "hostname": "127.0.0.1" }'
-    - VCCW_ENV='{ "lang": "ja", "plugins": [ "simple-map" ], "theme": "twentyfifteen" }'
+    - VCCW_ENV='{ "hostname": "127.0.0.1", "lang": "ja", "plugins": [ "simple-map" ], "theme": "twentyfifteen" }'
 
 before_install:
   - bundle install --path vendor/bundle
