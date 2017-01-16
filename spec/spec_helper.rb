@@ -27,21 +27,9 @@ end
 $conf["user"] = "ubuntu"
 $conf["vagrant_dir"] = "/vagrant"
 
-# set :backend, :ssh
-
-# host = $conf['hostname']
-
-# config = Tempfile.new('', Dir.tmpdir)
-# `unset RUBYLIB; vagrant ssh-config #{host} > #{config.path}`
-
-# options = Net::SSH::Config.for(host, [config.path])
-# puts options.to_s
-# set :host,        host
-# set :ssh_options, options
-
 set :backend, :docker
 set :docker_url, 'unix:///var/run/docker.sock'
-set :docker_container, 'vccw-test'
+set :docker_container, $conf["hostname"]
 
 # TODO https://github.com/swipely/docker-api/issues/202
 Excon.defaults[:ssl_verify_peer] = false
