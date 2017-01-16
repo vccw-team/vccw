@@ -40,7 +40,7 @@ $conf['plugins'].each do |plugin|
   end
 end
 
-if $conf['theme'] then
+if $conf['theme'] != "" then
   describe command("su -l #{$conf['user']} bash -lc 'wp --no-color theme status " + Shellwords.shellescape($conf['theme'])+"'") do
     let(:disable_sudo) { true }
     its(:exit_status) { should eq 0 }
