@@ -21,7 +21,6 @@ commands = [
   "wordmove help",
   "wp help",
   "wp help scaffold movefile",
-  "mailcatcher --version",
   "bundle help"
 ]
 

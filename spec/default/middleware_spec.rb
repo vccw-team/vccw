@@ -42,9 +42,11 @@ describe port(3306) do
   it { should be_listening }
 end
 
-describe service('mailcatcher') do
-  it { should be_enabled }
-  it { should be_running }
+if mailcatcher then
+  describe service('mailcatcher') do
+    it { should be_enabled }
+    it { should be_running }
+  end
 end
 
 describe port(1080) do

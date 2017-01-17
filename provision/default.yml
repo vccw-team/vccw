@@ -107,6 +107,8 @@ ruby_gems:
   - bundler
   - wordmove
 
+mailcatcher: true
+
 #
 # NPM modules
 #
@@ -151,7 +153,6 @@ php_ini:
   post_max_size: 1024M # Same with VVV
   short_open_tag: Off
   session.save_path: /tmp
-  sendmail_path: /usr/bin/env catchmail
   upload_max_filesize: 1024M # Same with VVV
   xdebug.remote_enable: true
   xdebug.remote_host: 127.0.0.1
