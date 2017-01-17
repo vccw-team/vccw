@@ -4,9 +4,11 @@
 require 'spec_helper'
 require 'shellwords'
 
-describe file("/home/"+$conf['user']+"/.wp-i18n/makepot.php") do
-  let(:disable_sudo) { true }
-  it { should be_file }
+if $conf['wp_i18n_tools'] then
+  describe file("/home/"+$conf['user']+"/.wp-i18n/makepot.php") do
+    let(:disable_sudo) { true }
+    it { should be_file }
+  end
 end
 
 describe file('/vagrant/Movefile') do
@@ -21,7 +23,6 @@ commands = [
   "wordmove help",
   "wp help",
   "wp help scaffold movefile",
-  "mailcatcher --version",
   "bundle help"
 ]
 

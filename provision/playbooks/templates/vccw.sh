@@ -21,7 +21,9 @@ if which phpcs >/dev/null; then
   alias wpcs="phpcs --standard=WordPress"
 fi
 
+if [ -e $HOME/.wp-i18n/makepot.php ]; then
 alias makepot="/usr/bin/env php $HOME/.wp-i18n/makepot.php"
+fi
 
 # For wp plugin's unit testing
 function install-wp-tests {

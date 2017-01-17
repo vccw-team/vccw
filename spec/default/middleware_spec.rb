@@ -42,13 +42,14 @@ describe port(3306) do
   it { should be_listening }
 end
 
-describe service('mailcatcher') do
-  it { should be_enabled }
-  it { should be_running }
-end
-
-describe port(1080) do
-  it { should be_listening }
+if $conf['mailcatcher'] then
+  describe service('mailcatcher') do
+    it { should be_enabled }
+    it { should be_running }
+  end
+  describe port(1080) do
+    it { should be_listening }
+  end
 end
 
 describe command('echo "show databases;" | mysql -uroot -pwordpress') do
