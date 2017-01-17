@@ -17,17 +17,35 @@ describe file('/vagrant/Movefile') do
 end
 
 commands = [
-  "phpunit --version",
-  "phpcs --help",
   "composer --version",
-  "wordmove help",
   "wp help",
-  "wp help scaffold movefile",
-  "bundle help"
 ]
 
 commands.each do |command|
   describe command('su -l '+$conf['user']+' bash -lc "' + command + '"') do
+    let(:disable_sudo) { true }
+    its(:exit_status) { should eq 0 }
+  end
+end
+
+$conf['composers'].each do |c|
+  composer = c.split( ":" )[0]
+  describe command('su -l '+$conf['user']+' bash -lc "composer global show -i ' + composer + '"') do
+    let(:disable_sudo) { true }
+    its(:exit_status) { should eq 0 }
+  end
+end
+
+$conf['ruby_gems'].each do |gem|
+  describe command('su -l '+$conf['user']+' bash -lc "' + gem + ' help"') do
+    let(:disable_sudo) { true }
+    its(:exit_status) { should eq 0 }
+  end
+end
+
+$conf['wp_cli_packages'].each do |wp|
+  package = wp.split( ":" )[0]
+  describe command('su -l '+$conf['user']+' bash -lc "wp package path ' + package + '"') do
     let(:disable_sudo) { true }
     its(:exit_status) { should eq 0 }
   end
