@@ -85,15 +85,27 @@
         name: mailcatcher
         state: latest
         user_install: no
+      when: vccw.mailcatcher
     - name: Add mailcatcher to service
       become: yes
       template:
         src: templates/mailcatcher.service
         dest: /etc/systemd/system/mailcatcher.service
         mode: 0644
+      when: vccw.mailcatcher
     - name: Start mailcatcher
       become: yes
       service: name=mailcatcher enabled=yes state=started
+      when: vccw.mailcatcher
+    - name: Update php.ini for mailcatcher
+      become: yes
+      lineinfile:
+        dest: /etc/php/7.0/apache2/conf.d/99-vccw.ini
+        create: yes
+        line: "  sendmail_path = /usr/bin/env catchmail"
+      when: vccw.mailcatcher
+      notify:
+        - restart apache
 
   handlers:
     - name: restart apache

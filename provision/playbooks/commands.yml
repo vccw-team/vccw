@@ -67,10 +67,6 @@
       template:
         src: templates/guest-wp-cli-config.yml
         dest: "{{ ansible_env.HOME }}/.wp-cli/config.yml"
-    - name: Create a `/vagrant/wp-cli.yml`
-      template:
-        src: templates/host-wp-cli-config.yml
-        dest: "{{ vccw.vagrant_dir }}/wp-cli.yml"
     - name: Install WP-CLI packages
       become: no
       shell: /bin/bash -lc "wp package install '{{ item }}'"
@@ -126,3 +122,4 @@
         repo: http://i18n.svn.wordpress.org/tools/trunk/
         dest: "{{ ansible_env.HOME }}/.wp-i18n/"
       ignore_errors: yes
+      when: vccw.wp_i18n_tools
