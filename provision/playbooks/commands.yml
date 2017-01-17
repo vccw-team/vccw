@@ -122,3 +122,4 @@
         repo: http://i18n.svn.wordpress.org/tools/trunk/
         dest: "{{ ansible_env.HOME }}/.wp-i18n/"
       ignore_errors: yes
+      when: vccw.wp_i18n_tools

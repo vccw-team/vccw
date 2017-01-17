@@ -109,6 +109,8 @@ ruby_gems:
 
 mailcatcher: true
 
+wp_i18n_tools: true
+
 #
 # NPM modules
 #
