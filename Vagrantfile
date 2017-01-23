@@ -5,6 +5,10 @@ require 'yaml'
 
 Vagrant.require_version '>= 1.8.6'
 
+if Vagrant.has_plugin?("auto_network")
+  AutoNetwork.default_pool = '192.168.33.0/24'
+end
+
 Vagrant.configure(2) do |config|
 
   vccw_version = '3.0.10';
