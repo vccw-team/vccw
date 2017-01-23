@@ -49,7 +49,12 @@ Vagrant.configure(2) do |config|
   config.vm.box_check_update = true
 
   config.vm.hostname = _conf['hostname']
-  config.vm.network :private_network, ip: _conf['ip']
+  
+  if Vagrant.has_plugin?("auto_network")
+    config.vm.network :private_network, :auto_network => true
+  else
+    config.vm.network :private_network, ip: _conf['ip']
+  end
 
   config.vm.synced_folder _conf['synced_folder'],
       _conf['document_root'], :create => "true", :mount_options => ['dmode=755', 'fmode=644']
