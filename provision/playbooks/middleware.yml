@@ -62,6 +62,24 @@
       notify:
         - restart apache
 
+    - name: "Disable keepalive"
+      become: yes
+      replace:
+        dest: /etc/apache2/apache2.conf
+        regexp: KeepAlive .*
+        replace: "KeepAlive Off"
+      notify:
+        - restart apache
+
+    - name: "Setup timeout"
+      become: yes
+      replace:
+        dest: /etc/apache2/apache2.conf
+        regexp: Timeout .*
+        replace: "Timeout 10"
+      notify:
+        - restart apache
+
     # enable wordpress.conf
     - name: Enable virtual host for WordPress
       become: yes
