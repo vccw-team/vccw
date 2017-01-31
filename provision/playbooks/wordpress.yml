@@ -181,7 +181,7 @@
       wp option update timezone_string '{{ timezone.stdout }}'
       --path={{ path }}
 
-  - name: Get the timezone
+  - name: Get the date format
     command: |
       wp eval "echo __( 'M jS Y' );"
       --path={{ path }}
