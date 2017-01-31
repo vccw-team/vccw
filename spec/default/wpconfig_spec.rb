@@ -56,6 +56,25 @@ $conf['options'].each do |key, value|
   end
 end
 
+# Tests for localization
+if $conf['lang'] == "ja" then
+  describe command("su -l #{$conf['user']} bash -lc 'wp --no-color plugin status wp-multibyte-patch") do
+    let(:disable_sudo) { true }
+    its(:exit_status) { should eq 0 }
+    its(:stdout){ should match /Status: Active/ }
+  end
+  describe command("su -l #{$conf['user']} bash -lc 'wp --no-color option get timezone_string") do
+    let(:disable_sudo) { true }
+    its(:exit_status) { should eq 0 }
+    its(:stdout){ should eq "Asia/Tokyo\n" }
+  end
+  describe command("su -l #{$conf['user']} bash -lc 'wp --no-color plugin status wp-multibyte-patch") do
+    let(:disable_sudo) { true }
+    its(:exit_status) { should eq 0 }
+    its(:stdout){ should eq "Y年n月j\n" }
+  end
+end
+
 #
 # Multi site
 #
