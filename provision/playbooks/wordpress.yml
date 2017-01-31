@@ -43,7 +43,6 @@
     command: |
       wp core download
       --path={{ path }}
-      --locale={{ vccw.lang }}
       --version={{ vccw.version }}
       --force
 

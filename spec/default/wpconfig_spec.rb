@@ -68,7 +68,7 @@ if $conf['lang'] == "ja" then
     its(:exit_status) { should eq 0 }
     its(:stdout){ should eq "Asia/Tokyo\n" }
   end
-  describe command("su -l #{$conf['user']} bash -lc 'wp --no-color plugin status wp-multibyte-patch'") do
+  describe command("su -l #{$conf['user']} bash -lc 'wp --no-color option get date_format'") do
     let(:disable_sudo) { true }
     its(:exit_status) { should eq 0 }
     its(:stdout){ should eq "Y年n月j\n" }
