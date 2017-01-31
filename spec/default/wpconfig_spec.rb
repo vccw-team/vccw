@@ -71,7 +71,7 @@ if $conf['lang'] == "ja" then
   describe command("su -l #{$conf['user']} bash -lc 'wp --no-color option get date_format'") do
     let(:disable_sudo) { true }
     its(:exit_status) { should eq 0 }
-    its(:stdout){ should eq 'Y\xE5\xB9\xB4n\xE6\x9C\x88j\xE6\x97\xA5' + "\n" }
+    its(:stdout){ should eq "Y年n月j日\n" }
   end
 end
 
