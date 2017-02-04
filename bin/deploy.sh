@@ -2,6 +2,7 @@
 
 set -eux
 
+rm -fr .bundle
 rm -fr .git
 rm -fr .github
 rm -fr bin
@@ -13,6 +14,7 @@ rm -f .travis.yml
 rm -f Gemfile
 rm -f Gemfile.lock
 rm -f Rakefile
+rm -fr vendor
 
 cat <<EOF > .gitignore
 .DS_Store
