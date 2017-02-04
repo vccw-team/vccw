@@ -2,6 +2,7 @@
 
 set -eux
 
+rm -fr .git
 rm -fr .github
 rm -fr bin
 rm -fr spec
