@@ -13,6 +13,7 @@ script:
 after_success:
 - bash bin/deploy.sh
 - ls -al
+- cat .gitignore
 deploy:
   provider: releases
   api_key:
