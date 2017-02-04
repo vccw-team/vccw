@@ -1,15 +1,24 @@
 services: docker
-
 env:
   global:
-    - VM_DIR=/vagrant
+  - VM_DIR=/vagrant
   matrix:
-    - "VCCW_ENV='{}'"
-    - "VCCW_ENV='{ \"lang\": \"ja\", \"plugins\": [ \"simple-map\" ], \"theme\": \"twentyfifteen\" }'"
-
+  - VCCW_ENV='{}'
+  - 'VCCW_ENV=''{ "lang": "ja", "plugins": [ "simple-map" ], "theme": "twentyfifteen"}'''
 before_install:
-  - bundle install --path vendor/bundle
-  - /usr/bin/env bash bin/run-docker.sh
-
+- bundle install --path vendor/bundle
+- "/usr/bin/env bash bin/run-docker.sh"
 script:
-  - bundle exec rake spec
+- bundle exec rake spec
+after_success:
+- bash bin/deploy.sh
+- ls -al
+- cat .gitignore
+deploy:
+  provider: releases
+  api_key:
+    secure: ntvY4o4V16Aj7tk9teXbt5gfmZZkITclkcvtQiM90cDGvOl7SWRzWQ2aII1MZRn/8XWFcvJu7DCwLVias0u8wWftkyTNjRZzARGeMmHgcBEeVK72l11u366NkijGjtUmSkoGKrdZ39/lD0vHsEIdT63fR10C6bG3bLfHtLgMgBI=
+  file: vccw.zip
+  on:
+    tags: true
+    repo: vccw-team/vccw
