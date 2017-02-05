@@ -7,7 +7,7 @@ Vagrant.require_version '>= 1.8.6'
 
 Vagrant.configure(2) do |config|
 
-  vccw_version = '3.1.0';
+  vccw_version = 'nightly';
 
   _conf = YAML.load(
     File.open(

@@ -31,4 +31,10 @@ playbook.retry
 vendor
 EOF
 
-zip -r vccw.zip .
+sed -e "s/vccw_version = 'nightly';/vccw_version = '${TRAVIS_TAG}';/" Vagrantfile > Vagrantfile.tmp
+mv Vagrantfile.tmp Vagrantfile
+
+cd ..
+zip -r vccw.zip vccw
+mv vccw.zip vccw/
+cd vccw
