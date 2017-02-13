@@ -119,8 +119,7 @@ npms: []
 # composer
 #
 composers:
-  - hirak/prestissimo:*
-  - phpunit/phpunit:*
+  - phpunit/phpunit:5.6
   - squizlabs/php_codesniffer:*
   - wp-coding-standards/wpcs:*
   # - phpmd/phpmd:*
