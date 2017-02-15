@@ -35,6 +35,6 @@ sed -e "s/vccw_version = 'nightly';/vccw_version = '${TRAVIS_TAG}';/" Vagrantfil
 mv Vagrantfile.tmp Vagrantfile
 
 cd ..
-zip -r vccw.zip vccw
-mv vccw.zip vccw/
+zip -r vccw-${TRAVIS_TAG}.zip vccw -x *.git*
+mv vccw-${TRAVIS_TAG}.zip vccw/
 cd vccw
