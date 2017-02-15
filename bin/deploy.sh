@@ -13,6 +13,7 @@ rm -f .rspec
 rm -f .travis.yml
 rm -f Gemfile
 rm -f Gemfile.lock
+rm -f Movefile
 rm -f Rakefile
 rm -fr vendor
 
@@ -35,6 +36,6 @@ sed -e "s/vccw_version = 'nightly';/vccw_version = '${TRAVIS_TAG}';/" Vagrantfil
 mv Vagrantfile.tmp Vagrantfile
 
 cd ..
-zip -r vccw-${TRAVIS_TAG}.zip vccw -x *.git*
+zip -r vccw-${TRAVIS_TAG}.zip vccw
 mv vccw-${TRAVIS_TAG}.zip vccw/
 cd vccw
