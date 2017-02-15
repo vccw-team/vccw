@@ -18,7 +18,7 @@ deploy:
   provider: releases
   api_key:
     secure: ntvY4o4V16Aj7tk9teXbt5gfmZZkITclkcvtQiM90cDGvOl7SWRzWQ2aII1MZRn/8XWFcvJu7DCwLVias0u8wWftkyTNjRZzARGeMmHgcBEeVK72l11u366NkijGjtUmSkoGKrdZ39/lD0vHsEIdT63fR10C6bG3bLfHtLgMgBI=
-  file: vccw.zip
+  file: vccw-${TRAVIS_TAG}.zip
   on:
     tags: true
     repo: vccw-team/vccw
