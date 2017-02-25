@@ -29,7 +29,6 @@ cat <<EOF > .gitignore
 npm-debug.log
 package.box
 playbook.retry
-vendor
 EOF
 
 sed -e "s/vccw_version = 'nightly';/vccw_version = '${TRAVIS_TAG}';/" Vagrantfile > Vagrantfile.tmp
