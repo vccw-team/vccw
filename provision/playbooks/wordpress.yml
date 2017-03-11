@@ -134,7 +134,7 @@
     command: |
       wp theme install {{ vccw.theme }}
       --path={{ path }} --activate
-    when: vccw.theme != '' and theme_is_installed.stdout == "1"
+    when: vccw.theme != '' and theme_is_installed.rc == 1
 
   - name: Run `wp theme activate`
     command: |
