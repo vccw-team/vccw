@@ -9,7 +9,7 @@ wp_box: vccw-team/xenial64
 #
 # Virtual Machine Settings
 #
-memory: 512
+memory: 1024
 cpus: 1
 
 #
