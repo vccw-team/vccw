@@ -50,3 +50,12 @@ $conf['wp_cli_packages'].each do |wp|
     its(:exit_status) { should eq 0 }
   end
 end
+
+#
+# Check exsist database for test suite.
+#
+describe command('echo "show databases;" | mysql -uroot -pwordpress') do
+  let(:disable_sudo) { true }
+  its(:exit_status) { should eq 0 }
+  its(:stdout) { should match /wordpress_test/ }
+end

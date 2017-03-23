@@ -236,3 +236,18 @@
       chdir: "{{ vccw.vagrant_dir }}"
       creates: Movefile
     when: is_command.stdout == "0" and is_movefile.stat.exists != true
+
+  # Setup WordPress Test Suite
+  - name: Download install-wp-tests.sh
+    get_url:
+      url: https://raw.githubusercontent.com/wp-cli/wp-cli/master/templates/install-wp-tests.sh
+      dest: "{{ ansible_env.HOME }}/install-wp-tests.sh"
+      force: yes
+  # Database Settings
+  - name: Create Database for testing.
+    mysql_db:
+      login_user: root
+      name: wordpress_test
+      state: present
+  - name: Install WordPress for testing.
+    shell: "bash {{ ansible_env.HOME }}/install-wp-tests.sh wordpress_test root {{ vccw.db_pass }} localhost latest true"
