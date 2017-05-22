@@ -103,8 +103,8 @@ reset_db_on_provision: true
 # RubyGems
 #
 ruby_gems:
-  - bundler
-  - wordmove
+  bundler: "1.15"
+  wordmove: "2.0"
 
 mailcatcher: true
 

@@ -87,10 +87,10 @@
     - name: Install Ruby gems
       become: no
       gem:
-        name: "{{ item }}"
-        state: latest
+        name: "{{ item.key }}"
         user_install: yes
-      with_items: "{{ vccw.ruby_gems | default([]) }}"
+        version: "{{ item.value }}"
+      with_dict: "{{ vccw.ruby_gems | default({}) }}"
       ignore_errors: yes
 
     # Install npm packages
