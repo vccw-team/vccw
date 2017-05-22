@@ -36,7 +36,7 @@ $conf['composers'].each do |c|
   end
 end
 
-$conf['ruby_gems'].each do |gem|
+$conf['ruby_gems'].each do |gem, version|
   describe command('su -l '+$conf['user']+' bash -lc "' + gem + ' help"') do
     let(:disable_sudo) { true }
     its(:exit_status) { should eq 0 }
