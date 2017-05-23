@@ -101,10 +101,11 @@ reset_db_on_provision: true
 
 #
 # RubyGems
+# Wordmove will be forcibly installed.
 #
 ruby_gems:
-  bundler: "1.15"
-  wordmove: "2.0"
+  - bundler
+  - wordmove
 
 mailcatcher: true
 
