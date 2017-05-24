@@ -101,6 +101,7 @@ reset_db_on_provision: true
 
 #
 # RubyGems
+# Wordmove will be forcibly installed.
 #
 ruby_gems:
   - bundler
@@ -120,8 +121,8 @@ npms: []
 #
 composers:
   - phpunit/phpunit:5.6
-  - squizlabs/php_codesniffer:*
-  - wp-coding-standards/wpcs:*
+  # - squizlabs/php_codesniffer:~2.0
+  # - wp-coding-standards/wpcs:*
   # - phpmd/phpmd:*
   # - sebastian/phpcpd:*
   # - phploc/phploc:*

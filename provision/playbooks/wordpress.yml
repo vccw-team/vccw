@@ -89,14 +89,19 @@
     when: vccw.wp_siteurl != ''
     command: "mv /tmp/index.php {{ vccw.document_root }}/index.php"
 
+  - stat:
+      path: "{{ path }}/.gitignore"
+    register: st
   - name: Create `.gitignore`
     get_url:
       url: https://raw.githubusercontent.com/github/gitignore/master/WordPress.gitignore
       dest: /tmp/.gitignore
       mode: 0644
       force: yes
+    when: st.stat.exists != true
   - name: Move `.gitignore`
     command: "mv /tmp/.gitignore {{ path }}/.gitignore"
+    when: st.stat.exists != true
 
   - name: Run `wp core language install`
     command: |
