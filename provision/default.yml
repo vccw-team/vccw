@@ -121,7 +121,7 @@ npms: []
 #
 composers:
   - phpunit/phpunit:*
-  - squizlabs/php_codesniffer:*
+  - squizlabs/php_codesniffer:~2.0
   - wp-coding-standards/wpcs:*
   # - phpmd/phpmd:*
   # - sebastian/phpcpd:*
