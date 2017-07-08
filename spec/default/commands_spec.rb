@@ -11,7 +11,7 @@ if $conf['wp_i18n_tools'] then
   end
 end
 
-if $conf['wp_cli_packages']include?('vccw/wp-cli-scaffold-movefile:@stable') then
+if $conf['wp_cli_packages'].include?('vccw/wp-cli-scaffold-movefile:@stable') then
   describe file('/vagrant/Movefile') do
     let(:disable_sudo) { true }
     it { should be_file }
