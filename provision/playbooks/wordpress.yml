@@ -29,7 +29,6 @@
       state: directory
       owner: "{{ user }}"
       group: "{{ user }}"
-      mode: 0755
       recurse: yes
 
   - name: "Remove index.html from document root"
