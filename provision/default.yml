@@ -120,7 +120,7 @@ npms: []
 # composer
 #
 composers:
-  - phpunit/phpunit:*
+  - phpunit/phpunit:5.6
   - squizlabs/php_codesniffer:~2.0
   - wp-coding-standards/wpcs:*
   # - phpmd/phpmd:*
