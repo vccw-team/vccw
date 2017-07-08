@@ -3,8 +3,8 @@ env:
   global:
   - VM_DIR=/vagrant
   matrix:
-  - VCCW_ENV='{ "ruby_gems":[] }'
-  - 'VCCW_ENV=''{ "ruby_gems":[], "lang": "ja", "plugins": [ "simple-map" ], "theme": "twentyfifteen"}'''
+  - VCCW_ENV='{ "ruby_gems":[], "wp_cli_packages":[] }'
+  - 'VCCW_ENV=''{ "ruby_gems":[], "wp_cli_packages":[], "lang": "ja", "plugins": [ "simple-map" ], "theme": "twentyfifteen"}'''
 before_install:
 - bundle install --path vendor/bundle
 - "/usr/bin/env bash bin/run-docker.sh"
