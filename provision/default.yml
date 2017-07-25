@@ -9,7 +9,7 @@ wp_box: vccw-team/xenial64
 #
 # Virtual Machine Settings
 #
-memory: 512
+memory: 1024
 cpus: 1
 
 #
@@ -101,6 +101,7 @@ reset_db_on_provision: true
 
 #
 # RubyGems
+# Wordmove will be forcibly installed.
 #
 ruby_gems:
   - bundler
@@ -119,9 +120,8 @@ npms: []
 # composer
 #
 composers:
-  - hirak/prestissimo:*
-  - phpunit/phpunit:*
-  - squizlabs/php_codesniffer:*
+  - phpunit/phpunit:5.6
+  - squizlabs/php_codesniffer:~2.0
   - wp-coding-standards/wpcs:*
   # - phpmd/phpmd:*
   # - sebastian/phpcpd:*

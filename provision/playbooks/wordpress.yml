@@ -29,7 +29,6 @@
       state: directory
       owner: "{{ user }}"
       group: "{{ user }}"
-      mode: 0755
       recurse: yes
 
   - name: "Remove index.html from document root"
@@ -89,14 +88,19 @@
     when: vccw.wp_siteurl != ''
     command: "mv /tmp/index.php {{ vccw.document_root }}/index.php"
 
+  - stat:
+      path: "{{ path }}/.gitignore"
+    register: st
   - name: Create `.gitignore`
     get_url:
       url: https://raw.githubusercontent.com/github/gitignore/master/WordPress.gitignore
       dest: /tmp/.gitignore
       mode: 0644
       force: yes
+    when: st.stat.exists != true
   - name: Move `.gitignore`
     command: "mv /tmp/.gitignore {{ path }}/.gitignore"
+    when: st.stat.exists != true
 
   - name: Run `wp core language install`
     command: |
@@ -134,7 +138,7 @@
     command: |
       wp theme install {{ vccw.theme }}
       --path={{ path }} --activate
-    when: vccw.theme != '' and theme_is_installed.stdout == "1"
+    when: vccw.theme != '' and theme_is_installed.rc == 1
 
   - name: Run `wp theme activate`
     command: |
