@@ -93,7 +93,7 @@
     register: st
   - name: Create `.gitignore`
     get_url:
-      url: https://raw.githubusercontent.com/github/gitignore/master/WordPress.gitignore
+      url: "{{ vccw.gitignore }}"
       dest: /tmp/.gitignore
       mode: 0644
       force: yes

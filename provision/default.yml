@@ -79,6 +79,8 @@ force_ssl_admin: false
 wp_debug: true
 savequeries: false
 
+gitignore: https://raw.githubusercontent.com/github/gitignore/master/WordPress.gitignore
+
 #
 # Addtional PHP code in the wp-config.php
 #
