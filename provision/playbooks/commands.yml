@@ -130,3 +130,12 @@
         dest: "{{ ansible_env.HOME }}/.wp-i18n/"
       ignore_errors: yes
       when: vccw.wp_i18n_tools
+
+    # Remove unused files if exists
+    - name: Remove unused files if exists
+      become: yes
+      file:
+        path: "{{ ansible_env.HOME }}/{{ item }}"
+        state: absent
+      with_items:
+        - .wget-hsts
