@@ -44,5 +44,5 @@ function install-wp-tests {
 
 # For WP-CLI package tests
 function install-package-tests {
-  bash bin/install-package-tests.sh
+  echo 'GRANT ALL PRIVILEGES ON wp_cli_test.* TO "wp_cli_test"@"localhost" IDENTIFIED BY "password1";' | mysql -u root
 }
