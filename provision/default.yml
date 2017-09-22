@@ -15,7 +15,7 @@ cpus: 1
 #
 # Network Settings
 #
-hostname: vccw.dev
+hostname: vccw.local
 ip: 192.168.33.10
 
 #
