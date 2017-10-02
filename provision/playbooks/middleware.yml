@@ -96,6 +96,14 @@
       notify:
         - restart apache
 
+    - name: Update php.ini for cli
+      become: yes
+      lineinfile:
+        dest: /etc/php/7.0/cli/conf.d/99-vccw.ini
+        create: yes
+        line: "{{ item.key }} = {{ item.value }}"
+      with_dict: "{{ vccw.php_ini }}"
+
     # Install mailcatcher as root
     - name: Install mailcatcher
       become: yes
@@ -120,10 +128,17 @@
       lineinfile:
         dest: /etc/php/7.0/apache2/conf.d/99-vccw.ini
         create: yes
-        line: "  sendmail_path = /usr/bin/env catchmail"
+        line: "sendmail_path = /usr/bin/env catchmail"
       when: vccw.mailcatcher
       notify:
         - restart apache
+    - name: Update php.ini for mailcatcher for cli
+      become: yes
+      lineinfile:
+        dest: /etc/php/7.0/cli/conf.d/99-vccw.ini
+        create: yes
+        line: "sendmail_path = /usr/bin/env catchmail"
+      when: vccw.mailcatcher
 
   handlers:
     - name: restart apache
