@@ -76,6 +76,7 @@ Vagrant.configure(2) do |config|
     end
     vb.customize ['modifyvm', :id, '--natdnsproxy1', 'on']
     vb.customize ['modifyvm', :id, '--natdnshostresolver1', 'on']
+    vb.customize ['setextradata', :id, 'VBoxInternal/Devices/VMMDev/0/Config/GetHostTimeDisabled', 0]
   end
 
   config.vm.provision "ansible_local" do |ansible|
