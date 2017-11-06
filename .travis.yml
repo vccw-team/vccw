@@ -1,4 +1,7 @@
 services: docker
+branches:
+  only:
+  - master
 env:
   global:
   - VM_DIR=/vagrant
