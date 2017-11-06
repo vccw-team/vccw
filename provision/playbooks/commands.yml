@@ -67,6 +67,10 @@
       template:
         src: templates/guest-wp-cli-config.yml
         dest: "{{ ansible_env.HOME }}/.wp-cli/config.yml"
+    - name: Create a `wp-cli.yml` to the host
+      template:
+        src: templates/wp-cli.yml
+        dest: "/vagrant/wp-cli.yml"
     - name: Install WP-CLI packages
       become: no
       shell: /bin/bash -lc "wp package install '{{ item }}'"
