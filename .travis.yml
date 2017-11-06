@@ -1,4 +1,7 @@
 services: docker
+branches:
+  only:
+  - master
 env:
   global:
   - VM_DIR=/vagrant
@@ -7,7 +10,7 @@ env:
   - 'VCCW_ENV=''{ "ruby_gems":[], "wp_cli_packages":[], "lang": "ja", "plugins": [ "simple-map" ], "theme": "twentyfifteen", "mailcatcher":false }'''
 before_install:
 - bundle install --path vendor/bundle
-- "/usr/bin/env bash bin/run-docker.sh"
+- /usr/bin/env bash bin/run-docker.sh
 script:
 - bundle exec rake spec
 after_success:

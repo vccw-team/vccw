@@ -1,0 +1,2 @@
+@{{ vccw.hostname }}:
+  ssh: vagrant:{{ vccw.hostname }}:{{ vccw.document_root }}

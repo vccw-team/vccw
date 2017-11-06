@@ -42,5 +42,7 @@ docker run -idt -p 80:80 -p 443:443 \
 vccw/vccw-xenial64:latest \
 "/sbin/init"
 
+docker exec --tty ${VCCW_HOSTNAME} env TERM=xterm chown ubuntu:ubuntu ${VM_DIR}
+
 docker exec --user ubuntu --tty ${VCCW_HOSTNAME} \
 env TERM=xterm ansible-playbook ${VM_DIR}/provision/playbook.yml -e "$(ruby $RUBY)"
