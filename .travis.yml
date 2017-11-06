@@ -2,6 +2,7 @@ services: docker
 branches:
   only:
   - master
+  - "/^[0-9\\.]+/"
 env:
   global:
   - VM_DIR=/vagrant
