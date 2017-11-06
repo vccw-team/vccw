@@ -43,6 +43,9 @@ vccw/vccw-xenial64:latest \
 "/sbin/init"
 
 docker exec --tty ${VCCW_HOSTNAME} env TERM=xterm chown ubuntu:ubuntu ${VM_DIR}
+docker exec --tty ${VCCW_HOSTNAME} env TERM=xterm chmod 777 ${VM_DIR}
 
 docker exec --user ubuntu --tty ${VCCW_HOSTNAME} \
 env TERM=xterm ansible-playbook ${VM_DIR}/provision/playbook.yml -e "$(ruby $RUBY)"
+
+docker exec --tty ${VCCW_HOSTNAME} env TERM=xterm rm -f ${VM_DIR}/wp-cli.yml
