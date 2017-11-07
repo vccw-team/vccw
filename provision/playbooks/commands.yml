@@ -63,14 +63,6 @@
       file:
         path: "{{ ansible_env.HOME }}/.wp-cli/"
         state: directory
-    - name: Create a `~/.wp-cli/config.yml` on the Guest
-      template:
-        src: templates/guest-wp-cli-config.yml
-        dest: "{{ ansible_env.HOME }}/.wp-cli/config.yml"
-    - name: Create a `wp-cli.yml` to the host
-      template:
-        src: templates/wp-cli.yml
-        dest: "{{ vccw.vagrant_dir }}/wp-cli.yml"
     - name: Install WP-CLI packages
       become: no
       shell: /bin/bash -lc "wp package install '{{ item }}'"
@@ -81,6 +73,18 @@
         url: https://raw.githubusercontent.com/wp-cli/wp-cli/master/utils/wp-completion.bash
         dest: "{{ ansible_env.HOME }}/.bash.d/wp-completion.sh"
         force: yes
+    - name: Create `wp-cli` dir
+      become: yes
+      file:
+        path: "{{ vccw.vagrant_dir }}/wp-cli"
+        state: directory
+    - name: Place a `wp browse` command.
+      template:
+        src: templates/browse-command.php
+        dest: "{{ vccw.vagrant_dir }}/wp-cli/browse-command.php"
+      notify:
+        - wp-cli-config
+        - wp-cli-local-config
 
     # Install Ruby gems
     - name: Place a ~/.gemrc
@@ -143,3 +147,14 @@
         state: absent
       with_items:
         - .wget-hsts
+
+  handlers:
+    - name: wp-cli-config
+      template:
+        src: templates/guest-wp-cli-config.yml
+        dest: "{{ ansible_env.HOME }}/.wp-cli/config.yml"
+    - name: wp-cli-local-config
+      template:
+        src: templates/wp-cli.yml
+        dest: "{{ vccw.vagrant_dir }}/wp-cli.yml"
+        force: no

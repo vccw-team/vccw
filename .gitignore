@@ -7,7 +7,7 @@
 /_site
 /npm-debug.log
 /package.box
-/playbook.retry
+/provision/playbook.retry
 /provision-post.sh
 /provision-pre.sh
 /site.yml
@@ -15,3 +15,4 @@
 /vendor
 /wp-cli.yml
 /wordpress
+/wp-cli
