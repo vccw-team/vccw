@@ -12,6 +12,7 @@ if ( ! class_exists( 'WP_CLI' ) ) {
  * [--wp-admin]
  * : Open the dashboard.
  *
+ * @when before_wp_load
  */
 $browse_command = function( $_, $assoc_args ) {
 	$exec = 'xdg-open';
