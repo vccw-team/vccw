@@ -233,14 +233,16 @@
       state: directory
 
   # It should be done at the last
-  - name: Place a `wp browse` command.
-    template:
-      src: templates/browse-command.php
-      dest: "{{ vccw.vagrant_dir }}/wp-cli/browse-command.php"
-
-  # It should be done at the last
   - name: Create a `wp-cli.yml`
     template:
       src: templates/wp-cli.yml
       dest: "{{ vccw.vagrant_dir }}/wp-cli.yml"
       force: no
+    notify:
+      - restart apache
+
+  handlers:
+    - name: Place `wp browse` command.
+    - template:
+        src: templates/browse-command.php
+        dest: "{{ vccw.vagrant_dir }}/wp-cli/browse-command.php"
