@@ -78,7 +78,6 @@
       file:
         path: "{{ vccw.vagrant_dir }}/wp-cli"
         state: directory
-        mode: 0755
     - name: Place a `wp browse` command.
       template:
         src: templates/browse-command.php
