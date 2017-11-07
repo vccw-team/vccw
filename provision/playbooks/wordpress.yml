@@ -225,24 +225,3 @@
       chdir: "{{ vccw.vagrant_dir }}"
       creates: Movefile
     when: is_command.stdout == "0" and is_movefile.stat.exists != true
-
-  - name: Create `wp-cli` dir
-    become: yes
-    file:
-      path: "{{ vccw.vagrant_dir }}/wp-cli"
-      state: directory
-
-  # It should be done at the last
-  - name: Place a `wp browse` command.
-    template:
-      src: templates/browse-command.php
-      dest: "{{ vccw.vagrant_dir }}/wp-cli/browse-command.php"
-    notify:
-      - wp-cli-config
-
-  handlers:
-    - name: wp-cli-config
-      template:
-        src: templates/wp-cli.yml
-        dest: "{{ vccw.vagrant_dir }}/wp-cli.yml"
-        force: no
