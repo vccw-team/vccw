@@ -239,10 +239,10 @@
       dest: "{{ vccw.vagrant_dir }}/wp-cli.yml"
       force: no
     notify:
-      - Place `wp browse` command
+      - browse-command
 
   handlers:
-    - name: Place `wp browse` command
-    - template:
+    - name: browse-command
+      template:
         src: templates/browse-command.php
         dest: "{{ vccw.vagrant_dir }}/wp-cli/browse-command.php"
