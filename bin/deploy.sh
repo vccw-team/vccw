@@ -16,6 +16,8 @@ rm -f Gemfile.lock
 rm -f Movefile
 rm -f Rakefile
 rm -fr vendor
+rm -fr wp-cli
+rm -f wp-cli.yml
 
 cat <<EOF > .gitignore
 .DS_Store
