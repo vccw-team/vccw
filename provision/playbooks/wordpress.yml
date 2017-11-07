@@ -233,16 +233,16 @@
       state: directory
 
   # It should be done at the last
-  - name: Create a `wp-cli.yml`
+  - name: Place a `wp browse` command.
     template:
-      src: templates/wp-cli.yml
-      dest: "{{ vccw.vagrant_dir }}/wp-cli.yml"
-      force: no
+      src: templates/browse-command.php
+      dest: "{{ vccw.vagrant_dir }}/wp-cli/browse-command.php"
     notify:
-      - browse-command
+      - wp-cli-config
 
   handlers:
-    - name: browse-command
+    - name: wp-cli-config
       template:
-        src: templates/browse-command.php
-        dest: "{{ vccw.vagrant_dir }}/wp-cli/browse-command.php"
+        src: templates/wp-cli.yml
+        dest: "{{ vccw.vagrant_dir }}/wp-cli.yml"
+        force: no
