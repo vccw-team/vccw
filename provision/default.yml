@@ -53,7 +53,8 @@ db_pass: wordpress
 # WordPress Default Plugins
 # Plugin's slug or url to the plugin's slug.
 #
-plugins: []
+plugins:
+- logbook
 
 #
 # WordPress Default Theme
