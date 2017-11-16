@@ -132,9 +132,9 @@
     when: vccw.theme != ''
 
   # Import Theme Unit Test Data
-  - name: Run `wp plugin install wordpress-importer`
+  - name: Install `wordpress-importer`
     command: |
-      wp plugin install wordpress-importer
+      wp plugin install https://github.com/WordPress/wordpress-importer/archive/master.zip
       --activate
       --path={{ path }}
     when: vccw.theme_unit_test
