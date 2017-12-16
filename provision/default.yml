@@ -15,9 +15,9 @@ cpus: 1
 #
 # Network Settings
 #
-hostname: vccw.test
-ip: 192.168.33.10
-forwarded_port: 81
+hostname: vccw.tesst
+ip: 192.168.33.11
+forwarded_port: 82
 
 #
 # WordPress Settings
