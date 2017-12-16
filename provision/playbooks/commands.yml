@@ -5,7 +5,19 @@
     composer_version: 1.3.1
 
   tasks:
-
+    # System upgrade
+    - name: install aptitude
+      become: yes 
+      apt: 
+        name: aptitude 
+        state: present 
+        update_cache: yes
+    - name: update and upgrade apt packages
+      become: yes
+      apt:
+        update_cache: yes
+        upgrade: yes
+    
     # Setup bash
     - name: Place a ~/.bash_profile
       become: no
@@ -147,6 +159,18 @@
         state: absent
       with_items:
         - .wget-hsts
+
+    # Install phpMyAdmin 
+    - name: install phpmyadmin
+      become: yes
+      apt:
+        name: phpmyadmin
+        state: present
+        update_cache: yes
+
+    - name: Move phpmyadmin to webroot
+      become: yes
+      shell: bash -lc 'mv /usr/share/phpmyadmin/ /var/www/html/' 
 
   handlers:
     - name: wp-cli-config
