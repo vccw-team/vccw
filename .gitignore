@@ -3,7 +3,7 @@
 /.idea/
 /.vagrant
 /.ansible
-/Movefile
+/Movefile.yml
 /_site
 /npm-debug.log
 /package.box
