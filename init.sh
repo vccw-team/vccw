@@ -1,3 +1,5 @@
 #!/bin/bash
 
-# Create script for naming of new site
+cp ./provision/default.yml ./site.yml
+
+
