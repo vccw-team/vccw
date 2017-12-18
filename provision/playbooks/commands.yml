@@ -6,18 +6,20 @@
 
   tasks:
     # System upgrade
-    - name: install aptitude
-      become: yes 
-      apt: 
-        name: aptitude 
-        state: present 
-        update_cache: yes
-    - name: update and upgrade apt packages
+    - name: Update apt cache
       become: yes
       apt:
         update_cache: yes
+    - name: Install aptitude
+      become: yes
+      apt:
+        name: aptitude
+        state: present
+    - name: Upgrade apt packages
+      become: yes
+      apt:
         upgrade: yes
-    
+
     # Setup bash
     - name: Place a ~/.bash_profile
       become: no
@@ -166,8 +168,6 @@
       apt:
         name: phpmyadmin
         state: present
-        update_cache: yes
-
     - name: Move phpmyadmin to webroot
       become: yes
       shell: bash -lc 'mv /usr/share/phpmyadmin/ /var/www/html/' 

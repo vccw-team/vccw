@@ -101,7 +101,7 @@ theme_unit_test_uri: https://raw.githubusercontent.com/WPTRT/theme-unit-test/mas
 #
 # DB will be reset when provision
 #
-reset_db_on_provision: true
+reset_db_on_provision: false
 
 #
 # RubyGems
