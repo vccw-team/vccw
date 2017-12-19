@@ -17,7 +17,7 @@ else
     sed -i -e "/title:/s/.*/title: $title/" site.yml
 
     printf "Website description: "; read description
-    sed -i -e "/blogdescription:/s/.*/blogdescription: $description/" site.yml 
+    sed -i -e "/blogdescription:/s/.*/  blogdescription: $description/" site.yml 
 
     printf "WordPress version (eg. latest): "; read wp_version
     sed -i -e "/version:/s/.*/version: $wp_version/" site.yml
