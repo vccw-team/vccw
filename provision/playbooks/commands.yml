@@ -4,20 +4,7 @@
     wp_cli_bin_url: https://raw.githubusercontent.com/wp-cli/builds/gh-pages/phar/wp-cli-nightly.phar
     composer_version: 1.3.1
 
-  tasks:
-    # System upgrade
-    - name: Install aptitude
-      become: yes
-      apt:
-        update_cache: yes
-        name: aptitude
-        state: present
-    - name: Upgrade apt packages
-      become: yes
-      apt:
-        update_cache: yes
-        upgrade: yes
-     
+  tasks:    
     # Setup bash
     - name: Place a ~/.bash_profile
       become: no
@@ -160,6 +147,19 @@
       with_items:
         - .wget-hsts
 
+    # System upgrade
+    - name: Install aptitude
+      become: yes
+      apt:
+        update_cache: yes
+        name: aptitude
+        state: present
+    - name: Upgrade apt packages
+      become: yes
+      apt:
+        update_cache: yes
+        upgrade: yes
+ 
     # Install phpMyAdmin 
     - name: install phpmyadmin
       become: yes
