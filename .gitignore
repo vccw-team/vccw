@@ -11,6 +11,7 @@
 /provision-post.sh
 /provision-pre.sh
 /site.yml
+/site.yml-e
 /test.json
 /vendor
 /wp-cli.yml
