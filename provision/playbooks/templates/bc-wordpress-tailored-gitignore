@@ -1,0 +1,50 @@
+# .gitignore for Wordpress applications at Better Collective
+
+# Exclude plugins
+!/wp-content/plugins
+/wp-content/plugins/*
+
+# Exclude specific wp-content sub-directories
+wp-content/backup/*
+wp-content/cache/*
+wp-content/upgrade/*
+wp-content/uploads/*
+!wp-content/uploads/.htaccess
+
+# Exclude wp-config.php
+wp-config.php
+
+# Exclude sitemap
+sitemap.*
+
+# Exclude OS generated files
+~*
+*.DS_Store
+*[Tt]humbs.db
+*.Trashes
+
+# Exlcude node_modules
+node_modules/
+
+# Exclude logs and db dumps
+*.log
+*.sql
+*.sqlite
+
+# Exclude compiled files
+*.com
+*.class
+*.dll
+*.exe
+*.o
+*.so
+
+# Exclude compressed files
+*.7z
+*.dmg
+*.gz
+*.iso
+*.jar
+*.rar
+*.tar
+*.zip
