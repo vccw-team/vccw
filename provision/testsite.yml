@@ -103,14 +103,6 @@ theme_unit_test_uri: https://raw.githubusercontent.com/WPTRT/theme-unit-test/mas
 #
 reset_db_on_provision: true
 
-#
-# RubyGems
-# Wordmove will be forcibly installed.
-#
-ruby_gems:
-  - bundler
-  - wordmove
-
 mailcatcher: true
 
 wp_i18n_tools: true

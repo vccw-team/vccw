@@ -85,28 +85,6 @@
         - wp-cli-config
         - wp-cli-local-config
 
-    # Install Ruby gems
-    - name: Place a ~/.gemrc
-      become: no
-      template:
-        src: templates/.gemrc
-        dest: "{{ ansible_env.HOME }}/.gemrc"
-    - name: Install Wordmove
-      become: no
-      gem:
-        name: "wordmove"
-        user_install: yes
-        version: "2.0.0"
-      ignore_errors: yes
-    - name: Install Ruby gems
-      become: no
-      gem:
-        name: "{{ item }}"
-        user_install: yes
-      when: item != "wordmove"
-      with_items: "{{ vccw.ruby_gems | default([]) }}"
-      ignore_errors: yes
-
     # Install npm packages
     - name: Place a ~/.npmrc
       become: no
@@ -148,18 +126,17 @@
         - .wget-hsts
 
     # System upgrade
+    - name: Update apt repositories
+      become: yes
+      apt:
+        update_cache: yes
     - name: Install aptitude
       become: yes
       apt:
         update_cache: yes
         name: aptitude
         state: present
-    - name: Upgrade apt packages
-      become: yes
-      apt:
-        update_cache: yes
-        upgrade: yes
- 
+  
     # Install phpMyAdmin 
     - name: install phpmyadmin
       become: yes
