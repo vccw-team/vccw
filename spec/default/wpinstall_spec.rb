@@ -29,43 +29,43 @@ describe command("curl -k https://127.0.0.1/ | head -100 | grep generator") do
     its(:stdout) { should match /<meta name="generator" content="WordPress .*"/i }
 end
 
-describe file(File.join($conf['document_root'], $conf['wp_home'])) do
+describe file(File.join($conf['document_root']+$conf['hostname']+"/public/", $conf['wp_home'])) do
     let(:disable_sudo) { true }
     it { should be_directory }
     it { should be_owned_by $conf['user'] }
 end
 
-describe file(File.join($conf['document_root'], $conf['wp_siteurl'])) do
+describe file(File.join($conf['document_root']+$conf['hostname']+"/public/", $conf['wp_siteurl'])) do
     let(:disable_sudo) { true }
     it { should be_directory }
     it { should be_owned_by $conf['user'] }
 end
 
-describe file(File.join($conf['document_root'], $conf['wp_home'], '.htaccess')) do
+describe file(File.join($conf['document_root']+$conf['hostname']+"/public/", $conf['wp_home'], '.htaccess')) do
   let(:disable_sudo) { true }
   it { should be_file }
   it { should be_owned_by $conf['user'] }
 end
 
-describe file(File.join($conf['document_root'], $conf['wp_home'], '.gitignore')) do
+describe file(File.join($conf['document_root']+$conf['hostname']+"/public/", $conf['wp_home'], '.gitignore')) do
     let(:disable_sudo) { true }
     it { should be_file }
     it { should be_owned_by $conf['user'] }
 end
 
-describe file(File.join($conf['document_root'], $conf['wp_home'], 'index.php')) do
+describe file(File.join($conf['document_root']+$conf['hostname']+"/public/", $conf['wp_home'], 'index.php')) do
   let(:disable_sudo) { true }
   it { should be_file }
   it { should be_owned_by $conf['user'] }
 end
 
-describe file(File.join($conf['document_root'], $conf['wp_siteurl'], 'wp-load.php')) do
+describe file(File.join($conf['document_root']+$conf['hostname']+"/public/", $conf['wp_siteurl'], 'wp-load.php')) do
   let(:disable_sudo) { true }
   it { should be_file }
   it { should be_owned_by $conf['user'] }
 end
 
-describe file(File.join($conf['document_root'], $conf['wp_siteurl'], '.gitignore')) do
+describe file(File.join($conf['document_root']+$conf['hostname']+"/public/", $conf['wp_siteurl'], '.gitignore')) do
   let(:disable_sudo) { true }
   it { should be_file }
   it { should be_owned_by $conf['user'] }
