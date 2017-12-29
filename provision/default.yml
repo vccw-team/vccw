@@ -167,4 +167,4 @@ php_ini:
   xdebug.remote_autostart: true
 
 synced_folder: wordpress
-document_root: /var/www/html
+document_root: /var/www/vhost/
