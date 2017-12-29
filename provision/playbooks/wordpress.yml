@@ -1,7 +1,7 @@
 ---
 - hosts: all
   vars:
-    path: "{{ vccw.document_root }}{{vccw.hostname}}/{{ vccw.wp_siteurl }}"
+    path: "{{ vccw.document_root }}{{vccw.hostname}}/public/{{ vccw.wp_siteurl }}"
     user: "{{ ansible_env.USER | default( 'ubuntu' ) }}"
 
   tasks:
