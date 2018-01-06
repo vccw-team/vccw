@@ -34,7 +34,7 @@ VCCW_HOSTNAME=$(echo $VCCW_CONFIG | jq -r .vccw.hostname)
 
 docker pull vccw/vccw-xenial64
 
-docker run -idt -p 80:80 -p 443:443 \
+docker run -idt -p 80:80 -p 443:443 -p 3306 \
 --name=${VCCW_HOSTNAME} \
 --add-host=${VCCW_HOSTNAME}:127.0.0.1 \
 --privileged \
