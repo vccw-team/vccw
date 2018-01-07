@@ -73,7 +73,7 @@ end
 describe command('ruby -v') do
   let(:disable_sudo) { true }
   its(:exit_status) { should eq 0 }
-  its(:stdout) { should match /ruby 2\.3\./ }
+  its(:stdout) { should match /ruby 2\.4\./ }
 end
 
 commands = %w{

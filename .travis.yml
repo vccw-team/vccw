@@ -1,23 +1,9 @@
-services: docker
 branches:
   only:
   - master
   - "/^[0-9\\.]+/"
-env:
-  global:
-  - VM_DIR=/vagrant
-  matrix:
-  - VCCW_ENV='{ "ruby_gems":[], "wp_cli_packages":[], "mailcatcher":false }'
-  - 'VCCW_ENV=''{ "ruby_gems":[], "wp_cli_packages":[], "lang": "ja", "plugins": [ "simple-map" ], "theme": "twentyfifteen", "mailcatcher":false }'''
-before_install:
-- bundle install --path vendor/bundle
-- /usr/bin/env bash bin/run-docker.sh
 script:
-- bundle exec rake spec
-after_success:
-- bash bin/deploy.sh
 - ls -al
-- cat .gitignore
 deploy:
   provider: releases
   api_key:
