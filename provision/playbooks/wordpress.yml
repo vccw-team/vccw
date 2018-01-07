@@ -223,8 +223,8 @@
     register: is_movefile
   - name: Create a Movefile
     become: no
-    shell: /bin/bash -lc "wp scaffold movefile --force"
+    shell: /bin/bash -lc "wp scaffold movefile --path={{ path }} --force"
     args:
       chdir: "{{ vccw.vagrant_dir }}"
-      creates: Movefile
+      creates: Movefile.yml
     when: is_command.stdout == "0" and is_movefile.stat.exists != true
