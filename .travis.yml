@@ -3,7 +3,10 @@ branches:
   - master
   - "/^[0-9\\.]+/"
 script:
-- ls -al
+  - ls -al
+after_success:
+  - bash bin/deploy.sh
+  - ls -al
 deploy:
   provider: releases
   api_key:
