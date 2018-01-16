@@ -1,6 +1,6 @@
 #!/bin/bash
 
-cp ./provision/default.yml ./site.yml
+cp ../provision/default.yml ../site.yml
 printf "Domain name (eg. promocode.co.ke): "; read domain
 sed -i -e "/hostname:/s/.*/hostname: $domain/" site.yml
 
@@ -34,4 +34,4 @@ else
     echo "3) You can manage the database from phpMyAdmin at http://$domain/phpmyadmin with database 'wordpress', with username 'wordpress' and password 'wordpress'."
 fi
 
-mv ../${PWD##*/} ../$domain
+mv ../../${PWD##*/} ../../$domain
