@@ -14,4 +14,4 @@ For more information check out <http://vccw.cc/>.
 
 ## Configuration
 
-* Run ./init.sh and follow instructions.
+* Run ./scripts/bc-wp-init.sh and follow instructions.
