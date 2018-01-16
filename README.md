@@ -12,6 +12,6 @@ bc-wordpress-development are forked and edited version of VCCW (https://github.c
 
 For more information check out <http://vccw.cc/>.
 
-## Configuration
+## BC Configuration
 
 * Run ./scripts/bc-wp-init.sh and follow instructions.
