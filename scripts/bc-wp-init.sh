@@ -1,6 +1,6 @@
 #!/bin/bash
 
-cp ../provision/default.yml ../site.yml
+cp ./provision/default.yml ./site.yml
 printf "Domain name (eg. promocode.co.ke): "; read domain
 sed -i -e "/hostname:/s/.*/hostname: $domain/" site.yml
 
