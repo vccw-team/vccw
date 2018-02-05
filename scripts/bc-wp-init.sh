@@ -17,16 +17,16 @@ else
     sed -i -e "/title:/s/.*/title: $title/" site.yml
 
     printf "Website description: "; read description
-    sed -i -e "/blogdescription:/s/.*/  blogdescription: $description/" site.yml 
+    sed -i -e "/blogdescription:/s/.*/  blogdescription: $description/" site.yml
 
     printf "WordPress version (eg. latest): "; read wp_version
     sed -i -e "/version:/s/.*/version: $wp_version/" site.yml
-    
+
     printf "Wordpress username (eg. admin): "; read wp_username
     sed -i -e "/admin_user:/s/.*/admin_user: $wp_username/" site.yml
-    
+
     printf "Wordpress password (eg. admin): "; read wp_password
-    sed -i -e "/admin_pass:/s/.*/admin_pass: $admin_pass/" site.yml
+    sed -i -e "/admin_pass:/s/.*/admin_pass: $wp_password/" site.yml
 
     echo -e "\nInstallation Steps:"
     echo "1) Run '$ vagrant up' and make sure to provision."
