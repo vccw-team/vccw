@@ -34,4 +34,4 @@ else
     echo "3) You can manage the database from phpMyAdmin at http://$domain/phpmyadmin with database 'wordpress', with username 'wordpress' and password 'wordpress'."
 fi
 
-mv ../../${PWD##*/} ../../$domain
+mv ../${PWD##*/} ../$domain
