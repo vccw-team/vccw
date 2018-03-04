@@ -63,6 +63,8 @@
       file:
         path: "{{ ansible_env.HOME }}/.wp-cli/"
         state: directory
+      notify:
+        - wp-cli-config
     - name: Install WP-CLI packages
       become: no
       shell: /bin/bash -lc "wp package install '{{ item }}'"
@@ -83,7 +85,6 @@
         src: templates/browse-command.php
         dest: "{{ vccw.vagrant_dir }}/wp-cli/browse-command.php"
       notify:
-        - wp-cli-config
         - wp-cli-local-config
 
     # Install Ruby gems
