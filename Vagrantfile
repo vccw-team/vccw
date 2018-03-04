@@ -80,6 +80,7 @@ Vagrant.configure(2) do |config|
   end
 
   config.vm.provision "ansible_local" do |ansible|
+    ansible.compatibility_mode = "2.0"
     ansible.extra_vars = {
       vccw: _conf
     }
@@ -88,6 +89,7 @@ Vagrant.configure(2) do |config|
 
   if File.exists?(File.join(ENV["HOME"], '.vccw/playbook-post.yml'))
     config.vm.provision "ansible" do |ansible|
+      ansible.compatibility_mode = "2.0"
       ansible.extra_vars = {
         vccw: _conf
       }
@@ -101,6 +103,7 @@ Vagrant.configure(2) do |config|
 
   if File.exists?(File.join(File.dirname(__FILE__), 'playbook-post.yml')) then
     config.vm.provision "ansible_local" do |ansible|
+      ansible.compatibility_mode = "2.0"
       ansible.extra_vars = {
         vccw: _conf
       }
