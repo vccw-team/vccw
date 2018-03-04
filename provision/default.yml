@@ -103,6 +103,11 @@ theme_unit_test_uri: https://raw.githubusercontent.com/WPTRT/theme-unit-test/mas
 reset_db_on_provision: true
 
 #
+# Skip install WordPress when provision
+#
+skip_install_wordpress: false
+
+#
 # RubyGems
 # Wordmove will be forcibly installed.
 #
