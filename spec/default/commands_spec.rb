@@ -44,11 +44,3 @@ $conf['ruby_gems'].each do |gem, version|
     its(:exit_status) { should eq 0 }
   end
 end
-
-$conf['wp_cli_packages'].each do |wp|
-  package = wp.split( ":" )[0]
-  describe command('bash -lc "wp package path ' + package + '"') do
-    let(:disable_sudo) { true }
-    its(:exit_status) { should eq 0 }
-  end
-end
