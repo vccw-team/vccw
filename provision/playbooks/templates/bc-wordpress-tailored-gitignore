@@ -5,6 +5,7 @@
 /wp-content/plugins/*
 
 # Exclude specific wp-content sub-directories
+wp-content/languages/*
 wp-content/backup/*
 wp-content/cache/*
 wp-content/upgrade/*
