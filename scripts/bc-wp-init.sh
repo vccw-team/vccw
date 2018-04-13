@@ -33,5 +33,3 @@ else
     echo "2) Enjoy developing with your files at ./wordpress/ shared with vm folder /var/www/html, with local access at http://$domain."
     echo "3) You can manage the database from phpMyAdmin at http://$domain/phpmyadmin with database 'wordpress', with username 'wordpress' and password 'wordpress'."
 fi
-
-mv ../${PWD##*/} ../$domain
