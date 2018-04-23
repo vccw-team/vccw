@@ -210,18 +210,3 @@
       --path={{ path }}
     with_dict: "{{ vccw.multisite_options | default({}) }}"
     when: vccw.multisite
-
-  # Generate Movefile
-  - name: Check `wp scaffold movefile` exists.
-    shell: bash -lc 'wp help scaffold movefile &> /dev/null; echo $?'
-    register: is_command
-  - stat:
-      path: "{{ vccw.vagrant_dir }}/Movefile"
-    register: is_movefile
-  - name: Create a Movefile
-    become: no
-    shell: /bin/bash -lc "wp scaffold movefile --force"
-    args:
-      chdir: "{{ vccw.vagrant_dir }}"
-      creates: Movefile
-    when: is_command.stdout == "0" and is_movefile.stat.exists != true

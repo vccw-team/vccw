@@ -13,7 +13,6 @@ rm -f .rspec
 rm -f .travis.yml
 rm -f Gemfile
 rm -f Gemfile.lock
-rm -f Movefile
 rm -f Rakefile
 rm -fr vendor
 

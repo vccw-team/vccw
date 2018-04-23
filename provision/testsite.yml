@@ -123,13 +123,6 @@ composers:
   # - sebastian/phpcpd:*
   # - phploc/phploc:*
   # - phing/phing:*
-
-#
-# wp-cli package commands
-#
-wp_cli_packages:
-  - vccw/wp-cli-scaffold-movefile:@stable
-
 #
 # Linked Clone for Vagrant v1.8
 #
