@@ -1,6 +1,6 @@
 # bc-wordpress-development
 
-This is a Vagrant configuration designed for development of WordPress plugins, themes, or websites.
+This is a Vagrant configuration designed for development of WordPress.
 
 bc-wordpress-development are forked and edited version of VCCW (https://github.com/vccw-team/vccw).
 
