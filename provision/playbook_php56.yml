@@ -1,0 +1,5 @@
+---
+- include: playbooks/commands.yml
+- include: playbooks/middleware.yml
+- include: playbooks/wordpress.yml
+- include: playbooks/php56.yml

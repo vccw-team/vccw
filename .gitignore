@@ -17,3 +17,4 @@
 /wp-cli.yml
 /wordpress
 /wp-cli
+/provision/*retry
