@@ -84,11 +84,7 @@ Vagrant.configure(2) do |config|
     ansible.extra_vars = {
       vccw: _conf
     }
-    if ENV["WPPHP56"] == "True" or ENV["WPPHPP5.6"] == "true"
-        ansible.playbook = "provision/playbook_php56.yml"
-    else
-        ansible.playbook = "provision/playbook.yml"
-    end
+    ansible.playbook = "provision/playbook.yml"
   end
 
   if File.exists?(File.join(ENV["HOME"], '.vccw/playbook-post.yml'))
