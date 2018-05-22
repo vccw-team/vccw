@@ -18,6 +18,7 @@ cpus: 1
 hostname: vccw.test
 ip: 192.168.33.10
 forwarded_port: 8181
+enable_php56: false 
 
 #
 # WordPress Settings

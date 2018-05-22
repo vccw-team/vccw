@@ -1,0 +1,148 @@
+---
+- hosts: all
+
+  tasks:
+  - name: Add new ppa
+    apt_repository:
+      repo: "{{ item }}"
+    with_items:
+      - ppa:ondrej/php
+      - ppa:ondrej/apache2
+    become: true
+    become_user: root
+
+  - name: install packages
+    apt:
+      name: "{{ item }}"
+      update_cache: yes
+      state: latest
+    become: true
+    become_user: root
+    with_items:
+      - bash-completion
+      - php5.6
+      - libapache2-mod-php5.6
+      - php5.6-fpm
+      - php5.6-mysql
+      - php5.6-sqlite3
+      - php5.6-bcmath
+      - php5.6-gd
+      - php5.6-odbc
+      - php5.6-sybase
+      - php5.6-bz2
+      - php5.6-gmp
+      - php5.6-opcache
+      - php5.6-tidy
+      - php5.6-cgi
+      - php5.6-imap
+      - php5.6-pgsql
+      - php5.6-xml
+      - php5.6-cli
+      - php5.6-interbase
+      - php5.6-phpdbg
+      - php5.6-xmlrpc
+      - php5.6-common
+      - php5.6-intl
+      - php5.6-pspell
+      - php5.6-xsl
+      - php5.6-curl
+      - php5.6-json
+      - php5.6-readline
+      - php5.6-zip
+      - php5.6-dba
+      - php5.6-ldap
+      - php5.6-recode
+      - php5.6-dev
+      - php5.6-mbstring
+      - php5.6-snmp
+      - php5.6-enchant
+      - php5.6-mcrypt
+      - php5.6-soap
+
+
+
+  - name: disable apache 7.0 php mod
+    shell: a2dismod php7.0
+    become: true
+    become_user: root
+    args:
+      executable: /bin/bash
+
+  - name: enable proxy_fcgi
+    shell: a2enmod proxy_fcgi setenvif
+    become: true
+    become_user: root
+    args:
+      executable: /bin/bash
+
+  - name: enable php 5.6
+    shell: a2enconf php5.6-fpm
+    become: true
+    become_user: root
+    args:
+      executable: /bin/bash
+
+  - name: force 5.6 as default
+    shell: update-alternatives --set php /usr/bin/php5.6
+    become: true
+    become_user: root
+    args:
+      executable: /bin/bash
+
+  - name: enable php5.6 apache
+    shell: a2enmod php5.6
+    become: true
+    become_user: root
+    args:
+      executable: /bin/bash
+
+  - name: Fix short open tags
+    replace:
+      path: "{{ item }}"
+      regexp: 'short_open_tag = Off'
+      replace: 'short_open_tag = On'
+      backup: yes
+    become: true
+    become_user: root
+    with_items:
+      - /etc/php/5.6/apache2/php.ini
+      - /etc/php/5.6/cli/php.ini
+      - /etc/php/5.6/fpm/php.ini
+
+  - name: Set unlimited upload size in php.ini
+    replace:
+      path: "{{ item }}"
+      regexp: '^upload_max_filesize.*'
+      replace: 'upload_max_filesize = 0'
+      backup: yes
+    become: true
+    become_user: root
+    with_items:
+      - /etc/php/5.6/apache2/php.ini
+      - /etc/php/5.6/cli/php.ini
+      - /etc/php/5.6/fpm/php.ini
+
+
+  - name: Set unlimited post size in php.ini
+    replace:
+      path: "{{ item }}"
+      regexp: '^post_max_size.*'
+      replace: 'post_max_size = 0'
+      backup: yes
+    become: true
+    become_user: root
+    with_items:
+      - /etc/php/5.6/apache2/php.ini
+      - /etc/php/5.6/cli/php.ini
+      - /etc/php/5.6/fpm/php.ini
+
+  - name: Restart services
+    service:
+      name: "{{ item }}"
+      state: restarted
+    become: true
+    become_user: root
+    with_items:
+      - apache2
+      - php5.6-fpm
+

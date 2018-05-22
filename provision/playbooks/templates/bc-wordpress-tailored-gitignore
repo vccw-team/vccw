@@ -11,6 +11,9 @@ wp-content/cache/*
 wp-content/upgrade/*
 wp-content/uploads/*
 !wp-content/uploads/.htaccess
+wp-content/languages/*
+
+/backup/
 
 # Exclude wp-config.php
 wp-config.php

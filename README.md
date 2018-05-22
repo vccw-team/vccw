@@ -15,3 +15,4 @@ For more information check out <http://vccw.cc/>.
 ## BC Configuration
 
 * Run ./scripts/bc-wp-init.sh and follow instructions.
+
