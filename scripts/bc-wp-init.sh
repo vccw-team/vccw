@@ -7,9 +7,9 @@ sed -i -e "/hostname:/s/.*/hostname: $domain/" site.yml
 echo -n "Do you want to use PHP 5.6 instead of PHP 7.0 (y/N)?"
 read php_ans
 if echo "$php_ans" | grep -iq "^y"; then
-    sed -i -e "/enable_php56:/s/.*/enable_php5.6: true/" site.yml
+    sed -i -e "/enable_php56:/s/.*/enable_php56: true/" site.yml
 else
-    sed -i -e "/enable_php56:/s/.*/enable_php5.6: false/" site.yml
+    sed -i -e "/enable_php56:/s/.*/enable_php56: false/" site.yml
 fi
 
 echo -n "Do you want to work on an existing Wordpress website (y/n)?"

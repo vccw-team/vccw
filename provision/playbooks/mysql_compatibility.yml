@@ -1,0 +1,23 @@
+---
+- hosts: all
+
+  tasks:
+    - name: Set compatibility mode for mysql
+      blockinfile:
+        path: /etc/mysql/conf.d/mysql.cnf
+        block: |
+          [mysqld]
+          show_compatibility_56 = ON
+          performance_schema
+      become: true
+      become_user: root
+
+    - name: Restart services
+      service:
+        name: "{{ item }}"
+        state: restarted
+      become: true
+      become_user: root
+      with_items:
+        - mysql
+
