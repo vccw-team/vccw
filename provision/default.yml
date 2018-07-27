@@ -83,12 +83,12 @@ savequeries: false
 gitignore: https://raw.githubusercontent.com/github/gitignore/master/WordPress.gitignore
 
 #
-# Addtional PHP code in the wp-config.php
+# Additional PHP code in the wp-config.php
 #
 extra_wp_config: |
-  // Addtional PHP code in the wp-config.php
+  // Additional PHP code in the wp-config.php
   // These lines are inserted by VCCW.
-  // You can place addtional PHP code here!
+  // You can place additional PHP code here!
 
 #
 # Theme unit testing
