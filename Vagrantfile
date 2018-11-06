@@ -43,7 +43,7 @@ Vagrant.configure(2) do |config|
   end
 
   config.vm.box = ENV['wp_box'] || _conf['wp_box']
-  config.vm.box_version = "= 20170902"
+  config.vm.box_version = "= 20180107"
   config.ssh.forward_agent = true
 
   config.vm.box_check_update = true
@@ -53,7 +53,8 @@ Vagrant.configure(2) do |config|
   config.vm.network :private_network, ip: _conf['ip']
 
   config.vm.synced_folder _conf['synced_folder'],
-      _conf['document_root'], :create => "true", :mount_options => ['dmode=755', 'fmode=644']
+      _conf['document_root'], :create => "true", :mount_options => ['dmode=755', 'fmode=644'],
+      SharedFoldersEnableSymlinksCreate: false
 
   if Vagrant.has_plugin?('vagrant-hostsupdater')
     config.hostsupdater.remove_on_suspend = true
@@ -81,6 +82,7 @@ Vagrant.configure(2) do |config|
   end
 
   config.vm.provision "ansible_local" do |ansible|
+    ansible.compatibility_mode = "2.0"
     ansible.extra_vars = {
       vccw: _conf
     }
@@ -89,6 +91,7 @@ Vagrant.configure(2) do |config|
 
   if File.exists?(File.join(ENV["HOME"], '.vccw/playbook-post.yml'))
     config.vm.provision "ansible" do |ansible|
+      ansible.compatibility_mode = "2.0"
       ansible.extra_vars = {
         vccw: _conf
       }
@@ -102,6 +105,7 @@ Vagrant.configure(2) do |config|
 
   if File.exists?(File.join(File.dirname(__FILE__), 'playbook-post.yml')) then
     config.vm.provision "ansible_local" do |ansible|
+      ansible.compatibility_mode = "2.0"
       ansible.extra_vars = {
         vccw: _conf
       }
