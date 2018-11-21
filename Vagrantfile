@@ -53,9 +53,7 @@ Vagrant.configure(2) do |config|
   config.vm.network :private_network, ip: _conf['ip']
 
   config.vm.synced_folder _conf['synced_folder'],
-      _conf['document_root'], :create => "true", :mount_options => ['dmode=755', 'fmode=644'],
-      SharedFoldersEnableSymlinksCreate: false
-
+      _conf['document_root'], :create => "true", :mount_options => ['dmode=755', 'fmode=644']
   if Vagrant.has_plugin?('vagrant-hostsupdater')
     config.hostsupdater.remove_on_suspend = true
   end
