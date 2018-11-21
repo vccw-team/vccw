@@ -33,11 +33,6 @@ describe package('mysql-server') do
   it { should be_installed }
 end
 
-describe service('mysql') do
-  it { should be_enabled }
-  it { should be_running }
-end
-
 describe port(3306) do
   it { should be_listening }
 end
@@ -78,7 +73,7 @@ end
 describe command('ruby -v') do
   let(:disable_sudo) { true }
   its(:exit_status) { should eq 0 }
-  its(:stdout) { should match /ruby 2\.3\./ }
+  its(:stdout) { should match /ruby 2\.4\./ }
 end
 
 commands = %w{
@@ -125,4 +120,3 @@ describe 'PHP config parameters for cli' do
     end
   end
 end
-

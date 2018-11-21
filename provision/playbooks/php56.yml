@@ -75,6 +75,13 @@
     args:
       executable: /bin/bash
 
+  - name: enable mod headers and auth
+    shell: a2enmod headers auth_form request
+    become: true
+    become_user: root
+    args:
+      executable: /bin/bash
+
   - name: enable php 5.6
     shell: a2enconf php5.6-fpm
     become: true

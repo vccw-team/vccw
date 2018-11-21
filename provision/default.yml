@@ -85,12 +85,12 @@ savequeries: false
 gitignore: https://raw.githubusercontent.com/BetterCollective/bc-wordpress-development/master/provision/playbooks/templates/bc-wordpress-tailored-gitignore
 
 #
-# Addtional PHP code in the wp-config.php
+# Additional PHP code in the wp-config.php
 #
 extra_wp_config: |
-  // Addtional PHP code in the wp-config.php
+  // Additional PHP code in the wp-config.php
   // These lines are inserted by VCCW.
-  // You can place addtional PHP code here!
+  // You can place additional PHP code here!
 
 #
 # Theme unit testing
@@ -124,6 +124,12 @@ composers:
   # - sebastian/phpcpd:*
   # - phploc/phploc:*
   # - phing/phing:*
+
+#
+# wp-cli package commands
+#
+wp_cli_packages:
+  - https://github.com/vccw-team/wp-cli-scaffold-movefile/archive/master.zip
 
 #
 # Linked Clone for Vagrant v1.8

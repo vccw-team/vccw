@@ -114,6 +114,7 @@
       wp plugin install {{ item }}
       --activate
       --path={{ path }}
+      --force
     with_items: "{{ vccw.plugins | default([]) }}"
 
   # Install wp-multibyte-patch
@@ -122,6 +123,7 @@
       wp plugin install wp-multibyte-patch
       --activate
       --path={{ path }}
+      --force
     when: vccw.lang == 'ja'
 
   # Install Theme
@@ -137,6 +139,7 @@
       wp plugin install https://github.com/WordPress/wordpress-importer/archive/master.zip
       --activate
       --path={{ path }}
+      --force
     when: vccw.theme_unit_test
   - name: Download WordPress theme unit test data
     when: vccw.theme_unit_test
@@ -211,3 +214,17 @@
     with_dict: "{{ vccw.multisite_options | default({}) }}"
     when: vccw.multisite
 
+  # Generate Movefile
+  - name: Check `wp scaffold movefile` exists.
+    shell: bash -lc 'wp help scaffold movefile &> /dev/null; echo $?'
+    register: is_command
+  - stat:
+      path: "{{ vccw.vagrant_dir }}/Movefile"
+    register: is_movefile
+  - name: Create a Movefile
+    become: no
+    shell: /bin/bash -lc "wp scaffold movefile --path={{ path }} --force"
+    args:
+      chdir: "{{ vccw.vagrant_dir }}"
+      creates: Movefile.yml
+    when: is_command.stdout == "0" and is_movefile.stat.exists != true

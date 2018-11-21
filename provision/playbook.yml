@@ -5,5 +5,3 @@
 - include: playbooks/mysql_compatibility.yml
 - include: playbooks/php56.yml 
   when: vccw.enable_php56 == True
-
-

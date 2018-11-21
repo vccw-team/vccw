@@ -62,6 +62,8 @@
       file:
         path: "{{ ansible_env.HOME }}/.wp-cli/"
         state: directory
+      notify:
+        - wp-cli-config
     - name: Install WP-CLI packages
       become: no
       shell: /bin/bash -lc "wp package install '{{ item }}'"
@@ -82,8 +84,29 @@
         src: templates/browse-command.php
         dest: "{{ vccw.vagrant_dir }}/wp-cli/browse-command.php"
       notify:
-        - wp-cli-config
         - wp-cli-local-config
+
+    # Install Ruby gems
+    - name: Place a ~/.gemrc
+      become: no
+      template:
+        src: templates/.gemrc
+        dest: "{{ ansible_env.HOME }}/.gemrc"
+    - name: Install Wordmove
+      become: no
+      gem:
+        name: "wordmove"
+        user_install: yes
+        version: "2.4.0"
+      ignore_errors: yes
+    - name: Install Ruby gems
+      become: no
+      gem:
+        name: "{{ item }}"
+        user_install: yes
+      when: item != "wordmove"
+      with_items: "{{ vccw.ruby_gems | default([]) }}"
+      ignore_errors: yes
 
     # Install npm packages
     - name: Place a ~/.npmrc
@@ -145,7 +168,8 @@
         state: present
     - name: Move phpmyadmin to webroot
       become: yes
-      shell: bash -lc 'if [ ! -d "/var/www/html/phpmyadmin" ]; then mv /usr/share/phpmyadmin/ /var/www/html/; fi' 
+      shell: if [ ! -d "/var/www/html/phpmyadmin" ]; then mv /usr/share/phpmyadmin/ /var/www/html/; fi
+      executable: /bin/bash
 
   handlers:
     - name: wp-cli-config
