@@ -12,6 +12,7 @@ wp-content/upgrade/*
 wp-content/uploads/*
 !wp-content/uploads/.htaccess
 wp-content/languages/*
+wp-content/ai1wm-backups/*
 
 /backup/
 
