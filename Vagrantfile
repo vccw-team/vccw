@@ -56,6 +56,7 @@ Vagrant.configure(2) do |config|
       SharedFoldersEnableSymlinksCreate: false
 
   if Vagrant.has_plugin?('vagrant-hostsupdater')
+    config.hostsupdater.aliases = _conf['hostname_aliases']
     config.hostsupdater.remove_on_suspend = true
   end
 
