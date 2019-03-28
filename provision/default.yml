@@ -19,6 +19,14 @@ hostname: vccw.test
 ip: 192.168.33.10
 
 #
+# Vagrant Hostsupdater Aliases
+# Manage additional entries in the /etc/hosts file using vagrant-hostsupdater
+#
+hostname_aliases:
+  - www.vccw.test
+#  - some.subdomain.vccw.test
+
+#
 # WordPress Settings
 #
 version: latest
