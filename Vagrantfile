@@ -115,4 +115,8 @@ Vagrant.configure(2) do |config|
   if File.exists?(File.join(File.dirname(__FILE__), 'provision-post.sh')) then
     config.vm.provision :shell, :privileged => false, :path => File.join( File.dirname(__FILE__), 'provision-post.sh' )
   end
+
+  if File.exists?(File.join(File.dirname(__FILE__), 'run-always.sh')) then
+    config.vm.provision :shell, :path => File.join( File.dirname(__FILE__), 'run-always.sh' ), run: 'always'
+  end
 end
