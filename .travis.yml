@@ -3,14 +3,14 @@ branches:
   - master
   - "/^[0-9\\.]+/"
 script:
-  - ls -al
+- ls -al
 after_success:
-  - bash bin/deploy.sh
-  - ls -al
+- bash bin/deploy.sh
+- ls -al
 deploy:
   provider: releases
   api_key:
-    secure: ntvY4o4V16Aj7tk9teXbt5gfmZZkITclkcvtQiM90cDGvOl7SWRzWQ2aII1MZRn/8XWFcvJu7DCwLVias0u8wWftkyTNjRZzARGeMmHgcBEeVK72l11u366NkijGjtUmSkoGKrdZ39/lD0vHsEIdT63fR10C6bG3bLfHtLgMgBI=
+    secure: b9JCxWfNanmspzZ1nsNVS9CP1w3/89ejLltk3WPUjo4YR1BRmia62zPeHSj/A+JU/ErzoRRqCne3ssUFlDDeZlzFato+Zxvd6mAQA1/98N7ywifErxZOxKf4sf8NaH/evRO+M6gCXhPvn9x74NdNOsQzKz9LTLR6FnfqBve5DLA=
   file: vccw-${TRAVIS_TAG}.zip
   on:
     tags: true
