@@ -38,18 +38,23 @@
       state: absent
 
   # download wordpress
+  - stat:
+      path: "{{ path }}/.git"
+    register: wp
   - name: Run `wp core download`
     command: |
       wp core download
       --path={{ path }}
       --version={{ vccw.version }}
       --force
+    when: wp.stat.exists != true
 
   # wp-config.php
   - name: Create temporary file for extra-php in wp-config.php
     template:
       src: templates/extra-wp-config.php
       dest: "/tmp/extra-wp-config.php"
+    when: wp.stat.exists != true
   - name: Run `wp core config`
     shell: |
        wp core config \
@@ -62,6 +67,7 @@
        --dbprefix={{ vccw.db_prefix }} \
        --locale={{ vccw.lang }} \
        --extra-php < /tmp/extra-wp-config.php
+    when: wp.stat.exists != true
 
   # Reset Database
   - name: Run `wp db reset`
@@ -78,6 +84,7 @@
       --admin_user={{ vccw.admin_user }}
       --admin_password={{ vccw.admin_pass }}
       --admin_email={{ vccw.admin_email }}
+    when: wp.stat.exists != true
 
   - name: Create index.php for wp_siteurl
     when: vccw.wp_siteurl != ''
@@ -107,6 +114,7 @@
       wp core language install {{ vccw.lang }}
       --path={{ path }}
       --activate
+    when: wp.stat.exists != true
 
   # Install Plugins
   - name: Run `wp plugin install`
@@ -116,6 +124,7 @@
       --path={{ path }}
       --force
     with_items: "{{ vccw.plugins | default([]) }}"
+    when: wp.stat.exists != true
 
   # Install wp-multibyte-patch
   - name: Run `wp plugin install wp-multibyte-patch`
@@ -160,6 +169,7 @@
       wp option update {{ item.key }} '{{ item.value }}'
       --path={{ path }}
     with_dict: "{{ vccw.options }}"
+    when: wp.stat.exists != true
 
   # Localization
   - name: Get the timezone
@@ -167,31 +177,37 @@
       wp eval "echo _x( '0', 'default GMT offset or timezone string' );"
       --path={{ path }}
     register: timezone
+    when: wp.stat.exists != true
   - name: Update timezone
     command: |
       wp option update timezone_string '{{ timezone.stdout }}'
       --path={{ path }}
+    when: wp.stat.exists != true
 
   - name: Get the date format
     command: |
       wp eval "echo __( 'M jS Y' );"
       --path={{ path }}
     register: date_format
+    when: wp.stat.exists != true
   - name: Update date format
     command: |
       wp option update date_format '{{ date_format.stdout }}'
       --path={{ path }}
+    when: wp.stat.exists != true
 
   # Setting Permalink
   - name: Run `wp rewrite structure`
     command: |
       wp rewrite structure {{ vccw.rewrite_structure }}
       --path={{ path }}
+    when: wp.stat.exists != true
   - name: Flush rewrite rules
     command: |
       wp rewrite flush
       --hard
       --path={{ path }}
+    when: wp.stat.exists != true
 
  # multisite Settings
   - name: Run `wp core multisite-convert`
@@ -227,4 +243,4 @@
     args:
       chdir: "{{ vccw.vagrant_dir }}"
       creates: Movefile.yml
-    when: is_command.stdout == "0" and is_movefile.stat.exists != true
+    when: is_command.stdout == "0" and is_movefile.stat.exists != true and wp.stat.exists != true
