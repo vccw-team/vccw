@@ -168,7 +168,7 @@
         state: present
     - name: Move phpmyadmin to webroot
       become: yes
-      shell: if [ ! -d "/var/www/html/phpmyadmin" ]; then mv /usr/share/phpmyadmin/ /var/www/html/; fi
+      shell: if [ ! -d "/var/www/html/phpmyadmin" ]; then  rsync -a --exclude=doc/html /usr/share/phpmyadmin/ /var/www/html/phpmyadmin/; fi
       executable: /bin/bash
 
   handlers:
