@@ -2,3 +2,4 @@
 - import_playbook: playbooks/commands.yml
 - import_playbook: playbooks/middleware.yml
 - import_playbook: playbooks/wordpress.yml
+- import_playbook: playbooks/post.yml

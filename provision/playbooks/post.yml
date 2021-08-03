@@ -1,0 +1,12 @@
+---
+- hosts: all
+  vars:
+    user: "{{ ansible_env.USER | default( 'ubuntu' ) }}"
+
+  tasks:
+
+    - name: Post install
+      ansible.builtin.debug:
+        msg:
+        - "You can access the site at: {{ vccw.hostname }}"
+
